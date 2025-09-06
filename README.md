@@ -66,6 +66,7 @@ Edit `config.py`:
   - [Architecture](docs/ARCHITECTURE.md)
   - [Usage](docs/USAGE.md)
   - [Troubleshooting](docs/TROUBLESHOOTING.md)
+  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md)
   - [Contributing](CONTRIBUTING.md)
   - [Changelog](CHANGELOG.md)
 

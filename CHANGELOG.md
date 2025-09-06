@@ -8,6 +8,7 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - README section introducing the chat-driven control plane vision.
 - Architecture updates outlining planned control plane components.
 - Usage, Setup, Troubleshooting, and Contributing updated with control plane notes.
+- Ardour build & integration guide: `docs/ARDOUR_SETUP.md` (MacPorts-based macOS build, dependency list, current blocker, and next steps).
 
 ### [0.1.0] - 2025-09-06
 #### Added
