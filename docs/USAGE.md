@@ -12,6 +12,15 @@ python3 main.py
 ```
 Expected: "Playing C Major Scale..." and an 8‑note C Major scale in GarageBand.
 
+### Chat-driven control plane (planned)
+- You will be able to type natural language in Cursor chat to trigger patterns and controls.
+- Baseline flow:
+  - Arm a target Software Instrument track in GarageBand.
+  - In chat: set musical context and trigger a pattern, e.g., "set key to D minor", "play random arp for 2 bars".
+  - The system sends MIDI to the armed track via IAC, embracing nondeterministic timing and variation.
+- Optional project manifest (`project.yaml`): declare parts like `piano`, `bass`, and CC aliases so you can say "target bass" or "raise cutoff".
+- See details and examples: `docs/CONTROL_PLANE.md`.
+
 ### Add notes programmatically
 Inside `main.py` or your own script:
 ```python

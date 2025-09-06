@@ -2,6 +2,11 @@
 
 Generate MIDI in Python and play it in real time through a virtual MIDI port into GarageBand.
 
+### New: Chat-driven control plane (vision)
+- Use Cursor chat as a live control surface for GarageBand. Send natural-language commands to generate patterns, tweak dynamics, and modulate instruments via MIDI, embracing nondeterminism over tight sync.
+- Start with a simple baseline (user arms a target track; we send MIDI via IAC). Optionally add a small project manifest and best-effort UI reading for track names.
+- See: [Control Plane](docs/CONTROL_PLANE.md)
+
 ### What this is
 - **Goal**: Minimal, modular framework for generating MIDI and scheduling playback.
 - **Modules**: `midi_player.py` (I/O), `sequencer.py` (timing), `theory.py` (scales), `main.py` (demo), `config.py` (settings).

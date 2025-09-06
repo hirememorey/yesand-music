@@ -42,7 +42,18 @@ If it prints an error with available ports, update `MIDI_PORT_NAME` in `config.p
 - This demo uses a blocking `time.sleep` scheduler; small drift is expected.
 - Reduce DAW buffer size (with care) and minimize system load to improve responsiveness.
 
-### 7) Alternative DAWs / OS
+### 7) Control plane automation issues (optional features)
+- UI reading fails or is inconsistent:
+  - Verify Accessibility permissions in System Settings → Privacy & Security → Accessibility.
+  - GarageBand UI labels may vary; the feature is optional and will auto-disable on failure.
+- Project manifest not applied:
+  - Ensure `project.yaml` or `project.json` is in the project root and valid YAML/JSON.
+  - Fall back to the armed-track baseline; target selection via manual arming still works.
+- Audio-derived key suggestions missing:
+  - Install and route via a loopback device (e.g., BlackHole) and retry the command.
+  - This feature is off by default and is only advisory.
+
+### 8) Alternative DAWs / OS
 - If using another DAW, ensure the track input source is the virtual MIDI port and the track is armed.
 - Windows: create a virtual port with loopMIDI and set `MIDI_PORT_NAME` accordingly.
 - Linux: use ALSA/JACK virtual MIDI; verify with `mido.get_output_names()`.

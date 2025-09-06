@@ -30,4 +30,17 @@ python3 main.py
 - Manual test: run `python3 main.py` and verify the C Major scale plays.
 - If changing scheduling or output, add a brief note in the PR describing expected audible behavior.
 
+### Roadmap (control plane)
+- M1: Core control plane
+  - Intent parser (regex/keywords), session state, MIDI dispatcher using `MidiPlayer`.
+  - Commands: play scale/arp/random, set key/scale, density/register/velocity/randomness, cc, stop.
+- M2: Manifest support
+  - Load `project.yaml`/`project.json` with parts and CC aliases; map logical parts to targets.
+- M3: Optional UI read
+  - macOS Accessibility-based read of track names and armed/selected state; feature-flag and degrade on failure.
+- M4: Audio hints (optional)
+  - Loopback capture and lightweight key estimation command (advisory only).
+
+See `docs/CONTROL_PLANE.md` for design details.
+
 

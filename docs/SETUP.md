@@ -46,6 +46,16 @@ python3 main.py
 ```
 Expected: Terminal prints "Playing C Major Scale..." and GarageBand plays 8 notes.
 
+### Accessibility permissions (for optional UI reading)
+- If you plan to enable best-effort project context (reading track names/armed state), grant Accessibility permissions to your terminal/IDE so it can control GarageBand.
+- System Settings → Privacy & Security → Accessibility → add Terminal/VSCode/Cursor and enable.
+- The control plane will degrade gracefully if permissions are not granted.
+
+### Loopback audio (optional, for key suggestions)
+- Install a loopback device (e.g., BlackHole) if you want audio-derived key suggestions.
+- Route GarageBand output to BlackHole and capture briefly when invoking a key-detect command.
+- This is entirely optional and off by default; see `docs/CONTROL_PLANE.md`.
+
 ### Other platforms / DAWs
 - Logic Pro: identical IAC setup; ensure the track is record‑enabled and monitoring.
 - Ableton Live: set track input from IAC port and arm the track.

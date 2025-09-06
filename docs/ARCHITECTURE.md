@@ -9,6 +9,15 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
         theory
 ```
 
+### Planned: Chat-driven control plane
+- High-level components:
+  - Intent parser: converts chat text into structured commands (play/pattern/cc/settings/target/stop).
+  - Session state: key/scale, density, register, velocity profile, randomness.
+  - Manifest loader (optional): reads `project.yaml`/`project.json` describing parts and CC aliases.
+  - Optional UI reader (macOS-only): best-effort read of track names and armed/selected state; feature-flagged.
+  - MIDI dispatcher: maps intents to patterns/CCs and sends via `MidiPlayer` to the armed track.
+- See: `docs/CONTROL_PLANE.md` for the layered design and risks.
+
 ### Modules and responsibilities
 - `midi_player.py`
   - Opens a mido output port by name.
