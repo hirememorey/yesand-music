@@ -9,6 +9,8 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - Architecture updates outlining planned control plane components.
 - Usage, Setup, Troubleshooting, and Contributing updated with control plane notes.
 - Ardour build & integration guide: `docs/ARDOUR_SETUP.md` (MacPorts-based macOS build, dependency list, current blocker, and next steps).
+#### Changed
+- `docs/ARDOUR_SETUP.md`: Added quick-resume and "Continue here" instructions for macOS source build using external GTK2 (`--no-ytk`), Vamp SDK install, and arm64 `qm-dsp` build steps. Captured current progress (configured on tag 8.9; switching off YTK; GTK2 deps installing).
 
 ### [0.1.0] - 2025-09-06
 #### Added
