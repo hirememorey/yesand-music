@@ -66,7 +66,7 @@ Edit `config.py`:
   - [Architecture](docs/ARCHITECTURE.md)
   - [Usage](docs/USAGE.md)
   - [Troubleshooting](docs/TROUBLESHOOTING.md)
-  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md)
+  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Phase 1 complete; start at "Continue here" for Phase 2 (clean reconfigure with `--no-ytk`).
   - [Contributing](CONTRIBUTING.md)
   - [Changelog](CHANGELOG.md)
 

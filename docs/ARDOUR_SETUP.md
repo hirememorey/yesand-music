@@ -10,7 +10,7 @@ This document captures the exact state of our Ardour build attempt on macOS and 
 - Ardour source: Cloned; checked out tag `8.9` (ensures waf version parsing works).
 - Configure: Succeeds with external libs, CoreAudio, arm64, and qm‑dsp hints.
 - Build status: Fails due to Darwin alias errors in internal YDK (YTK path). We will disable YTK and use external GTK2 instead.
-- In progress: Installing external GTK2 stack and friends (`gtk2`, `gtkmm` 2.4 series, `suil`, `lrdf`), then re‑configure with `--no-ytk` and rebuild.
+- Phase 1 complete: Installed external GTK2 stack (`gtk2`, `gtkmm` 2.4) and `liblrdf` via MacPorts. `suil` is not available in MacPorts and is skipped unless configure requires it. Next step: re‑configure with `--no-ytk` and rebuild.
 
 To continue exactly where we left off, jump to "Continue here" below.
 
@@ -121,10 +121,13 @@ At the time of writing, configure succeeds with:
 ### Continue here (disable YTK to avoid Darwin alias errors)
 On macOS, internal YDK (YTK) triggers Darwin alias errors (`gdkaliasdef.c`). Force external GTK2 instead:
 
-1) Install external GTK2 stack and helpers (one sudo batch):
+1) Install external GTK2 stack and helpers (already completed in Phase 1; run only if missing):
 ```bash
-sudo port -N install gtk2 gtkmm suil lrdf
+sudo port -N install gtk2 gtkmm liblrdf
 ```
+
+Notes:
+- `suil` does not exist in MacPorts; skip it unless configure explicitly requires it. If needed later, we can build it from source separately.
 
 2) Reconfigure Ardour in a clean environment with `--no-ytk`:
 ```bash
@@ -141,6 +144,16 @@ env -i \
   python3 ./waf configure --dist-target=apple --with-backends=coreaudio --use-external-libs --arm64 --no-ytk \
     --qm-dsp-include="$HOME/Documents/Development/Audio/qm-dsp" \
     --also-libdir="$HOME/Documents/Development/Audio/qm-dsp"
+```
+
+Verification (post-Phase 1):
+```bash
+env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion gtk+-2.0
+# expected: 2.24.33
+env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion gtkmm-2.4
+# expected: 2.24.5
+env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion lrdf
+# expected: 0.5.0
 ```
 
 3) Build:
@@ -160,7 +173,7 @@ Notes:
 ```
 
 ### Current focus / next step
-- We are mid‑install of `gtk2`, `gtkmm` (2.4), `suil`, and `lrdf`. Once these complete, re‑run configure with `--no-ytk` using the clean env (see "Continue here"), then build. If any GTK2/gtkmm checks fail, verify MacPorts packages are present and `PKG_CONFIG_PATH` is set as shown.
+- Proceed to re‑run configure with `--no-ytk` using the clean env (see "Continue here" step 2), then build. If any GTK2/gtkmm checks fail, verify MacPorts packages are present and `PKG_CONFIG_PATH` is set as shown.
 
 ### Why Ardour
 - Ardour provides OSC/Lua scripting, LV2, and robust state access not available in GarageBand. Source: `https://github.com/Ardour/ardour`.
@@ -171,6 +184,7 @@ Notes:
 ### Status snapshot
 - MacPorts installed; curated dependencies present; Vamp SDK installed; qm‑dsp built (arm64 flags used).
 - Ardour: repo on tag `8.9`; configure succeeded with external libs/CoreAudio/arm64 and qm‑dsp hints.
-- Build: currently blocked by YDK alias errors; switching to external GTK2 (`--no-ytk`) underway.
+- External GTK2 prerequisites installed: `gtk2` 2.24.33, `gtkmm` 2.24.5, and `liblrdf` (pkg-config `lrdf` 0.5.0) available via MacPorts. `suil` not present in MacPorts and skipped.
+- Next: re‑configure with `--no-ytk` and build.
 
 

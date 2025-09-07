@@ -10,7 +10,7 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - Usage, Setup, Troubleshooting, and Contributing updated with control plane notes.
 - Ardour build & integration guide: `docs/ARDOUR_SETUP.md` (MacPorts-based macOS build, dependency list, current blocker, and next steps).
 #### Changed
-- `docs/ARDOUR_SETUP.md`: Added quick-resume and "Continue here" instructions for macOS source build using external GTK2 (`--no-ytk`), Vamp SDK install, and arm64 `qm-dsp` build steps. Captured current progress (configured on tag 8.9; switching off YTK; GTK2 deps installing).
+- `docs/ARDOUR_SETUP.md`: Phase 1 completed. Installed GTK2/gtkmm 2.4 and `liblrdf` via MacPorts; verified via pkg-config. `suil` not in MacPorts and skipped for now. Updated Phase 2 instructions (clean env configure with `--no-ytk`) and status snapshot.
 
 ### [0.1.0] - 2025-09-06
 #### Added
