@@ -61,12 +61,13 @@ Edit `config.py`:
 ### Next steps
 - Change tempo or port in `config.py` and re‑run.
 - Add notes via `Sequencer.add_note()` or build new patterns in `theory.py`.
+- **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
 - Explore deeper docs:
   - [Setup](docs/SETUP.md)
   - [Architecture](docs/ARCHITECTURE.md)
   - [Usage](docs/USAGE.md)
   - [Troubleshooting](docs/TROUBLESHOOTING.md)
-  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Ardour 8.9 now builds successfully on macOS with internal YTK (SDK 14.x, arm64). See artifacts and launch instructions.
+  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Ardour 8.9 now builds and launches successfully on macOS with internal YTK (SDK 14.x, arm64). Backend detection resolved.
   - [Contributing](CONTRIBUTING.md)
   - [Changelog](CHANGELOG.md)
 

@@ -1,0 +1,1097 @@
+Waf: Entering directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Git version: 8.9
+
+Writing revision info to libs/ardour/revision.cc using 8.9, 2024-10-08
+[   1/1765] Compiling libs/pbd/pbd/signals.py
+[   2/1765] Creating build/libs/clearlooks-newer/engines
+[   3/1765] Compiling libs/plugins/reasonablesynth.lv2/manifest.ttl.in
+[   4/1765] Compiling libs/plugins/reasonablesynth.lv2/reasonablesynth.ttl.in
+[   5/1765] Compiling libs/plugins/a-comp.lv2/manifest.ttl.in
+[   6/1765] Compiling libs/plugins/a-comp.lv2/a-comp.ttl.in
+[   7/1765] Compiling libs/plugins/a-comp.lv2/a-comp#stereo.ttl.in
+[   8/1765] Compiling libs/plugins/a-comp.lv2/presets.ttl.in
+[   9/1765] Compiling libs/plugins/a-exp.lv2/manifest.ttl.in
+[  10/1765] Compiling libs/plugins/a-exp.lv2/a-exp.ttl.in
+[  11/1765] Compiling libs/plugins/a-exp.lv2/a-exp#stereo.ttl.in
+[  12/1765] Compiling libs/plugins/a-delay.lv2/manifest.ttl.in
+[  13/1765] Compiling libs/plugins/a-delay.lv2/a-delay.ttl.in
+[  14/1765] Compiling libs/plugins/a-delay.lv2/presets.ttl.in
+[  15/1765] Compiling libs/plugins/a-eq.lv2/manifest.ttl.in
+[  16/1765] Compiling libs/plugins/a-eq.lv2/a-eq.ttl.in
+[  17/1765] Compiling libs/plugins/a-reverb.lv2/manifest.ttl.in
+[  18/1765] Compiling libs/plugins/a-reverb.lv2/a-reverb.ttl.in
+[  19/1765] Compiling libs/plugins/a-fluidsynth.lv2/manifest.ttl.in
+[  20/1765] Compiling libs/plugins/a-fluidsynth.lv2/a-fluidsynth.ttl.in
+[  21/1765] Compiling gtk2_ardour/ardev_common.sh.in
+[  22/1765] Compiling gtk2_ardour/ardour.sh.in
+[  23/1765] Compiling gtk2_ardour/clearlooks.rc.in
+[  24/1765] Compiling gtk2_ardour/clearlooks.rc.in
+[  25/1765] Compiling gtk2_ardour/default_ui_config.in
+[  26/1765] Compiling gtk2_ardour/ardour.menus.in
+[  27/1765] Processing ardour.keys: gtk2_ardour/ardour.keys.in gtk2_ardour/mixer.bindings gtk2_ardour/processor_box.bindings gtk2_ardour/step_editing.bindings gtk2_ardour/monitor.bindings gtk2_ardour/trigger.bindings -> build/gtk2_ardour/ardour.keys
+[  28/1765] Compiling luasession/ardour-lua.sh.in
+[  29/1765] Compiling session_utils/ardour-util.sh.in
+[  30/1765] Compiling libs/pbd/basename.cc
+[  31/1765] Compiling libs/pbd/base_ui.cc
+[  32/1765] Compiling libs/pbd/boost_debug.cc
+[  33/1765] Compiling libs/pbd/locale_guard.cc
+[  34/1765] Compiling libs/pbd/strsplit.cc
+[  35/1765] Compiling libs/pbd/system_exec.cc
+[  36/1765] Compiling libs/pbd/undo.cc
+[  37/1765] Compiling libs/pbd/whitespace.cc
+[  38/1765] Compiling libs/pbd/cocoa_open_uri.mm
+[  39/1765] Compiling libs/pbd/utf8_utils.cc
+[  40/1765] Compiling libs/pbd/tlsf.cc
+[  41/1765] Compiling libs/pbd/timing.cc
+[  42/1765] Compiling libs/pbd/stateful.cc
+[  43/1765] Compiling libs/pbd/microseconds.cc
+[  44/1765] Compiling libs/pbd/openuri.cc
+[  45/1765] Compiling libs/pbd/pathexpand.cc
+[  46/1765] Compiling libs/pbd/cartesian.cc
+[  47/1765] Compiling libs/pbd/command.cc
+[  48/1765] Compiling libs/pbd/mountpoint.cc
+[  49/1765] Compiling libs/pbd/enumwriter.cc
+[  50/1765] Compiling libs/pbd/ffs.cc
+[  51/1765] Compiling libs/pbd/id.cc
+[  52/1765] Compiling libs/pbd/fpu.cc
+[  53/1765] Compiling libs/pbd/glib_event_source.cc
+[  54/1765] Compiling libs/pbd/inflater.cc
+[  55/1765] Compiling libs/pbd/md5.cc
+[  56/1765] Compiling libs/pbd/file_utils.cc
+[  57/1765] Compiling libs/pbd/event_loop.cc
+[  58/1765] Compiling libs/pbd/enums.cc
+[  59/1765] Compiling libs/pbd/epa.cc
+[  60/1765] Compiling libs/pbd/configuration_variable.cc
+[  61/1765] Compiling libs/pbd/error.cc
+[  62/1765] Compiling libs/pbd/debug.cc
+[  63/1765] Compiling libs/pbd/controllable.cc
+[  64/1765] Compiling libs/pbd/demangle.cc
+[  65/1765] Compiling libs/pbd/downloader.cc
+[  66/1765] Compiling libs/pbd/cpus.cc
+[  67/1765] Compiling libs/pbd/convert.cc
+[  68/1765] Compiling libs/pbd/crossthread.cc
+[  69/1765] Compiling libs/pbd/file_archive.cc
+[  70/1765] Compiling libs/pbd/strreplace.cc
+[  71/1765] Compiling libs/pbd/pool.cc
+[  72/1765] Compiling libs/pbd/pcg_rand.cc
+[  73/1765] Compiling libs/pbd/timer.cc
+[  74/1765] Compiling libs/pbd/string_convert.cc
+[  75/1765] Compiling libs/pbd/property_list.cc
+[  76/1765] Compiling libs/pbd/reallocpool.cc
+[  77/1765] Compiling libs/pbd/stateful_diff_command.cc
+[  78/1765] Compiling libs/pbd/pthread_utils.cc
+[  79/1765] Compiling libs/pbd/progress.cc
+[  80/1765] Compiling libs/pbd/xml++.cc
+[  81/1765] Compiling libs/pbd/textreceiver.cc
+[  82/1765] Compiling libs/pbd/signals.cc
+[  83/1765] Compiling libs/pbd/pbd.cc
+[  84/1765] Compiling libs/pbd/malign.cc
+[  85/1765] Compiling libs/pbd/receiver.cc
+[  86/1765] Compiling libs/pbd/semutils.cc
+[  87/1765] Compiling libs/pbd/shortpath.cc
+[  88/1765] Compiling libs/pbd/uuid.cc
+[  89/1765] Compiling libs/pbd/localtime_r.cc
+[  90/1765] Compiling libs/pbd/search_path.cc
+[  91/1765] Compiling libs/pbd/resource.cc
+[  92/1765] Compiling libs/pbd/transmitter.cc
+[  93/1765] Compiling libs/pbd/stacktrace.cc
+[  94/1765] Compiling libs/pbd/spinlock.cc
+[  95/1765] Compiling libs/tk/ztk/atk-enum-types.c
+[  96/1765] Compiling libs/tk/ztk/atkcomponent.c
+[  97/1765] Compiling libs/tk/ztk/atkvalue.c
+[  98/1765] Compiling libs/tk/ztk/atkaction.c
+[  99/1765] Compiling libs/tk/ztk/atkimage.c
+[ 100/1765] Compiling libs/tk/ztk/atkeditabletext.c
+../libs/tk/ztk/atkvalue.c:510:25: warning: cast from 'const struct _GValue *' to 'struct _GValue *' drops const qualifier [-Wcast-qual]
+  510 |   g_return_val_if_fail (G_IS_VALUE (value), FALSE);
+      |                         ^
+/opt/local/include/glib-2.0/gobject/gvalue.h:53:29: note: expanded from macro 'G_IS_VALUE'
+   53 | #define G_IS_VALUE(value)               (G_TYPE_CHECK_VALUE (value))
+      |                                          ^
+/opt/local/include/glib-2.0/gobject/gtype.h:620:52: note: expanded from macro 'G_TYPE_CHECK_VALUE'
+  620 | #define G_TYPE_CHECK_VALUE(value)                               (_G_TYPE_CHV ((value)))
+      |                                                                               ^
+../libs/tk/ztk/atkvalue.c:682:29: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+  682 | initialize_value_type_names ()
+      |                             ^
+      |                              void
+2 warnings generated.
+
+[ 101/1765] Compiling libs/tk/ztk/atkgobjectaccessible.c
+[ 102/1765] Compiling libs/tk/ztk/atkstreamablecontent.c
+[ 103/1765] Compiling libs/tk/ztk/atkregistry.c
+[ 104/1765] Compiling libs/tk/ztk/atkversion.c
+[ 105/1765] Compiling libs/tk/ztk/atkutil.c
+[ 106/1765] Compiling libs/tk/ztk/atkwindow.c
+[ 107/1765] Compiling libs/tk/ztk/atkstate.c
+[ 108/1765] Compiling libs/tk/ztk/atkstateset.c
+[ 109/1765] Compiling libs/tk/ztk/atkrelation.c
+[ 110/1765] Compiling libs/tk/ztk/atktable.c
+In file included from ../libs/tk/ztk/atkutil.c:23:
+../libs/tk/ztk/atkmarshal.c:52:1: warning: no previous prototype for function 'atk_marshal_VOID__INT_INT' [-Wmissing-prototypes]
+   52 | atk_marshal_VOID__INT_INT (GClosure     *closure,
+      | ^
+../libs/tk/ztk/atkmarshal.c:51:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   51 | void
+      | ^
+      | static 
+../libs/tk/ztk/atkmarshal.c:122:13: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  122 |             g_marshal_value_peek_string (param_values + 3),
+      |             ^
+../libs/tk/ztk/atkmarshal.c:18:50: note: expanded from macro 'g_marshal_value_peek_string'
+   18 | #define g_marshal_value_peek_string(v)   (char*) g_value_get_string (v)
+      |                                                  ^
+../libs/tk/ztk/atkmarshal.c:89:1: warning: no previous prototype for function 'atk_marshal_VOID__INT_INT_STRING' [-Wmissing-prototypes]
+   89 | atk_marshal_VOID__INT_INT_STRING (GClosure     *closure,
+      | ^
+../libs/tk/ztk/atkmarshal.c:88:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   88 | void
+      | ^
+      | static 
+../libs/tk/ztk/atkmarshal.c:163:13: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  163 |             g_marshal_value_peek_string (param_values + 4),
+      |             ^
+../libs/tk/ztk/atkmarshal.c:18:50: note: expanded from macro 'g_marshal_value_peek_string'
+   18 | #define g_marshal_value_peek_string(v)   (char*) g_value_get_string (v)
+      |                                                  ^
+../libs/tk/ztk/atkmarshal.c:128:1: warning: no previous prototype for function 'atk_marshal_VOID__INT_INT_INT_STRING' [-Wmissing-prototypes]
+  128 | atk_marshal_VOID__INT_INT_INT_STRING (GClosure     *closure,
+      | ^
+../libs/tk/ztk/atkmarshal.c:127:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  127 | void
+      | ^
+      | static 
+../libs/tk/ztk/atkmarshal.c:199:13: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  199 |             g_marshal_value_peek_string (param_values + 1),
+      |             ^
+../libs/tk/ztk/atkmarshal.c:18:50: note: expanded from macro 'g_marshal_value_peek_string'
+   18 | #define g_marshal_value_peek_string(v)   (char*) g_value_get_string (v)
+      |                                                  ^
+../libs/tk/ztk/atkmarshal.c:169:1: warning: no previous prototype for function 'atk_marshal_VOID__STRING_BOOLEAN' [-Wmissing-prototypes]
+  169 | atk_marshal_VOID__STRING_BOOLEAN (GClosure     *closure,
+      | ^
+../libs/tk/ztk/atkmarshal.c:168:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  168 | void
+      | ^
+      | static 
+../libs/tk/ztk/atkmarshal.c:237:13: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  237 |             g_marshal_value_peek_string (param_values + 2),
+      |             ^
+../libs/tk/ztk/atkmarshal.c:18:50: note: expanded from macro 'g_marshal_value_peek_string'
+   18 | #define g_marshal_value_peek_string(v)   (char*) g_value_get_string (v)
+      |                                                  ^
+../libs/tk/ztk/atkmarshal.c:206:1: warning: no previous prototype for function 'atk_marshal_VOID__DOUBLE_STRING' [-Wmissing-prototypes]
+  206 | atk_marshal_VOID__DOUBLE_STRING (GClosure     *closure,
+      | ^
+../libs/tk/ztk/atkmarshal.c:205:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  205 | void
+      | ^
+      | static 
+9 warnings generated.
+
+[ 111/1765] Compiling libs/tk/ztk/atktext.c
+[ 112/1765] Compiling libs/tk/ztk/atktablecell.c
+[ 113/1765] Compiling libs/tk/ztk/atkrelationset.c
+[ 114/1765] Compiling libs/tk/ztk/atksocket.c
+[ 115/1765] Compiling libs/tk/ztk/atkplug.c
+[ 116/1765] Compiling libs/tk/ztk/atkhypertext.c
+[ 117/1765] Compiling libs/tk/ztk/atkselection.c
+[ 118/1765] Compiling libs/tk/ztk/atkdocument.c
+[ 119/1765] Compiling libs/tk/ztk/atkhyperlink.c
+[ 120/1765] Compiling libs/tk/ztk/atknoopobjectfactory.c
+[ 121/1765] Compiling libs/tk/ztk/atkrange.c
+[ 122/1765] Compiling libs/tk/ztk/atkprivate.c
+[ 123/1765] Compiling libs/tk/ztk/atkmisc.c
+../libs/tk/ztk/atkhyperlink.c:128:58: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  128 |                                                          _("Selected Link"),
+      |                                                          ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:129:58: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  129 |                                                          _("Specifies whether the AtkHyperlink object is selected"),
+      |                                                          ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:135:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  135 |                                                      _("Number of Anchors"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:136:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  136 |                                                      _("The number of anchors associated with the AtkHyperlink object"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:144:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  144 |                                                      _("End index"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:145:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  145 |                                                      _("The end index of the AtkHyperlink object"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:153:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  153 |                                                      _("Start index"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkhyperlink.c:154:54: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  154 |                                                      _("The start index of the AtkHyperlink object"),
+      |                                                      ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+8 warnings generated.
+
+[ 124/1765] Compiling libs/tk/ztk/atkobject.c
+[ 125/1765] Compiling libs/tk/ztk/atkhyperlinkimpl.c
+[ 126/1765] Compiling libs/tk/ztk/atknoopobject.c
+[ 127/1765] Compiling libs/tk/ztk/atkobjectfactory.c
+[ 128/1765] Compiling libs/temporal/timeline.cc
+[ 129/1765] Compiling libs/temporal/superclock.cc
+[ 130/1765] Compiling libs/temporal/tempo.cc
+[ 131/1765] Compiling libs/temporal/time.cc
+../libs/tk/ztk/atkobject.c:276:23: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+  276 | initialize_role_names ()
+      |                       ^
+      |                        void
+../libs/tk/ztk/atkobject.c:372:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  372 |                                                         _("Accessible Name"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:373:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  373 |                                                         _("Object instance\'s name formatted for assistive technology access"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:379:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  379 |                                                         _("Accessible Description"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:380:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  380 |                                                         _("Description of an object, formatted for assistive technology access"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:386:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  386 |                                                         _("Accessible Parent"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:387:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  387 |                                                         _("Parent of the current accessible as returned by atk_object_get_parent()"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:403:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  403 |                                                         _("Accessible Value"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:404:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  404 |                                                         _("Is used to notify that the value has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:412:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  412 |                                                         _("Accessible Role"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:413:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  413 |                                                         _("The accessible role of this object"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:421:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  421 |                                                         _("Accessible Layer"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:422:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  422 |                                                         _("The accessible layer of this object"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:430:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  430 |                                                         _("Accessible MDI Value"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:431:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  431 |                                                         _("The accessible MDI value of this object"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:447:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  447 |                                                         _("Accessible Table Caption"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:448:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  448 |                                                         _("Is used to notify that the table caption has changed; this property should not be used. accessible-table-caption-object should be used instead"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:462:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  462 |                                                         _("Accessible Table Column Header"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:463:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  463 |                                                         _("Is used to notify that the table column header has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:478:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  478 |                                                         _("Accessible Table Column Description"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:479:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  479 |                                                         _("Is used to notify that the table column description has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:494:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  494 |                                                         _("Accessible Table Row Header"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:495:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  495 |                                                         _("Is used to notify that the table row header has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:509:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  509 |                                                         _("Accessible Table Row Description"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:510:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  510 |                                                         _("Is used to notify that the table row description has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:516:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  516 |                                                         _("Accessible Table Summary"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:517:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  517 |                                                         _("Is used to notify that the table summary has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:523:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  523 |                                                         _("Accessible Table Caption Object"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:524:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  524 |                                                         _("Is used to notify that the table caption has changed"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:530:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  530 |                                                         _("Number of Accessible Hypertext Links"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+../libs/tk/ztk/atkobject.c:531:57: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  531 |                                                         _("The number of links which the current AtkHypertext has"),
+      |                                                         ^
+/opt/local/include/glib-2.0/glib/gi18n-lib.h:32:30: note: expanded from macro '_'
+   32 | #define  _(String) ((char *) g_dgettext (GETTEXT_PACKAGE, String))
+      |                              ^
+31 warnings generated.
+
+[ 132/1765] Compiling libs/temporal/beats.cc
+[ 133/1765] Compiling libs/temporal/range.cc
+[ 134/1765] Compiling libs/temporal/domain.cc
+[ 135/1765] Compiling libs/temporal/debug.cc
+[ 136/1765] Compiling libs/temporal/bbt_time.cc
+[ 137/1765] Linking build/libs/tk/ztk/libztk.dylib
+[ 138/1765] Linking build/libs/pbd/libpbd.dylib
+[ 139/1765] Compiling libs/temporal/enums.cc
+[ 140/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c
+ld: warning: ignoring duplicate libraries: '-lglib-2.0', '-lintl'
+
+[ 141/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-loader.c
+ld: warning: ignoring duplicate libraries: '-lglib-2.0', '-lglibmm-2.4', '-lgobject-2.0', '-lintl', '-lsigc-2.0'
+
+[ 142/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-io.c
+../libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c:144:21: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  144 |   g_return_if_fail (GDK_IS_PIXBUF (src));
+      |                     ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c:208:21: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  208 |   g_return_if_fail (GDK_IS_PIXBUF (src));
+      |                     ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c:282:21: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  282 |   g_return_if_fail (GDK_IS_PIXBUF (src));
+      |                     ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c:336:25: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  336 |   g_return_val_if_fail (GDK_IS_PIXBUF (src), NULL);
+      |                         ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-scale.c:382:25: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  382 |   g_return_val_if_fail (GDK_IS_PIXBUF (src), NULL);
+      |                         ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+5 warnings generated.
+
+[ 143/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-animation.c
+[ 144/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-enum-types.c
+[ 145/1765] Compiling libs/tk/ydk-pixbuf/pixops/pixops.c
+[ 146/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf.c
+[ 147/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-data.c
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:29: warning: cast from 'guchar *' (aka 'unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                    ^~~~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:281:11: note: expanded from macro 'INNER_LOOP'
+  281 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:51: warning: cast from 'const guchar *' (aka 'const unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                          ^~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:281:11: note: expanded from macro 'INNER_LOOP'
+  281 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:61: warning: cast from 'const unsigned char *' to 'unsigned int *' drops const qualifier [-Wcast-qual]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                                    ^
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:29: warning: cast from 'guchar *' (aka 'unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                    ^~~~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:288:11: note: expanded from macro 'INNER_LOOP'
+  288 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:51: warning: cast from 'const guchar *' (aka 'const unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                          ^~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:288:11: note: expanded from macro 'INNER_LOOP'
+  288 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:61: warning: cast from 'const unsigned char *' to 'unsigned int *' drops const qualifier [-Wcast-qual]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                                    ^
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:29: warning: cast from 'guchar *' (aka 'unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                    ^~~~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:296:11: note: expanded from macro 'INNER_LOOP'
+  296 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:51: warning: cast from 'const guchar *' (aka 'const unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                          ^~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:296:11: note: expanded from macro 'INNER_LOOP'
+  296 |           ASSIGN_PIXEL;                                         \
+      |           ^~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:332:61: warning: cast from 'const unsigned char *' to 'unsigned int *' drops const qualifier [-Wcast-qual]
+  332 |               INNER_LOOP(4, 4, p32=(guint32*)dest;*p32=*((guint32*)p));
+      |                                                                    ^
+../libs/tk/ydk-pixbuf/pixops/pixops.c:687:23: warning: cast from 'char *' to 'int *' increases required alignment from 1 to 4 [-Wcast-align]
+  687 |       pixel_weights = (int *)((char *)weights +
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+  688 |         ((x >> (SCALE_SHIFT - SUBSAMPLE_BITS - 4)) & (SUBSAMPLE_MASK << 4)));
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/pixops/pixops.c:1323:31: warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+ 1323 |             line_bufs[j] = (guchar *)src_buf;
+      |                                      ^
+../libs/tk/ydk-pixbuf/pixops/pixops.c:1325:31: warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+ 1325 |             line_bufs[j] = (guchar *)src_buf + src_rowstride * y_start;
+      |                                      ^
+../libs/tk/ydk-pixbuf/pixops/pixops.c:1327:31: warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+ 1327 |             line_bufs[j] = (guchar *)src_buf + src_rowstride * (src_height - 1);
+      |                                      ^
+13 warnings generated.
+
+[ 148/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-simple-anim.c
+[ 149/1765] Compiling libs/tk/ydk-pixbuf/io-xpm.c
+In file included from ../libs/tk/ydk-pixbuf/gdk-pixbuf.c:38:
+../libs/tk/ydk-pixbuf/gdk-pixbuf-marshal.c:56:1: warning: no previous prototype for function '_gdk_pixbuf_marshal_VOID__INT_INT' [-Wmissing-prototypes]
+   56 | _gdk_pixbuf_marshal_VOID__INT_INT (GClosure     *closure,
+      | ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-marshal.c:55:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   55 | void
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/gdk-pixbuf-marshal.c:93:1: warning: no previous prototype for function '_gdk_pixbuf_marshal_VOID__INT_INT_INT_INT' [-Wmissing-prototypes]
+   93 | _gdk_pixbuf_marshal_VOID__INT_INT_INT_INT (GClosure     *closure,
+      | ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-marshal.c:92:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+   92 | void
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:481:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  481 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:577:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  577 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), GDK_COLORSPACE_RGB);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:593:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  593 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:609:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  609 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), FALSE);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:625:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  625 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:671:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  671 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:674:53: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GdkPixbuf *' drops const qualifier [-Wcast-qual]
+  674 |                 GdkPixbuf *mut_pixbuf = (GdkPixbuf*)pixbuf;
+      |                                                     ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:700:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  700 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:725:31: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  725 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:746:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  746 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:762:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  762 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:779:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  779 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf.c:797:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  797 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), -1);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+15 warnings generated.
+
+[ 150/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-util.c
+[ 151/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixbuf-scaled-anim.c
+../libs/tk/ydk-pixbuf/io-xpm.c:815:1: warning: no previous prototype for function '_gdk_pixbuf__xpm_fill_vtable' [-Wmissing-prototypes]
+  815 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+../libs/tk/ydk-pixbuf/io-xpm.c:812:37: note: expanded from macro 'MODULE_ENTRY'
+  812 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xpm_ ## function
+      |                                     ^
+<scratch space>:36:1: note: expanded from here
+   36 | _gdk_pixbuf__xpm_fill_vtable
+      | ^
+../libs/tk/ydk-pixbuf/io-xpm.c:815:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  815 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-xpm.c:812:32: note: expanded from macro 'MODULE_ENTRY'
+  812 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xpm_ ## function
+      |                                ^
+../libs/tk/ydk-pixbuf/io-xpm.c:840:47: warning: cast from 'const struct _GdkPixbufModulePattern *' to 'struct _GdkPixbufModulePattern *' drops const qualifier [-Wcast-qual]
+  840 |         info->signature = (GdkPixbufModulePattern *) signature;
+      |                                                      ^
+../libs/tk/ydk-pixbuf/io-xpm.c:842:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  842 |         info->mime_types = (gchar **) mime_types;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-xpm.c:843:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  843 |         info->extensions = (gchar **) extensions;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-xpm.c:824:1: warning: no previous prototype for function '_gdk_pixbuf__xpm_fill_info' [-Wmissing-prototypes]
+  824 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+../libs/tk/ydk-pixbuf/io-xpm.c:812:37: note: expanded from macro 'MODULE_ENTRY'
+  812 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xpm_ ## function
+      |                                     ^
+<scratch space>:37:1: note: expanded from here
+   37 | _gdk_pixbuf__xpm_fill_info
+      | ^
+../libs/tk/ydk-pixbuf/io-xpm.c:824:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  824 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-xpm.c:812:32: note: expanded from macro 'MODULE_ENTRY'
+  812 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xpm_ ## function
+      |                                ^
+5 warnings generated.
+
+[ 152/1765] Compiling libs/tk/ydk-pixbuf/io-png.c
+../libs/tk/ydk-pixbuf/gdk-pixbuf-util.c:71:24: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+   71 |         g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                               ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixbuf-util.c:202:27: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  202 |         g_return_if_fail (GDK_IS_PIXBUF (src));
+      |                           ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+2 warnings generated.
+
+[ 153/1765] Compiling libs/tk/ydk-pixbuf/io-xbm.c
+[ 154/1765] Compiling libs/tk/ydk-pixbuf/io-pixdata.c
+[ 155/1765] Compiling libs/tk/ydk-pixbuf/gdk-pixdata.c
+[ 156/1765] Compiling libs/tk/ydk/gdkimage.c
+[ 157/1765] Compiling libs/tk/ydk/gdkpixbuf-render.c
+../libs/tk/ydk-pixbuf/io-png.c:342:45: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  342 |                                (png_charpp) &icc_profile_title, &compression_type,
+      |                                             ^
+../libs/tk/ydk-pixbuf/io-png.c:343:45: warning: cast from 'const char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  343 |                                (png_bytepp) &icc_profile, (png_uint_32*) &icc_profile_size);
+      |                                             ^
+../libs/tk/ydk-pixbuf/io-png.c:538:44: warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  538 |                                  (guchar*) buf, size);
+      |                                            ^
+../libs/tk/ydk-pixbuf/io-png.c:679:45: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  679 |                                (png_charpp) &icc_profile_title, &compression_type,
+      |                                             ^
+../libs/tk/ydk-pixbuf/io-png.c:680:45: warning: cast from 'const char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  680 |                                (png_bytepp) &icc_profile, &icc_profile_size);
+      |                                             ^
+../libs/tk/ydk-pixbuf/io-png.c:1090:1: warning: no previous prototype for function '_gdk_pixbuf__png_fill_vtable' [-Wmissing-prototypes]
+ 1090 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+../libs/tk/ydk-pixbuf/io-png.c:1087:37: note: expanded from macro 'MODULE_ENTRY'
+ 1087 | #define MODULE_ENTRY(function) void _gdk_pixbuf__png_ ## function
+      |                                     ^
+<scratch space>:142:1: note: expanded from here
+  142 | _gdk_pixbuf__png_fill_vtable
+      | ^
+../libs/tk/ydk-pixbuf/io-png.c:1090:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 1090 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-png.c:1087:32: note: expanded from macro 'MODULE_ENTRY'
+ 1087 | #define MODULE_ENTRY(function) void _gdk_pixbuf__png_ ## function
+      |                                ^
+../libs/tk/ydk-pixbuf/io-png.c:1116:54: warning: cast from 'const struct _GdkPixbufModulePattern *' to 'struct _GdkPixbufModulePattern *' drops const qualifier [-Wcast-qual]
+ 1116 |         info->signature = (GdkPixbufModulePattern *) signature;
+      |                                                      ^
+../libs/tk/ydk-pixbuf/io-png.c:1118:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+ 1118 |         info->mime_types = (gchar **) mime_types;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-png.c:1119:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+ 1119 |         info->extensions = (gchar **) extensions;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-png.c:1100:1: warning: no previous prototype for function '_gdk_pixbuf__png_fill_info' [-Wmissing-prototypes]
+ 1100 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+../libs/tk/ydk-pixbuf/io-png.c:1087:37: note: expanded from macro 'MODULE_ENTRY'
+ 1087 | #define MODULE_ENTRY(function) void _gdk_pixbuf__png_ ## function
+      |                                     ^
+<scratch space>:143:1: note: expanded from here
+  143 | _gdk_pixbuf__png_fill_info
+      | ^
+../libs/tk/ydk-pixbuf/io-png.c:1100:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+ 1100 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-png.c:1087:32: note: expanded from macro 'MODULE_ENTRY'
+ 1087 | #define MODULE_ENTRY(function) void _gdk_pixbuf__png_ ## function
+      |                                ^
+10 warnings generated.
+
+[ 158/1765] Compiling libs/tk/ydk/gdkgc.c
+../libs/tk/ydk-pixbuf/io-xbm.c:473:1: warning: no previous prototype for function '_gdk_pixbuf__xbm_fill_vtable' [-Wmissing-prototypes]
+  473 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+../libs/tk/ydk-pixbuf/io-xbm.c:470:37: note: expanded from macro 'MODULE_ENTRY'
+  470 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xbm_ ## function
+      |                                     ^
+<scratch space>:30:1: note: expanded from here
+   30 | _gdk_pixbuf__xbm_fill_vtable
+      | ^
+../libs/tk/ydk-pixbuf/io-xbm.c:473:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  473 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule *module)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-xbm.c:470:32: note: expanded from macro 'MODULE_ENTRY'
+  470 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xbm_ ## function
+      |                                ^
+../libs/tk/ydk-pixbuf/io-xbm.c:498:47: warning: cast from 'const struct _GdkPixbufModulePattern *' to 'struct _GdkPixbufModulePattern *' drops const qualifier [-Wcast-qual]
+  498 |         info->signature = (GdkPixbufModulePattern *) signature;
+      |                                                      ^
+../libs/tk/ydk-pixbuf/io-xbm.c:500:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  500 |         info->mime_types = (gchar **) mime_types;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-xbm.c:501:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  501 |         info->extensions = (gchar **) extensions;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-xbm.c:481:1: warning: no previous prototype for function '_gdk_pixbuf__xbm_fill_info' [-Wmissing-prototypes]
+  481 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+../libs/tk/ydk-pixbuf/io-xbm.c:470:37: note: expanded from macro 'MODULE_ENTRY'
+  470 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xbm_ ## function
+      |                                     ^
+<scratch space>:31:1: note: expanded from here
+   31 | _gdk_pixbuf__xbm_fill_info
+      | ^
+../libs/tk/ydk-pixbuf/io-xbm.c:481:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  481 | MODULE_ENTRY (fill_info) (GdkPixbufFormat *info)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-xbm.c:470:32: note: expanded from macro 'MODULE_ENTRY'
+  470 | #define MODULE_ENTRY(function) void _gdk_pixbuf__xbm_ ## function
+      |                                ^
+5 warnings generated.
+
+[ 159/1765] Compiling libs/tk/ydk/gdkglobals.c
+../libs/tk/ydk-pixbuf/io-pixdata.c:120:47: warning: cast from 'const unsigned char *' to 'char *' drops const qualifier [-Wcast-qual]
+  120 |   g_string_append_len (context->data, (char *)buf, size);
+      |                                               ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:160:1: warning: no previous prototype for function '_gdk_pixbuf__pixdata_fill_vtable' [-Wmissing-prototypes]
+  160 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule * module)
+      | ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:158:37: note: expanded from macro 'MODULE_ENTRY'
+  158 | #define MODULE_ENTRY(function) void _gdk_pixbuf__pixdata_ ## function
+      |                                     ^
+<scratch space>:133:1: note: expanded from here
+  133 | _gdk_pixbuf__pixdata_fill_vtable
+      | ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:160:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  160 | MODULE_ENTRY (fill_vtable) (GdkPixbufModule * module)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-pixdata.c:158:32: note: expanded from macro 'MODULE_ENTRY'
+  158 | #define MODULE_ENTRY(function) void _gdk_pixbuf__pixdata_ ## function
+      |                                ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:183:47: warning: cast from 'const struct _GdkPixbufModulePattern *' to 'struct _GdkPixbufModulePattern *' drops const qualifier [-Wcast-qual]
+  183 |         info->signature = (GdkPixbufModulePattern *) signature;
+      |                                                      ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:185:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  185 |         info->mime_types = (gchar **) mime_types;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:186:32: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  186 |         info->extensions = (gchar **) extensions;
+      |                                       ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:167:1: warning: no previous prototype for function '_gdk_pixbuf__pixdata_fill_info' [-Wmissing-prototypes]
+  167 | MODULE_ENTRY (fill_info) (GdkPixbufFormat * info)
+      | ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:158:37: note: expanded from macro 'MODULE_ENTRY'
+  158 | #define MODULE_ENTRY(function) void _gdk_pixbuf__pixdata_ ## function
+      |                                     ^
+<scratch space>:134:1: note: expanded from here
+  134 | _gdk_pixbuf__pixdata_fill_info
+      | ^
+../libs/tk/ydk-pixbuf/io-pixdata.c:167:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+  167 | MODULE_ENTRY (fill_info) (GdkPixbufFormat * info)
+      | ^
+      | static 
+../libs/tk/ydk-pixbuf/io-pixdata.c:158:32: note: expanded from macro 'MODULE_ENTRY'
+  158 | #define MODULE_ENTRY(function) void _gdk_pixbuf__pixdata_ ## function
+      |                                ^
+6 warnings generated.
+
+[ 160/1765] Compiling libs/tk/ydk/quartz/gdkimage-quartz.c
+../libs/tk/ydk-pixbuf/gdk-pixdata.c:135:13: warning: cast from 'guint8 *' (aka 'unsigned char *') to 'guint32 *' (aka 'unsigned int *') increases required alignment from 1 to 4 [-Wcast-align]
+  135 |   istream = (guint32*) stream;
+      |             ^~~~~~~~~~~~~~~~~
+../libs/tk/ydk-pixbuf/gdk-pixdata.c:237:35: warning: cast from 'const unsigned char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  237 |   pixdata->pixel_data = (guint8 *)stream;
+      |                                   ^
+../libs/tk/ydk-pixbuf/gdk-pixdata.c:336:25: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GTypeInstance *' drops const qualifier [-Wcast-qual]
+  336 |   g_return_val_if_fail (GDK_IS_PIXBUF (pixbuf), NULL);
+      |                         ^
+../libs/tk/ydk-pixbuf/ydk-pixbuf/gdk-pixbuf/gdk-pixbuf-core.h:159:39: note: expanded from macro 'GDK_IS_PIXBUF'
+  159 | #define GDK_IS_PIXBUF(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+      |                                       ^
+/opt/local/include/glib-2.0/gobject/gtype.h:539:79: note: expanded from macro 'G_TYPE_CHECK_INSTANCE_TYPE'
+  539 | #define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+      |                                                                               ^
+../libs/tk/ydk-pixbuf/gdk-pixdata.c:369:21: warning: cast from 'const struct _GdkPixbuf *' to 'struct _GdkPixbuf *' drops const qualifier [-Wcast-qual]
+  369 |         buf = (GdkPixbuf *)pixbuf;
+      |                            ^
+4 warnings generated.
+
+[ 161/1765] Compiling libs/tk/ydk/quartz/gdkinput.c
+In file included from ../libs/tk/ydk/gdkimage.c:659:
+../libs/tk/ydk/gdkaliasdef.c:1851:90: error: aliases are not supported on darwin
+ 1851 | extern __typeof (gdk_image_get_bits_per_pixel) gdk_image_get_bits_per_pixel __attribute((alias("IA__gdk_image_get_bits_per_pixel"), visibility("default")));
+      |                                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1854:92: error: aliases are not supported on darwin
+ 1854 | extern __typeof (gdk_image_get_bytes_per_pixel) gdk_image_get_bytes_per_pixel __attribute((alias("IA__gdk_image_get_bytes_per_pixel"), visibility("default")));
+      |                                                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:1857:90: error: aliases are not supported on darwin
+ 1857 | extern __typeof (gdk_image_get_bytes_per_line) gdk_image_get_bytes_per_line __attribute((alias("IA__gdk_image_get_bytes_per_line"), visibility("default")));
+      |                                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1860:82: error: aliases are not supported on darwin
+ 1860 | extern __typeof (gdk_image_get_byte_order) gdk_image_get_byte_order __attribute((alias("IA__gdk_image_get_byte_order"), visibility("default")));
+      |                                                                                  ^
+../libs/tk/ydk/gdkaliasdef.c:1863:72: error: aliases are not supported on darwin
+ 1863 | extern __typeof (gdk_image_get_depth) gdk_image_get_depth __attribute((alias("IA__gdk_image_get_depth"), visibility("default")));
+      |                                                                        ^
+../libs/tk/ydk/gdkaliasdef.c:1866:74: error: aliases are not supported on darwin
+ 1866 | extern __typeof (gdk_image_get_height) gdk_image_get_height __attribute((alias("IA__gdk_image_get_height"), visibility("default")));
+      |                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1869:82: error: aliases are not supported on darwin
+ 1869 | extern __typeof (gdk_image_get_image_type) gdk_image_get_image_type __attribute((alias("IA__gdk_image_get_image_type"), visibility("default")));
+      |                                                                                  ^
+../libs/tk/ydk/gdkaliasdef.c:1872:74: error: aliases are not supported on darwin
+ 1872 | extern __typeof (gdk_image_get_visual) gdk_image_get_visual __attribute((alias("IA__gdk_image_get_visual"), visibility("default")));
+      |                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1875:72: error: aliases are not supported on darwin
+ 1875 | extern __typeof (gdk_image_get_width) gdk_image_get_width __attribute((alias("IA__gdk_image_get_width"), visibility("default")));
+      |                                                                        ^
+../libs/tk/ydk/gdkaliasdef.c:1879:60: error: aliases are not supported on darwin
+ 1879 | extern __typeof (gdk_image_ref) gdk_image_ref __attribute((alias("IA__gdk_image_ref"), visibility("default")));
+      |                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:1882:64: error: aliases are not supported on darwin
+ 1882 | extern __typeof (gdk_image_unref) gdk_image_unref __attribute((alias("IA__gdk_image_unref"), visibility("default")));
+      |                                                                ^
+../libs/tk/ydk/gdkaliasdef.c:1885:60: error: aliases are not supported on darwin
+ 1885 | extern __typeof (gdk_image_get) gdk_image_get __attribute((alias("IA__gdk_image_get"), visibility("default")));
+      |                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:1889:74: error: aliases are not supported on darwin
+ 1889 | extern __typeof (gdk_image_get_pixels) gdk_image_get_pixels __attribute((alias("IA__gdk_image_get_pixels"), visibility("default")));
+      |                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1892:78: error: aliases are not supported on darwin
+ 1892 | extern __typeof (gdk_image_set_colormap) gdk_image_set_colormap __attribute((alias("IA__gdk_image_set_colormap"), visibility("default")));
+      |                                                                              ^
+../libs/tk/ydk/gdkaliasdef.c:1895:78: error: aliases are not supported on darwin
+ 1895 | extern __typeof (gdk_image_get_colormap) gdk_image_get_colormap __attribute((alias("IA__gdk_image_get_colormap"), visibility("default")));
+      |                                                                              ^
+../libs/tk/ydk/gdkaliasdef.c:1898:60: error: aliases are not supported on darwin
+ 1898 | extern __typeof (gdk_image_new) gdk_image_new __attribute((alias("IA__gdk_image_new"), visibility("default")));
+      |                                                            ^
+16 errors generated.
+
+In file included from ../libs/tk/ydk/gdkpixbuf-render.c:349:
+../libs/tk/ydk/gdkaliasdef.c:2173:100: error: aliases are not supported on darwin
+ 2173 | extern __typeof (gdk_pixbuf_render_pixmap_and_mask) gdk_pixbuf_render_pixmap_and_mask __attribute((alias("IA__gdk_pixbuf_render_pixmap_and_mask"), visibility("default")));
+      |                                                                                                    ^
+../libs/tk/ydk/gdkaliasdef.c:2176:126: error: aliases are not supported on darwin
+ 2176 | extern __typeof (gdk_pixbuf_render_pixmap_and_mask_for_colormap) gdk_pixbuf_render_pixmap_and_mask_for_colormap __attribute((alias("IA__gdk_pixbuf_render_pixmap_and_mask_for_colormap"), visibility("default")));
+      |                                                                                                                              ^
+../libs/tk/ydk/gdkaliasdef.c:2179:100: error: aliases are not supported on darwin
+ 2179 | extern __typeof (gdk_pixbuf_render_threshold_alpha) gdk_pixbuf_render_threshold_alpha __attribute((alias("IA__gdk_pixbuf_render_threshold_alpha"), visibility("default")));
+      |                                                                                                    ^
+../libs/tk/ydk/gdkaliasdef.c:2183:92: error: aliases are not supported on darwin
+ 2183 | extern __typeof (gdk_pixbuf_render_to_drawable) gdk_pixbuf_render_to_drawable __attribute((alias("IA__gdk_pixbuf_render_to_drawable"), visibility("default")));
+      |                                                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:2186:104: error: aliases are not supported on darwin
+ 2186 | extern __typeof (gdk_pixbuf_render_to_drawable_alpha) gdk_pixbuf_render_to_drawable_alpha __attribute((alias("IA__gdk_pixbuf_render_to_drawable_alpha"), visibility("default")));
+      |                                                                                                        ^
+5 errors generated.
+
+In file included from ../libs/tk/ydk/gdkgc.c:1599:
+../libs/tk/ydk/gdkaliasdef.c:1265:54: error: aliases are not supported on darwin
+ 1265 | extern __typeof (gdk_gc_new) gdk_gc_new __attribute((alias("IA__gdk_gc_new"), visibility("default")));
+      |                                                      ^
+../libs/tk/ydk/gdkaliasdef.c:1268:64: error: aliases are not supported on darwin
+ 1268 | extern __typeof (gdk_gc_get_type) gdk_gc_get_type __attribute((alias("IA__gdk_gc_get_type"), visibility("default")));
+      |                                                                ^
+../libs/tk/ydk/gdkaliasdef.c:1271:78: error: aliases are not supported on darwin
+ 1271 | extern __typeof (gdk_gc_new_with_values) gdk_gc_new_with_values __attribute((alias("IA__gdk_gc_new_with_values"), visibility("default")));
+      |                                                                              ^
+../libs/tk/ydk/gdkaliasdef.c:1275:54: error: aliases are not supported on darwin
+ 1275 | extern __typeof (gdk_gc_ref) gdk_gc_ref __attribute((alias("IA__gdk_gc_ref"), visibility("default")));
+      |                                                      ^
+../libs/tk/ydk/gdkaliasdef.c:1278:58: error: aliases are not supported on darwin
+ 1278 | extern __typeof (gdk_gc_unref) gdk_gc_unref __attribute((alias("IA__gdk_gc_unref"), visibility("default")));
+      |                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1281:64: error: aliases are not supported on darwin
+ 1281 | extern __typeof (gdk_gc_set_font) gdk_gc_set_font __attribute((alias("IA__gdk_gc_set_font"), visibility("default")));
+      |                                                                ^
+../libs/tk/ydk/gdkaliasdef.c:1285:68: error: aliases are not supported on darwin
+ 1285 | extern __typeof (gdk_gc_get_values) gdk_gc_get_values __attribute((alias("IA__gdk_gc_get_values"), visibility("default")));
+      |                                                                    ^
+../libs/tk/ydk/gdkaliasdef.c:1288:68: error: aliases are not supported on darwin
+ 1288 | extern __typeof (gdk_gc_set_values) gdk_gc_set_values __attribute((alias("IA__gdk_gc_set_values"), visibility("default")));
+      |                                                                    ^
+../libs/tk/ydk/gdkaliasdef.c:1291:76: error: aliases are not supported on darwin
+ 1291 | extern __typeof (gdk_gc_set_foreground) gdk_gc_set_foreground __attribute((alias("IA__gdk_gc_set_foreground"), visibility("default")));
+      |                                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:1294:76: error: aliases are not supported on darwin
+ 1294 | extern __typeof (gdk_gc_set_background) gdk_gc_set_background __attribute((alias("IA__gdk_gc_set_background"), visibility("default")));
+      |                                                                            ^
+../libs/tk/ydk/gdkaliasdef.c:1297:72: error: aliases are not supported on darwin
+ 1297 | extern __typeof (gdk_gc_set_function) gdk_gc_set_function __attribute((alias("IA__gdk_gc_set_function"), visibility("default")));
+      |                                                                        ^
+../libs/tk/ydk/gdkaliasdef.c:1300:64: error: aliases are not supported on darwin
+ 1300 | extern __typeof (gdk_gc_set_fill) gdk_gc_set_fill __attribute((alias("IA__gdk_gc_set_fill"), visibility("default")));
+      |                                                                ^
+../libs/tk/ydk/gdkaliasdef.c:1303:64: error: aliases are not supported on darwin
+ 1303 | extern __typeof (gdk_gc_set_tile) gdk_gc_set_tile __attribute((alias("IA__gdk_gc_set_tile"), visibility("default")));
+      |                                                                ^
+../libs/tk/ydk/gdkaliasdef.c:1306:70: error: aliases are not supported on darwin
+ 1306 | extern __typeof (gdk_gc_set_stipple) gdk_gc_set_stipple __attribute((alias("IA__gdk_gc_set_stipple"), visibility("default")));
+      |                                                                      ^
+../libs/tk/ydk/gdkaliasdef.c:1309:74: error: aliases are not supported on darwin
+ 1309 | extern __typeof (gdk_gc_set_ts_origin) gdk_gc_set_ts_origin __attribute((alias("IA__gdk_gc_set_ts_origin"), visibility("default")));
+      |                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1312:78: error: aliases are not supported on darwin
+ 1312 | extern __typeof (gdk_gc_set_clip_origin) gdk_gc_set_clip_origin __attribute((alias("IA__gdk_gc_set_clip_origin"), visibility("default")));
+      |                                                                              ^
+../libs/tk/ydk/gdkaliasdef.c:1315:74: error: aliases are not supported on darwin
+ 1315 | extern __typeof (gdk_gc_set_clip_mask) gdk_gc_set_clip_mask __attribute((alias("IA__gdk_gc_set_clip_mask"), visibility("default")));
+      |                                                                          ^
+../libs/tk/ydk/gdkaliasdef.c:1318:84: error: aliases are not supported on darwin
+ 1318 | extern __typeof (gdk_gc_set_clip_rectangle) gdk_gc_set_clip_rectangle __attribute((alias("IA__gdk_gc_set_clip_rectangle"), visibility("default")));
+      |                                                                                    ^
+../libs/tk/ydk/gdkaliasdef.c:1321:78: error: aliases are not supported on darwin
+ 1321 | extern __typeof (gdk_gc_set_clip_region) gdk_gc_set_clip_region __attribute((alias("IA__gdk_gc_set_clip_region"), visibility("default")));
+      |                                                                              ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+
+../libs/temporal/tempo.cc:3837:6: warning: variable 'cnt' set but not used [-Wunused-but-set-variable]
+ 3837 |         int cnt = 0;
+      |             ^
+1 warning generated.
+
+../libs/tk/ydk/quartz/gdkimage-quartz.c:153:39: error: 'CGWindowListCreateImage' is unavailable: obsoleted in macOS 15.0 - Please use ScreenCaptureKit instead.
+  153 |           CGImageRef root_image_ref = CGWindowListCreateImage (rect,
+      |                                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:271:33: note: 'CGWindowListCreateImage' has been explicitly marked unavailable here
+  271 | CG_EXTERN CGImageRef __nullable CGWindowListCreateImage(CGRect screenBounds,
+      |                                 ^
+1 error generated.
+
+Waf: Leaving directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Build failed
+ -> task in 'libydk' failed with exit status 1 (run with -v to display more information)
+ -> task in 'libydk' failed with exit status 1 (run with -v to display more information)
+ -> task in 'libydk' failed with exit status 1 (run with -v to display more information)
+ -> task in 'libydk' failed with exit status 1 (run with -v to display more information)

@@ -1,0 +1,1296 @@
+Waf: Entering directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Git version: 8.9
+
+Writing revision info to libs/ardour/revision.cc using 8.9, 2024-10-08
+[   1/1197] Compiling libs/pbd/pbd/signals.py
+[   2/1197] Creating build/libs/clearlooks-newer/engines
+[   3/1197] Compiling libs/plugins/reasonablesynth.lv2/manifest.ttl.in
+[   4/1197] Compiling libs/plugins/reasonablesynth.lv2/reasonablesynth.ttl.in
+[   5/1197] Compiling libs/plugins/a-comp.lv2/manifest.ttl.in
+[   6/1197] Compiling libs/plugins/a-comp.lv2/a-comp.ttl.in
+[   7/1197] Compiling libs/plugins/a-comp.lv2/a-comp#stereo.ttl.in
+[   8/1197] Compiling libs/plugins/a-comp.lv2/presets.ttl.in
+[   9/1197] Compiling libs/plugins/a-exp.lv2/manifest.ttl.in
+[  10/1197] Compiling libs/plugins/a-exp.lv2/a-exp.ttl.in
+[  11/1197] Compiling libs/plugins/a-exp.lv2/a-exp#stereo.ttl.in
+[  12/1197] Compiling libs/plugins/a-delay.lv2/manifest.ttl.in
+[  13/1197] Compiling libs/plugins/a-delay.lv2/a-delay.ttl.in
+[  14/1197] Compiling libs/plugins/a-delay.lv2/presets.ttl.in
+[  15/1197] Compiling libs/plugins/a-eq.lv2/manifest.ttl.in
+[  16/1197] Compiling libs/plugins/a-eq.lv2/a-eq.ttl.in
+[  17/1197] Compiling libs/plugins/a-reverb.lv2/manifest.ttl.in
+[  18/1197] Compiling libs/plugins/a-reverb.lv2/a-reverb.ttl.in
+[  19/1197] Compiling libs/plugins/a-fluidsynth.lv2/manifest.ttl.in
+[  20/1197] Compiling libs/plugins/a-fluidsynth.lv2/a-fluidsynth.ttl.in
+[  21/1197] Compiling gtk2_ardour/ardev_common.sh.in
+[  22/1197] Compiling gtk2_ardour/ardour.sh.in
+[  23/1197] Compiling gtk2_ardour/clearlooks.rc.in
+[  24/1197] Compiling gtk2_ardour/clearlooks.rc.in
+[  25/1197] Compiling gtk2_ardour/default_ui_config.in
+[  26/1197] Compiling gtk2_ardour/ardour.menus.in
+[  27/1197] Processing ardour.keys: gtk2_ardour/ardour.keys.in gtk2_ardour/mixer.bindings gtk2_ardour/processor_box.bindings gtk2_ardour/step_editing.bindings gtk2_ardour/monitor.bindings gtk2_ardour/trigger.bindings -> build/gtk2_ardour/ardour.keys
+[  28/1197] Compiling luasession/ardour-lua.sh.in
+[  29/1197] Compiling session_utils/ardour-util.sh.in
+[  30/1197] Compiling libs/pbd/base_ui.cc
+[  31/1197] Compiling libs/pbd/file_utils.cc
+[  32/1197] Compiling libs/pbd/stateful.cc
+[  33/1197] Compiling libs/pbd/xml++.cc
+[  34/1197] Compiling libs/pbd/cocoa_open_uri.mm
+[  35/1197] Compiling libs/pbd/string_convert.cc
+[  36/1197] Compiling libs/pbd/timing.cc
+[  37/1197] Compiling libs/pbd/undo.cc
+[  38/1197] Compiling libs/pbd/whitespace.cc
+[  39/1197] Compiling libs/pbd/utf8_utils.cc
+[  40/1197] Compiling libs/pbd/strsplit.cc
+[  41/1197] Compiling libs/pbd/stacktrace.cc
+[  42/1197] Compiling libs/pbd/pbd.cc
+[  43/1197] Compiling libs/pbd/openuri.cc
+[  44/1197] Compiling libs/pbd/microseconds.cc
+[  45/1197] Compiling libs/pbd/id.cc
+[  46/1197] Compiling libs/pbd/md5.cc
+[  47/1197] Compiling libs/pbd/locale_guard.cc
+[  48/1197] Compiling libs/pbd/localtime_r.cc
+[  49/1197] Compiling libs/pbd/inflater.cc
+[  50/1197] Compiling libs/pbd/basename.cc
+[  51/1197] Compiling libs/pbd/controllable.cc
+[  52/1197] Compiling libs/pbd/boost_debug.cc
+[  53/1197] Compiling libs/pbd/error.cc
+[  54/1197] Compiling libs/pbd/event_loop.cc
+[  55/1197] Compiling libs/pbd/file_archive.cc
+[  56/1197] Compiling libs/pbd/enums.cc
+[  57/1197] Compiling libs/pbd/epa.cc
+[  58/1197] Compiling libs/pbd/ffs.cc
+[  59/1197] Compiling libs/pbd/demangle.cc
+[  60/1197] Compiling libs/pbd/crossthread.cc
+[  61/1197] Compiling libs/pbd/downloader.cc
+[  62/1197] Compiling libs/pbd/enumwriter.cc
+[  63/1197] Compiling libs/pbd/cpus.cc
+[  64/1197] Compiling libs/pbd/debug.cc
+[  65/1197] Compiling libs/pbd/cartesian.cc
+[  66/1197] Compiling libs/pbd/command.cc
+[  67/1197] Compiling libs/pbd/configuration_variable.cc
+[  68/1197] Compiling libs/pbd/pathexpand.cc
+[  69/1197] Compiling libs/pbd/convert.cc
+[  70/1197] Compiling libs/pbd/signals.cc
+[  71/1197] Compiling libs/pbd/mountpoint.cc
+[  72/1197] Compiling libs/pbd/malign.cc
+[  73/1197] Compiling libs/pbd/strreplace.cc
+[  74/1197] Compiling libs/pbd/resource.cc
+[  75/1197] Compiling libs/pbd/glib_event_source.cc
+[  76/1197] Compiling libs/pbd/progress.cc
+[  77/1197] Compiling libs/pbd/pcg_rand.cc
+[  78/1197] Compiling libs/pbd/pthread_utils.cc
+[  79/1197] Compiling libs/pbd/receiver.cc
+[  80/1197] Compiling libs/pbd/uuid.cc
+[  81/1197] Compiling libs/pbd/transmitter.cc
+[  82/1197] Compiling libs/pbd/fpu.cc
+[  83/1197] Compiling libs/pbd/reallocpool.cc
+[  84/1197] Compiling libs/pbd/property_list.cc
+[  85/1197] Compiling libs/pbd/system_exec.cc
+[  86/1197] Compiling libs/pbd/pool.cc
+[  87/1197] Compiling libs/pbd/shortpath.cc
+[  88/1197] Compiling libs/pbd/tlsf.cc
+[  89/1197] Compiling libs/pbd/timer.cc
+[  90/1197] Compiling libs/pbd/semutils.cc
+[  91/1197] Compiling libs/pbd/search_path.cc
+[  92/1197] Compiling libs/pbd/textreceiver.cc
+[  93/1197] Compiling libs/pbd/spinlock.cc
+[  94/1197] Compiling libs/pbd/stateful_diff_command.cc
+[  95/1197] Compiling libs/temporal/superclock.cc
+[  96/1197] Compiling libs/temporal/tempo.cc
+[  97/1197] Compiling libs/temporal/bbt_time.cc
+[  98/1197] Compiling libs/temporal/time.cc
+[  99/1197] Compiling libs/temporal/timeline.cc
+[ 100/1197] Compiling libs/temporal/range.cc
+[ 101/1197] Compiling libs/temporal/enums.cc
+[ 102/1197] Compiling libs/temporal/debug.cc
+[ 103/1197] Compiling libs/temporal/beats.cc
+[ 104/1197] Compiling libs/temporal/domain.cc
+[ 105/1197] Compiling libs/evoral/libsmf/smf.c
+[ 106/1197] Compiling libs/evoral/libsmf/smf_decode.c
+[ 107/1197] Compiling libs/evoral/libsmf/smf_load.c
+[ 108/1197] Compiling libs/evoral/libsmf/smf_tempo.c
+[ 109/1197] Linking build/libs/pbd/libpbd.dylib
+[ 110/1197] Compiling libs/evoral/libsmf/smf_save.c
+[ 111/1197] Compiling libs/evoral/SMF.cc
+[ 112/1197] Compiling libs/evoral/ControlList.cc
+ld: warning: ignoring duplicate libraries: '-lglib-2.0', '-lglibmm-2.4', '-lgobject-2.0', '-lintl', '-lsigc-2.0'
+
+[ 113/1197] Compiling libs/evoral/Event.cc
+[ 114/1197] Compiling libs/evoral/Control.cc
+[ 115/1197] Compiling libs/evoral/debug.cc
+../libs/temporal/tempo.cc:3837:6: warning: variable 'cnt' set but not used [-Wunused-but-set-variable]
+ 3837 |         int cnt = 0;
+      |             ^
+1 warning generated.
+
+[ 116/1197] Compiling libs/evoral/ControlSet.cc
+[ 117/1197] Compiling libs/evoral/Sequence.cc
+[ 118/1197] Compiling libs/evoral/Note.cc
+[ 119/1197] Compiling libs/evoral/Curve.cc
+[ 120/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CABufferList.cpp
+[ 121/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAAudioUnit.cpp
+In file included from ../libs/appleutility/CoreAudio/PublicUtility/CABufferList.cpp:47:
+../libs/appleutility/CoreAudio/PublicUtility/CABufferList.h:231:42: warning: cast from 'const AudioBuffer *' to 'char *' drops const qualifier [-Wcast-qual]
+  231 |                 memcpy(&_GetBufferList(), abl, (char *)&abl->mBuffers[abl->mNumberBuffers] - (char *)abl);
+      |                                                        ^
+../libs/appleutility/CoreAudio/PublicUtility/CABufferList.h:231:88: warning: cast from 'const AudioBufferList *' to 'char *' drops const qualifier [-Wcast-qual]
+  231 |                 memcpy(&_GetBufferList(), abl, (char *)&abl->mBuffers[abl->mNumberBuffers] - (char *)abl);
+      |                                                                                                      ^
+2 warnings generated.
+
+[ 122/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAAudioChannelLayout.cpp
+[ 123/1197] Linking build/libs/temporal/libtemporal.dylib
+[ 124/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CADebugMacros.cpp
+[ 125/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CACFNumber.cpp
+[ 126/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CACFDictionary.cpp
+[ 127/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAAUParameter.cpp
+[ 128/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/AUOutputBL.cpp
+[ 129/1197] Linking build/libs/evoral/libsmf.a
+[ 130/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAAudioChannelLayoutObject.cpp
+[ 131/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAXException.cpp
+[ 132/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/AUParamInfo.cpp
+[ 133/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAComponent.cpp
+[ 134/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAComponentDescription.cpp
+[ 135/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CACFString.cpp
+[ 136/1197] Compiling libs/appleutility/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp
+[ 137/1197] Compiling libs/ptformat/ptformat.cc
+[ 138/1197] Compiling libs/midi++2/parser.cc
+[ 139/1197] Compiling libs/midi++2/mmc.cc
+[ 140/1197] Compiling libs/midi++2/midi.cc
+../libs/appleutility/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp:449:4: warning: cast from 'const unsigned int *' to 'char *' drops const qualifier [-Wcast-qual]
+  449 |                         CACopy4CCToCString(outName, inDescription.mFormatID);
+      |                         ^
+../libs/appleutility/CoreAudio/PublicUtility/CADebugMacros.h:74:75: note: expanded from macro 'CACopy4CCToCString'
+   74 |         #define CACopy4CCToCString(theCString, the4CC)  { theCString[0] = ((char*)&the4CC)[3]; theCString[1] = ((char*)&the4CC)[2]; theCString[2] = ((char*)&the4CC)[1]; theCString[3] = ((char*)&the4CC)[0]; theCString[4] = 0; }
+      |                                                                                   ^
+../libs/appleutility/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp:449:4: warning: cast from 'const unsigned int *' to 'char *' drops const qualifier [-Wcast-qual]
+../libs/appleutility/CoreAudio/PublicUtility/CADebugMacros.h:74:112: note: expanded from macro 'CACopy4CCToCString'
+   74 |         #define CACopy4CCToCString(theCString, the4CC)  { theCString[0] = ((char*)&the4CC)[3]; theCString[1] = ((char*)&the4CC)[2]; theCString[2] = ((char*)&the4CC)[1]; theCString[3] = ((char*)&the4CC)[0]; theCString[4] = 0; }
+      |                                                                                                                        ^
+../libs/appleutility/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp:449:4: warning: cast from 'const unsigned int *' to 'char *' drops const qualifier [-Wcast-qual]
+../libs/appleutility/CoreAudio/PublicUtility/CADebugMacros.h:74:149: note: expanded from macro 'CACopy4CCToCString'
+   74 |         #define CACopy4CCToCString(theCString, the4CC)  { theCString[0] = ((char*)&the4CC)[3]; theCString[1] = ((char*)&the4CC)[2]; theCString[2] = ((char*)&the4CC)[1]; theCString[3] = ((char*)&the4CC)[0]; theCString[4] = 0; }
+      |                                                                                                                                                             ^
+../libs/appleutility/CoreAudio/PublicUtility/CAStreamBasicDescription.cpp:449:4: warning: cast from 'const unsigned int *' to 'char *' drops const qualifier [-Wcast-qual]
+../libs/appleutility/CoreAudio/PublicUtility/CADebugMacros.h:74:186: note: expanded from macro 'CACopy4CCToCString'
+   74 |         #define CACopy4CCToCString(theCString, the4CC)  { theCString[0] = ((char*)&the4CC)[3]; theCString[1] = ((char*)&the4CC)[2]; theCString[2] = ((char*)&the4CC)[1]; theCString[3] = ((char*)&the4CC)[0]; theCString[4] = 0; }
+      |                                                                                                                                                                                                  ^
+4 warnings generated.
+
+[ 141/1197] Compiling libs/midi++2/channel.cc
+[ 142/1197] Compiling libs/midi++2/mtc.cc
+[ 143/1197] Compiling libs/midi++2/ipmidi_port.cc
+[ 144/1197] Compiling libs/midi++2/port.cc
+../libs/ptformat/ptformat.cc:669:11: warning: variable 'i' set but not used [-Wunused-but-set-variable]
+  669 |         uint32_t i, n;
+      |                  ^
+../libs/ptformat/ptformat.cc:1121:39: warning: variable 'mindex' set but not used [-Wunused-but-set-variable]
+ 1121 |         uint32_t i, j, k, n, rindex, tindex, mindex, count, rawindex;
+      |                                              ^
+2 warnings generated.
+
+[ 145/1197] Compiling libs/midi++2/midnam_patch.cc
+[ 146/1197] Linking build/libs/appleutility/libappleutility.dylib
+[ 147/1197] Linking build/libs/ptformat/libptformat.dylib
+[ 148/1197] Linking build/libs/evoral/libevoral.dylib
+ld: warning: ignoring duplicate libraries: '-lglib-2.0', '-lgthread-2.0', '-lintl'
+
+[ 149/1197] Compiling libs/audiographer/src/general/loudness_reader.cc
+[ 150/1197] Compiling libs/audiographer/src/debug_utils.cc
+[ 151/1197] Compiling libs/audiographer/src/general/demo_noise.cc
+[ 152/1197] Compiling libs/audiographer/src/general/sr_converter.cc
+[ 153/1197] Compiling libs/audiographer/src/general/sample_format_converter.cc
+[ 154/1197] Compiling libs/audiographer/src/routines.cc
+[ 155/1197] Compiling libs/audiographer/src/general/analyser.cc
+[ 156/1197] Compiling libs/audiographer/src/general/sndfile.cc
+[ 157/1197] Compiling libs/audiographer/private/gdither/gdither.cc
+[ 158/1197] Compiling libs/audiographer/private/limiter/limiter.cc
+[ 159/1197] Compiling libs/audiographer/src/general/normalizer.cc
+[ 160/1197] Compiling libs/audiographer/src/general/broadcast_info.cc
+[ 161/1197] Compiling libs/audiographer/src/general/limiter.cc
+[ 162/1197] Compiling libs/lua/lua.cc
+[ 163/1197] Compiling libs/lua/luastate.cc
+[ 164/1197] Compiling libs/zita-resampler/cresampler.cc
+[ 165/1197] Compiling libs/zita-resampler/vmresampler.cc
+[ 166/1197] Compiling libs/zita-resampler/vresampler.cc
+[ 167/1197] Linking build/libs/midi++2/libmidipp.dylib
+In file included from ../libs/zita-resampler/vresampler.cc:25:
+../libs/zita-resampler/zita-resampler/vresampler.h:79:23: warning: private field '_dummy' is not used [-Wunused-private-field]
+   79 |         void                *_dummy [8];
+      |                              ^
+1 warning generated.
+
+[ 168/1197] Compiling libs/zita-resampler/resampler-table.cc
+In file included from ../libs/lua/lua.cc:102:
+../libs/lua/lua-5.3.5/lundump.c:237:33: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+  237 |   checkliteral(S, LUA_SIGNATURE + 1, "not a");  /* 1st char already checked */
+      |                   ~~~~~~~~~~~~~~^~~
+../libs/lua/lua-5.3.5/lundump.c:237:33: note: use array indexing to silence this warning
+  237 |   checkliteral(S, LUA_SIGNATURE + 1, "not a");  /* 1st char already checked */
+      |                                 ^  
+      |                   &             [  ]
+1 warning generated.
+
+[ 169/1197] Compiling libs/zita-resampler/resampler.cc
+[ 170/1197] Compiling libs/zita-convolver/zita-convolver.cc
+ld: warning: ignoring duplicate libraries: '-lsigc-2.0'
+
+[ 171/1197] Compiling libs/ardour/luabindings.cc
+[ 172/1197] Compiling libs/ardour/plugin_scan_result.cc
+[ 173/1197] Compiling libs/ardour/vst3_module.cc
+[ 174/1197] Compiling libs/ardour/polarity_processor.cc
+In file included from ../libs/zita-resampler/resampler.cc:25:
+../libs/zita-resampler/zita-resampler/resampler.h:73:23: warning: private field '_dummy' is not used [-Wunused-private-field]
+   73 |         void                *_dummy [8];
+      |                              ^
+1 warning generated.
+
+[ 175/1197] Compiling libs/ardour/plugin_manager.cc
+[ 176/1197] Linking build/libs/lua/libliblua.a
+[ 177/1197] Linking build/libs/zita-resampler/libzita-resampler.a
+[ 178/1197] Compiling libs/ardour/element_import_handler.cc
+In file included from ../libs/zita-convolver/zita-convolver.cc:29:
+../libs/zita-convolver/zita-convolver/zita-convolver.h:225:6: warning: private field '_error' is not used [-Wunused-private-field]
+  225 |         int _error;
+      |             ^
+../libs/zita-convolver/zita-convolver/zita-convolver.h:423:13: warning: private field '_dummy' is not used [-Wunused-private-field]
+  423 |         void*      _dummy[64];
+      |                    ^
+2 warnings generated.
+
+[ 179/1197] Compiling libs/ardour/vst_state.cc
+[ 180/1197] Linking build/libs/zita-convolver/libzita-convolver.a
+[ 181/1197] Compiling libs/ardour/vst2_scan.cc
+[ 182/1197] Linking build/libs/audiographer/libaudiographer.dylib
+ld: warning: ignoring duplicate libraries: '-lfftw3f_threads', '-lglib-2.0', '-lgthread-2.0', '-lintl', '-lsamplerate'
+
+[ 183/1197] Compiling libs/ardour/vst_plugin.cc
+[ 184/1197] Compiling libs/ardour/audiofile_tagger.cc
+[ 185/1197] Compiling libs/ardour/vst3_host.cc
+[ 186/1197] Compiling libs/ardour/audioengine.cc
+[ 187/1197] Compiling libs/ardour/port.cc
+[ 188/1197] Compiling libs/ardour/plugin.cc
+In file included from ../libs/ardour/vst3_host.cc:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:1842:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:21:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1294:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:940:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+In file included from ../libs/ardour/vst3_host.cc:20:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:1842:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:21:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1294:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:944:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/inout_ptr.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+../libs/ardour/vst3_host.cc:603:26: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  603 |         _plug_interface_support.reset (new PlugInterfaceSupport);
+      |                                 ^
+2 warnings generated.
+
+[ 189/1197] Compiling libs/ardour/io_tasklist.cc
+[ 190/1197] Compiling libs/ardour/vst3_scan.cc
+[ 191/1197] Compiling libs/ardour/lv2_plugin.cc
+[ 192/1197] Compiling libs/ardour/playlist_source.cc
+In file included from ../libs/ardour/vst3_scan.cc:19:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:42:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:220:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:262:71: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  262 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX23 ~unique_ptr() { reset(); }
+      |                                                                       ^
+../libs/ardour/ardour/vst3_host.h:284:10: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::~unique_ptr' requested here
+  284 |         virtual ~HostApplication () {}
+      |                 ^
+In file included from ../libs/ardour/vst3_scan.cc:19:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream:42:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios:220:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:24:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+2 warnings generated.
+
+[ 193/1197] Compiling libs/ardour/instrument_info.cc
+[ 194/1197] Compiling libs/ardour/zeroconf.cc
+[ 195/1197] Compiling libs/ardour/audio_track_importer.cc
+[ 196/1197] Compiling libs/ardour/video_tools_paths.cc
+[ 197/1197] Compiling libs/ardour/capturing_processor.cc
+[ 198/1197] Compiling libs/ardour/playlist_factory.cc
+In file included from ../libs/ardour/plugin_manager.cc:35:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream:317:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:14:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:262:71: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  262 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX23 ~unique_ptr() { reset(); }
+      |                                                                       ^
+../libs/ardour/ardour/vst3_host.h:284:10: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::~unique_ptr' requested here
+  284 |         virtual ~HostApplication () {}
+      |                 ^
+In file included from ../libs/ardour/plugin_manager.cc:35:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream:317:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h:14:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:24:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+2 warnings generated.
+
+[ 199/1197] Compiling libs/ardour/audio_track.cc
+[ 200/1197] Compiling libs/ardour/velocity_control.cc
+[ 201/1197] Compiling libs/ardour/audioanalyser.cc
+[ 202/1197] Compiling libs/ardour/lv2_evbuf.cc
+[ 203/1197] Compiling libs/ardour/playlist.cc
+[ 204/1197] Compiling libs/ardour/worker.cc
+[ 205/1197] Compiling libs/ardour/vumeterdsp.cc
+[ 206/1197] Compiling libs/ardour/audio_region_importer.cc
+In file included from ../libs/ardour/lv2_plugin.cc:100:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/lv2_plugin.cc:100:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+7 warnings generated.
+
+[ 207/1197] Compiling libs/ardour/plugin_insert.cc
+[ 208/1197] Compiling libs/ardour/dsp_filter.cc
+[ 209/1197] Compiling libs/ardour/ebur128_analysis.cc
+[ 210/1197] Compiling libs/ardour/phase_control.cc
+[ 211/1197] Compiling libs/ardour/audio_port.cc
+[ 212/1197] Compiling libs/ardour/import_pt.cc
+[ 213/1197] Compiling libs/ardour/automation_control.cc
+[ 214/1197] Compiling libs/ardour/parameter_descriptor.cc
+[ 215/1197] Compiling libs/ardour/audio_playlist_source.cc
+[ 216/1197] Compiling libs/ardour/vca_manager.cc
+[ 217/1197] Compiling libs/ardour/panner_shell.cc
+[ 218/1197] Compiling libs/ardour/vca.cc
+[ 219/1197] Compiling libs/ardour/disk_writer.cc
+[ 220/1197] Compiling libs/ardour/import.cc
+[ 221/1197] Compiling libs/ardour/audio_playlist_importer.cc
+[ 222/1197] Compiling libs/ardour/panner_manager.cc
+[ 223/1197] Compiling libs/ardour/user_bundle.cc
+[ 224/1197] Compiling libs/ardour/utils.cc
+[ 225/1197] Compiling libs/ardour/panner.cc
+[ 226/1197] Compiling libs/ardour/audio_playlist.cc
+[ 227/1197] Compiling libs/ardour/unknown_processor.cc
+[ 228/1197] Compiling libs/ardour/iec2ppmdsp.cc
+[ 229/1197] Compiling libs/ardour/audio_library.cc
+[ 230/1197] Compiling libs/ardour/triggerbox.cc
+[ 231/1197] Compiling libs/ardour/audio_buffer.cc
+[ 232/1197] Compiling libs/ardour/pannable.cc
+[ 233/1197] Compiling libs/ardour/transpose.cc
+[ 234/1197] Compiling libs/ardour/transport_master_manager.cc
+[ 235/1197] Compiling libs/ardour/audio_backend.cc
+[ 236/1197] Compiling libs/ardour/pan_controllable.cc
+[ 237/1197] Compiling libs/ardour/transport_master.cc
+In file included from ../libs/ardour/luabindings.cc:103:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/luabindings.cc:103:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+In file included from ../libs/ardour/luabindings.cc:50:
+In file included from ../libs/ardour/ardour/convolver.h:23:
+../libs/zita-convolver/zita-convolver/zita-convolver.h:225:6: warning: private field '_error' is not used [-Wunused-private-field]
+  225 |         int _error;
+      |             ^
+8 warnings generated.
+
+[ 238/1197] Compiling libs/ardour/butler.cc
+[ 239/1197] Compiling libs/ardour/disk_reader.cc
+[ 240/1197] Linking build/libs/ardour/libluabindings.a
+[ 241/1197] Compiling libs/ardour/iec1ppmdsp.cc
+[ 242/1197] Compiling libs/ardour/async_midi_port.cc
+[ 243/1197] Compiling libs/ardour/transform.cc
+[ 244/1197] Compiling libs/ardour/transport_fsm.cc
+[ 245/1197] Compiling libs/ardour/process_thread.cc
+[ 246/1197] Compiling libs/ardour/onset_detector.cc
+[ 247/1197] Compiling libs/ardour/transient_detector.cc
+../libs/ardour/triggerbox.cc:1024:2: warning: when Global Quantize is implemented, use that instead of '1 bar' here [-W#warnings]
+ 1024 | #warning when Global Quantize is implemented, use that instead of '1 bar' here
+      |  ^
+../libs/ardour/triggerbox.cc:3256:26: warning: use of bitwise '|' with boolean operands [-Wbitwise-instead-of-logical]
+ 3256 |         if (c == cues.rend() || (c->cue == CueRecord::stop_all) | (c->time == transport_position)) {
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                 ||
+../libs/ardour/triggerbox.cc:3256:26: note: cast one or both operands to int to silence this warning
+2 warnings generated.
+
+[ 248/1197] Compiling libs/ardour/analysis_graph.cc
+[ 249/1197] Compiling libs/ardour/track.cc
+[ 250/1197] Compiling libs/ardour/graph_edges.cc
+[ 251/1197] Compiling libs/ardour/mute_master.cc
+[ 252/1197] Compiling libs/ardour/ticker.cc
+[ 253/1197] Compiling libs/ardour/amp.cc
+[ 254/1197] Compiling libs/ardour/thread_buffers.cc
+[ 255/1197] Compiling libs/ardour/bundle.cc
+[ 256/1197] Compiling libs/ardour/mute_control.cc
+[ 257/1197] Compiling libs/ardour/thawlist.cc
+[ 258/1197] Compiling libs/ardour/analyser.cc
+[ 259/1197] Compiling libs/ardour/disk_io.cc
+[ 260/1197] Compiling libs/ardour/graphnode.cc
+[ 261/1197] Compiling libs/ardour/muteable.cc
+[ 262/1197] Compiling libs/ardour/mtdm.cc
+[ 263/1197] Compiling libs/ardour/tempo_map_importer.cc
+[ 264/1197] Compiling libs/ardour/template_utils.cc
+../libs/ardour/track.cc:1063:14: warning: variable 'total_capture' set but not used [-Wunused-but-set-variable]
+ 1063 |         samplecnt_t total_capture = 0;
+      |                     ^
+1 warning generated.
+
+[ 265/1197] Compiling libs/ardour/tailtime.cc
+[ 266/1197] Compiling libs/ardour/graph.cc
+[ 267/1197] Compiling libs/ardour/rt_midibuffer.cc
+[ 268/1197] Compiling libs/ardour/mtc_slave.cc
+[ 269/1197] Compiling libs/ardour/revision.cc
+[ 270/1197] Compiling libs/ardour/directory_names.cc
+[ 271/1197] Compiling libs/ardour/mp3filesource.cc
+[ 272/1197] Compiling libs/ardour/system_exec.cc
+[ 273/1197] Compiling libs/ardour/buffer_set.cc
+[ 274/1197] Compiling libs/ardour/mp3fileimportable.cc
+[ 275/1197] Compiling libs/ardour/surround_send.cc
+[ 276/1197] Compiling libs/ardour/globals.cc
+[ 277/1197] Compiling libs/ardour/monitor_return.cc
+[ 278/1197] Compiling libs/ardour/surround_return.cc
+[ 279/1197] Compiling libs/ardour/delivery.cc
+[ 280/1197] Compiling libs/ardour/surround_pannable.cc
+[ 281/1197] Compiling libs/ardour/monitor_processor.cc
+[ 282/1197] Compiling libs/ardour/strip_silence.cc
+[ 283/1197] Compiling libs/ardour/audioregion.cc
+[ 284/1197] Compiling libs/ardour/monitor_port.cc
+[ 285/1197] Compiling libs/ardour/gain_control.cc
+[ 286/1197] Compiling libs/ardour/stripable.cc
+[ 287/1197] Compiling libs/ardour/monitor_control.cc
+In file included from ../libs/ardour/surround_return.cc:29:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/surround_return.cc:29:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+../libs/ardour/surround_return.cc:292:24: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+  292 |                                         char local_buffer[len * 2];
+      |                                                           ^~~~~~~
+../libs/ardour/surround_return.cc:292:24: note: initializer of 'len' is not a constant expression
+../libs/ardour/surround_return.cc:291:16: note: declared here
+  291 |                                         const int len = CFStringGetLength (param->GetName());
+      |                                                   ^
+8 warnings generated.
+
+[ 288/1197] Compiling libs/ardour/srcfilesource.cc
+[ 289/1197] Compiling libs/ardour/fluid_synth.cc
+../libs/ardour/globals.cc:193:8: warning: unused variable 'fpu' [-Wunused-variable]
+  193 |                 FPU* fpu = FPU::instance ();
+      |                      ^~~
+../libs/ardour/globals.cc:876:7: warning: unused variable 'fpu' [-Wunused-variable]
+  876 |         FPU* fpu = FPU::instance ();
+      |              ^~~
+2 warnings generated.
+
+[ 290/1197] Compiling libs/ardour/speakers.cc
+[ 291/1197] Compiling libs/ardour/mode.cc
+[ 292/1197] Compiling libs/ardour/delayline.cc
+[ 293/1197] Compiling libs/ardour/source_factory.cc
+[ 294/1197] Compiling libs/ardour/automation.cc
+[ 295/1197] Compiling libs/ardour/source.cc
+[ 296/1197] Compiling libs/ardour/mixer_scene.cc
+[ 297/1197] Compiling libs/ardour/fixed_delay.cc
+[ 298/1197] Compiling libs/ardour/soundcloud_upload.cc
+[ 299/1197] Compiling libs/ardour/mix.cc
+[ 300/1197] Compiling libs/ardour/solo_safe_control.cc
+[ 301/1197] Compiling libs/ardour/solo_mute_release.cc
+[ 302/1197] Compiling libs/ardour/minibpm.cc
+../libs/ardour/minibpm.cc:173:12: warning: private field 'm_fs' is not used [-Wunused-private-field]
+  173 |     double m_fs;
+      |            ^
+1 warning generated.
+
+[ 303/1197] Compiling libs/ardour/find_session.cc
+[ 304/1197] Compiling libs/ardour/solo_isolate_control.cc
+[ 305/1197] Compiling libs/ardour/midiport_manager.cc
+[ 306/1197] Compiling libs/ardour/solo_control.cc
+[ 307/1197] Compiling libs/ardour/debug.cc
+[ 308/1197] Compiling libs/ardour/filter.cc
+[ 309/1197] Compiling libs/ardour/sndfilesource.cc
+[ 310/1197] Compiling libs/ardour/mididm.cc
+[ 311/1197] Compiling libs/ardour/filesystem_paths.cc
+[ 312/1197] Compiling libs/ardour/filename_extensions.cc
+[ 313/1197] Compiling libs/ardour/sndfileimportable.cc
+[ 314/1197] Compiling libs/ardour/midi_ui.cc
+[ 315/1197] Compiling libs/ardour/sndfile_helpers.cc
+[ 316/1197] Compiling libs/ardour/smf_source.cc
+[ 317/1197] Compiling libs/ardour/buffer_manager.cc
+[ 318/1197] Compiling libs/ardour/default_click.cc
+[ 319/1197] Compiling libs/ardour/file_source.cc
+[ 320/1197] Compiling libs/ardour/midi_track.cc
+[ 321/1197] Compiling libs/ardour/slavable.cc
+[ 322/1197] Compiling libs/ardour/slavable_automation_control.cc
+[ 323/1197] Compiling libs/ardour/midi_stretch.cc
+In file included from ../libs/ardour/midi_ui.cc:46:
+../libs/pbd/pbd/abstract_ui.cc:223:6: warning: variable 'cnt' set but not used [-Wunused-but-set-variable]
+  223 |         int cnt = 0;
+      |             ^
+1 warning generated.
+
+[ 324/1197] Compiling libs/ardour/midi_state_tracker.cc
+[ 325/1197] Compiling libs/ardour/data_type.cc
+[ 326/1197] Compiling libs/ardour/sidechain.cc
+[ 327/1197] Compiling libs/ardour/simple_export.cc
+[ 328/1197] Compiling libs/ardour/midi_source.cc
+[ 329/1197] Compiling libs/ardour/ffmpegfilesource.cc
+[ 330/1197] Compiling libs/ardour/ffmpegfileimportable.cc
+[ 331/1197] Compiling libs/ardour/session_transport.cc
+[ 332/1197] Compiling libs/ardour/session_time.cc
+[ 333/1197] Compiling libs/ardour/midi_scene_changer.cc
+In file included from ../libs/ardour/ffmpegfilesource.cc:20:
+../libs/ardour/ardour/ffmpegfilesource.h:56:6: warning: private field '_channel' is not used [-Wunused-private-field]
+   56 |         int _channel;
+      |             ^
+1 warning generated.
+
+[ 334/1197] Compiling libs/ardour/midi_scene_change.cc
+[ 335/1197] Compiling libs/ardour/export_timespan.cc
+[ 336/1197] Compiling libs/ardour/session_state_utils.cc
+[ 337/1197] Compiling libs/ardour/session_state.cc
+[ 338/1197] Compiling libs/ardour/cycle_timer.cc
+[ 339/1197] Compiling libs/ardour/midi_ring_buffer.cc
+[ 340/1197] Compiling libs/ardour/session_rtevents.cc
+[ 341/1197] Compiling libs/ardour/session_process.cc
+[ 342/1197] Compiling libs/ardour/midi_region.cc
+[ 343/1197] Compiling libs/ardour/export_status.cc
+[ 344/1197] Compiling libs/ardour/session_playlists.cc
+[ 345/1197] Compiling libs/ardour/export_smf_writer.cc
+[ 346/1197] Compiling libs/ardour/session_object.cc
+[ 347/1197] Compiling libs/ardour/automatable.cc
+[ 348/1197] Compiling libs/ardour/midi_port.cc
+[ 349/1197] Compiling libs/ardour/session_midi.cc
+[ 350/1197] Compiling libs/ardour/export_profile_manager.cc
+[ 351/1197] Compiling libs/ardour/midi_playlist.cc
+[ 352/1197] Compiling libs/ardour/session_handle.cc
+[ 353/1197] Compiling libs/ardour/session_metadata.cc
+[ 354/1197] Compiling libs/ardour/session_ltc.cc
+[ 355/1197] Compiling libs/ardour/buffer.cc
+[ 356/1197] Compiling libs/ardour/convolver.cc
+[ 357/1197] Compiling libs/ardour/session_export.cc
+[ 358/1197] Compiling libs/ardour/export_preset.cc
+[ 359/1197] Compiling libs/ardour/midi_patch_manager.cc
+[ 360/1197] Compiling libs/ardour/midi_model.cc
+../libs/ardour/export_profile_manager.cc:303:9: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+  303 |         return set_global_state (root) & set_local_state (root);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                        &&
+../libs/ardour/export_profile_manager.cc:303:9: note: cast one or both operands to int to silence this warning
+../libs/ardour/export_profile_manager.cc:309:9: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+  309 |         return init_filenames (root.children ("ExportFilename")) &
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                  &&
+  310 |                init_formats (root.children ("ExportFormat"));
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../libs/ardour/export_profile_manager.cc:309:9: note: cast one or both operands to int to silence this warning
+../libs/ardour/export_profile_manager.cc:316:9: warning: use of bitwise '&' with boolean operands [-Wbitwise-instead-of-logical]
+  316 |         return init_timespans (root.children ("ExportTimespan")) &
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                                                  &&
+  317 |                init_channel_configs (root.children ("ExportChannelConfiguration"));
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../libs/ardour/export_profile_manager.cc:316:9: note: cast one or both operands to int to silence this warning
+3 warnings generated.
+
+[ 361/1197] Compiling libs/ardour/session_events.cc
+[ 362/1197] Compiling libs/ardour/session_configuration.cc
+[ 363/1197] Compiling libs/ardour/session_directory.cc
+[ 364/1197] Compiling libs/ardour/export_handler.cc
+[ 365/1197] Compiling libs/ardour/session_command.cc
+In file included from ../libs/ardour/session_configuration.cc:37:
+../libs/ardour/ardour/session_configuration.h:76:6: warning: private field 'foo' is not used [-Wunused-private-field]
+   76 |         int foo;
+      |             ^
+1 warning generated.
+
+[ 366/1197] Compiling libs/ardour/midi_clock_slave.cc
+In file included from ../libs/ardour/convolver.cc:28:
+In file included from ../libs/ardour/ardour/convolver.h:23:
+../libs/zita-convolver/zita-convolver/zita-convolver.h:225:6: warning: private field '_error' is not used [-Wunused-private-field]
+  225 |         int _error;
+      |             ^
+1 warning generated.
+
+[ 367/1197] Compiling libs/ardour/control_protocol_manager.cc
+[ 368/1197] Compiling libs/ardour/session_click.cc
+[ 369/1197] Compiling libs/ardour/export_graph_builder.cc
+[ 370/1197] Compiling libs/ardour/midi_channel_filter.cc
+[ 371/1197] Compiling libs/ardour/plug_insert_base.cc
+[ 372/1197] Compiling libs/ardour/session_bundles.cc
+[ 373/1197] Compiling libs/ardour/midi_buffer.cc
+[ 374/1197] Compiling libs/ardour/session.cc
+[ 375/1197] Compiling libs/ardour/send.cc
+[ 376/1197] Compiling libs/ardour/control_group.cc
+[ 377/1197] Compiling libs/ardour/broadcast_info.cc
+In file included from ../libs/ardour/plug_insert_base.cc:19:
+In file included from ../libs/ardour/ardour/plug_insert_base.h:22:
+In file included from ../libs/pbd/pbd/destructible.h:22:
+In file included from ../libs/pbd/pbd/signals.h:27:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:1731:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:1842:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:21:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1294:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:944:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/inout_ptr.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:262:71: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  262 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX23 ~unique_ptr() { reset(); }
+      |                                                                       ^
+../libs/ardour/ardour/vst3_host.h:284:10: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::~unique_ptr' requested here
+  284 |         virtual ~HostApplication () {}
+      |                 ^
+In file included from ../libs/ardour/plug_insert_base.cc:19:
+In file included from ../libs/ardour/ardour/plug_insert_base.h:22:
+In file included from ../libs/pbd/pbd/destructible.h:22:
+In file included from ../libs/pbd/pbd/signals.h:27:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/list:216:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+2 warnings generated.
+
+[ 378/1197] Compiling libs/ardour/export_formats.cc
+[ 379/1197] Compiling libs/ardour/selection.cc
+In file included from ../libs/ardour/export_handler.cc:44:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/export_handler.cc:44:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+7 warnings generated.
+
+[ 380/1197] Compiling libs/ardour/midi_automation_list_binder.cc
+[ 381/1197] Compiling libs/ardour/segment_descriptor.cc
+[ 382/1197] Compiling libs/ardour/export_format_manager.cc
+[ 383/1197] Compiling libs/ardour/meter.cc
+[ 384/1197] Compiling libs/ardour/search_paths.cc
+[ 385/1197] Compiling libs/ardour/export_format_specification.cc
+[ 386/1197] Compiling libs/ardour/scene_change.cc
+[ 387/1197] Compiling libs/ardour/lufs_meter.cc
+[ 388/1197] Compiling libs/ardour/rt_tasklist.cc
+[ 389/1197] Compiling libs/ardour/luascripting.cc
+[ 390/1197] Compiling libs/ardour/rt_task.cc
+[ 391/1197] Compiling libs/ardour/automation_watch.cc
+[ 392/1197] Compiling libs/ardour/luaproc.cc
+[ 393/1197] Compiling libs/ardour/config_text.cc
+[ 394/1197] Compiling libs/ardour/export_format_base.cc
+[ 395/1197] Compiling libs/ardour/rb_effect.cc
+[ 396/1197] Compiling libs/ardour/lua_api.cc
+[ 397/1197] Compiling libs/ardour/route_group_member.cc
+[ 398/1197] Compiling libs/ardour/export_filename.cc
+[ 399/1197] Compiling libs/ardour/route_group.cc
+[ 400/1197] Compiling libs/ardour/route.cc
+In file included from ../libs/ardour/session.cc:126:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/session.cc:126:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+In file included from ../libs/ardour/session.cc:32:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:1842:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:21:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1294:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:944:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/inout_ptr.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:262:71: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  262 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX23 ~unique_ptr() { reset(); }
+      |                                                                       ^
+../libs/ardour/ardour/vst3_host.h:284:10: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::~unique_ptr' requested here
+  284 |         virtual ~HostApplication () {}
+      |                 ^
+In file included from ../libs/ardour/session.cc:32:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm:1842:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each.h:16:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:21:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional:1294:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/memory:940:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+9 warnings generated.
+
+[ 401/1197] Compiling libs/ardour/ltc_slave.cc
+[ 402/1197] Compiling libs/ardour/return.cc
+../libs/ardour/luaproc.cc:1166:6: warning: variable 'cnt' set but not used [-Wunused-but-set-variable]
+ 1166 |         int cnt = 0;
+      |             ^
+1 warning generated.
+
+[ 403/1197] Compiling libs/ardour/export_failed.cc
+[ 404/1197] Compiling libs/ardour/reverse.cc
+[ 405/1197] Compiling libs/ardour/ltc_file_reader.cc
+[ 406/1197] Compiling libs/ardour/resampled_source.cc
+[ 407/1197] Compiling libs/ardour/clip_library.cc
+[ 408/1197] Compiling libs/ardour/region.cc
+[ 409/1197] Compiling libs/ardour/location_importer.cc
+[ 410/1197] Compiling libs/ardour/region_fx_plugin.cc
+[ 411/1197] Compiling libs/ardour/export_channel_configuration.cc
+../libs/ardour/ltc_slave.cc:461:14: warning: format specifies type 'long' but the argument has type 'samplepos_t' (aka 'long long') [-Wformat]
+  460 |                         snprintf (buf, sizeof (buf), "LTC@(%ld..%ld) rate %.3f %02d:%02d:%02d%c%02d | %8lld %8lld%s\n",
+      |                                                            ~~~
+      |                                                            %lld
+  461 |                                   now, now+ENGINE->samples_per_cycle(),
+      |                                   ^~~
+../libs/ardour/ltc_slave.cc:461:19: warning: format specifies type 'long' but the argument has type 'samplepos_t' (aka 'long long') [-Wformat]
+  460 |                         snprintf (buf, sizeof (buf), "LTC@(%ld..%ld) rate %.3f %02d:%02d:%02d%c%02d | %8lld %8lld%s\n",
+      |                                                                 ~~~
+      |                                                                 %lld
+  461 |                                   now, now+ENGINE->samples_per_cycle(),
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+
+[ 412/1197] Compiling libs/ardour/location.cc
+../libs/ardour/return.cc:49:81: warning: base class 'ARDOUR::IOProcessor' is uninitialized when used here to access 'ARDOUR::IOProcessor::_bitslot' [-Wuninitialized]
+   49 |         : IOProcessor (s, (internal ? false : true), false, name_and_id_new_return (s, _bitslot), "", DataType::AUDIO, true)
+      |                                                                                        ^
+1 warning generated.
+
+[ 413/1197] Compiling libs/ardour/record_safe_control.cc
+[ 414/1197] Compiling libs/ardour/region_factory.cc
+[ 415/1197] Compiling libs/ardour/export_channel.cc
+[ 416/1197] Compiling libs/ardour/library.cc
+In file included from ../libs/ardour/route.cc:98:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:86:27: warning: cast from 'const LV2_Atom_Sequence_Body *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   86 |   return (LV2_Atom_Event*)(body + 1);
+      |                           ^
+/opt/local/include/lv2/atom/util.h:93:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+   93 |   return (LV2_Atom_Event*)((const uint8_t*)body + lv2_atom_pad_size(size));
+      |                           ^
+/opt/local/include/lv2/atom/util.h:109:27: warning: cast from 'const unsigned char *' to 'LV2_Atom_Event *' drops const qualifier [-Wcast-qual]
+  109 |   return (LV2_Atom_Event*)((const uint8_t*)i + sizeof(LV2_Atom_Event) +
+      |                           ^
+/opt/local/include/lv2/atom/util.h:194:22: warning: cast from 'const LV2_Atom_Tuple *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  194 |   return (LV2_Atom*)(LV2_ATOM_BODY(tup));
+      |                      ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:102:29: note: expanded from macro 'LV2_ATOM_BODY'
+  102 | #define LV2_ATOM_BODY(atom) LV2_ATOM_CONTENTS(LV2_Atom, atom)
+      |                             ^
+/opt/local/include/lv2/lv2plug.in/ns/ext/atom/atom.h:90:58: note: expanded from macro 'LV2_ATOM_CONTENTS'
+   90 | #define LV2_ATOM_CONTENTS(type, atom) ((void*)((uint8_t*)(atom) + sizeof(type)))
+      |                                                          ^
+In file included from ../libs/ardour/route.cc:98:
+In file included from ../libs/ardour/ardour/surround_return.h:28:
+In file included from /opt/local/include/lv2/lv2plug.in/ns/ext/atom/forge.h:55:
+/opt/local/include/lv2/atom/util.h:208:21: warning: cast from 'const unsigned char *' to 'LV2_Atom *' drops const qualifier [-Wcast-qual]
+  208 |   return (LV2_Atom*)((const uint8_t*)i + sizeof(LV2_Atom) +
+      |                     ^
+/opt/local/include/lv2/atom/util.h:248:35: warning: cast from 'const LV2_Atom_Object_Body *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  248 |   return (LV2_Atom_Property_Body*)(body + 1);
+      |                                   ^
+/opt/local/include/lv2/atom/util.h:266:35: warning: cast from 'const unsigned char *' to 'LV2_Atom_Property_Body *' drops const qualifier [-Wcast-qual]
+  266 |   return (LV2_Atom_Property_Body*)((const uint8_t*)i +
+      |                                   ^
+7 warnings generated.
+
+[ 417/1197] Compiling libs/ardour/record_enable_control.cc
+[ 418/1197] Compiling libs/ardour/automation_list.cc
+[ 419/1197] Compiling libs/ardour/recent_sessions.cc
+[ 420/1197] Compiling libs/ardour/raw_midi_parser.cc
+[ 421/1197] Compiling libs/ardour/legatize.cc
+[ 422/1197] Compiling libs/ardour/auditioner.cc
+[ 423/1197] Compiling libs/ardour/circular_buffer.cc
+[ 424/1197] Compiling libs/ardour/readonly_control.cc
+[ 425/1197] Compiling libs/ardour/latent.cc
+[ 426/1197] Compiling libs/ardour/readable.cc
+[ 427/1197] Compiling libs/ardour/enums.cc
+[ 428/1197] Compiling libs/ardour/rc_configuration.cc
+[ 429/1197] Compiling libs/ardour/event_type_map.cc
+[ 430/1197] Compiling libs/ardour/quantize.cc
+[ 431/1197] Compiling libs/ardour/kmeterdsp.cc
+[ 432/1197] Compiling libs/ardour/ladspa_plugin.cc
+[ 433/1197] Compiling libs/ardour/audiorom.cc
+[ 434/1197] Compiling libs/ardour/processor.cc
+[ 435/1197] Compiling libs/ardour/chan_mapping.cc
+[ 436/1197] Compiling libs/ardour/session_butler.cc
+[ 437/1197] Compiling libs/ardour/presentation_info.cc
+[ 438/1197] Compiling libs/ardour/audiosource.cc
+[ 439/1197] Compiling libs/ardour/engine_slave.cc
+[ 440/1197] Compiling libs/ardour/mac_vst_support.cc
+[ 441/1197] Compiling libs/ardour/element_importer.cc
+[ 442/1197] Compiling libs/ardour/mac_vst_plugin.cc
+../libs/ardour/ladspa_plugin.cc:684:11: warning: variable 'in_index' set but not used [-Wunused-but-set-variable]
+  684 |         uint32_t in_index = 0;
+      |                  ^
+../libs/ardour/ladspa_plugin.cc:685:11: warning: variable 'out_index' set but not used [-Wunused-but-set-variable]
+  685 |         uint32_t out_index = 0;
+      |                  ^
+2 warnings generated.
+
+[ 443/1197] Compiling libs/ardour/io_processor.cc
+[ 444/1197] Compiling libs/ardour/port_insert.cc
+[ 445/1197] Compiling libs/ardour/port_engine_shared.cc
+[ 446/1197] Compiling libs/ardour/coreaudiosource.cc
+[ 447/1197] Compiling libs/ardour/operations.cc
+[ 448/1197] Compiling libs/ardour/chan_count.cc
+[ 449/1197] Compiling libs/ardour/internal_send.cc
+[ 450/1197] Compiling libs/ardour/uri_map.cc
+[ 451/1197] Compiling libs/ardour/port_set.cc
+[ 452/1197] Compiling libs/ardour/audio_unit.cc
+[ 453/1197] Compiling libs/ardour/internal_return.cc
+[ 454/1197] Compiling libs/ardour/caimportable.cc
+[ 455/1197] Compiling libs/ardour/port_manager.cc
+[ 456/1197] Compiling libs/ardour/audiofilesource.cc
+../libs/ardour/port_insert.cc:50:59: warning: base class 'ARDOUR::IOProcessor' is uninitialized when used here to access 'ARDOUR::IOProcessor::_bitslot' [-Wuninitialized]
+   50 |         : IOProcessor (s, true, true, name_and_id_new_insert (s, _bitslot), "", DataType::AUDIO, true)
+      |                                                                  ^
+1 warning generated.
+
+[ 457/1197] Compiling libs/ardour/io_plug.cc
+[ 458/1197] Compiling libs/ardour/session_vst.cc
+[ 459/1197] Compiling libs/ardour/auv2_scan.cc
+[ 460/1197] Compiling libs/ardour/io.cc
+[ 461/1197] Compiling libs/ardour/vst3_plugin.cc
+[ 462/1197] Compiling libs/ctrl-interface/control_protocol/basic_ui.cc
+[ 463/1197] Compiling libs/ctrl-interface/control_protocol/control_protocol.cc
+[ 464/1197] Compiling libs/gtkmm2ext/nsglview.mm
+../libs/ardour/audio_unit.cc:248:49: warning: cast from 'const void *' to '__CFDictionary *' drops const qualifier [-Wcast-qual]
+  248 |                 CFDictionarySetValue ((CFMutableDictionaryRef)plist, CFSTR(kAUPresetNameKey), pn);
+      |                                                               ^
+../libs/ardour/audio_unit.cc:265:65: warning: cast from 'const void *' to '__CFDictionary *' drops const qualifier [-Wcast-qual]
+  265 |                 const void *p = CFDictionaryGetValue ((CFMutableDictionaryRef)plist, CFSTR(kAUPresetNameKey));
+      |                                                                               ^
+../libs/ardour/audio_unit.cc:270:22: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+  270 |                         char local_buffer[len];
+      |                                           ^~~
+../libs/ardour/audio_unit.cc:270:22: note: read of non-const variable 'len' is not allowed in a constant expression
+../libs/ardour/audio_unit.cc:268:8: note: declared here
+  268 |                         int len = CFStringGetLength(str);
+      |                             ^
+../libs/ardour/audio_unit.cc:487:34: warning: cast from 'const void *' to 'AUPreset *' drops const qualifier [-Wcast-qual]
+  487 |                 AUPreset* preset = (AUPreset*) CFArrayGetValueAtIndex (presets, i);
+      |                                                ^
+../libs/ardour/audio_unit.cc:636:22: warning: variable length arrays in C++ are a Clang extension [-Wvla-cxx-extension]
+  636 |                         char local_buffer[len*2];
+      |                                           ^~~~~
+../libs/ardour/audio_unit.cc:636:22: note: initializer of 'len' is not a constant expression
+../libs/ardour/audio_unit.cc:635:14: note: declared here
+  635 |                         const int len = CFStringGetLength (param->GetName());
+      |                                   ^
+../libs/ardour/audio_unit.cc:710:12: warning: 25 enumeration values not handled in switch: 'kAudioUnitParameterUnit_Generic', 'kAudioUnitParameterUnit_Indexed', 'kAudioUnitParameterUnit_Boolean'... [-Wswitch]
+  710 |                         switch (info.unit) {
+      |                                 ^~~~~~~~~
+../libs/ardour/audio_unit.cc:710:12: note: add missing switch cases
+  710 |                         switch (info.unit) {
+      |                                 ^
+  711 |                         case kAudioUnitParameterUnit_Decibels:
+  712 |                                 d.unit = ParameterDescriptor::DB;
+  713 |                                 break;
+  714 |                         case kAudioUnitParameterUnit_MIDINoteNumber:
+  715 |                                 d.unit = ParameterDescriptor::MIDI_NOTE;
+  716 |                                 break;
+  717 |                         case kAudioUnitParameterUnit_Hertz:
+  718 |                                 d.unit = ParameterDescriptor::HZ;
+  719 |                                 break;
+  720 |                         }
+../libs/ardour/audio_unit.cc:1975:81: warning: cast from 'const char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+ 1975 |         CFDataRef xmlData = CFDataCreateWithBytesNoCopy (kCFAllocatorDefault, (UInt8*) xml.data(), xml.length(), kCFAllocatorNull);
+      |                                                                                        ^
+../libs/ardour/audio_unit.cc:2282:69: warning: cast from 'const void *' to '__CFDictionary *' drops const qualifier [-Wcast-qual]
+ 2282 |                                 const void* psk = CFDictionaryGetValue ((CFMutableDictionaryRef)plist, CFSTR(kAUPresetNameKey));
+      |                                                                                                 ^
+../libs/ardour/audio_unit.cc:2493:34: warning: cast from 'const void *' to 'AUPreset *' drops const qualifier [-Wcast-qual]
+ 2493 |                 AUPreset* preset = (AUPreset*) CFArrayGetValueAtIndex (presets, i);
+      |                                                ^
+9 warnings generated.
+
+[ 465/1197] Compiling libs/gtkmm2ext/menu_elems.cc
+[ 466/1197] Compiling libs/gtkmm2ext/cell_renderer_color_selector.cc
+[ 467/1197] Compiling libs/gtkmm2ext/visibility_tracker.cc
+[ 468/1197] Compiling libs/gtkmm2ext/gtkapplication_quartz.mm
+[ 469/1197] Compiling libs/gtkmm2ext/cairo_theme.cc
+[ 470/1197] Compiling libs/gtkmm2ext/window_title.cc
+[ 471/1197] Compiling libs/gtkmm2ext/cairo_packer.cc
+[ 472/1197] Compiling libs/gtkmm2ext/utils.cc
+../libs/gtkmm2ext/nsglview.mm:26:10: fatal error: 'gdk/gdkquartz.h' file not found
+   26 | #include <gdk/gdkquartz.h>
+      |          ^~~~~~~~~~~~~~~~~
+1 error generated.
+
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1070:16: warning: incompatible pointer types assigning to 'GNSMenuItem *' from 'NSMenuItem * _Nonnull' [-Wincompatible-pointer-types]
+ 1070 |                 cocoa_item = [NSMenuItem separatorItem];
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1201:2: warning: You can safely ignore the next warning about a duplicate interface definition [-W#warnings]
+ 1201 | #warning You can safely ignore the next warning about a duplicate interface definition
+      |  ^
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1202:26: warning: duplicate definition of category 'NSWindowsMenu' on interface 'NSApplication' [-Wobjc-duplicate-category-definition]
+ 1202 | @interface NSApplication(NSWindowsMenu)
+      |                          ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSApplication.h:362:12: note: previous definition is here
+  362 | @interface NSApplication(NSWindowsMenu)
+      |            ^
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1504:2: error: use of undeclared identifier 'gdk_window_set_modal_notify'; did you mean 'gdk_window_get_modal_hint'?
+ 1504 |         gdk_window_set_modal_notify (gdk_quartz_modal_notify);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |         gdk_window_get_modal_hint
+/opt/local/include/gtk-2.0/gdk/gdkwindow.h:507:15: note: 'gdk_window_get_modal_hint' declared here
+  507 | gboolean      gdk_window_get_modal_hint   (GdkWindow       *window);
+      |               ^
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1504:31: error: cannot initialize a parameter of type 'GdkWindow *' (aka '_GdkDrawable *') with an lvalue of type 'void (GdkWindow *, gboolean)' (aka 'void (_GdkDrawable *, int)')
+ 1504 |         gdk_window_set_modal_notify (gdk_quartz_modal_notify);
+      |                                      ^~~~~~~~~~~~~~~~~~~~~~~
+/opt/local/include/gtk-2.0/gdk/gdkwindow.h:507:61: note: passing argument to parameter 'window' here
+  507 | gboolean      gdk_window_get_modal_hint   (GdkWindow       *window);
+      |                                                             ^
+../libs/gtkmm2ext/gtkapplication_quartz.mm:1518:23: warning: incompatible pointer types sending 'GtkApplicationDelegate *' to parameter of type 'id<NSApplicationDelegate> _Nullable' [-Wincompatible-pointer-types]
+ 1518 |         [ NSApp setDelegate: [GtkApplicationDelegate new]];
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/objc/NSObject.h:72:1: note: class method 'new' is assumed to return an instance of its receiver type ('GtkApplicationDelegate *')
+   72 | + (instancetype)new OBJC_SWIFT_UNAVAILABLE("use object initializers instead");
+      | ^
+4 warnings and 2 errors generated.
+
+In file included from ../libs/gtkmm2ext/utils.cc:32:
+In file included from /opt/local/include/gtkmm-2.4/gtkmm/widget.h:48:
+In file included from /opt/local/include/gtkmm-2.4/gtkmm/rc.h:31:
+In file included from /opt/local/include/gtkmm-2.4/gtkmm/style.h:46:
+In file included from /opt/local/include/gtkmm-2.4/gtkmm/iconset.h:35:
+In file included from /opt/local/include/gtkmm-2.4/gtkmm/stockid.h:26:
+In file included from /opt/local/include/glibmm-2.4/glibmm.h:113:
+In file included from /opt/local/include/glibmm-2.4/glibmm/helperlist.h:28:
+/opt/local/include/glibmm-2.4/glibmm/containers.h:212:12: warning: binding dereferenced null pointer to reference has undefined behavior [-Wnull-dereference]
+  212 |     return *static_cast<pointer>(nullptr); // boom!
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/local/include/glibmm-2.4/glibmm/containers.h:215:40: note: in instantiation of member function 'Glib::List_Cpp_Iterator<_GtkMenuItem, Gtk::MenuItem>::operator*' requested here
+  215 |   pointer operator->() const { return &**this; }
+      |                                        ^
+/opt/local/include/glibmm-2.4/glibmm/containers.h:353:47: note: in instantiation of member function 'Glib::List_Cpp_Iterator<_GtkMenuItem, Gtk::MenuItem>::operator->' requested here
+  353 |   pointer operator->() const { return T_Base::operator->(); }
+      |                                               ^
+../libs/gtkmm2ext/utils.cc:319:59: note: in instantiation of member function 'Glib::List_ConstIterator<Glib::List_Cpp_Iterator<_GtkMenuItem, Gtk::MenuItem>>::operator->' requested here
+  319 |                 const Label* label_widget = dynamic_cast<const Label*>(i->get_child());
+      |                                                                         ^
+1 warning generated.
+
+In file included from ../libs/ardour/vst3_plugin.cc:19:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/regex:799:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:32:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:81:5: warning: delete called on non-final 'Steinberg::PlugInterfaceSupport' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+   81 |     delete __ptr;
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:293:7: note: in instantiation of member function 'std::default_delete<Steinberg::PlugInterfaceSupport>::operator()' requested here
+  293 |       __ptr_.second()(__tmp);
+      |       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/unique_ptr.h:262:71: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::reset' requested here
+  262 |   _LIBCPP_HIDE_FROM_ABI _LIBCPP_CONSTEXPR_SINCE_CXX23 ~unique_ptr() { reset(); }
+      |                                                                       ^
+../libs/ardour/ardour/vst3_host.h:284:10: note: in instantiation of member function 'std::unique_ptr<Steinberg::PlugInterfaceSupport>::~unique_ptr' requested here
+  284 |         virtual ~HostApplication () {}
+      |                 ^
+In file included from ../libs/ardour/vst3_plugin.cc:19:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/regex:799:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale:15:
+In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/shared_ptr.h:24:
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:81: warning: destructor called on non-final 'Steinberg::Vst3ParamValueQueue' that has virtual functions but non-virtual destructor [-Wdelete-non-abstract-non-virtual-dtor]
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator_traits.h:334:9: note: in instantiation of member function 'std::allocator<Steinberg::Vst3ParamValueQueue>::destroy' requested here
+  334 |     __a.destroy(__p);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:985:23: note: in instantiation of function template specialization 'std::allocator_traits<std::allocator<Steinberg::Vst3ParamValueQueue>>::destroy<Steinberg::Vst3ParamValueQueue, 0>' requested here
+  985 |       __alloc_traits::destroy(__alloc(), std::__to_address(--__soon_to_be_end));
+      |                       ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:979:5: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__base_destruct_at_end' requested here
+  979 |     __base_destruct_at_end(this->__begin_);
+      |     ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:530:16: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__clear' requested here
+  530 |         __vec_.__clear();
+      |                ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/vector:541:67: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::__destroy_vector::operator()' requested here
+  541 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector (*this)(); }
+      |                                                                   ^
+../libs/ardour/ardour/vst3_host.h:376:2: note: in instantiation of member function 'std::vector<Steinberg::Vst3ParamValueQueue>::~vector' requested here
+  376 |         Vst3ParameterChanges ()
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/allocator.h:168:87: note: qualify call to silence this warning
+  168 |   _LIBCPP_DEPRECATED_IN_CXX17 _LIBCPP_HIDE_FROM_ABI void destroy(pointer __p) { __p->~_Tp(); }
+      |                                                                                       ^
+2 warnings generated.
+
+Waf: Leaving directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Build failed
+ -> task in 'libgtkmm2ext' failed with exit status 1 (run with -v to display more information)
+ -> task in 'libgtkmm2ext' failed with exit status 1 (run with -v to display more information)

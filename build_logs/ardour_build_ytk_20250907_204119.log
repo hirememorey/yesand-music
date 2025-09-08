@@ -1,0 +1,80 @@
+Waf: Entering directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Git version: 8.9
+
+Writing revision info to libs/ardour/revision.cc using 8.9, 2024-10-08
+[1119/1765] Linking build/libs/waveview/libwaveview.dylib
+[1153/1765] Compiling libs/vamp-plugins/KeyDetect.cpp
+[1156/1765] Compiling libs/vamp-plugins/ChromagramPlugin.cpp
+[1157/1765] Compiling libs/vamp-plugins/BeatTrack.cpp
+[1159/1765] Compiling libs/vamp-plugins/plugins.cpp
+[1162/1765] Compiling libs/tk/suil/cocoa_in_gtk2.mm
+[1163/1765] Compiling libs/surfaces/generic_midi/gmcp_gui.cc
+[1164/1765] Compiling libs/surfaces/generic_midi/generic_midi_control_protocol.cc
+ld: warning: ignoring duplicate libraries: '-lcairo', '-lcairomm-1.0', '-lglib-2.0', '-lglibmm-2.4', '-lgobject-2.0', '-lintl', '-lsigc-2.0'
+
+[1165/1765] Compiling libs/surfaces/generic_midi/midiinvokable.cc
+../libs/vamp-plugins/KeyDetect.cpp:155:24: error: no matching constructor for initialization of 'GetKeyMode'
+  155 |     m_getKeyMode = new GetKeyMode(int(m_inputSampleRate + 0.1),
+      |                        ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  156 |                                   m_tuningFrequency,
+      |                                   ~~~~~~~~~~~~~~~~~~
+  157 |                                   m_length, m_length);
+      |                                   ~~~~~~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:42:5: note: candidate constructor not viable: requires single argument 'config', but 4 arguments were provided
+   42 |     GetKeyMode(Config config);
+      |     ^          ~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:19:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 4 were provided
+   19 | class GetKeyMode  
+      |       ^~~~~~~~~~
+../libs/vamp-plugins/KeyDetect.cpp:184:28: error: no matching constructor for initialization of 'GetKeyMode'
+  184 |         m_getKeyMode = new GetKeyMode(int(m_inputSampleRate + 0.1),
+      |                            ^          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  185 |                                       m_tuningFrequency,
+      |                                       ~~~~~~~~~~~~~~~~~~
+  186 |                                       m_length, m_length);
+      |                                       ~~~~~~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:42:5: note: candidate constructor not viable: requires single argument 'config', but 4 arguments were provided
+   42 |     GetKeyMode(Config config);
+      |     ^          ~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:19:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 4 were provided
+   19 | class GetKeyMode  
+      |       ^~~~~~~~~~
+../libs/vamp-plugins/KeyDetect.cpp:293:32: error: no member named 'isModeMinor' in 'GetKeyMode'
+  293 |     bool minor = m_getKeyMode->isModeMinor(key);
+      |                  ~~~~~~~~~~~~  ^
+../libs/vamp-plugins/KeyDetect.cpp:310:45: error: no member named 'isModeMinor' in 'GetKeyMode'
+  310 |     if (m_first || (minor != (m_getKeyMode->isModeMinor(m_prevKey)))) {
+      |                               ~~~~~~~~~~~~  ^
+../libs/vamp-plugins/KeyDetect.cpp:355:20: error: no matching constructor for initialization of 'GetKeyMode'
+  355 |         GetKeyMode gkm(int(m_inputSampleRate + 0.1),
+      |                    ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  356 |                        m_tuningFrequency, m_length, m_length);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:42:5: note: candidate constructor not viable: requires single argument 'config', but 4 arguments were provided
+   42 |     GetKeyMode(Config config);
+      |     ^          ~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:19:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 4 were provided
+   19 | class GetKeyMode  
+      |       ^~~~~~~~~~
+../libs/vamp-plugins/KeyDetect.cpp:367:20: error: no matching constructor for initialization of 'GetKeyMode'
+  367 |         GetKeyMode gkm(int(m_inputSampleRate + 0.1),
+      |                    ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  368 |                        m_tuningFrequency, m_length, m_length);
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:42:5: note: candidate constructor not viable: requires single argument 'config', but 4 arguments were provided
+   42 |     GetKeyMode(Config config);
+      |     ^          ~~~~~~~~~~~~~
+/Users/harrisgordon/Documents/Development/Audio/qm-dsp/dsp/keydetection/GetKeyMode.h:19:7: note: candidate constructor (the implicit copy constructor) not viable: requires 1 argument, but 4 were provided
+   19 | class GetKeyMode  
+      |       ^~~~~~~~~~
+6 errors generated.
+
+In file included from ../libs/surfaces/generic_midi/generic_midi_control_protocol.cc:69:
+../libs/pbd/pbd/abstract_ui.cc:223:6: warning: variable 'cnt' set but not used [-Wunused-but-set-variable]
+  223 |         int cnt = 0;
+      |             ^
+1 warning generated.
+
+Waf: Leaving directory `/Users/harrisgordon/Documents/Development/Audio/ardour/build'
+Build failed
+ -> task in 'libardourvampplugins' failed with exit status 1 (run with -v to display more information)

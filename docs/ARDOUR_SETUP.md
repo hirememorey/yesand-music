@@ -141,15 +141,39 @@ Artifacts will be placed under `build/`:
 - GUI: `build/gtk2_ardour/ardour-8.9.0`
 - Headless: `build/headless/hardour-8.9.0`
 
-Run:
+**IMPORTANT**: To launch Ardour from the build directory, you must set the correct environment variables for backend detection:
+
 ```bash
-./build/gtk2_ardour/ardour-8.9.0
-# or headless
+BUILD="$HOME/Documents/Development/Audio/ardour/build"
+env \
+  ARDOUR_DATA_PATH="$HOME/Documents/Development/Audio/ardour/gtk2_ardour:$HOME/Documents/Development/Audio/ardour/share" \
+  ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8" \
+  ARDOUR_DLL_PATH="$BUILD/gtk2_ardour" \
+  ARDOUR_BACKEND_PATH="$BUILD/libs/backends/coreaudio:$BUILD/libs/backends/dummy" \
+  "$BUILD/gtk2_ardour/ardour-8.9.0" -n --no-announcements --no-splash -N TestSession
+```
+
+Key points:
+- `ARDOUR_BACKEND_PATH` must point to the specific backend subdirectories (`coreaudio` and `dummy`), not the parent `backends` directory
+- This enables proper audio/MIDI backend detection and prevents the "No audio/MIDI backends detected" error
+- The GUI will launch with CoreAudio devices detected and MIDI ports registered
+
+Headless launch:
+```bash
 ./build/headless/hardour-8.9.0 --help
 ```
 
-### Current focus / next step
-- Integrate Ardour into the control plane: add OSC/Lua hooks to expose session state and route MIDI as we do today via IAC.
+### OSC Integration (Next Steps)
+Once Ardour is running:
+1. **Enable OSC**: Preferences → Control Surfaces → enable "Open Sound Control (OSC)" → set UDP port to 3819
+2. **Test OSC**: 
+   ```bash
+   lsof -nP -iUDP:3819  # Verify OSC is listening
+   /opt/local/bin/oscsend localhost 3819 /ardour/ping
+   /opt/local/bin/oscsend localhost 3819 /ardour/version
+   /opt/local/bin/oscsend localhost 3819 /transport_play
+   ```
+3. **Integrate with control plane**: Add OSC/Lua hooks to expose session state and route MIDI as we do today via IAC.
 
 ### Why Ardour
 - Ardour provides OSC/Lua scripting, LV2, and robust state access not available in GarageBand. Source: `https://github.com/Ardour/ardour`.

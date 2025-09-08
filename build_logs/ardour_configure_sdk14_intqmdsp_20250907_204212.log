@@ -1,0 +1,47 @@
+Setting top to                           : /Users/harrisgordon/Documents/Development/Audio/ardour 
+Setting out to                           : /Users/harrisgordon/Documents/Development/Audio/ardour/build 
+Checking for 'gcc' (C compiler)          : not found 
+Checking for 'clang' (C compiler)        : /usr/bin/clang 
+Checking for 'g++' (C++ compiler)        : not found 
+Checking for 'clang++' (C++ compiler)    : /usr/bin/clang++ 
+
+Global Configuration 
+ * Install prefix                                    : /usr/local 
+ * Debuggable build                                  : True 
+ * Build documentation                               : False 
+
+Ardour Configuration 
+ * Will build against private GTK dependency stack   : no 
+ * Will use explicit linkage against libintl in /Users/harrisgordon/gtk/inst : yes 
+ * Will build against private Ardour dependency stack : no 
+No Carbon support available for this build
+
+Checking for function 'dlopen' in dlfcn.h            : yes 
+Checking for boost library >= 1.68                   : yes 
+Checking for program 'pkg-config'                    : /opt/local/bin/pkg-config 
+Checking for 'glib-2.0' >= 2.28                      : yes 
+Checking for 'gthread-2.0' >= 2.2                    : yes 
+Checking for 'glibmm-2.4' >= 2.32.0                  : yes 
+Checking for 'sndfile' >= 1.0.18                     : yes 
+Checking for 'giomm-2.4' >= 2.2                      : yes 
+Checking for 'libcurl' >= 7.0.0                      : yes 
+Checking for 'libarchive' >= 3.0.0                   : yes 
+Checking for 'liblo' >= 0.26                         : yes 
+Checking for 'taglib' >= 1.9                         : yes 
+Checking for 'vamp-sdk' >= 2.1                       : yes 
+Checking for 'vamp-hostsdk' >= 2.1                   : yes 
+Checking for 'rubberband'                            : yes 
+Checking for 'libusb-1.0' >= 1.0.16                  : yes 
+Checking for rubberband >= 3.0.0                     : yes 
+Checking for sndfile RF64=>RIFF support              : Found 
+Checking for int128 support                          : lots of bits found. 
+Checking for clang                                   : yes 
+Checking for clang >= 15                             : yes 
+Checking for compiler flags ['-std=c++17']           : yes 
+
+Warning: you are building Ardour with SSE support even though your system does not support these instructions. (This may not be an error, especially if you are a package maintainer)
+Checking for 'fftw3f'                                : yes 
+Checking for 'fluidsynth' >= 2.0.1                   : yes 
+Checking for 'hidapi-hidraw'                         : not found 
+Checking for 'ltc' >= 1.1.1                          : yes 
+Checking for qm-dsp headers                          : not found 

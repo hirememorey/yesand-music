@@ -1,0 +1,179 @@
+[ardour-build] Self-updating MacPorts (non-interactive)
+--->  Checking for newer releases of MacPorts
+MacPorts base version 2.11.5 installed,
+MacPorts base version 2.11.5 available.
+--->  MacPorts base is already the latest version
+--->  Updating the ports tree
+
+The ports tree has been updated.
+
+2 ports are outdated. Run 'port outdated' for details.
+To upgrade your installed ports, you should run
+  port upgrade outdated
+[ardour-build] Installing toolchain and libraries via MacPorts (this may take a while)
+--->  Computing dependencies for pkgconfig
+--->  Cleaning pkgconfig
+--->  Computing dependencies for git
+--->  Cleaning git
+--->  Computing dependencies for wget
+--->  Cleaning wget
+--->  Computing dependencies for cmake
+--->  Cleaning cmake
+--->  Computing dependencies for ninja
+--->  Cleaning ninja
+--->  Computing dependencies for python311
+--->  Cleaning python311
+--->  Computing dependencies for py311-pip
+--->  Cleaning py311-pip
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+[ardour-build] Installing GTKmm stack, audio libs, LV2, and dependencies
+--->  Computing dependencies for gtkmm3
+--->  Cleaning gtkmm3
+--->  Computing dependencies for glibmm
+--->  Cleaning glibmm
+--->  Computing dependencies for pangomm
+--->  Cleaning pangomm
+--->  Computing dependencies for cairomm
+--->  Cleaning cairomm
+--->  Cleaning libsigcxx2
+--->  Computing dependencies for libsndfile
+--->  Cleaning libsndfile
+--->  Cleaning libogg
+--->  Computing dependencies for libvorbis
+--->  Cleaning libvorbis
+--->  Computing dependencies for curl
+--->  Cleaning curl
+--->  Computing dependencies for libarchive
+--->  Cleaning libarchive
+--->  Computing dependencies for libsamplerate
+--->  Cleaning libsamplerate
+--->  Cleaning liblo
+--->  Computing dependencies for fftw-3-single
+--->  Cleaning fftw-3-single
+--->  Cleaning libusb
+--->  Computing dependencies for taglib
+--->  Cleaning taglib
+--->  Cleaning lv2
+--->  Computing dependencies for lilv
+--->  Cleaning lilv
+--->  Cleaning serd
+--->  Computing dependencies for sord
+--->  Cleaning sord
+--->  Computing dependencies for sratom
+--->  Cleaning sratom
+--->  Computing dependencies for rubberband
+--->  Cleaning rubberband
+--->  Computing dependencies for aubio
+--->  Cleaning aubio
+--->  Computing dependencies for fluidsynth
+--->  Cleaning fluidsynth
+--->  Fetching archive for hidapi
+--->  Attempting to fetch hidapi-0.12.0_0.darwin_24.arm64.tbz2 from https://packages.macports.org/hidapi
+--->  Attempting to fetch hidapi-0.12.0_0.darwin_24.arm64.tbz2.rmd160 from https://packages.macports.org/hidapi
+--->  Installing hidapi @0.12.0_0
+--->  Activating hidapi @0.12.0_0
+--->  Cleaning hidapi
+--->  Fetching archive for libltc
+--->  Attempting to fetch libltc-1.3.2_0.darwin_24.arm64.tbz2 from https://packages.macports.org/libltc
+--->  Attempting to fetch libltc-1.3.2_0.darwin_24.arm64.tbz2.rmd160 from https://packages.macports.org/libltc
+--->  Installing libltc @1.3.2_0
+--->  Activating libltc @1.3.2_0
+--->  Cleaning libltc
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+[ardour-build] Installing Boost 1.76 (headers and libs under versioned prefix)
+--->  Computing dependencies for boost176
+--->  Cleaning boost176
+--->  Scanning binaries for linking errors
+--->  No broken files found.
+--->  No broken ports found.
+[ardour-build] Preparing directories: /Users/harrisgordon/Documents/Development/Audio
+[ardour-build] Ardour repo exists, updating
+[ardour-build] Ensuring tags are available for waf version detection
+[ardour-build] Building and installing Vamp Plugin SDK to /opt/local
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/vamp-plugin-sdk/build
+[ 29%] Built target vamp-sdk
+[100%] Built target vamp-hostsdk
+-- Install configuration: "Release"
+-- Installing: /opt/local/lib/libvamp-sdk.a
+-- Installing: /opt/local/lib/libvamp-hostsdk.a
+-- Up-to-date: /opt/local/include/vamp/vamp.h
+-- Up-to-date: /opt/local/include/vamp-sdk/FFT.h
+-- Up-to-date: /opt/local/include/vamp-sdk/Plugin.h
+-- Up-to-date: /opt/local/include/vamp-sdk/PluginAdapter.h
+-- Up-to-date: /opt/local/include/vamp-sdk/PluginBase.h
+-- Up-to-date: /opt/local/include/vamp-sdk/RealTime.h
+-- Up-to-date: /opt/local/include/vamp-sdk/plugguard.h
+-- Up-to-date: /opt/local/include/vamp-sdk/vamp-sdk.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/Plugin.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginBase.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginBufferingAdapter.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginChannelAdapter.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginHostAdapter.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginInputDomainAdapter.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginLoader.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginSummarisingAdapter.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/PluginWrapper.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/RealTime.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/host-c.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/hostguard.h
+-- Up-to-date: /opt/local/include/vamp-hostsdk/vamp-hostsdk.h
+-- Up-to-date: /opt/local/lib/pkgconfig/vamp.pc
+-- Up-to-date: /opt/local/lib/pkgconfig/vamp-sdk.pc
+-- Up-to-date: /opt/local/lib/pkgconfig/vamp-hostsdk.pc
+[ardour-build] Verifying vamp-sdk via pkg-config
+2.10
+[ardour-build] Configuring Ardour with external system libraries (CoreAudio backend)
+'distclean' finished successfully (0.007s)
+[0mSetting top to                           :[0m [32m/Users/harrisgordon/Documents/Development/Audio/ardour[0m 
+[0mSetting out to                           :[0m [32m/Users/harrisgordon/Documents/Development/Audio/ardour/build[0m 
+[0mChecking for 'gcc' (C compiler)          :[0m [33mnot found[0m 
+[0mChecking for 'clang' (C compiler)        :[0m [32m/usr/bin/clang[0m 
+[0mChecking for 'g++' (C++ compiler)        :[0m [33mnot found[0m 
+[0mChecking for 'clang++' (C++ compiler)    :[0m [32m/usr/bin/clang++[0m 
+
+[01;1mGlobal Configuration[0m 
+[01;1m *[0m [0mInstall prefix                                   [0m [01;1m:[0m [36m/usr/local[0m 
+[01;1m *[0m [0mDebuggable build                                 [0m [01;1m:[0m [32mTrue[0m 
+[01;1m *[0m [0mBuild documentation                              [0m [01;1m:[0m [33mFalse[0m 
+
+[01;1mArdour Configuration[0m 
+[01;1m *[0m [0mWill build against private GTK dependency stack  [0m [01;1m:[0m [36mno[0m 
+[01;1m *[0m [0mWill use explicit linkage against libintl in /Users/harrisgordon/gtk/inst[0m [01;1m:[0m [36myes[0m 
+[01;1m *[0m [0mWill build against private Ardour dependency stack[0m [01;1m:[0m [36mno[0m 
+No Carbon support available for this build
+
+[0mChecking for function 'dlopen' in dlfcn.h            :[0m [32myes[0m 
+[0mChecking for boost library >= 1.68                   :[0m [32myes[0m 
+[0mChecking for program 'pkg-config'                    :[0m [32m/opt/local/bin/pkg-config[0m 
+[0mChecking for 'glib-2.0' >= 2.28                      :[0m [32myes[0m 
+[0mChecking for 'gthread-2.0' >= 2.2                    :[0m [32myes[0m 
+[0mChecking for 'glibmm-2.4' >= 2.32.0                  :[0m [32myes[0m 
+[0mChecking for 'sndfile' >= 1.0.18                     :[0m [32myes[0m 
+[0mChecking for 'giomm-2.4' >= 2.2                      :[0m [32myes[0m 
+[0mChecking for 'libcurl' >= 7.0.0                      :[0m [32myes[0m 
+[0mChecking for 'libarchive' >= 3.0.0                   :[0m [32myes[0m 
+[0mChecking for 'liblo' >= 0.26                         :[0m [32myes[0m 
+[0mChecking for 'taglib' >= 1.9                         :[0m [32myes[0m 
+[0mChecking for 'vamp-sdk' >= 2.1                       :[0m [32myes[0m 
+[0mChecking for 'vamp-hostsdk' >= 2.1                   :[0m [32myes[0m 
+[0mChecking for 'rubberband'                            :[0m [32myes[0m 
+[0mChecking for 'libusb-1.0' >= 1.0.16                  :[0m [32myes[0m 
+[0mChecking for rubberband >= 3.0.0                     :[0m [32myes[0m 
+[0mChecking for sndfile RF64=>RIFF support              :[0m [32mFound[0m 
+[0mChecking for int128 support                          :[0m [32mlots of bits found.[0m 
+[0mChecking for clang                                   :[0m [32myes[0m 
+[0mChecking for clang >= 15                             :[0m [32myes[0m 
+[0mChecking for compiler flags ['-std=c++17']           :[0m [32myes[0m 
+
+Warning: you are building Ardour with SSE support even though your system does not support these instructions. (This may not be an error, especially if you are a package maintainer)
+[0mChecking for 'fftw3f'                                :[0m [32myes[0m 
+[0mChecking for 'fluidsynth' >= 2.0.1                   :[0m [32myes[0m 
+[0mChecking for 'hidapi-hidraw'                         :[0m [33mnot found[0m 
+[0mChecking for 'ltc' >= 1.1.1                          :[0m [32myes[0m 
+[0mChecking for qm-dsp headers                          :[0m [33mnot found[0m 
