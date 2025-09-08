@@ -3,14 +3,12 @@
 This document captures the exact state of our Ardour build attempt on macOS and provides step‑by‑step commands to reproduce and continue.
 
 ### Quick resume (current state)
-- Environment: MacPorts‑only PATH (no Homebrew), Xcode CLT present, Apple Silicon (arm64).
+- Platform: macOS (Apple Silicon arm64), MacPorts‑only PATH (no Homebrew), Xcode CLT present.
 - Dependencies: Curated ports installed (toolchain, GTKmm3 stack, LV2 stack, audio libs, Boost 1.76 via MacPorts).
-- Vamp SDK: Built and installed to `/opt/local` (`vamp-sdk.pc` and `vamp-hostsdk.pc` available, version 2.10).
-- qm‑dsp: Built from source with `make -f build/osx/Makefile.osx` using `ARCHFLAGS="-mmacosx-version-min=11.0 -arch arm64"` in `~/Documents/Development/Audio/qm-dsp`.
-- Ardour source: Cloned; checked out tag `8.9` (ensures waf version parsing works).
-- Configure: Succeeds with external libs, CoreAudio, arm64, and qm‑dsp hints.
-- Build status: Fails due to Darwin alias errors in internal YDK (YTK path). We will disable YTK and use external GTK2 instead.
-- Phase 1 complete: Installed external GTK2 stack (`gtk2`, `gtkmm` 2.4) and `liblrdf` via MacPorts. `suil` is not available in MacPorts and is skipped unless configure requires it. Next step: re‑configure with `--no-ytk` and rebuild.
+- Vamp SDK: Built and installed to `/opt/local` (`vamp-sdk.pc` and `vamp-hostsdk.pc`).
+- Ardour source: Cloned; tag `8.9` checked out.
+- Result: Build completed successfully using internal YTK.
+- Key build inputs: SDKROOT pinned to macOS 14.x (e.g., `/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk`), `MACOSX_DEPLOYMENT_TARGET=11.0`, arm64, `--keepflags`, and alias/visibility defines.
 
 To continue exactly where we left off, jump to "Continue here" below.
 
@@ -93,20 +91,23 @@ make -f build/osx/Makefile.osx ARCHFLAGS="-mmacosx-version-min=11.0 -arch arm64"
 # library will be at: $HOME/Documents/Development/Audio/qm-dsp/libqm-dsp.a
 ```
 
-### Configure Ardour (CoreAudio)
-Boost headers/libs live under `/opt/local/libexec/boost/1.76`. Point waf to them, and to MacPorts pkg-config paths:
+### Configure Ardour (CoreAudio, internal YTK)
+Boost headers/libs live under `/opt/local/libexec/boost/1.76`. Use a clean environment, pin SDK and deployment target, keep flags, and add alias/visibility defines:
 ```bash
 cd "$HOME/Documents/Development/Audio/ardour"
-env \
+env -i \
+  PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin" \
+  PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" \
+  SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX14.5.sdk" \
+  MACOSX_DEPLOYMENT_TARGET="11.0" \
   BOOST_ROOT="/opt/local/libexec/boost/1.76" \
   BOOST_INCLUDEDIR="/opt/local/libexec/boost/1.76/include" \
   BOOST_LIBRARYDIR="/opt/local/libexec/boost/1.76/lib" \
-  PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" \
   CPPFLAGS="-I/opt/local/include -I/opt/local/libexec/boost/1.76/include" \
   LDFLAGS="-L/opt/local/lib -L/opt/local/libexec/boost/1.76/lib" \
-  python3 ./waf configure --dist-target=apple --with-backends=coreaudio --use-external-libs --arm64 \
-      --qm-dsp-include="$HOME/Documents/Development/Audio/qm-dsp" \
-      --also-libdir="$HOME/Documents/Development/Audio/qm-dsp"
+  CFLAGS="-DNO_SYMBOL_RENAMING -DNO_SYMBOL_EXPORT -DDISABLE_VISIBILITY" \
+  CXXFLAGS="-DNO_SYMBOL_RENAMING -DNO_SYMBOL_EXPORT -DDISABLE_VISIBILITY" \
+  python3 ./waf configure --dist-target=apple --with-backends=coreaudio --arm64 --keepflags
 ```
 
 At the time of writing, configure succeeds with:
@@ -118,62 +119,37 @@ At the time of writing, configure succeeds with:
 - Vamp (SDK + hostsdk) via source install
 ```
 
-### Continue here (disable YTK to avoid Darwin alias errors)
-On macOS, internal YDK (YTK) triggers Darwin alias errors (`gdkaliasdef.c`). Force external GTK2 instead:
-
-1) Install external GTK2 stack and helpers (already completed in Phase 1; run only if missing):
+### Build
 ```bash
-sudo port -N install gtk2 gtkmm liblrdf
+python3 ./waf -j"$(sysctl -n hw.ncpu)" --keepflags \
+  CFLAGS="-DNO_SYMBOL_RENAMING -DNO_SYMBOL_EXPORT -DDISABLE_VISIBILITY" \
+  CXXFLAGS="-DNO_SYMBOL_RENAMING -DNO_SYMBOL_EXPORT -DDISABLE_VISIBILITY"
 ```
+
+Verification after configure:
+- Summary shows: `Use YTK instead of GTK: True`.
+- C/C++ compiler flags include the three defines above.
+- Architecture: `Mac arm64 Architecture: True`.
 
 Notes:
-- `suil` does not exist in MacPorts; skip it unless configure explicitly requires it. If needed later, we can build it from source separately.
-
-2) Reconfigure Ardour in a clean environment with `--no-ytk`:
-```bash
-cd "$HOME/Documents/Development/Audio/ardour"
-env -i \
-  PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin" \
-  PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" \
-  CPPFLAGS="-I/opt/local/include -I/opt/local/libexec/boost/1.76/include" \
-  LDFLAGS="-L/opt/local/lib -L/opt/local/libexec/boost/1.76/lib" \
-  BOOST_ROOT="/opt/local/libexec/boost/1.76" \
-  BOOST_INCLUDEDIR="/opt/local/libexec/boost/1.76/include" \
-  BOOST_LIBRARYDIR="/opt/local/libexec/boost/1.76/lib" \
-  BOOST_LIB_SUFFIX="-mt" \
-  python3 ./waf configure --dist-target=apple --with-backends=coreaudio --use-external-libs --arm64 --no-ytk \
-    --qm-dsp-include="$HOME/Documents/Development/Audio/qm-dsp" \
-    --also-libdir="$HOME/Documents/Development/Audio/qm-dsp"
-```
-
-Verification (post-Phase 1):
-```bash
-env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion gtk+-2.0
-# expected: 2.24.33
-env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion gtkmm-2.4
-# expected: 2.24.5
-env PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:/opt/local/share/pkgconfig" pkg-config --modversion lrdf
-# expected: 0.5.0
-```
-
-3) Build:
-```bash
-python3 ./waf -j"$(sysctl -n hw.ncpu)"
-```
-
-Notes:
-- If you still see "Use YTK instead of GTK: True" in the configure summary, the environment is polluted. Re-run configure with `env -i ...` as above and ensure no `~/gtk/inst` or Homebrew paths are on `PATH`/`PKG_CONFIG_PATH`.
 - `hidapi-hidraw` being "not found" is expected on macOS.
 - If version parsing fails, check out a tag first, e.g., `git checkout 8.9`.
 ```
 
-### Build
+### Artifacts and launch
+Artifacts will be placed under `build/`:
+- GUI: `build/gtk2_ardour/ardour-8.9.0`
+- Headless: `build/headless/hardour-8.9.0`
+
+Run:
 ```bash
-./waf -j"$(sysctl -n hw.ncpu)"
+./build/gtk2_ardour/ardour-8.9.0
+# or headless
+./build/headless/hardour-8.9.0 --help
 ```
 
 ### Current focus / next step
-- Proceed to re‑run configure with `--no-ytk` using the clean env (see "Continue here" step 2), then build. If any GTK2/gtkmm checks fail, verify MacPorts packages are present and `PKG_CONFIG_PATH` is set as shown.
+- Integrate Ardour into the control plane: add OSC/Lua hooks to expose session state and route MIDI as we do today via IAC.
 
 ### Why Ardour
 - Ardour provides OSC/Lua scripting, LV2, and robust state access not available in GarageBand. Source: `https://github.com/Ardour/ardour`.
@@ -182,9 +158,7 @@ Notes:
 - Once Ardour launches, add a small OSC/LV2 bridge process to expose session state into the control plane, then route MIDI via IAC as we do today. This remains optional; core still works with GarageBand.
 
 ### Status snapshot
-- MacPorts installed; curated dependencies present; Vamp SDK installed; qm‑dsp built (arm64 flags used).
-- Ardour: repo on tag `8.9`; configure succeeded with external libs/CoreAudio/arm64 and qm‑dsp hints.
-- External GTK2 prerequisites installed: `gtk2` 2.24.33, `gtkmm` 2.24.5, and `liblrdf` (pkg-config `lrdf` 0.5.0) available via MacPorts. `suil` not present in MacPorts and skipped.
-- Next: re‑configure with `--no-ytk` and build.
+- MacPorts installed; curated dependencies present; Vamp SDK installed.
+- Ardour: repo on tag `8.9`; configure shows YTK=True; SDKROOT pinned to 14.x; arm64 on; build finished successfully.
 
 
