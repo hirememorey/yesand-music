@@ -136,44 +136,68 @@ Notes:
 - If version parsing fails, check out a tag first, e.g., `git checkout 8.9`.
 ```
 
-### Artifacts and launch
-Artifacts will be placed under `build/`:
-- GUI: `build/gtk2_ardour/ardour-8.9.0`
-- Headless: `build/headless/hardour-8.9.0`
+### Launching a Built Ardour Instance
 
-**IMPORTANT**: To launch Ardour from the build directory, you must set the correct environment variables for backend detection:
+Launching Ardour after building from source is a complex process that requires a precise environment setup. The application is not a monolith; it is a system of interacting components, primarily the Ardour application itself and the underlying GTK2 UI framework. Each component has its own rules for discovering resources, and a successful launch requires orchestrating them all correctly.
+
+The `launch_ardour.sh` script in the root of this repository is designed to handle this orchestration.
+
+#### Key Launch Principles
+
+1.  **System Deconstruction**: Ardour uses GTK for its UI. This means we need to satisfy Ardour's configuration needs (via `ARDOUR_*` variables) and GTK's needs (via `GTK_*` variables) simultaneously. A `Gtk-WARNING` in the logs points to a GTK issue, while an `Ardour: [ERROR]` points to an Ardour issue.
+
+2.  **Multi-Stage Initialization**: Ardour has a "pre-flight" check. It expects essential files like `ardour.keys` and `ardour.menus` to exist in its configuration directory (`~/Library/Preferences/Ardour8`) *before* it starts. The launch script must copy these files from the build output into the config directory to prevent a crash.
+
+3.  **Composite Data Path**: The `ARDOUR_DATA_PATH` needs to find resources in two places: build artifacts (like menus and RC files) from the `build` directory, and source assets (like fonts and color definitions) from the original source tree. The path must include both, with the build path listed first.
+
+4.  **Literal, Non-Recursive Library Paths**: The `ARDOUR_DLL_PATH` for discovering dynamic libraries (like panner plugins) is not recursive. You cannot point it to a parent directory; you must provide an explicit, colon-separated list of every single subdirectory containing `.dylib` files.
+
+#### The Launch Script
+
+Use the provided `./launch_ardour.sh` script for a stable launch. It automates the following configuration steps:
 
 ```bash
-BUILD="$HOME/Documents/Development/Audio/ardour/build"
-env \
-  ARDOUR_DATA_PATH="$HOME/Documents/Development/Audio/ardour/gtk2_ardour:$HOME/Documents/Development/Audio/ardour/share" \
-  ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8" \
-  ARDOUR_DLL_PATH="$BUILD/gtk2_ardour" \
-  ARDOUR_BACKEND_PATH="$BUILD/libs/backends/coreaudio:$BUILD/libs/backends/dummy" \
-  "$BUILD/gtk2_ardour/ardour-8.9.0" -n --no-announcements --no-splash -N TestSession
-```
+#!/bin/bash
+# Launch Ardour with a fully orchestrated environment
 
-Key points:
-- `ARDOUR_BACKEND_PATH` must point to the specific backend subdirectories (`coreaudio` and `dummy`), not the parent `backends` directory
-- This enables proper audio/MIDI backend detection and prevents the "No audio/MIDI backends detected" error
-- The GUI will launch with CoreAudio devices detected and MIDI ports registered
+set -e
+ARDOUR_BUILD="${ARDOUR_BUILD:-$HOME/Documents/Development/Audio/ardour/build}"
 
-Headless launch:
-```bash
-./build/headless/hardour-8.9.0 --help
+# --- SYSTEM B: GTK ---
+# GTK needs a path to find its theme engines (e.g., libclearlooks.dylib)
+export GTK_PATH="$ARDOUR_BUILD/libs/clearlooks-newer"
+
+# --- SYSTEM A: Ardour ---
+# 1. Composite Data Path (Build artifacts + Source assets)
+export ARDOUR_DATA_PATH="$ARDOUR_BUILD/gtk2_ardour:$HOME/Documents/Development/Audio/ardour/gtk2_ardour"
+# 2. User-specific configuration directory
+export ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8"
+# 3. Exhaustive, non-recursive DLL path for all plugins
+PANNER_PATHS=$(ls -d "$ARDOUR_BUILD/libs/panners"/*/ | tr '\n' ':' | sed 's/:$//')
+export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$PANNER_PATHS"
+# 4. Backend path for audio/MIDI engines
+export ARDOUR_BACKEND_PATH="$ARDOUR_BUILD/libs/backends/coreaudio:$ARDOUR_BUILD/libs/backends/dummy"
+
+# --- PRE-FLIGHT CONFIGURATION ---
+# Satisfy Ardour's multi-stage initialization by pre-populating the config dir.
+echo "Pre-populating config directory..."
+mkdir -p "$ARDOUR_CONFIG_PATH"
+cp "$ARDOUR_BUILD/gtk2_ardour/ardour.keys" "$ARDOUR_CONFIG_PATH/ardour.keys"
+cp "$ARDOUR_BUILD/gtk2_ardour/ardour.menus" "$ARDOUR_CONFIG_PATH/ardour.menus"
+
+echo "Launching Ardour..."
+exec "$ARDOUR_BUILD/gtk2_ardour/ardour-8.9.0" -n --no-announcements --no-splash
 ```
 
 ### OSC Integration (Next Steps)
 Once Ardour is running:
-1. **Enable OSC**: Preferences → Control Surfaces → enable "Open Sound Control (OSC)" → set UDP port to 3819
-2. **Test OSC**: 
-   ```bash
-   lsof -nP -iUDP:3819  # Verify OSC is listening
-   /opt/local/bin/oscsend localhost 3819 /ardour/ping
-   /opt/local/bin/oscsend localhost 3819 /ardour/version
-   /opt/local/bin/oscsend localhost 3819 /transport_play
-   ```
-3. **Integrate with control plane**: Add OSC/Lua hooks to expose session state and route MIDI as we do today via IAC.
+1.  **Enable OSC**: Preferences → Control Surfaces → enable "Open Sound Control (OSC)" → set UDP port to 3819
+2.  **Test OSC**:
+    ```bash
+    lsof -nP -iUDP:3819  # Verify OSC is listening
+    /opt/local/bin/oscsend localhost 3819 /ardour/ping
+    ```
+3.  **Integrate with control plane**: Add OSC/Lua hooks to expose session state.
 
 ### Why Ardour
 - Ardour provides OSC/Lua scripting, LV2, and robust state access not available in GarageBand. Source: `https://github.com/Ardour/ardour`.

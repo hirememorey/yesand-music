@@ -58,4 +58,24 @@ If it prints an error with available ports, update `MIDI_PORT_NAME` in `config.p
 - Windows: create a virtual port with loopMIDI and set `MIDI_PORT_NAME` accordingly.
 - Linux: use ALSA/JACK virtual MIDI; verify with `mido.get_output_names()`.
 
+### 9) Ardour crashes on launch (macOS build)
+
+Launching a self-built Ardour instance is complex. The application is a system of interacting components that must all be configured correctly. Refer to `docs/ARDOUR_SETUP.md` for the full explanation and the correct launch script.
+
+Common fatal errors and their root causes:
+
+- **`Gtk-WARNING **: Unable to locate theme engine in module_path: "clearlooks"`**:
+  - **Symptom**: The GTK UI framework cannot find the library needed to render its theme.
+  - **Solution**: The `GTK_PATH` environment variable must point to the directory containing `libclearlooks.dylib`.
+
+- **`Ardour - : Fatal Error | No panner found`**:
+  - **Symptom**: Ardour cannot find its critical internal plugins for audio panning.
+  - **Solution**: The `ARDOUR_DLL_PATH` environment variable is not just a single path; it must be an **exhaustive, colon-separated list of every single subdirectory** where a plugin (`.dylib`) is located. It is not recursive.
+
+- **`[ERROR]: Default keybindings not found` or `Invalid symbolic color 'bases'`**:
+  - **Symptom**: Ardour crashes late in startup because it can't find essential resources like keymaps, fonts, or color definitions.
+  - **Solution**: This is a two-part problem. First, Ardour has a pre-flight check and expects some files (`ardour.keys`, `ardour.menus`) to be present in its config directory (`~/Library/Preferences/Ardour8`) before launch. Second, the `ARDOUR_DATA_PATH` must be a composite path that points to *both* the build artifacts in the `build` tree and source assets (like fonts) in the source tree.
+
+The `./launch_ardour.sh` script is designed to handle all of these cases correctly.
+
 

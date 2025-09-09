@@ -22,19 +22,39 @@ if [ ! -f "$ARDOUR_BUILD/gtk2_ardour/ardour-8.9.0" ]; then
 fi
 
 # Set environment variables for proper backend detection
-export ARDOUR_DATA_PATH="$HOME/Documents/Development/Audio/ardour/gtk2_ardour:$HOME/Documents/Development/Audio/ardour/share"
+# --- SYSTEM B: GTK ---
+# GTK needs a path to find its theme engines (e.g., libclearlooks.dylib)
+export GTK_PATH="$ARDOUR_BUILD/libs/clearlooks-newer"
+
+# --- SYSTEM A: Ardour ---
+# ARDOUR_DATA_PATH must be a composite path. It needs to find build artifacts
+# (like menus) in the build output, and source assets (like fonts and color
+# definitions) in the source tree. The build path must come first.
+export ARDOUR_DATA_PATH="$ARDOUR_BUILD/gtk2_ardour:$HOME/Documents/Development/Audio/ardour/gtk2_ardour"
 export ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8"
-export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour"
+# ARDOUR_DLL_PATH must point to the main gtk2_ardour directory AND an
+# explicit, colon-separated list of every panner plugin subdirectory.
+PANNER_PATHS=$(ls -d "$ARDOUR_BUILD/libs/panners"/*/ | tr '\n' ':' | sed 's/:$//')
+export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$PANNER_PATHS"
 export ARDOUR_BACKEND_PATH="$ARDOUR_BUILD/libs/backends/coreaudio:$ARDOUR_BUILD/libs/backends/dummy"
 
-echo "Launching Ardour with backend detection enabled..."
+# --- PRE-FLIGHT CONFIGURATION ---
+# Ardour expects some essential files (menus, keybindings) to be present in its
+# config directory on first launch. We copy them from the build output to
+# satisfy this dependency before the application starts.
+echo "Pre-populating config directory..."
+mkdir -p "$ARDOUR_CONFIG_PATH"
+cp "$ARDOUR_BUILD/gtk2_ardour/ardour.keys" "$ARDOUR_CONFIG_PATH/ardour.keys"
+cp "$ARDOUR_BUILD/gtk2_ardour/ardour.menus" "$ARDOUR_CONFIG_PATH/ardour.menus"
+
+echo "Launching Ardour..."
 echo "Backend path: $ARDOUR_BACKEND_PATH"
 echo "Data path: $ARDOUR_DATA_PATH"
 
 # Launch Ardour with the provided arguments or default to creating a new session
 if [ $# -eq 0 ]; then
-    # Default: create a new session
-    exec "$ARDOUR_BUILD/gtk2_ardour/ardour-8.9.0" -n --no-announcements --no-splash -N "NewSession"
+    # Default: launch to the session dialog without creating a new session
+    exec "$ARDOUR_BUILD/gtk2_ardour/ardour-8.9.0" -n --no-announcements --no-splash
 else
     # Pass through all arguments
     exec "$ARDOUR_BUILD/gtk2_ardour/ardour-8.9.0" "$@"
