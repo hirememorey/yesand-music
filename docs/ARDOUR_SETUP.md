@@ -174,8 +174,10 @@ export ARDOUR_DATA_PATH="$ARDOUR_BUILD/gtk2_ardour:$HOME/Documents/Development/A
 export ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8"
 # 3. Exhaustive, non-recursive DLL path for all plugins
 PANNER_PATHS=$(ls -d "$ARDOUR_BUILD/libs/panners"/*/ | tr '\n' ':' | sed 's/:$//')
-export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$PANNER_PATHS"
-# 4. Backend path for audio/MIDI engines
+export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$ARDOUR_BUILD/libs/ardour:$PANNER_PATHS"
+# 4. Specific path for panner plugin discovery
+export ARDOUR_PANNER_PATH="$ARDOUR_BUILD/libs/panners"
+# 5. Backend path for audio/MIDI engines
 export ARDOUR_BACKEND_PATH="$ARDOUR_BUILD/libs/backends/coreaudio:$ARDOUR_BUILD/libs/backends/dummy"
 
 # --- PRE-FLIGHT CONFIGURATION ---

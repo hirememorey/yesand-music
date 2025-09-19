@@ -3,6 +3,9 @@
 This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PATCH).
 
 ### [Unreleased]
+#### Fixed
+- **Ardour panner plugin discovery**: Resolved "No panner found" fatal error by adding the missing `ARDOUR_PANNER_PATH` environment variable. Ardour uses a dedicated `ARDOUR_PANNER_PATH` variable (not just `ARDOUR_DLL_PATH`) to discover panner plugins. The launch script now correctly sets both variables for complete plugin discovery.
+
 #### Added
 - Control plane design doc: `docs/CONTROL_PLANE.md` (layered approach, manifest spec, intents).
 - README section introducing the chat-driven control plane vision.

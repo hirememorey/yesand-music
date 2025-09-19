@@ -26,6 +26,10 @@ fi
 # GTK needs a path to find its theme engines (e.g., libclearlooks.dylib)
 export GTK_PATH="$ARDOUR_BUILD/libs/clearlooks-newer"
 
+# --- DYNAMIC LIBRARY PATH ---
+# Help dynamic libraries find their dependencies
+export DYLD_LIBRARY_PATH="$ARDOUR_BUILD/libs/ardour:$ARDOUR_BUILD/libs/ctrl-interface/control_protocol:$ARDOUR_BUILD/libs/midi++2:$ARDOUR_BUILD/libs/evoral:$ARDOUR_BUILD/libs/temporal:$ARDOUR_BUILD/libs/audiographer:$ARDOUR_BUILD/libs/ptformat:$ARDOUR_BUILD/libs/pbd:$ARDOUR_BUILD/libs/tk/suil:$ARDOUR_BUILD/libs/appleutility:$ARDOUR_BUILD/libs/waveview"
+
 # --- SYSTEM A: Ardour ---
 # ARDOUR_DATA_PATH must be a composite path. It needs to find build artifacts
 # (like menus) in the build output, and source assets (like fonts and color
@@ -34,8 +38,12 @@ export ARDOUR_DATA_PATH="$ARDOUR_BUILD/gtk2_ardour:$HOME/Documents/Development/A
 export ARDOUR_CONFIG_PATH="$HOME/Library/Preferences/Ardour8"
 # ARDOUR_DLL_PATH must point to the main gtk2_ardour directory AND an
 # explicit, colon-separated list of every panner plugin subdirectory.
+# Also include the main ardour library directory for core panner functionality.
 PANNER_PATHS=$(ls -d "$ARDOUR_BUILD/libs/panners"/*/ | tr '\n' ':' | sed 's/:$//')
-export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$PANNER_PATHS"
+export ARDOUR_DLL_PATH="$ARDOUR_BUILD/gtk2_ardour:$ARDOUR_BUILD/libs/ardour:$PANNER_PATHS"
+
+# ARDOUR_PANNER_PATH is specifically used by Ardour to discover panner plugins
+export ARDOUR_PANNER_PATH="$ARDOUR_BUILD/libs/panners"
 export ARDOUR_BACKEND_PATH="$ARDOUR_BUILD/libs/backends/coreaudio:$ARDOUR_BUILD/libs/backends/dummy"
 
 # --- PRE-FLIGHT CONFIGURATION ---

@@ -1,0 +1,30 @@
+Pre-populating config directory...
+Launching Ardour...
+Backend path: /Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/backends/coreaudio:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/backends/dummy
+Data path: /Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/gtk2_ardour
+Disabling MacOS AppNap
+bind txt domain [gtk2_ardour8] to /usr/local/share/ardour8/locale
+Debug flag 'pluginmanager' set
+Ardour8.9.0 (built using 8.9 and GCC version Apple LLVM 17.0.0 (clang-1700.0.13.5))
+Ardour: [INFO]: Your system is configured to limit Ardour to 10240 open files
+Ardour: [INFO]: Loading user configuration file /Users/harrisgordon/Library/Preferences/Ardour8/config
+Ardour: [INFO]: Apple VecLib H/W specific optimizations in use
+Ardour: [WARNING]: VST scanner app (ardour-vst-scanner) not found in path /Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/fst:/Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/
+Ardour: [WARNING]: VST3 scanner app (ardour-vst3-scanner) not found in path /Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/fst:/Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/
+Ardour: [WARNING]: AUv2 scanner app (ardour-au-scanner) not found in path /Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/auscan:/Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/ardour:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/1in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/2in2out/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/stereobalance/:/Users/harrisgordon/Documents/Development/Audio/ardour/build/libs/panners/vbap/
+Ardour: [INFO]: add_lrdf_data '/Users/harrisgordon/Library/Preferences/Ardour8/rdf:/Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour/rdf:/Users/harrisgordon/Documents/Development/Audio/ardour/gtk2_ardour/rdf:/usr/local/share/ladspa/rdf:/usr/share/ladspa/rdf'
+Ardour: [INFO]: Loading user ui configuration file /Users/harrisgordon/Library/Preferences/Ardour8/ui_config
+Ardour: [INFO]: Loading color file /Users/harrisgordon/Documents/Development/Audio/ardour/gtk2_ardour/themes/dark-ardour.colors
+Ardour: [INFO]: Loading ui configuration file /Users/harrisgordon/Library/Preferences/Ardour8/clearlooks.rc
+cocoa invalidation: 1
+Ardour: [INFO]: Loading bindings from /Users/harrisgordon/Library/Preferences/Ardour8/ardour.keys
+Loading ui configuration file /Users/harrisgordon/Library/Preferences/Ardour8/clearlooks.rc
+CoreAudio Device: #0 (id:142) 'BenQ GL2760' in:0 out:2
+CoreAudio Device: #1 (id:157) 'Harris’s iPhone 16 Microphone' in:1 out:0
+CoreAudio Device: #2 (id:121) 'MacBook Air Microphone' in:1 out:0
+CoreAudio Device: #3 (id:114) 'MacBook Air Speakers' in:0 out:2
+CoreAudio Device: #4 (id:104) 'Microsoft Teams Audio' in:1 out:1
+CoreAudio Device: #5 (id:134) 'Chrome' in:2 out:2
+CoreAudio Device: #6 (id:126) 'Zoom' in:2 out:2
+Found nothing along /Users/harrisgordon/Library/Preferences/Ardour8/templates:/Users/harrisgordon/Documents/Development/Audio/ardour/build/gtk2_ardour/templates:/Users/harrisgordon/Documents/Development/Audio/ardour/gtk2_ardour/templates
+Announcement is: Version 8.12 has been released. Update at https://ardour.org/download

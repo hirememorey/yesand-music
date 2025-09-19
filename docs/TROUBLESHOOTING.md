@@ -70,7 +70,7 @@ Common fatal errors and their root causes:
 
 - **`Ardour - : Fatal Error | No panner found`**:
   - **Symptom**: Ardour cannot find its critical internal plugins for audio panning.
-  - **Solution**: The `ARDOUR_DLL_PATH` environment variable is not just a single path; it must be an **exhaustive, colon-separated list of every single subdirectory** where a plugin (`.dylib`) is located. It is not recursive.
+  - **Solution**: Ardour uses a specific environment variable `ARDOUR_PANNER_PATH` to discover panner plugins. Set this to point to the panners directory: `export ARDOUR_PANNER_PATH="$ARDOUR_BUILD/libs/panners"`. The `ARDOUR_DLL_PATH` variable is also needed for general plugin discovery, but panner plugins require the dedicated `ARDOUR_PANNER_PATH` variable.
 
 - **`[ERROR]: Default keybindings not found` or `Invalid symbolic color 'bases'`**:
   - **Symptom**: Ardour crashes late in startup because it can't find essential resources like keymaps, fonts, or color definitions.
