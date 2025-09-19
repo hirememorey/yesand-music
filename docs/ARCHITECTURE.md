@@ -9,14 +9,23 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
         theory
 ```
 
-### Planned: Chat-driven control plane
-- High-level components:
-  - Intent parser: converts chat text into structured commands (play/pattern/cc/settings/target/stop).
-  - Session state: key/scale, density, register, velocity profile, randomness.
-  - Manifest loader (optional): reads `project.yaml`/`project.json` describing parts and CC aliases.
-  - Optional UI reader (macOS-only): best-effort read of track names and armed/selected state; feature-flagged.
-  - MIDI dispatcher: maps intents to patterns/CCs and sends via `MidiPlayer` to the armed track.
-- See: `docs/CONTROL_PLANE.md` for the layered design and risks.
+### Implemented: Chat-driven control plane
+- **Core components** (all implemented):
+  - **Command Parser** (`commands/parser.py`): Converts natural language into structured commands using regex patterns
+  - **Session Manager** (`commands/session.py`): Persistent state management with file-based storage
+  - **Pattern Engine** (`commands/pattern_engine.py`): Generates musical patterns from commands and session state
+  - **Control Plane** (`commands/control_plane.py`): Main orchestrator that coordinates all components
+  - **Non-blocking Sequencer**: Timer-based note-off events for real-time performance
+- **Key features**:
+  - Natural language command parsing (15+ command types)
+  - Persistent session state across command executions
+  - Multiple pattern types (scales, arpeggios, random notes)
+  - Control commands (CC, modulation wheel, tempo, key)
+  - CLI interface ready for chat integration
+- **Future extensions** (planned):
+  - Manifest loader: `project.yaml`/`project.json` for logical parts and CC aliases
+  - UI reader: macOS Accessibility API for track names and armed state
+- See: `docs/CONTROL_PLANE.md` for detailed design and implementation.
 
 ### Modules and responsibilities
 - `midi_player.py`
@@ -28,7 +37,9 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
   - Stores note events as dicts:
     - `pitch: int`, `velocity: int`, `start_beat: float`, `duration_beats: float`.
   - Converts beats to seconds with `seconds_per_beat = 60 / BPM`.
-  - Sorts by `start_beat` and sleeps between events before triggering `MidiPlayer`.
+  - **Non-blocking playback**: Uses timer-based note-off events for real-time performance
+  - **Async support**: `play_async()` method for background playback with stop controls
+  - Sorts by `start_beat` and triggers notes via `MidiPlayer.send_note_on()` immediately
 
 - `theory.py`
   - Provides musical generators, e.g., `create_major_scale(root)` → 8 MIDI notes including octave.

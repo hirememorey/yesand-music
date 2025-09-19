@@ -2,9 +2,12 @@
 
 Generate MIDI in Python and play it in real time through a virtual MIDI port into GarageBand.
 
-### New: Chat-driven control plane (vision)
-- Use Cursor chat as a live control surface for GarageBand. Send natural-language commands to generate patterns, tweak dynamics, and modulate instruments via MIDI, embracing nondeterminism over tight sync.
-- Start with a simple baseline (user arms a target track; we send MIDI via IAC). Optionally add a small project manifest and best-effort UI reading for track names.
+### New: Chat-driven control plane (implemented!)
+- **Interactive MIDI control via natural language commands**. Send commands to generate patterns, tweak dynamics, and modulate instruments via MIDI, embracing nondeterminism over tight sync.
+- **Real-time session state management** with persistent storage across commands.
+- **Multiple pattern types**: scales, arpeggios, random notes with configurable density and randomness.
+- **Control commands**: CC messages, modulation wheel, tempo, key, and more.
+- **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
 ### What this is
@@ -36,7 +39,14 @@ pip3 install mido python-rtmidi
 
 5) Run the demo
 ```bash
+# Original demo
 python3 main.py
+
+# New control plane (interactive)
+python3 main.py --interactive
+
+# Control plane CLI (for chat integration)
+python3 control_plane_cli.py "play scale D minor"
 ```
 Expected: Terminal prints "Playing C Major Scale..." and GarageBand plays 8 notes.
 
@@ -58,9 +68,29 @@ Edit `config.py`:
 - `theory.create_major_scale(60)`: returns `[60, 62, 64, 65, 67, 69, 71, 72]`.
 - `main.py`: wires components, schedules quarter notes of the C Major scale, and plays.
 
+### Control Plane Commands
+```bash
+# Interactive mode
+python3 main.py --interactive
+
+# Then try these commands:
+play scale D minor          # Play a D minor scale
+play arp C major           # Play a C major arpeggio  
+play random 8              # Play 8 random notes
+set key to F# lydian       # Change key and mode
+set tempo to 140           # Change tempo
+set density to high        # Change note density
+set randomness to 0.3      # Add some randomness
+cc 74 to 64               # Send control change
+mod wheel 32              # Send modulation wheel
+status                    # Show current state
+stop                      # Stop playback
+help                      # Show all commands
+```
+
 ### Next steps
-- Change tempo or port in `config.py` and re‑run.
-- Add notes via `Sequencer.add_note()` or build new patterns in `theory.py`.
+- **Try the control plane**: `python3 main.py --interactive`
+- **Chat integration**: Use `python3 control_plane_cli.py "command"` in chat
 - **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
 - Explore deeper docs:
   - [Setup](docs/SETUP.md)

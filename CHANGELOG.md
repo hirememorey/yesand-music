@@ -3,17 +3,26 @@
 This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PATCH).
 
 ### [Unreleased]
-#### Fixed
-- **Ardour panner plugin discovery**: Resolved "No panner found" fatal error by adding the missing `ARDOUR_PANNER_PATH` environment variable. Ardour uses a dedicated `ARDOUR_PANNER_PATH` variable (not just `ARDOUR_DLL_PATH`) to discover panner plugins. The launch script now correctly sets both variables for complete plugin discovery.
-
 #### Added
-- Control plane design doc: `docs/CONTROL_PLANE.md` (layered approach, manifest spec, intents).
-- README section introducing the chat-driven control plane vision.
-- Architecture updates outlining planned control plane components.
-- Usage, Setup, Troubleshooting, and Contributing updated with control plane notes.
-- Ardour build & integration guide: `docs/ARDOUR_SETUP.md` (proven macOS build path: internal YTK, SDKROOT pinned to 14.x, alias/visibility flags, arm64; logs and launch instructions).
-- **Ardour launch success**: Resolved fatal startup errors ("No panner found", Gtk theme engine failures, missing keybindings) by creating a robust, evidence-based launch script (`launch_ardour.sh`) that correctly orchestrates all of Ardour's interacting sub-systems.
-- OSC integration testing: Verified `oscsend` commands work; documented OSC enablement steps in Ardour preferences.
+- **Complete Control Plane Implementation**: Full chat-driven MIDI control system with natural language commands
+  - Command parser with regex patterns for all major command types
+  - Session state management with persistent file-based storage
+  - Pattern engine supporting scales, arpeggios, and random note generation
+  - **Non-blocking sequencer with timer-based note-off events** (critical fix for real-time performance)
+  - CLI interface ready for chat integration (`control_plane_cli.py`)
+  - Interactive mode in main.py (`python main.py --interactive`)
+  - Comprehensive test suite with mocked MIDI components
+  - **Implementation verification script** (`verify_implementation.py`) for end-to-end testing
+- **Extended Music Theory**: Added support for all major modes, chord types, arpeggios, and rhythmic patterns
+- **Advanced Pattern Generation**: Density control, randomness application, and configurable note timing
+- **Control Commands**: CC messages, modulation wheel, tempo, key, density, and randomness controls
+- **Session Persistence**: State survives between commands with atomic file updates
+- **Multiple Entry Points**: Original demo, interactive mode, CLI, and chat integration ready
+
+#### Fixed
+- **Critical: Non-blocking MIDI Playback**: Fixed blocking issue where `MidiPlayer.send_note()` used `time.sleep()` preventing real-time operation. Now uses timer-based note-off events for truly non-blocking playback.
+- **CC Command Execution**: Fixed mido import issue in control commands (CC and modulation wheel now work correctly).
+- **Ardour panner plugin discovery**: Resolved "No panner found" fatal error by adding the missing `ARDOUR_PANNER_PATH` environment variable. Ardour uses a dedicated `ARDOUR_PANNER_PATH` variable (not just `ARDOUR_DLL_PATH`) to discover panner plugins. The launch script now correctly sets both variables for complete plugin discovery.
 #### Changed
 - `docs/ARDOUR_SETUP.md`: Replaced `--no-ytk` external GTK route with the successful internal YTK path on macOS. Documented clean configure with `env - i`, `--keepflags`, `CFLAGS/CXXFLAGS="-DNO_SYMBOL_RENAMING -DNO_SYMBOL_EXPORT -DDISABLE_VISIBILITY"`, SDKROOT=14.x, deployment target 11.0, and proof gates ("Use YTK instead of GTK: True"). Added artifact locations and run commands.
 - `docs/ARDOUR_SETUP.md`: Overhauled the launch section with a detailed explanation of the multi-system environment (Ardour vs. GTK), the need for pre-flight configuration, and the construction of exhaustive, non-recursive search paths for data and plugins.

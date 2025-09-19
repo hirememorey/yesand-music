@@ -12,13 +12,41 @@ python3 main.py
 ```
 Expected: "Playing C Major Scale..." and an 8‑note C Major scale in GarageBand.
 
-### Chat-driven control plane (planned)
-- You will be able to type natural language in Cursor chat to trigger patterns and controls.
-- Baseline flow:
-  - Arm a target Software Instrument track in GarageBand.
-  - In chat: set musical context and trigger a pattern, e.g., "set key to D minor", "play random arp for 2 bars".
-  - The system sends MIDI to the armed track via IAC, embracing nondeterministic timing and variation.
-- Optional project manifest (`project.yaml`): declare parts like `piano`, `bass`, and CC aliases so you can say "target bass" or "raise cutoff".
+### Chat-driven control plane (implemented!)
+- **Interactive natural language MIDI control** via Cursor chat or command line.
+- **Real-time session management** with persistent state across commands.
+- **Multiple pattern types**: scales, arpeggios, random notes with configurable density and randomness.
+- **Control commands**: CC messages, modulation wheel, tempo, key, and more.
+
+#### Usage Examples
+```bash
+# Interactive mode
+python main.py --interactive
+
+# CLI for chat integration  
+python control_plane_cli.py "play scale D minor"
+python control_plane_cli.py "set tempo to 140"
+python control_plane_cli.py "play arp C major"
+```
+
+#### Available Commands
+- `play scale [KEY] [MODE]` - Play scales in any key/mode
+- `play arp [KEY] [CHORD]` - Play arpeggios  
+- `play random [COUNT]` - Play random notes
+- `set key to [KEY] [MODE]` - Change session key
+- `set tempo to [BPM]` - Change tempo
+- `set density to [low|med|high]` - Change note density
+- `set randomness to [0-1]` - Add randomness
+- `cc [NUMBER] to [VALUE]` - Send control changes
+- `mod wheel [VALUE]` - Send modulation wheel
+- `status` - Show current state
+- `stop` - Stop playback
+- `help` - Show all commands
+
+#### Chat Integration
+- Use `python control_plane_cli.py "command"` in Cursor chat
+- Commands execute immediately and return status
+- Session state persists between chat interactions
 - See details and examples: `docs/CONTROL_PLANE.md`.
 
 ### Add notes programmatically

@@ -52,6 +52,27 @@ class MidiPlayer:
         self.port.send(mido.Message("note_on", note=int(pitch), velocity=int(velocity)))
         time.sleep(max(0.0, float(duration_in_seconds)))
         self.port.send(mido.Message("note_off", note=int(pitch), velocity=0))
+    
+    def send_note_on(self, pitch: int, velocity: int) -> None:
+        """Send a note-on message immediately.
+        
+        Args:
+            pitch: MIDI note number (0-127)
+            velocity: MIDI velocity (0-127)
+        """
+        if self.port is None:
+            return
+        self.port.send(mido.Message("note_on", note=int(pitch), velocity=int(velocity)))
+    
+    def send_note_off(self, pitch: int) -> None:
+        """Send a note-off message immediately.
+        
+        Args:
+            pitch: MIDI note number (0-127)
+        """
+        if self.port is None:
+            return
+        self.port.send(mido.Message("note_off", note=int(pitch), velocity=0))
 
     def close(self) -> None:
         """Close the MIDI output port if open."""
