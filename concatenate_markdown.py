@@ -87,7 +87,7 @@ def concatenate_markdown_files(root_dir: str, output_file: str) -> None:
     # Create output content
     output_content = []
     output_content.append("=" * 80)
-    output_content.append("MUSIC CURSOR PROJECT - ALL MARKDOWN CONTENT")
+    output_content.append("YESAND MUSIC PROJECT - ALL MARKDOWN CONTENT")
     output_content.append("=" * 80)
     output_content.append(f"Generated: {os.popen('date').read().strip()}")
     output_content.append(f"Total files: {len(markdown_files)}")

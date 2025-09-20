@@ -2,7 +2,7 @@
 
 ## 🎉 Complete Chat-Driven MIDI Control System with OSC Integration Implemented
 
-This document summarizes the successful implementation of the chat-driven control plane with OSC integration for the music cursor project.
+This document summarizes the successful implementation of the chat-driven control plane with OSC integration for the YesAnd Music project.
 
 ## What Was Built
 
