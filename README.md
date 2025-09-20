@@ -20,6 +20,7 @@ A sophisticated Python framework for **natural language control of music creatio
 
 ### What this is
 - **Goal**: Semantic MIDI editing framework for intelligent music creation and modification.
+- **Data Core**: `midi_io.py` (universal MIDI I/O), `project.py` (musical data container) - foundation for semantic editing
 - **Core Modules**: `midi_player.py` (I/O), `sequencer.py` (timing), `theory.py` (music theory), `commands/` (control plane).
 - **Platform focus**: macOS with Ardour integration. IAC Driver support for GarageBand compatibility.
 - **Architecture**: Modular design supporting both real-time control and deep musical analysis.

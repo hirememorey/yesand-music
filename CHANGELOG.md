@@ -31,6 +31,19 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - **Documentation**: Created comprehensive documentation for JUCE plugin development approach
 
 #### Added
+- **Data Core Foundation**: Created universal MIDI data structures for semantic MIDI editing
+  - **`midi_io.py`**: Pure Python MIDI file I/O using lightweight mido library
+    - `parse_midi_file()`: Converts MIDI files to universal note dictionary format
+    - `save_midi_file()`: Saves note dictionaries back to MIDI files
+    - Universal data structure: `{'pitch': int, 'velocity': int, 'start_time_seconds': float, 'duration_seconds': float, 'track_index': int}`
+    - No heavy dependencies - avoids "Black Box Dependency Problem"
+    - Comprehensive validation and error handling
+  - **`project.py`**: Clean Project class for musical data management
+    - `Project` class as container for musical data and metadata
+    - `load_from_midi()` and `save_to_midi()` methods using midi_io functions
+    - Query methods: `get_notes_by_track()`, `get_notes_in_time_range()`, `get_duration()`
+    - Separation of concerns - pure data management without musical analysis logic
+    - Prevents "Spaghetti Code Problem" through clean, focused design
 - **Complete Control Plane Implementation**: Full chat-driven MIDI control system with natural language commands
   - Command parser with regex patterns for all major command types
   - Session state management with persistent file-based storage

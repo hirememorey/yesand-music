@@ -1,9 +1,11 @@
 ## Architecture
 
 ### Overview
-The project separates concerns into transport (MIDI I/O), scheduling (timing), theory helpers (content generation), musical analysis, and orchestration (entrypoint).
+The project separates concerns into data core (MIDI I/O), transport (MIDI I/O), scheduling (timing), theory helpers (content generation), musical analysis, and orchestration (entrypoint).
 
 ```
+Data Core: midi_io.py → project.py → Universal Note Format
+    ↓
 main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
            ↑
         theory
@@ -69,6 +71,22 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   - **OSC Integration**: Remote control via Open Sound Control
   - **Machine Learning**: Style learning and adaptive processing
 - See: `docs/JUCE_PLUGIN_DEVELOPMENT.md` for detailed implementation and development approach.
+
+### Data Core (New Foundation)
+- `midi_io.py`
+  - **Pure Python MIDI I/O** using lightweight mido library
+  - `parse_midi_file()`: Converts MIDI files to universal note dictionary format
+  - `save_midi_file()`: Saves note dictionaries back to MIDI files
+  - Universal data structure: `{'pitch': int, 'velocity': int, 'start_time_seconds': float, 'duration_seconds': float, 'track_index': int}`
+  - **No heavy dependencies** - avoids "Black Box Dependency Problem"
+  - Comprehensive validation and error handling
+
+- `project.py`
+  - **Project class** as container for musical data and metadata
+  - `load_from_midi()` and `save_to_midi()` methods using midi_io functions
+  - Query methods: `get_notes_by_track()`, `get_notes_in_time_range()`, `get_duration()`
+  - **Separation of concerns** - pure data management without musical analysis logic
+  - Prevents "Spaghetti Code Problem" through clean, focused design
 
 ### Modules and responsibilities
 - `midi_player.py`
