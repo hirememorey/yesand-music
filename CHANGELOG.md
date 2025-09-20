@@ -10,6 +10,12 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - **Ardour-Focused Development**: Shifted primary target from GarageBand to Ardour for deeper integration capabilities
 - **JUCE Plugin Development**: Initiated development of real-time MIDI effect plugin for style transformations
 
+#### Critical Real-Time Safety Guidelines
+- **Real-Time Safety Documentation**: Added comprehensive guidelines for JUCE plugin development to prevent common audio thread bugs
+- **Velocity Preservation Pattern**: Documented the critical difference between overwriting vs. modifying velocity to preserve human musical expression
+- **Parameter Management Best Practices**: Added AudioProcessorValueTreeState guidelines to prevent thread-safety crashes
+- **Common Bug Prevention**: Documented the most destructive real-time audio bugs and their prevention strategies
+
 #### JUCE Plugin Development
 - **Style Transfer Plugin**: Created JUCE-based MIDI effect plugin for real-time style transformations
 - **Real-Time Safety**: Implemented real-time safe MIDI processing with no memory allocation or blocking calls

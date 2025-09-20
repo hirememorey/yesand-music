@@ -36,13 +36,105 @@ This JUCE plugin directly supports the Music Cursor semantic MIDI editing vision
 - Blocking calls (`sleep`, `wait`)
 - Dynamic container resizing
 - String operations that allocate memory
+- **Console output** (`std::cout`, `printf`, `juce::Logger::writeToLog`)
+- **Any logging or debugging output**
+
+### Critical Real-Time Safety Guidelines
+
+#### The Most Common Bugs That Destroy Performance
+
+**1. Console Output in processBlock**
+```cpp
+// ❌ NEVER DO THIS - Will cause audio dropouts
+void processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
+    std::cout << "Processing MIDI..." << std::endl;  // FORBIDDEN!
+}
+```
+
+**2. Memory Allocation in processBlock**
+```cpp
+// ❌ NEVER DO THIS - Will cause audio dropouts
+void processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages) {
+    std::vector<int> notes;  // FORBIDDEN!
+    notes.push_back(60);     // FORBIDDEN!
+}
+```
+
+**3. Thread-Unsafe Parameter Access**
+```cpp
+// ❌ NEVER DO THIS - Will cause crashes
+class PluginProcessor {
+    float swingRatio = 0.5f;  // NOT thread-safe!
+    
+    void processBlock(...) {
+        if (swingRatio > 0.5f) {  // CRASH RISK!
+            // process
+        }
+    }
+};
+```
+
+**4. The Velocity Overwriting Bug (Most Destructive)**
+```cpp
+// ❌ DESTROYS HUMAN PERFORMANCE
+if (isDownBeat) {
+    newVelocity = 127;  // Overwrites original velocity!
+} else {
+    newVelocity = 80;   // Overwrites original velocity!
+}
+
+// ✅ PRESERVES HUMAN PERFORMANCE
+float newVelocity = originalVelocity;
+if (isDownBeat) {
+    newVelocity += style.accentAmount;  // Modifies, not overwrites
+}
+newVelocity = juce::jlimit(0.0f, 127.0f, newVelocity);
+```
 
 ### Core Components
 
 1. **PluginProcessor** - Main audio/MIDI processing class
 2. **StyleTransferEngine** - Real-time safe MIDI transformation engine
 3. **PluginEditor** - UI for parameter control
-4. **StyleParameters** - Parameter management system
+4. **AudioProcessorValueTreeState** - Thread-safe parameter management system
+
+### Critical Parameter Management
+
+#### ❌ WRONG: Simple Member Variables
+```cpp
+class PluginProcessor {
+    float swingRatio = 0.5f;      // NOT thread-safe!
+    float accentAmount = 20.0f;    // Will cause crashes!
+    
+    void processBlock(...) {
+        if (swingRatio > 0.5f) {  // CRASH RISK!
+            // process
+        }
+    }
+};
+```
+
+#### ✅ CORRECT: AudioProcessorValueTreeState
+```cpp
+class PluginProcessor : public juce::AudioProcessor {
+    AudioProcessorValueTreeState parameters;
+    
+    // Parameter IDs
+    static constexpr const char* SWING_RATIO_ID = "swingRatio";
+    static constexpr const char* ACCENT_AMOUNT_ID = "accentAmount";
+    
+    void processBlock(...) {
+        // Thread-safe parameter access
+        float swingRatio = *parameters.getRawParameterValue(SWING_RATIO_ID);
+        float accentAmount = *parameters.getRawParameterValue(ACCENT_AMOUNT_ID);
+        
+        // Safe to use in audio thread
+        if (swingRatio > 0.5f) {
+            // process
+        }
+    }
+};
+```
 
 ## Implementation Status
 
