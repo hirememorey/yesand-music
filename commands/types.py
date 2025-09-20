@@ -29,6 +29,15 @@ class CommandType(Enum):
     STOP = "stop"
     STATUS = "status"
     HELP = "help"
+    # OSC Style Control Commands
+    SET_SWING = "set_swing"
+    SET_ACCENT = "set_accent"
+    SET_HUMANIZE_TIMING = "set_humanize_timing"
+    SET_HUMANIZE_VELOCITY = "set_humanize_velocity"
+    SET_OSC_ENABLED = "set_osc_enabled"
+    SET_OSC_PORT = "set_osc_port"
+    SET_STYLE_PRESET = "set_style_preset"
+    OSC_RESET = "osc_reset"
 
 
 class Density(Enum):

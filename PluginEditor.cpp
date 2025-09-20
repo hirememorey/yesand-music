@@ -7,10 +7,12 @@
 StyleTransferPluginEditor::StyleTransferPluginEditor(StyleTransferPluginProcessor& p)
     : AudioProcessorEditor(&p), audioProcessor(p)
 {
-    // Set editor size
-    setSize(400, 300);
+    // Set editor size - increased to accommodate 6 sliders
+    setSize(500, 400);
     
-    // Configure swing ratio slider
+    // ============================================================================
+    // SWING RATIO SLIDER (0.0 - 1.0, 0.01 step)
+    // ============================================================================
     swingRatioSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     swingRatioSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 80, 20);
     swingRatioSlider.setRange(0.0, 1.0, 0.01);
@@ -21,7 +23,9 @@ StyleTransferPluginEditor::StyleTransferPluginEditor(StyleTransferPluginProcesso
     swingRatioLabel.attachToComponent(&swingRatioSlider, false);
     addAndMakeVisible(swingRatioLabel);
     
-    // Configure accent amount slider
+    // ============================================================================
+    // ACCENT AMOUNT SLIDER (0.0 - 50.0, 0.1 step)
+    // ============================================================================
     accentAmountSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     accentAmountSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 80, 20);
     accentAmountSlider.setRange(0.0, 50.0, 0.1);
@@ -32,15 +36,48 @@ StyleTransferPluginEditor::StyleTransferPluginEditor(StyleTransferPluginProcesso
     accentAmountLabel.attachToComponent(&accentAmountSlider, false);
     addAndMakeVisible(accentAmountLabel);
     
-    // Configure OSC enabled button
-    oscEnabledButton.setButtonText("OSC Enabled");
-    addAndMakeVisible(oscEnabledButton);
+    // ============================================================================
+    // HUMANIZE TIMING SLIDER (0.0 - 1.0, 0.01 step)
+    // ============================================================================
+    humanizeTimingSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
+    humanizeTimingSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 80, 20);
+    humanizeTimingSlider.setRange(0.0, 1.0, 0.01);
+    humanizeTimingSlider.setValue(0.0);
+    addAndMakeVisible(humanizeTimingSlider);
     
-    oscEnabledLabel.setText("OSC Control", juce::dontSendNotification);
-    oscEnabledLabel.attachToComponent(&oscEnabledButton, false);
+    humanizeTimingLabel.setText("Humanize Timing", juce::dontSendNotification);
+    humanizeTimingLabel.attachToComponent(&humanizeTimingSlider, false);
+    addAndMakeVisible(humanizeTimingLabel);
+    
+    // ============================================================================
+    // HUMANIZE VELOCITY SLIDER (0.0 - 1.0, 0.01 step)
+    // ============================================================================
+    humanizeVelocitySlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
+    humanizeVelocitySlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 80, 20);
+    humanizeVelocitySlider.setRange(0.0, 1.0, 0.01);
+    humanizeVelocitySlider.setValue(0.0);
+    addAndMakeVisible(humanizeVelocitySlider);
+    
+    humanizeVelocityLabel.setText("Humanize Velocity", juce::dontSendNotification);
+    humanizeVelocityLabel.attachToComponent(&humanizeVelocitySlider, false);
+    addAndMakeVisible(humanizeVelocityLabel);
+    
+    // ============================================================================
+    // OSC ENABLED SLIDER (0.0 = false, 1.0 = true)
+    // ============================================================================
+    oscEnabledSlider.setSliderStyle(juce::Slider::LinearHorizontal);
+    oscEnabledSlider.setTextBoxStyle(juce::Slider::TextBoxRight, false, 80, 20);
+    oscEnabledSlider.setRange(0.0, 1.0, 1.0);  // Only 0.0 and 1.0 values
+    oscEnabledSlider.setValue(0.0);
+    addAndMakeVisible(oscEnabledSlider);
+    
+    oscEnabledLabel.setText("OSC Enabled", juce::dontSendNotification);
+    oscEnabledLabel.attachToComponent(&oscEnabledSlider, false);
     addAndMakeVisible(oscEnabledLabel);
     
-    // Configure OSC port slider
+    // ============================================================================
+    // OSC PORT SLIDER (1000 - 65535, 1 step)
+    // ============================================================================
     oscPortSlider.setSliderStyle(juce::Slider::LinearHorizontal);
     oscPortSlider.setTextBoxStyle(juce::Slider::TextBoxRight, false, 80, 20);
     oscPortSlider.setRange(1000, 65535, 1);
@@ -51,13 +88,19 @@ StyleTransferPluginEditor::StyleTransferPluginEditor(StyleTransferPluginProcesso
     oscPortLabel.attachToComponent(&oscPortSlider, false);
     addAndMakeVisible(oscPortLabel);
     
-    // Create parameter attachments (thread-safe)
+    // ============================================================================
+    // PARAMETER ATTACHMENTS (THREAD-SAFE) - ALL using SliderAttachment
+    // ============================================================================
     swingRatioAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
         audioProcessor.parameters, "swingRatio", swingRatioSlider);
     accentAmountAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
         audioProcessor.parameters, "accentAmount", accentAmountSlider);
-    oscEnabledAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ButtonAttachment>(
-        audioProcessor.parameters, "oscEnabled", oscEnabledButton);
+    humanizeTimingAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.parameters, "humanizeTiming", humanizeTimingSlider);
+    humanizeVelocityAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.parameters, "humanizeVelocity", humanizeVelocitySlider);
+    oscEnabledAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
+        audioProcessor.parameters, "oscEnabled", oscEnabledSlider);
     oscPortAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(
         audioProcessor.parameters, "oscPort", oscPortSlider);
 }
@@ -82,32 +125,49 @@ void StyleTransferPluginEditor::paint(juce::Graphics& g)
 void StyleTransferPluginEditor::resized()
 {
     auto bounds = getLocalBounds();
-    auto sliderHeight = 80;
-    auto buttonHeight = 30;
+    auto rotarySliderHeight = 80;
+    auto linearSliderHeight = 40;
+    auto titleHeight = 40;
     
     // Title area
-    auto titleArea = bounds.removeFromTop(40);
+    auto titleArea = bounds.removeFromTop(titleHeight);
     
-    // Swing ratio controls
-    auto swingArea = bounds.removeFromTop(sliderHeight);
-    swingRatioLabel.setBounds(swingArea.removeFromLeft(100));
+    // ============================================================================
+    // ROW 1: Swing Ratio and Accent Amount (rotary sliders)
+    // ============================================================================
+    auto row1 = bounds.removeFromTop(rotarySliderHeight);
+    auto swingArea = row1.removeFromLeft(bounds.getWidth() / 2);
+    auto accentArea = row1;
+    
+    swingRatioLabel.setBounds(swingArea.removeFromLeft(120));
     swingRatioSlider.setBounds(swingArea);
     
-    // Accent amount controls
-    auto accentArea = bounds.removeFromTop(sliderHeight);
-    accentAmountLabel.setBounds(accentArea.removeFromLeft(100));
+    accentAmountLabel.setBounds(accentArea.removeFromLeft(120));
     accentAmountSlider.setBounds(accentArea);
     
-    // OSC controls
-    auto oscArea = bounds.removeFromTop(buttonHeight + sliderHeight);
+    // ============================================================================
+    // ROW 2: Humanize Timing and Humanize Velocity (rotary sliders)
+    // ============================================================================
+    auto row2 = bounds.removeFromTop(rotarySliderHeight);
+    auto humanizeTimingArea = row2.removeFromLeft(bounds.getWidth() / 2);
+    auto humanizeVelocityArea = row2;
     
-    // OSC enabled button
-    auto oscButtonArea = oscArea.removeFromTop(buttonHeight);
-    oscEnabledLabel.setBounds(oscButtonArea.removeFromLeft(100));
-    oscEnabledButton.setBounds(oscButtonArea);
+    humanizeTimingLabel.setBounds(humanizeTimingArea.removeFromLeft(120));
+    humanizeTimingSlider.setBounds(humanizeTimingArea);
     
-    // OSC port slider
-    auto oscPortArea = oscArea;
-    oscPortLabel.setBounds(oscPortArea.removeFromLeft(100));
+    humanizeVelocityLabel.setBounds(humanizeVelocityArea.removeFromLeft(120));
+    humanizeVelocitySlider.setBounds(humanizeVelocityArea);
+    
+    // ============================================================================
+    // ROW 3: OSC Enabled and OSC Port (linear sliders)
+    // ============================================================================
+    auto row3 = bounds.removeFromTop(linearSliderHeight);
+    auto oscEnabledArea = row3.removeFromLeft(bounds.getWidth() / 2);
+    auto oscPortArea = row3;
+    
+    oscEnabledLabel.setBounds(oscEnabledArea.removeFromLeft(120));
+    oscEnabledSlider.setBounds(oscEnabledArea);
+    
+    oscPortLabel.setBounds(oscPortArea.removeFromLeft(120));
     oscPortSlider.setBounds(oscPortArea);
 }

@@ -21,6 +21,14 @@ Natural Language → Command Parser → Musical Analysis → Style Transform →
     jazzier"       (existing)       Analysis        Application     Back to DAW
 ```
 
+### Current: Chat-driven Control with OSC Integration
+```
+Natural Language → Command Parser → Control Plane → MIDI Output + OSC Control
+       ↓                ↓                ↓              ↓           ↓
+   "play scale     Command Types    Pattern Gen    MIDI Player   JUCE Plugin
+    with jazz"     (23+ types)      + OSC Sender   (IAC Driver)  (Style Effects)
+```
+
 ### JUCE Plugin Architecture (Real-Time MIDI Processing)
 ```
 MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Output
@@ -29,19 +37,28 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   (Ardour)     Transformations         Processing             MIDI to DAW
 ```
 
-### Implemented: Chat-driven control plane
+### Implemented: Chat-driven control plane with OSC integration
 - **Core components** (all implemented):
   - **Command Parser** (`commands/parser.py`): Converts natural language into structured commands using regex patterns
   - **Session Manager** (`commands/session.py`): Persistent state management with file-based storage
   - **Pattern Engine** (`commands/pattern_engine.py`): Generates musical patterns from commands and session state
   - **Control Plane** (`commands/control_plane.py`): Main orchestrator that coordinates all components
   - **Non-blocking Sequencer**: Timer-based note-off events for real-time performance
+  - **OSC Sender** (`osc_sender.py`): Python-to-JUCE plugin communication via OSC messages
 - **Key features**:
-  - Natural language command parsing (15+ command types)
+  - Natural language command parsing (23+ command types including OSC)
   - Persistent session state across command executions
   - Multiple pattern types (scales, arpeggios, random notes)
   - Control commands (CC, modulation wheel, tempo, key)
+  - OSC style control (swing, accent, humanization, style presets)
   - CLI interface ready for chat integration
+  - Combined MIDI playback with real-time style effects
+- **OSC Integration** (newly implemented):
+  - **Style Parameter Control**: Real-time control of plugin parameters via natural language
+  - **Style Presets**: Built-in presets (jazz, classical, electronic, blues, straight)
+  - **Thread-Safe Design**: OSC operations run in non-real-time thread
+  - **Parameter Validation**: Automatic clamping and validation of all values
+  - **Error Isolation**: OSC failures don't affect MIDI functionality
 - **Future extensions** (planned):
   - **Musical Analysis Engine**: Deep analysis of bass lines, chord progressions, rhythmic patterns
   - **Semantic MIDI Editing**: "Make bass jazzier", "simplify harmony", "add syncopation"

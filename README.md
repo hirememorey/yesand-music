@@ -9,7 +9,8 @@ A sophisticated Python framework for **natural language control of music creatio
 - **Control commands**: CC messages, modulation wheel, tempo, key, and more.
 - **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
 - **JUCE Plugin Development**: Real-time MIDI effect plugin with swing, accent, and humanization transformations
-- **OSC Integration**: Complete timer-based OSC receiver for real-time parameter control with DAW integration
+- **OSC Integration**: Complete Python-to-JUCE plugin communication with real-time parameter control
+- **Style Control**: Natural language control of plugin parameters via OSC messages
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
 ### Vision: Semantic MIDI Editing (roadmap)
@@ -97,6 +98,27 @@ mod wheel 32              # Send modulation wheel
 status                    # Show current state
 stop                      # Stop playback
 help                      # Show all commands
+```
+
+### OSC Style Control (JUCE Plugin)
+```bash
+# Style parameter control
+set swing to 0.7          # Set swing ratio (0.0-1.0)
+set accent to 25          # Set accent amount (0-50)
+set humanize timing to 0.3 # Set timing humanization (0.0-1.0)
+set humanize velocity to 0.4 # Set velocity humanization (0.0-1.0)
+
+# Style presets
+set style to jazz         # Apply jazz style preset
+make it classical         # Apply classical style
+set style to electronic   # Apply electronic style
+set style to blues        # Apply blues style
+set style to straight     # Apply straight (no effects) style
+
+# OSC control
+set osc enabled to on     # Enable OSC control
+set osc port to 3819      # Set OSC port
+reset osc                 # Reset all parameters to defaults
 ```
 
 ### Next steps

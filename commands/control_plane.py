@@ -17,6 +17,7 @@ from .session import SessionManager
 from .types import Command, CommandType, Note
 from midi_player import MidiPlayer
 from sequencer import Sequencer
+from osc_sender import OSCSender
 import config
 
 
@@ -44,6 +45,9 @@ class ControlPlane:
             raise RuntimeError(f"Could not open MIDI port '{self.midi_port_name}'")
         
         self.sequencer = Sequencer(midi_player=self.midi_player, bpm=self.session.get_state().tempo)
+        
+        # Initialize OSC sender for JUCE plugin control
+        self.osc_sender = OSCSender(config.OSC_IP_ADDRESS, config.OSC_PORT)
         
         # Playback state (now handled by sequencer)
     
@@ -78,6 +82,15 @@ class ControlPlane:
             # Handle control commands
             elif command.type in [CommandType.CC, CommandType.MOD]:
                 return self._handle_control_command(command)
+            
+            # Handle OSC style control commands
+            elif command.type in [
+                CommandType.SET_SWING, CommandType.SET_ACCENT, 
+                CommandType.SET_HUMANIZE_TIMING, CommandType.SET_HUMANIZE_VELOCITY,
+                CommandType.SET_OSC_ENABLED, CommandType.SET_OSC_PORT,
+                CommandType.SET_STYLE_PRESET, CommandType.OSC_RESET
+            ]:
+                return self._handle_osc_command(command)
             
             # Handle system commands
             elif command.type == CommandType.STOP:
@@ -212,6 +225,78 @@ class ControlPlane:
         
         else:
             return f"Command '{command.type.value}' executed"
+    
+    def _handle_osc_command(self, command: Command) -> str:
+        """Handle OSC style control commands.
+        
+        Args:
+            command: The OSC command to execute
+            
+        Returns:
+            Response message indicating success or failure
+        """
+        try:
+            if command.type == CommandType.SET_SWING:
+                swing = command.params.get("swing", 0.5)
+                if self.osc_sender.set_swing_ratio(swing):
+                    return f"OSC: Swing ratio set to {swing:.2f}"
+                else:
+                    return f"OSC: Failed to set swing ratio to {swing:.2f}"
+            
+            elif command.type == CommandType.SET_ACCENT:
+                accent = command.params.get("accent", 20.0)
+                if self.osc_sender.set_accent_amount(accent):
+                    return f"OSC: Accent amount set to {accent:.1f}"
+                else:
+                    return f"OSC: Failed to set accent amount to {accent:.1f}"
+            
+            elif command.type == CommandType.SET_HUMANIZE_TIMING:
+                timing = command.params.get("humanize_timing", 0.0)
+                if self.osc_sender.set_humanize_timing(timing):
+                    return f"OSC: Humanize timing set to {timing:.2f}"
+                else:
+                    return f"OSC: Failed to set humanize timing to {timing:.2f}"
+            
+            elif command.type == CommandType.SET_HUMANIZE_VELOCITY:
+                velocity = command.params.get("humanize_velocity", 0.0)
+                if self.osc_sender.set_humanize_velocity(velocity):
+                    return f"OSC: Humanize velocity set to {velocity:.2f}"
+                else:
+                    return f"OSC: Failed to set humanize velocity to {velocity:.2f}"
+            
+            elif command.type == CommandType.SET_OSC_ENABLED:
+                enabled = command.params.get("enabled", False)
+                if self.osc_sender.set_osc_enabled(enabled):
+                    status = "enabled" if enabled else "disabled"
+                    return f"OSC: Control {status}"
+                else:
+                    return f"OSC: Failed to {'enable' if enabled else 'disable'} control"
+            
+            elif command.type == CommandType.SET_OSC_PORT:
+                port = command.params.get("port", 3819)
+                if self.osc_sender.set_osc_port(port):
+                    return f"OSC: Port set to {port}"
+                else:
+                    return f"OSC: Failed to set port to {port}"
+            
+            elif command.type == CommandType.SET_STYLE_PRESET:
+                preset = command.params.get("preset", "straight")
+                if self.osc_sender.set_style_preset(preset):
+                    return f"OSC: Style preset '{preset}' applied"
+                else:
+                    return f"OSC: Failed to apply style preset '{preset}'"
+            
+            elif command.type == CommandType.OSC_RESET:
+                if self.osc_sender.reset_to_defaults():
+                    return "OSC: All parameters reset to defaults"
+                else:
+                    return "OSC: Failed to reset parameters to defaults"
+            
+            else:
+                return f"OSC: Unknown command '{command.type.value}'"
+                
+        except Exception as e:
+            return f"OSC: Error executing command: {str(e)}"
     
     def close(self) -> None:
         """Close the control plane and clean up resources."""

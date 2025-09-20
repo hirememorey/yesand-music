@@ -98,6 +98,52 @@ class CommandParser:
                 r"\?",
                 r"commands",
             ],
+            # OSC Style Control Commands
+            CommandType.SET_SWING: [
+                r"set\s+swing\s+to\s+([0-9]*\.?[0-9]+)",
+                r"swing\s+([0-9]*\.?[0-9]+)",
+                r"set\s+swing\s+([0-9]*\.?[0-9]+)",
+            ],
+            CommandType.SET_ACCENT: [
+                r"set\s+accent\s+to\s+([0-9]*\.?[0-9]+)",
+                r"accent\s+([0-9]*\.?[0-9]+)",
+                r"set\s+accent\s+([0-9]*\.?[0-9]+)",
+            ],
+            CommandType.SET_HUMANIZE_TIMING: [
+                r"set\s+humanize\s+timing\s+to\s+([0-9]*\.?[0-9]+)",
+                r"humanize\s+timing\s+([0-9]*\.?[0-9]+)",
+                r"set\s+humanize\s+timing\s+([0-9]*\.?[0-9]+)",
+            ],
+            CommandType.SET_HUMANIZE_VELOCITY: [
+                r"set\s+humanize\s+velocity\s+to\s+([0-9]*\.?[0-9]+)",
+                r"humanize\s+velocity\s+([0-9]*\.?[0-9]+)",
+                r"set\s+humanize\s+velocity\s+([0-9]*\.?[0-9]+)",
+            ],
+            CommandType.SET_OSC_ENABLED: [
+                r"set\s+osc\s+enabled\s+to\s+(true|false|on|off)",
+                r"osc\s+enabled\s+(true|false|on|off)",
+                r"set\s+osc\s+(true|false|on|off)",
+                r"enable\s+osc",
+                r"disable\s+osc",
+            ],
+            CommandType.SET_OSC_PORT: [
+                r"set\s+osc\s+port\s+to\s+(\d+)",
+                r"osc\s+port\s+(\d+)",
+                r"set\s+osc\s+port\s+(\d+)",
+            ],
+            CommandType.SET_STYLE_PRESET: [
+                r"set\s+style\s+to\s+(\w+)",
+                r"style\s+(\w+)",
+                r"set\s+style\s+(\w+)",
+                r"make\s+it\s+(\w+)",
+                r"apply\s+(\w+)\s+style",
+            ],
+            CommandType.OSC_RESET: [
+                r"reset\s+osc",
+                r"osc\s+reset",
+                r"reset\s+style",
+                r"style\s+reset",
+            ],
         }
         
         # Compile all patterns for efficiency
@@ -186,7 +232,36 @@ class CommandParser:
         elif cmd_type == CommandType.TARGET:
             params["part"] = groups[0].lower()
             
-        # Commands with no parameters (STOP, STATUS, HELP) have empty params
+        # OSC Style Control Commands
+        elif cmd_type == CommandType.SET_SWING:
+            params["swing"] = max(0.0, min(1.0, float(groups[0])))
+            
+        elif cmd_type == CommandType.SET_ACCENT:
+            params["accent"] = max(0.0, min(50.0, float(groups[0])))
+            
+        elif cmd_type == CommandType.SET_HUMANIZE_TIMING:
+            params["humanize_timing"] = max(0.0, min(1.0, float(groups[0])))
+            
+        elif cmd_type == CommandType.SET_HUMANIZE_VELOCITY:
+            params["humanize_velocity"] = max(0.0, min(1.0, float(groups[0])))
+            
+        elif cmd_type == CommandType.SET_OSC_ENABLED:
+            # Handle various boolean representations
+            value = groups[0].lower()
+            if value in ["true", "on", "enable"]:
+                params["enabled"] = True
+            elif value in ["false", "off", "disable"]:
+                params["enabled"] = False
+            else:
+                params["enabled"] = bool(value)
+                
+        elif cmd_type == CommandType.SET_OSC_PORT:
+            params["port"] = max(1000, min(65535, int(groups[0])))
+            
+        elif cmd_type == CommandType.SET_STYLE_PRESET:
+            params["preset"] = groups[0].lower()
+            
+        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET) have empty params
         
         return params
     
@@ -212,6 +287,17 @@ Control:
   cc [NUMBER] to [VALUE]     - Send control change (e.g., "cc 74 to 64")
   mod wheel [VALUE]          - Send modulation wheel (e.g., "mod wheel 32")
   target [PART]              - Set target part (e.g., "target piano")
+
+OSC Style Control (JUCE Plugin):
+  set swing to [0-1]         - Set swing ratio (e.g., "set swing to 0.7")
+  set accent to [0-50]       - Set accent amount (e.g., "set accent to 25")
+  set humanize timing to [0-1] - Set timing humanization (e.g., "set humanize timing to 0.3")
+  set humanize velocity to [0-1] - Set velocity humanization (e.g., "set humanize velocity to 0.4")
+  set osc enabled to [on/off] - Enable/disable OSC control (e.g., "set osc enabled to on")
+  set osc port to [PORT]     - Set OSC port (e.g., "set osc port to 3819")
+  set style to [PRESET]      - Apply style preset (e.g., "set style to jazz")
+  make it [STYLE]            - Apply style (e.g., "make it jazzier")
+  reset osc                  - Reset all OSC parameters to defaults
 
 System:
   stop                      - Stop current playback

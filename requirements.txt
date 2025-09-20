@@ -1,0 +1,11 @@
+# Music Cursor Dependencies
+# Core MIDI libraries
+mido>=1.2.10
+python-rtmidi>=1.4.9
+
+# OSC communication for JUCE plugin control
+python-osc>=1.7.4
+
+# Optional: For enhanced functionality
+# numpy>=1.21.0  # For advanced musical analysis (future)
+# scipy>=1.7.0   # For signal processing (future)
