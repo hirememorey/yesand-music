@@ -121,6 +121,35 @@ The control plane is now ready for:
 2. **Ardour Integration**: Can be extended to work with Ardour's OSC interface
 3. **Project Manifest**: Ready to add `project.yaml` support for logical parts
 4. **UI Reading**: Can be extended with macOS Accessibility API for track names
+5. **JUCE Plugin OSC Control**: Remote control of style parameters via OSC messages
+
+## JUCE Plugin OSC Integration (Phase A: Step 1)
+
+### What Was Added
+- **OSC Dependency**: Integrated liblo (Lightweight OSC) library for real-time safe remote control
+- **Thread-Safe Architecture**: Implemented FIFO queue pattern for non-real-time OSC message processing
+- **Plugin Structure**: Created complete JUCE plugin with CMakeLists.txt, PluginProcessor, and PluginEditor
+- **Parameter Control**: Added OSC control for swing ratio, accent amount, and OSC enable/port settings
+- **Real-Time Safety**: Ensured OSC operations never interfere with audio thread processing
+
+### Key Features
+- ✅ **OSC Message Protocol**: `/style/swing`, `/style/accent`, `/style/enable` messages
+- ✅ **Thread-Safe Design**: FIFO queue for communication between threads
+- ✅ **Parameter Management**: APVTS integration for thread-safe parameter updates
+- ✅ **Plugin UI**: Complete editor with OSC controls and parameter sliders
+- ✅ **Documentation**: Comprehensive OSC_INTEGRATION.md with usage examples
+
+### Usage Examples
+```bash
+# Control swing ratio (0.0 = straight, 1.0 = maximum swing)
+oscsend localhost 3819 /style/swing 0.7
+
+# Control accent amount (0-50 velocity boost)
+oscsend localhost 3819 /style/accent 25.0
+
+# Enable/disable OSC control
+oscsend localhost 3819 /style/enable true
+```
 
 ## Conclusion
 

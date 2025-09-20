@@ -9,6 +9,7 @@ A sophisticated Python framework for **natural language control of music creatio
 - **Control commands**: CC messages, modulation wheel, tempo, key, and more.
 - **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
 - **JUCE Plugin Development**: Real-time MIDI effect plugin with swing, accent, and humanization transformations
+- **OSC Integration**: Remote control via Open Sound Control for real-time parameter adjustment
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
 ### Vision: Semantic MIDI Editing (roadmap)
@@ -104,6 +105,7 @@ help                      # Show all commands
 - **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
 - **Explore the roadmap**: See [ROADMAP.md](ROADMAP.md) for the semantic MIDI editing vision
 - **JUCE Plugin Development**: See [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) for real-time MIDI style transformations
+- **OSC Integration**: See [OSC_INTEGRATION.md](OSC_INTEGRATION.md) for remote control capabilities
 - **Deep dive docs**:
   - [Setup](docs/SETUP.md)
   - [Architecture](docs/ARCHITECTURE.md)
