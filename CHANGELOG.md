@@ -3,6 +3,12 @@
 This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PATCH).
 
 ### [Unreleased]
+#### Vision & Roadmap
+- **Semantic MIDI Editing Vision**: Updated project vision to enable natural language commands like "make the bass beat from measures 8-12 jazzier"
+- **Comprehensive Roadmap**: Created detailed implementation plan across 5 phases for semantic MIDI editing
+- **Enhanced Documentation**: Updated all markdown files to reflect the new vision and technical architecture
+- **Ardour-Focused Development**: Shifted primary target from GarageBand to Ardour for deeper integration capabilities
+
 #### Added
 - **Complete Control Plane Implementation**: Full chat-driven MIDI control system with natural language commands
   - Command parser with regex patterns for all major command types
@@ -18,6 +24,7 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - **Control Commands**: CC messages, modulation wheel, tempo, key, density, and randomness controls
 - **Session Persistence**: State survives between commands with atomic file updates
 - **Multiple Entry Points**: Original demo, interactive mode, CLI, and chat integration ready
+- **ROADMAP.md**: Comprehensive implementation plan for semantic MIDI editing across 5 phases
 
 #### Fixed
 - **Critical: Non-blocking MIDI Playback**: Fixed blocking issue where `MidiPlayer.send_note()` used `time.sleep()` preventing real-time operation. Now uses timer-based note-off events for truly non-blocking playback.

@@ -1,8 +1,8 @@
-## MIDI Sequencing to GarageBand (macOS)
+## Music Cursor: Semantic MIDI Editing for Ardour
 
-Generate MIDI in Python and play it in real time through a virtual MIDI port into GarageBand.
+A sophisticated Python framework for **natural language control of music creation and editing** in Ardour. Generate MIDI patterns, analyze existing music, and make intelligent modifications through chat commands.
 
-### New: Chat-driven control plane (implemented!)
+### Current: Chat-driven MIDI control (implemented!)
 - **Interactive MIDI control via natural language commands**. Send commands to generate patterns, tweak dynamics, and modulate instruments via MIDI, embracing nondeterminism over tight sync.
 - **Real-time session state management** with persistent storage across commands.
 - **Multiple pattern types**: scales, arpeggios, random notes with configurable density and randomness.
@@ -10,10 +10,18 @@ Generate MIDI in Python and play it in real time through a virtual MIDI port int
 - **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
+### Vision: Semantic MIDI Editing (roadmap)
+- **"Make the bass beat from measures 8-12 jazzier"** - Intelligent musical modifications
+- **Deep musical analysis** - Understand bass lines, chord progressions, rhythmic patterns
+- **Ardour integration** - Read existing MIDI, analyze, modify, and write back
+- **Style transformations** - Apply musical concepts like "jazzier", "simpler", "more aggressive"
+- **Context-aware editing** - Preserve musical relationships while making changes
+
 ### What this is
-- **Goal**: Minimal, modular framework for generating MIDI and scheduling playback.
-- **Modules**: `midi_player.py` (I/O), `sequencer.py` (timing), `theory.py` (scales), `main.py` (demo), `config.py` (settings).
-- **Platform focus**: macOS with IAC Driver and GarageBand. Others may work with minor changes.
+- **Goal**: Semantic MIDI editing framework for intelligent music creation and modification.
+- **Core Modules**: `midi_player.py` (I/O), `sequencer.py` (timing), `theory.py` (music theory), `commands/` (control plane).
+- **Platform focus**: macOS with Ardour integration. IAC Driver support for GarageBand compatibility.
+- **Architecture**: Modular design supporting both real-time control and deep musical analysis.
 
 ### Quickstart (time-to-first-note)
 1) Create and activate a virtualenv
@@ -92,7 +100,8 @@ help                      # Show all commands
 - **Try the control plane**: `python3 main.py --interactive`
 - **Chat integration**: Use `python3 control_plane_cli.py "command"` in chat
 - **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
-- Explore deeper docs:
+- **Explore the roadmap**: See [ROADMAP.md](ROADMAP.md) for the semantic MIDI editing vision
+- **Deep dive docs**:
   - [Setup](docs/SETUP.md)
   - [Architecture](docs/ARCHITECTURE.md)
   - [Usage](docs/USAGE.md)

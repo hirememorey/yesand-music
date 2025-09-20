@@ -1,7 +1,14 @@
-## Chat-driven Control Plane for GarageBand
+## Chat-driven Control Plane for Ardour
 
 ### Purpose
-Use Cursor chat as a real-time control plane to influence GarageBand via MIDI. Precision sync is not required; nondeterministic, improvisatory output is desirable. Optional project context (key, track names) may inform behavior.
+Use Cursor chat as a real-time control plane to influence Ardour via MIDI and eventually perform semantic MIDI editing. Precision sync is not required; nondeterministic, improvisatory output is desirable. Optional project context (key, track names) may inform behavior.
+
+### Vision: Semantic MIDI Editing
+The ultimate goal is to enable natural language commands like:
+- **"Make the bass beat from measures 8-12 jazzier"** - Intelligent musical modifications
+- **"Simplify the harmony in the chorus"** - Context-aware editing
+- **"Add more syncopation to the drums"** - Style transformations
+- **"Make it more aggressive"** - Musical concept application
 
 ### Principles
 - Embrace nondeterminism and simplicity: minimal timing guarantees, fast iteration.
@@ -9,30 +16,60 @@ Use Cursor chat as a real-time control plane to influence GarageBand via MIDI. P
 - Make the system transparent: show current assumptions (key, target, randomness).
 
 ### Layers
-1. Core control plane (baseline, always works)
+1. **Core control plane** (implemented, always works)
    - Parse chat into intents (play/pattern/cc/settings).
    - Maintain session state (key/scale, density, register, velocity, randomness).
-   - Send MIDI to `IAC Driver Bus 1` toward the armed track in GarageBand.
-2. Declarative project manifest (opt-in)
+   - Send MIDI to `IAC Driver Bus 1` toward the armed track in Ardour/GarageBand.
+2. **Musical Analysis Engine** (planned)
+   - Analyze existing MIDI data for bass lines, chord progressions, rhythmic patterns
+   - Understand musical context and relationships
+   - Identify musical elements and their functions
+3. **Semantic MIDI Editing** (planned)
+   - Parse complex musical commands ("make bass jazzier")
+   - Apply style transformations while preserving context
+   - Read, modify, and write MIDI data back to Ardour
+4. **Ardour Integration** (partially implemented)
+   - OSC communication for real-time control
+   - MIDI file I/O for project data access
+   - Project structure parsing (tracks, regions, measures)
+5. **Declarative project manifest** (opt-in)
    - `project.yaml` or `project.json` describing key/scale, logical parts (piano, bass, pad), and suggested MIDI channels or track nicknames.
    - Chat can reference logical parts; the control plane maps intents to targets.
-3. Best-effort DAW context (optional)
+6. **Best-effort DAW context** (optional)
    - Use macOS Accessibility or AppleScript UI scripting to read track names and armed/selected state; optionally toggle arm/solo.
-   - Fail gracefully; if unavailable or denied, continue with Layers 1–2.
-4. Audio-derived suggestions (optional)
+   - Fail gracefully; if unavailable or denied, continue with previous layers.
+7. **Audio-derived suggestions** (optional)
    - With a loopback device (e.g., BlackHole), capture brief audio and run lightweight key estimation for hints, not authority.
 
-### MVP Scope
-- Single-armed track model; user arms the target in GarageBand.
+### Current Scope (Implemented)
+- Single-armed track model; user arms the target in Ardour/GarageBand.
 - Intents: play scale/arp/random-walk; set key/scale; adjust density/register/velocity/randomness; send CC; stop.
 - Patterns are simple, timed with `sleep`, and may randomize timing/velocity/pitch within constraints.
 
-### Intent Grammar (initial)
+### Future Scope (Semantic MIDI Editing)
+- **Musical Analysis**: Understand bass lines, chord progressions, rhythmic patterns
+- **Complex Commands**: "Make bass jazzier", "simplify harmony", "add syncopation"
+- **Context Preservation**: Maintain musical relationships during modifications
+- **Ardour Integration**: Read existing MIDI, analyze, modify, write back
+- **Style Transformations**: Apply musical concepts intelligently
+
+### Intent Grammar (Current)
 - play: "play [scale|arp|random] in [KEY MODE] for [DURATION]"
 - set: "set key to [KEY MODE]", "set density to [low|med|high]", "set randomness to [0..1]"
 - cc: "cc [1-119] to [0-127]", "mod wheel [0-127]"
 - target (with manifest or UI read): "target [piano|bass|pad]"
 - stop: "stop", "silence"
+
+### Intent Grammar (Future - Semantic MIDI Editing)
+- modify: "make [element] [style]", "modify [element] from [location] [transformation]"
+- analyze: "analyze [element]", "show [element] pattern", "what's the [element] doing"
+- transform: "make it [style]", "add [characteristic]", "simplify [element]"
+- context: "in [location]", "from [measure] to [measure]", "in the [section]"
+- Examples:
+  - "make the bass beat from measures 8-12 jazzier"
+  - "simplify the harmony in the chorus"
+  - "add more syncopation to the drums"
+  - "make it more aggressive"
 
 ### Project Manifest (optional)
 Example `project.yaml`:
@@ -77,8 +114,11 @@ randomness: 0.35
 - Optional: UI read smoke test guarded by platform checks.
 
 ### Next Steps
-- Implement Layer 1 (core control plane) and ship simple commands.
-- Add manifest support and a few CC aliases.
-- Explore UI read for track names/armed state as an optional enhancement.
+- **Phase 1**: Enhanced MIDI file I/O for Ardour integration
+- **Phase 2**: Musical analysis engine for bass lines, chord progressions, rhythmic patterns
+- **Phase 3**: Semantic command parsing for complex musical modifications
+- **Phase 4**: Style transformation engine for "jazzier", "simpler", "more aggressive"
+- **Phase 5**: Advanced Ardour integration with real-time project awareness
+- See [ROADMAP.md](../ROADMAP.md) for detailed implementation phases
 
 

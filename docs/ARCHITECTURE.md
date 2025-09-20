@@ -1,12 +1,22 @@
 ## Architecture
 
 ### Overview
-The project separates concerns into transport (MIDI I/O), scheduling (timing), theory helpers (content generation), and orchestration (entrypoint).
+The project separates concerns into transport (MIDI I/O), scheduling (timing), theory helpers (content generation), musical analysis, and orchestration (entrypoint).
 
 ```
-main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
+main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
            ↑
         theory
+           ↑
+    musical_analysis (future)
+```
+
+### Vision: Semantic MIDI Editing Architecture
+```
+Natural Language → Command Parser → Musical Analysis → Style Transform → Ardour Integration
+       ↓                ↓                ↓                ↓                ↓
+   "make bass      Command Types    Bass Pattern    Jazz Style      Write MIDI
+    jazzier"       (existing)       Analysis        Application     Back to DAW
 ```
 
 ### Implemented: Chat-driven control plane
@@ -23,9 +33,14 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
   - Control commands (CC, modulation wheel, tempo, key)
   - CLI interface ready for chat integration
 - **Future extensions** (planned):
+  - **Musical Analysis Engine**: Deep analysis of bass lines, chord progressions, rhythmic patterns
+  - **Semantic MIDI Editing**: "Make bass jazzier", "simplify harmony", "add syncopation"
+  - **Ardour Integration**: Read existing MIDI, analyze, modify, write back
+  - **Style Transformations**: Apply musical concepts and maintain context
   - Manifest loader: `project.yaml`/`project.json` for logical parts and CC aliases
   - UI reader: macOS Accessibility API for track names and armed state
 - See: `docs/CONTROL_PLANE.md` for detailed design and implementation.
+- See: `ROADMAP.md` for the semantic MIDI editing vision and implementation phases.
 
 ### Modules and responsibilities
 - `midi_player.py`
@@ -61,6 +76,10 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → GarageBand
 - Extensibility: additional generators or alternate players can be added without touching the core scheduling logic.
 
 ### Extension points
+- **Musical Analysis**: Add functions to `theory.py` for pattern recognition, harmonic analysis, style classification
+- **Semantic Commands**: Extend `commands/parser.py` with new command types for musical modifications
+- **Ardour Integration**: Add MIDI file I/O, project structure parsing, OSC communication
+- **Style Engine**: Create style transformation modules for "jazzier", "simpler", "more aggressive"
 - New content: add functions to `theory.py` (arpeggios, chords, rhythms).
 - Alternate output: subclass or replace `MidiPlayer` (e.g., different backend or network MIDI).
 - Advanced scheduling: add a non-blocking scheduler that overlaps notes, or quantization/latency compensation.

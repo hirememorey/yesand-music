@@ -1,10 +1,10 @@
 {
-  "key": "D",
+  "key": "E",
   "mode": "minor",
-  "tempo": 120,
+  "tempo": 180,
   "density": "high",
-  "randomness": 0.3,
-  "velocity": 90,
+  "randomness": 0.1,
+  "velocity": 110,
   "register": 4,
   "target_part": null
 }
