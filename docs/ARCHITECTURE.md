@@ -19,6 +19,14 @@ Natural Language → Command Parser → Musical Analysis → Style Transform →
     jazzier"       (existing)       Analysis        Application     Back to DAW
 ```
 
+### JUCE Plugin Architecture (Real-Time MIDI Processing)
+```
+MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Output
+     ↓              ↓                        ↓                      ↓
+  DAW Track    Swing/Accent            Real-Time Safe         Transformed
+  (Ardour)     Transformations         Processing             MIDI to DAW
+```
+
 ### Implemented: Chat-driven control plane
 - **Core components** (all implemented):
   - **Command Parser** (`commands/parser.py`): Converts natural language into structured commands using regex patterns
@@ -41,6 +49,26 @@ Natural Language → Command Parser → Musical Analysis → Style Transform →
   - UI reader: macOS Accessibility API for track names and armed state
 - See: `docs/CONTROL_PLANE.md` for detailed design and implementation.
 - See: `ROADMAP.md` for the semantic MIDI editing vision and implementation phases.
+
+### Implemented: JUCE Plugin (Real-Time MIDI Processing)
+- **Core components** (in development):
+  - **StyleTransferAudioProcessor**: Main plugin class handling MIDI processing
+  - **StyleParameters**: Real-time safe parameter structure for swing and accent control
+  - **applyStyle()**: Core transformation function applying swing and accent transformations
+  - **Real-time Safety**: All MIDI processing code follows strict real-time safety constraints
+- **Key features**:
+  - **Swing Transformation**: Off-beat note timing adjustment based on configurable swing ratio
+  - **Accent Transformation**: Down-beat velocity enhancement for musical emphasis
+  - **Real-time Processing**: No memory allocation, locking, or blocking calls in audio thread
+  - **Plugin Formats**: VST3 and AudioUnit support for cross-platform compatibility
+  - **Parameter Control**: Real-time parameter adjustment for swing ratio and accent amount
+- **Future extensions** (planned):
+  - **Advanced Style Transformations**: Jazz, classical, electronic, blues styles
+  - **Humanization**: Subtle timing and velocity variations
+  - **Velocity Curves**: Dynamic shaping of note velocities
+  - **OSC Integration**: Remote control via Open Sound Control
+  - **Machine Learning**: Style learning and adaptive processing
+- See: `docs/JUCE_PLUGIN_DEVELOPMENT.md` for detailed implementation and development approach.
 
 ### Modules and responsibilities
 - `midi_player.py`

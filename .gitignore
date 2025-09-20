@@ -23,4 +23,8 @@ build/
 dist/
 *.egg-info/
 
+# Temporary files
+all_markdown_content.txt
+temp_*.py
+
 

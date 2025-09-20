@@ -101,12 +101,14 @@ help                      # Show all commands
 - **Chat integration**: Use `python3 control_plane_cli.py "command"` in chat
 - **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
 - **Explore the roadmap**: See [ROADMAP.md](ROADMAP.md) for the semantic MIDI editing vision
+- **JUCE Plugin Development**: See [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) for real-time MIDI style transformations
 - **Deep dive docs**:
   - [Setup](docs/SETUP.md)
   - [Architecture](docs/ARCHITECTURE.md)
   - [Usage](docs/USAGE.md)
   - [Troubleshooting](docs/TROUBLESHOOTING.md)
   - [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Ardour 8.9 now builds and launches successfully on macOS with internal YTK (SDK 14.x, arm64). Backend detection resolved.
+  - [JUCE Plugin Development](docs/JUCE_PLUGIN_DEVELOPMENT.md) — Real-time MIDI effect plugin for style transformations
   - [Contributing](CONTRIBUTING.md)
   - [Changelog](CHANGELOG.md)
 
