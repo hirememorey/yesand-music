@@ -10,7 +10,7 @@ use blocking calls, memory allocation, and network operations.
 
 import logging
 from typing import Optional, Union
-from python_osc import osc_message_builder, udp_client
+from pythonosc import osc_message_builder, udp_client
 
 
 class OSCSender:

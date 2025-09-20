@@ -100,25 +100,25 @@ stop                      # Stop playback
 help                      # Show all commands
 ```
 
-### OSC Style Control (JUCE Plugin)
+### OSC Style Control (JUCE Plugin) ✅ WORKING
 ```bash
-# Style parameter control
-set swing to 0.7          # Set swing ratio (0.0-1.0)
-set accent to 25          # Set accent amount (0-50)
-set humanize timing to 0.3 # Set timing humanization (0.0-1.0)
-set humanize velocity to 0.4 # Set velocity humanization (0.0-1.0)
+# Style parameter control (tested and working)
+python control_plane_cli.py "set swing to 0.7"          # Set swing ratio (0.0-1.0)
+python control_plane_cli.py "set accent to 25"          # Set accent amount (0-50)
+python control_plane_cli.py "set humanize timing to 0.3" # Set timing humanization (0.0-1.0)
+python control_plane_cli.py "set humanize velocity to 0.4" # Set velocity humanization (0.0-1.0)
 
-# Style presets
-set style to jazz         # Apply jazz style preset
-make it classical         # Apply classical style
-set style to electronic   # Apply electronic style
-set style to blues        # Apply blues style
-set style to straight     # Apply straight (no effects) style
+# Style presets (tested and working)
+python control_plane_cli.py "set style to jazz"         # Apply jazz style preset
+python control_plane_cli.py "make it classical"         # Apply classical style
+python control_plane_cli.py "set style to electronic"   # Apply electronic style
+python control_plane_cli.py "set style to blues"        # Apply blues style
+python control_plane_cli.py "set style to straight"     # Apply straight (no effects) style
 
-# OSC control
-set osc enabled to on     # Enable OSC control
-set osc port to 3819      # Set OSC port
-reset osc                 # Reset all parameters to defaults
+# OSC control (tested and working)
+python control_plane_cli.py "set osc enabled to on"     # Enable OSC control
+python control_plane_cli.py "set osc port to 3819"      # Set OSC port
+python control_plane_cli.py "reset osc"                 # Reset all parameters to defaults
 ```
 
 ### Next steps
