@@ -1,6 +1,6 @@
 # JUCE Plugin Development: Style Transfer MIDI Effect
 
-This document outlines the development of a real-time MIDI effect plugin using the JUCE framework to support the Music Cursor semantic MIDI editing vision.
+This document outlines the development of a real-time MIDI effect plugin using the JUCE framework to support the YesAnd Music semantic MIDI editing vision.
 
 ## Project Overview
 
@@ -11,12 +11,12 @@ This document outlines the development of a real-time MIDI effect plugin using t
 
 ## Vision Integration
 
-This JUCE plugin directly supports the Music Cursor semantic MIDI editing vision by providing:
+This JUCE plugin directly supports the YesAnd Music semantic MIDI editing vision by providing:
 
 - **Low-level MIDI processing** for real-time style transformations
 - **Real-time safe operations** for professional audio applications
 - **Extensible architecture** for adding new style transformations
-- **Parameter control** for integration with Music Cursor's command system
+- **Parameter control** for integration with YesAnd Music's command system
 
 ## Technical Architecture
 
@@ -271,10 +271,10 @@ void StyleTransferAudioProcessor::applyStyle(juce::MidiBuffer& midiMessages,
 }
 ```
 
-## Integration with Music Cursor
+## Integration with YesAnd Music
 
 ### Command Integration
-The plugin can be controlled via Music Cursor commands:
+The plugin can be controlled via YesAnd Music commands:
 
 ```bash
 # Set swing ratio
@@ -317,7 +317,7 @@ oscsend localhost 3819 /style/accent 25
 
 ### 3. Integration Testing
 ```bash
-# Test with Music Cursor control plane
+# Test with YesAnd Music control plane
 # Verify parameter changes work in real-time
 # Test with different MIDI sequences
 # Validate swing and accent effects
@@ -373,6 +373,6 @@ oscsend localhost 3819 /style/accent 25
 
 ## Conclusion
 
-The JUCE Style Transfer plugin provides the foundational MIDI processing capabilities needed for the Music Cursor semantic editing vision. By implementing real-time safe style transformations, we create a bridge between high-level natural language commands and low-level MIDI manipulation.
+The JUCE Style Transfer plugin provides the foundational MIDI processing capabilities needed for the YesAnd Music semantic editing vision. By implementing real-time safe style transformations, we create a bridge between high-level natural language commands and low-level MIDI manipulation.
 
-The modular architecture allows for incremental development while maintaining the critical real-time safety requirements for professional audio applications. This plugin will serve as the core MIDI processing engine for the broader Music Cursor ecosystem.
+The modular architecture allows for incremental development while maintaining the critical real-time safety requirements for professional audio applications. This plugin will serve as the core MIDI processing engine for the broader YesAnd Music ecosystem.

@@ -141,12 +141,12 @@ oscsend localhost 3819 /style/swing 0.8
 oscsend localhost 3819 /style/accent 30.0
 ```
 
-### 3. Integration with Music Cursor
+### 3. Integration with YesAnd Music
 
-The OSC integration enables the Music Cursor control plane to remotely control the plugin:
+The OSC integration enables the YesAnd Music control plane to remotely control the plugin:
 
 ```python
-# From Music Cursor control plane
+# From YesAnd Music control plane
 python control_plane_cli.py "set swing to 0.7"
 python control_plane_cli.py "set accent to 25"
 ```
@@ -220,4 +220,4 @@ tcpdump -i lo0 udp port 3819
 
 ## Conclusion
 
-The OSC integration provides a robust, real-time safe way to remotely control the StyleTransfer plugin. The architecture ensures that OSC operations never interfere with audio processing while providing responsive parameter control for the Music Cursor semantic MIDI editing system.
+The OSC integration provides a robust, real-time safe way to remotely control the StyleTransfer plugin. The architecture ensures that OSC operations never interfere with audio processing while providing responsive parameter control for the YesAnd Music semantic MIDI editing system.

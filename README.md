@@ -1,4 +1,4 @@
-## Music Cursor: Semantic MIDI Editing for Ardour
+## YesAnd Music: Semantic MIDI Editing for Ardour
 
 A sophisticated Python framework for **natural language control of music creation and editing** in Ardour. Generate MIDI patterns, analyze existing music, and make intelligent modifications through chat commands.
 
@@ -30,7 +30,7 @@ A sophisticated Python framework for **natural language control of music creatio
 ### Quickstart (time-to-first-note)
 1) Create and activate a virtualenv
 ```bash
-cd "/Users/harrisgordon/Documents/Development/Python/not_sports/music_cursor"
+cd "/path/to/yesand-music"
 python3 -m venv .venv
 source .venv/bin/activate
 ```

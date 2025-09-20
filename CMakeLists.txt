@@ -22,7 +22,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${LIBLO_INCLUDE_DIRS})
 
 # Create the plugin target
 juce_add_plugin(StyleTransfer
-    COMPANY_NAME "Music Cursor"
+    COMPANY_NAME "YesAnd Music"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT TRUE
     NEEDS_MIDI_OUTPUT TRUE

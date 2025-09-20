@@ -4,7 +4,7 @@ Thank you for improving this project! Please follow these guidelines to keep cha
 
 ### Local development
 ```bash
-cd "/Users/harrisgordon/Documents/Development/Python/not_sports/music_cursor"
+cd "/path/to/yesand-music"
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --upgrade pip setuptools wheel

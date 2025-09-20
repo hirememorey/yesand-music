@@ -1,6 +1,6 @@
 # Roadmap: Semantic MIDI Editing for Ardour
 
-This document outlines the implementation roadmap for transforming Music Cursor from a chat-driven MIDI control system into a sophisticated semantic MIDI editing platform.
+This document outlines the implementation roadmap for transforming YesAnd Music from a chat-driven MIDI control system into a sophisticated semantic MIDI editing platform.
 
 ## Vision
 
@@ -261,6 +261,6 @@ Natural Language → Semantic Parser → Musical Analysis → Style Transform �
 
 ## Conclusion
 
-This roadmap transforms Music Cursor from a sophisticated MIDI control system into a revolutionary semantic MIDI editing platform. Each phase builds upon the previous, creating a robust foundation for intelligent musical editing through natural language commands.
+This roadmap transforms YesAnd Music from a sophisticated MIDI control system into a revolutionary semantic MIDI editing platform. Each phase builds upon the previous, creating a robust foundation for intelligent musical editing through natural language commands.
 
 The modular architecture ensures that each phase delivers value independently while building toward the ultimate vision of seamless, intelligent musical editing.

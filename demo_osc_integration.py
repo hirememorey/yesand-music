@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 def demo_osc_commands():
     """Demonstrate OSC command functionality."""
-    print("🎵 Music Cursor OSC Integration Demo")
+    print("🎵 YesAnd Music OSC Integration Demo")
     print("=" * 50)
     print("This demo shows how the Python control plane can remotely")
     print("control the JUCE StyleTransfer plugin via OSC messages.")

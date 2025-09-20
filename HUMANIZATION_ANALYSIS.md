@@ -374,7 +374,7 @@ struct AdvancedStyleParameters {
 };
 ```
 
-### Integration with Music Cursor
+### Integration with YesAnd Music
 
 **Command Integration:**
 ```bash
@@ -403,12 +403,12 @@ The Humanization feature successfully adds subtle, controlled randomness to MIDI
 3. **Real-Time Safety**: No memory allocation, locking, or blocking calls
 4. **Musical Intelligence**: Subtle variations that enhance rather than replace expression
 
-This feature provides the foundation for making MIDI performances feel more human and authentic, directly supporting the Music Cursor semantic MIDI editing vision of intelligent musical enhancement.
+This feature provides the foundation for making MIDI performances feel more human and authentic, directly supporting the YesAnd Music semantic MIDI editing vision of intelligent musical enhancement.
 
 ## Next Steps
 
 1. **Implement in JUCE Project**: Add the humanization code to the actual plugin
 2. **UI Integration**: Create parameter controls in the plugin editor
-3. **Music Cursor Integration**: Connect humanization parameters to the control plane
+3. **YesAnd Music Integration**: Connect humanization parameters to the control plane
 4. **Advanced Features**: Implement tempo-adaptive and style-specific humanization
 5. **Performance Optimization**: Fine-tune for maximum real-time performance

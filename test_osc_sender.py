@@ -167,7 +167,7 @@ def test_error_handling(sender: OSCSender):
 
 def main():
     """Main test function."""
-    print("🎵 Music Cursor OSC Sender Test")
+    print("🎵 YesAnd Music OSC Sender Test")
     print("=" * 50)
     print(f"Target: {OSC_IP_ADDRESS}:{OSC_PORT}")
     print("Make sure the JUCE plugin is running with OSC enabled!")

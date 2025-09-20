@@ -28,7 +28,7 @@ Verification:
 
 ### 3) Set up Python environment
 ```bash
-cd "/Users/harrisgordon/Documents/Development/Python/not_sports/music_cursor"
+cd "/Users/harrisgordon/Documents/Development/Python/not_sports/yesand_music"
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install --upgrade pip setuptools wheel
