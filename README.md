@@ -8,6 +8,7 @@ A sophisticated Python framework for **natural language control of music creatio
 - **Multiple pattern types**: scales, arpeggios, random notes with configurable density and randomness.
 - **Control commands**: CC messages, modulation wheel, tempo, key, and more.
 - **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
+- **JUCE Plugin Development**: Real-time MIDI effect plugin with swing, accent, and humanization transformations
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
 ### Vision: Semantic MIDI Editing (roadmap)

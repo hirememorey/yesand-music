@@ -21,6 +21,12 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 - **Real-Time Safety**: Implemented real-time safe MIDI processing with no memory allocation or blocking calls
 - **Swing Transformation**: Added swing feel transformation for off-beat note timing adjustment
 - **Accent Transformation**: Added down-beat velocity enhancement for musical emphasis
+- **Humanization Feature**: Added subtle timing and velocity variations for authentic human feel
+  - Timing humanization: ±5ms maximum variation for natural timing feel
+  - Velocity humanization: ±10 units maximum variation for natural dynamics
+  - Critical velocity preservation: Modifies original values, never overwrites
+  - Real-time safe random number generation with pre-seeded Random generator
+- **Modular Architecture**: Refactored into pure transformation functions for testability and extensibility
 - **Plugin Architecture**: Designed modular architecture supporting VST3 and AudioUnit formats
 - **Documentation**: Created comprehensive documentation for JUCE plugin development approach
 

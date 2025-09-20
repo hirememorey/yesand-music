@@ -51,20 +51,20 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
 - See: `ROADMAP.md` for the semantic MIDI editing vision and implementation phases.
 
 ### Implemented: JUCE Plugin (Real-Time MIDI Processing)
-- **Core components** (in development):
+- **Core components** (implemented):
   - **StyleTransferAudioProcessor**: Main plugin class handling MIDI processing
-  - **StyleParameters**: Real-time safe parameter structure for swing and accent control
-  - **applyStyle()**: Core transformation function applying swing and accent transformations
+  - **StyleParameters**: Real-time safe parameter structure for swing, accent, and humanization control
+  - **Modular transformation functions**: Pure, testable functions for each transformation type
   - **Real-time Safety**: All MIDI processing code follows strict real-time safety constraints
 - **Key features**:
   - **Swing Transformation**: Off-beat note timing adjustment based on configurable swing ratio
   - **Accent Transformation**: Down-beat velocity enhancement for musical emphasis
+  - **Humanization Transformation**: Subtle timing and velocity variations for authentic human feel
   - **Real-time Processing**: No memory allocation, locking, or blocking calls in audio thread
   - **Plugin Formats**: VST3 and AudioUnit support for cross-platform compatibility
-  - **Parameter Control**: Real-time parameter adjustment for swing ratio and accent amount
+  - **Parameter Control**: Real-time parameter adjustment for all transformation parameters
 - **Future extensions** (planned):
   - **Advanced Style Transformations**: Jazz, classical, electronic, blues styles
-  - **Humanization**: Subtle timing and velocity variations
   - **Velocity Curves**: Dynamic shaping of note velocities
   - **OSC Integration**: Remote control via Open Sound Control
   - **Machine Learning**: Style learning and adaptive processing

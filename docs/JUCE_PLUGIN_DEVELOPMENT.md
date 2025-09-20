@@ -147,10 +147,11 @@ class PluginProcessor : public juce::AudioProcessor {
 - [x] Basic plugin framework implemented
 
 #### Core Style Transformation Engine
-- [x] **StyleParameters struct** - Defines swing ratio and accent amount
-- [x] **applyStyle function** - Core MIDI processing logic
+- [x] **StyleParameters struct** - Defines swing ratio, accent amount, and humanization parameters
+- [x] **Modular transformation functions** - Pure, testable transformation functions
 - [x] **Swing transformation** - Off-beat note timing adjustment
 - [x] **Accent transformation** - Down-beat velocity enhancement
+- [x] **Humanization transformation** - Subtle timing and velocity variations for authentic feel
 - [x] **Real-time safety** - No memory allocation or blocking calls
 
 #### Key Features Implemented
@@ -158,6 +159,8 @@ class PluginProcessor : public juce::AudioProcessor {
 struct StyleParameters {
     float swingRatio = 0.5f; // 0.5 = straight, > 0.5 = swing
     float accentAmount = 20.0f; // Velocity to add to accented beats
+    float humanizeTimingAmount = 0.0f; // 0.0 = no timing variation, 1.0 = maximum
+    float humanizeVelocityAmount = 0.0f; // 0.0 = no velocity variation, 1.0 = maximum
 };
 ```
 
@@ -171,6 +174,12 @@ struct StyleParameters {
 - Adds `accentAmount` to velocity for emphasis
 - Clips final velocity to valid MIDI range (0-127)
 
+**Humanization Logic**:
+- Adds subtle timing variations (±5ms maximum) for natural feel
+- Adds subtle velocity variations (±10 units maximum) for natural dynamics
+- Critical velocity preservation: Modifies original values, never overwrites
+- Real-time safe random number generation with pre-seeded Random generator
+
 ### 🔄 In Progress (Phase 2)
 
 #### Parameter Control System
@@ -180,7 +189,7 @@ struct StyleParameters {
 - [ ] **Preset Management** - Save/load style configurations
 
 #### Advanced Style Transformations
-- [ ] **Humanization** - Subtle timing and velocity variations
+- [x] **Humanization** - Subtle timing and velocity variations for authentic human feel
 - [ ] **Velocity Curves** - Dynamic shaping of note velocities
 - [ ] **Rhythmic Patterns** - Complex accent and swing patterns
 - [ ] **Style Presets** - Jazz, classical, electronic, etc.
