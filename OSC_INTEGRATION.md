@@ -12,15 +12,17 @@ The OSC integration follows strict real-time safety principles:
 
 1. **Thread Separation**: OSC processing runs in the non-real-time thread only
 2. **FIFO Queue**: Thread-safe message queue for communication between threads
-3. **Parameter Management**: All parameter changes go through `AudioProcessorValueTreeState` (APVTS)
-4. **No Audio Thread Blocking**: OSC operations never block the audio thread
+3. **Timer-Based Processing**: 30 Hz timer callback processes OSC messages safely
+4. **Parameter Management**: All parameter changes go through `AudioProcessorValueTreeState` (APVTS)
+5. **No Audio Thread Blocking**: OSC operations never block the audio thread
 
 ### Key Components
 
 - **`OSCMessage`**: Lightweight structure for OSC message data
 - **`oscMessageFifo`**: Thread-safe FIFO queue for message passing
-- **`processOSCMessages()`**: Non-real-time thread message processing
-- **`handleOSCMessage()`**: Individual message handling
+- **`OSCListenerThread`**: Background thread for OSC message reception
+- **`timerCallback()`**: 30 Hz timer callback for processing OSC messages
+- **`setParameterNotifyingHost()`**: Ensures DAW and UI are updated
 
 ## OSC Message Protocol
 
@@ -30,6 +32,8 @@ The OSC integration follows strict real-time safety principles:
 |---------|------|-------|-------------|
 | `/style/swing` | float | 0.0 - 1.0 | Swing ratio (0.5 = straight, >0.5 = swing) |
 | `/style/accent` | float | 0.0 - 50.0 | Accent amount (velocity boost) |
+| `/style/humanizeTiming` | float | 0.0 - 1.0 | Timing humanization amount |
+| `/style/humanizeVelocity` | float | 0.0 - 1.0 | Velocity humanization amount |
 | `/style/enable` | bool | true/false | Enable/disable OSC control |
 
 ### Example OSC Messages
@@ -40,6 +44,10 @@ oscsend localhost 3819 /style/swing 0.7
 
 # Set accent amount to 25
 oscsend localhost 3819 /style/accent 25.0
+
+# Set humanization parameters
+oscsend localhost 3819 /style/humanizeTiming 0.3
+oscsend localhost 3819 /style/humanizeVelocity 0.5
 
 # Enable OSC control
 oscsend localhost 3819 /style/enable true
@@ -145,10 +153,11 @@ python control_plane_cli.py "set accent to 25"
 
 ### Phase 2: Full OSC Implementation
 
-- [ ] Implement `juce::OSCReceiver` integration
-- [ ] Add OSC message validation
-- [ ] Implement OSC error handling
-- [ ] Add OSC status reporting
+- [x] Implement `juce::OSCReceiver` integration
+- [x] Add OSC message validation
+- [x] Implement OSC error handling
+- [x] Add timer-based message processing
+- [x] Add humanization parameter support
 
 ### Phase 3: Advanced OSC Features
 

@@ -9,7 +9,7 @@ A sophisticated Python framework for **natural language control of music creatio
 - **Control commands**: CC messages, modulation wheel, tempo, key, and more.
 - **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
 - **JUCE Plugin Development**: Real-time MIDI effect plugin with swing, accent, and humanization transformations
-- **OSC Integration**: Remote control via Open Sound Control for real-time parameter adjustment
+- **OSC Integration**: Complete timer-based OSC receiver for real-time parameter control with DAW integration
 - See: [Control Plane](docs/CONTROL_PLANE.md)
 
 ### Vision: Semantic MIDI Editing (roadmap)

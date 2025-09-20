@@ -26,11 +26,31 @@ struct OSCMessage
         : address(addr), value(val), timestamp(time) {}
 };
 
+/**
+ * OSC Listener Thread - Runs on low-priority background thread
+ * 
+ * CRITICAL: This thread is completely separate from the audio thread
+ * - Can use blocking calls, memory allocation, etc.
+ * - Communicates with audio thread via thread-safe FIFO queue
+ * - Never directly touches APVTS or audio parameters
+ */
+class OSCListenerThread : public juce::Thread
+{
+public:
+    OSCListenerThread(StyleTransferPluginProcessor& processor)
+        : Thread("OSCListener"), owner(processor) {}
+    
+    void run() override;
+    
+private:
+    StyleTransferPluginProcessor& owner;
+};
+
 // ============================================================================
 // MAIN PLUGIN PROCESSOR CLASS
 // ============================================================================
 
-class StyleTransferPluginProcessor : public juce::AudioProcessor
+class StyleTransferPluginProcessor : public juce::AudioProcessor, public juce::OSCReceiver::Listener, public juce::Timer
 {
 public:
     StyleTransferPluginProcessor();
@@ -75,21 +95,18 @@ public:
     // Style parameter control via OSC
     void setSwingRatio(float ratio);
     void setAccentAmount(float amount);
+    void setHumanizeTiming(float amount);
+    void setHumanizeVelocity(float amount);
     float getSwingRatio() const;
     float getAccentAmount() const;
+    float getHumanizeTiming() const;
+    float getHumanizeVelocity() const;
 
 private:
     // ============================================================================
     // OSC PROCESSING (NON-REAL-TIME THREAD ONLY)
     // ============================================================================
     
-    /**
-     * Process OSC messages from the FIFO queue
-     * 
-     * CRITICAL: This runs in the non-real-time thread
-     * Safe to use blocking calls, memory allocation, etc.
-     */
-    void processOSCMessages();
     
     /**
      * Handle individual OSC message
@@ -98,6 +115,43 @@ private:
      * Can safely modify parameters and state
      */
     void handleOSCMessage(const OSCMessage& message);
+    
+    /**
+     * OSC message callback (called by JUCE OSC receiver)
+     * 
+     * CRITICAL: This runs in the OSC listener thread (non-real-time)
+     * Safe to use blocking calls, memory allocation, etc.
+     */
+    void oscMessageReceived(const juce::OSCMessage& message) override;
+    
+    /**
+     * Start OSC listener thread
+     * 
+     * CRITICAL: This runs in the non-real-time thread
+     * Safe to start threads, allocate memory, etc.
+     */
+    void startOSCListener();
+    
+    /**
+     * Stop OSC listener thread
+     * 
+     * CRITICAL: This runs in the non-real-time thread
+     * Safe to stop threads, cleanup resources, etc.
+     */
+    void stopOSCListener();
+    
+    // ============================================================================
+    // TIMER CALLBACK (REAL-TIME SAFE)
+    // ============================================================================
+    
+    /**
+     * Timer callback for processing OSC messages
+     * 
+     * CRITICAL: This runs on the message thread (non-real-time)
+     * Safe to use setParameterNotifyingHost() and APVTS operations
+     * This is the ONLY place where OSC input modifies plugin state
+     */
+    void timerCallback() override;
     
     // ============================================================================
     // PRIVATE MEMBER VARIABLES
@@ -112,6 +166,8 @@ private:
     // Parameter IDs
     static constexpr const char* SWING_RATIO_ID = "swingRatio";
     static constexpr const char* ACCENT_AMOUNT_ID = "accentAmount";
+    static constexpr const char* HUMANIZE_TIMING_ID = "humanizeTiming";
+    static constexpr const char* HUMANIZE_VELOCITY_ID = "humanizeVelocity";
     static constexpr const char* OSC_ENABLED_ID = "oscEnabled";
     static constexpr const char* OSC_PORT_ID = "oscPort";
     
@@ -123,8 +179,14 @@ private:
     juce::AbstractFifo oscMessageFifo{1024};
     std::array<OSCMessage, 1024> oscMessages;
     
-    // OSC receiver placeholder (will be implemented in next step)
-    // juce::OSCReceiver oscReceiver;
+    // OSC receiver (runs on background thread)
+    juce::OSCReceiver oscReceiver;
+    
+    // OSC listener thread (low-priority background thread)
+    std::unique_ptr<juce::Thread> oscListenerThread;
+    
+    // Thread-safe flag for OSC listener shutdown
+    std::atomic<bool> shouldStopOSCListener{false};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(StyleTransferPluginProcessor)
 };
