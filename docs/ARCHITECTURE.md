@@ -88,6 +88,14 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   - **Separation of concerns** - pure data management without musical analysis logic
   - Prevents "Spaghetti Code Problem" through clean, focused design
 
+- `analysis.py`
+  - **Pure functions** for musical data analysis and transformation
+  - `filter_notes_by_pitch()`: Filter notes by pitch range for bass line analysis
+  - `apply_swing()`: Apply swing feel by delaying off-beat notes
+  - **No side effects** - creates new data instead of modifying original
+  - **Foundation for semantic MIDI editing** - implements transformations that will be used in JUCE plugin
+  - **Testable in isolation** - each function can be tested independently
+
 ### Modules and responsibilities
 - `midi_player.py`
   - Opens a mido output port by name.

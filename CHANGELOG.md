@@ -44,6 +44,12 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
     - Query methods: `get_notes_by_track()`, `get_notes_in_time_range()`, `get_duration()`
     - Separation of concerns - pure data management without musical analysis logic
     - Prevents "Spaghetti Code Problem" through clean, focused design
+  - **`analysis.py`**: Musical analysis and transformation functions
+    - `filter_notes_by_pitch()`: Filter notes by pitch range for bass line analysis
+    - `apply_swing()`: Apply swing feel by delaying off-beat notes
+    - Pure functions with no side effects - avoids "Spaghetti Code Problem"
+    - Foundation for semantic MIDI editing transformations
+    - Testable in isolation - each function can be tested independently
 - **Complete Control Plane Implementation**: Full chat-driven MIDI control system with natural language commands
   - Command parser with regex patterns for all major command types
   - Session state management with persistent file-based storage
