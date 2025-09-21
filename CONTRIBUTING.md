@@ -27,8 +27,27 @@ python3 main.py
 - Reference issues when applicable: `Fixes #123`.
 
 ### Testing changes
-- Manual test: run `python3 main.py` and verify the C Major scale plays.
+- **Run the validation suite**: `./validate.sh` to ensure all quality gates pass
+- **Manual test**: run `python3 main.py` and verify the C Major scale plays.
+- **Unit tests**: Ensure all tests pass with `python -m unittest discover -s tests/`
 - If changing scheduling or output, add a brief note in the PR describing expected audible behavior.
+
+### Quality Gates
+The project includes a comprehensive validation system that must pass before submitting changes:
+
+```bash
+# Run the complete validation suite
+./validate.sh
+```
+
+This checks:
+- Code quality and style (flake8)
+- Unit tests (45+ tests)
+- Architectural purity (Brain vs. Hands)
+- Integration tests
+- Documentation consistency
+- Dependencies
+- File structure
 
 ### Roadmap (control plane)
 - M1: Core control plane

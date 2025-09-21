@@ -203,6 +203,30 @@ Edit `config.py`:
 - `theory.create_major_scale(60)`: returns `[60, 62, 64, 65, 67, 69, 71, 72]`.
 - `main.py`: wires components, schedules quarter notes of the C Major scale, and plays.
 
+### Quality Assurance
+
+**Comprehensive Validation System**: The project includes a robust quality gate system to ensure code quality and architectural integrity.
+
+```bash
+# Run the complete validation suite
+./validate.sh
+```
+
+**What it checks:**
+- ✅ **Code Quality & Style**: Flake8 linting with critical error detection
+- ✅ **Unit Tests**: Comprehensive test suite execution (45+ tests)
+- ✅ **Architectural Purity**: Custom checks for "Brain vs. Hands" architecture
+- ✅ **Integration Tests**: Main entry point functionality verification
+- ✅ **Documentation Consistency**: Docstring and documentation checks
+- ✅ **Dependencies**: Required package availability verification
+- ✅ **File Structure**: Required files and project structure validation
+
+**Developer Workflow:**
+1. Make code changes
+2. Run `./validate.sh` to check quality
+3. Fix any issues found
+4. Commit when all checks pass
+
 ### Next Steps
 
 - **Try the control plane**: `python3 main.py --interactive`
