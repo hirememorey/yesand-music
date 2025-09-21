@@ -3,7 +3,25 @@
 This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PATCH).
 
 ### [Unreleased]
-#### Quality Assurance System (New)
+#### Quality Assurance System Enhancements (Latest)
+- **✅ Enhanced Flake8 Configuration**: Added dedicated `.flake8` configuration file
+  - Max line length: 120 characters (increased from 127)
+  - Ignores E501 (line length) and W503 (whitespace) warnings
+  - Excludes: `.venv`, `__pycache__`, `build`, `dist`, `build_logs`
+  - Centralized configuration for consistent linting across development
+- **✅ Enhanced Architectural Checker**: Improved `scripts/check_architecture.py` with specific rules
+  - **Brain vs. Hands Enforcement**: Specific forbidden imports
+    - `analysis.py` cannot import `mido` or `rtmidi` (MIDI I/O)
+    - `midi_io.py` cannot import `analysis` (musical analysis)
+  - **Pure Function Validation**: Enhanced AST parsing to detect function argument modification
+  - **Virtual Environment Exclusion**: Fixed false positives from scanning `.venv` directory
+  - **Detailed Violation Reporting**: Clear error messages with file locations and line numbers
+- **✅ Updated Documentation**: Enhanced `docs/QUALITY_ASSURANCE.md` with new configuration details
+  - Added `.flake8` configuration examples
+  - Updated architectural rule descriptions
+  - Enhanced troubleshooting section with new configuration options
+
+#### Quality Assurance System (Original)
 - **✅ Comprehensive Validation Suite**: Complete quality gate system with 7 critical rules
   - **Code Quality & Style**: Flake8 linting with critical error detection and style warnings
   - **Unit Tests**: 45+ comprehensive tests covering all core functionality

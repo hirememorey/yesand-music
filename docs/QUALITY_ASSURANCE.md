@@ -16,10 +16,13 @@ This single command runs all quality checks and provides a comprehensive report 
 ## Validation Rules
 
 ### Rule 1: Code Quality & Style (Linting)
-- **Tool**: Flake8 with custom configuration
+- **Tool**: Flake8 with custom configuration (`.flake8` file)
 - **Critical Errors**: Syntax errors, undefined names, import errors (must pass)
 - **Style Warnings**: Whitespace, line length, complexity (non-blocking)
-- **Exclusions**: Virtual environment, build artifacts, cache directories
+- **Configuration**: 
+  - Max line length: 120 characters
+  - Ignores E501 (line length) and W503 (whitespace) warnings
+  - Excludes: `.venv`, `__pycache__`, `build`, `dist`, `build_logs`
 
 ### Rule 2: Unit Tests Must Pass
 - **Coverage**: 45+ comprehensive tests
@@ -34,7 +37,11 @@ This single command runs all quality checks and provides a comprehensive report 
 - **Tool**: Custom Python script (`scripts/check_architecture.py`)
 - **Enforces**:
   - **Separation of Concerns**: "Brain vs. Hands" architecture
+    - `analysis.py` cannot import `mido` or `rtmidi` (MIDI I/O)
+    - `midi_io.py` cannot import `analysis` (musical analysis)
   - **Pure Functions**: analysis.py contains only pure functions
+    - No side effects, no global state modification
+    - Functions cannot modify their input arguments
   - **No Heavy Dependencies**: Core modules avoid heavy libraries
   - **Universal Note Format**: Consistent MIDI data structure
   - **Command Pattern Consistency**: Proper command handling
@@ -130,7 +137,19 @@ The validation system is designed to be CI/CD friendly:
 3. Add corresponding tests in `tests/` directory
 
 ### Modifying Style Rules
-Edit the flake8 configuration in `validate.sh`:
+Edit the `.flake8` configuration file:
+```ini
+[flake8]
+ignore = E501, W503
+max-line-length = 120
+exclude = .venv,
+          __pycache__,
+          build,
+          dist,
+          build_logs
+```
+
+Or modify the flake8 commands in `validate.sh`:
 ```bash
 # Adjust complexity threshold
 --max-complexity=10

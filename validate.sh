@@ -54,7 +54,7 @@ fi
 
 # Critical errors (must pass)
 print_status "Checking for critical errors..."
-if flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.venv,__pycache__,build_logs; then
+if flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics; then
     print_success "No critical errors found"
 else
     print_error "Critical errors found! Fix these before continuing."
@@ -63,7 +63,7 @@ fi
 
 # Style and complexity checks (warnings)
 print_status "Checking code style and complexity..."
-if flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=.venv,__pycache__,build_logs; then
+if flake8 . --count --exit-zero --max-complexity=10; then
     print_success "Code style checks passed"
 else
     print_warning "Code style issues found (non-blocking)"

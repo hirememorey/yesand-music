@@ -37,25 +37,45 @@ class ArchitectureChecker:
         """Check if a file follows import restrictions."""
         violations = []
         
+        # Define specific forbidden imports for Brain vs. Hands architecture
+        forbidden_imports = {
+            'analysis.py': ['mido', 'rtmidi'],  # Rule: analysis should NOT do MIDI I/O
+            'midi_io.py': ['analysis']  # Rule: MIDI I/O should NOT know about analysis
+        }
+        
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
                 tree = ast.parse(content)
             
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Import):
-                    for alias in node.names:
-                        if is_core_module and alias.name in self.forbidden_heavy_deps:
-                            violations.append(f"Forbidden heavy dependency '{alias.name}' in core module {filepath}")
-                        elif is_core_module and alias.name not in self.allowed_core_imports:
-                            violations.append(f"Unexpected import '{alias.name}' in core module {filepath}")
-                
-                elif isinstance(node, ast.ImportFrom):
-                    if node.module:
-                        if is_core_module and node.module in self.forbidden_heavy_deps:
-                            violations.append(f"Forbidden heavy dependency '{node.module}' in core module {filepath}")
-                        elif is_core_module and node.module not in self.allowed_core_imports:
-                            violations.append(f"Unexpected import '{node.module}' in core module {filepath}")
+            # Check for specific forbidden imports
+            filename = os.path.basename(filepath)
+            if filename in forbidden_imports:
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Import):
+                        for alias in node.names:
+                            if alias.name in forbidden_imports[filename]:
+                                violations.append(f"❌ ARCHITECTURE VIOLATION in {filepath}: Found forbidden import '{alias.name}' on line {node.lineno}")
+                    elif isinstance(node, ast.ImportFrom):
+                        if node.module and node.module in forbidden_imports[filename]:
+                            violations.append(f"❌ ARCHITECTURE VIOLATION in {filepath}: Found forbidden import from '{node.module}' on line {node.lineno}")
+            
+            # Check for heavy dependencies in core modules
+            if is_core_module:
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Import):
+                        for alias in node.names:
+                            if alias.name in self.forbidden_heavy_deps:
+                                violations.append(f"Forbidden heavy dependency '{alias.name}' in core module {filepath}")
+                            elif alias.name not in self.allowed_core_imports:
+                                violations.append(f"Unexpected import '{alias.name}' in core module {filepath}")
+                    
+                    elif isinstance(node, ast.ImportFrom):
+                        if node.module:
+                            if node.module in self.forbidden_heavy_deps:
+                                violations.append(f"Forbidden heavy dependency '{node.module}' in core module {filepath}")
+                            elif node.module not in self.allowed_core_imports:
+                                violations.append(f"Unexpected import '{node.module}' in core module {filepath}")
         
         except Exception as e:
             violations.append(f"Error parsing {filepath}: {e}")
@@ -72,6 +92,7 @@ class ArchitectureChecker:
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
+                tree = ast.parse(content)
             
             # Check for global variables (should be minimal in pure functions)
             if 'global ' in content:
@@ -85,23 +106,21 @@ class ArchitectureChecker:
             if 'open(' in content or 'with open(' in content:
                 violations.append(f"analysis.py should not perform file I/O (pure functions) in {filepath}")
             
-            # Check for side effects (assignments to global variables)
-            lines = content.split('\n')
-            for i, line in enumerate(lines, 1):
-                if line.strip().startswith('def '):
-                    # Check function body for side effects
-                    func_lines = []
-                    indent_level = len(line) - len(line.lstrip())
-                    j = i
-                    while j < len(lines) and (lines[j].strip() == '' or len(lines[j]) - len(lines[j].lstrip()) > indent_level):
-                        if lines[j].strip() and len(lines[j]) - len(lines[j].lstrip()) == indent_level + 1:
-                            func_lines.append(lines[j])
-                        j += 1
-                    
-                    # Check if function modifies global state
-                    func_content = '\n'.join(func_lines)
-                    if 'self.' in func_content or 'global ' in func_content:
-                        violations.append(f"Function in analysis.py may have side effects (line {i}) in {filepath}")
+            # More advanced check: parse analysis.py and ensure functions don't
+            # modify their input arguments directly
+            print("Checking for pure functions in analysis.py...")
+            
+            for node in ast.walk(tree):
+                if isinstance(node, ast.FunctionDef):
+                    # Check if function modifies its input arguments
+                    for child in ast.walk(node):
+                        if isinstance(child, ast.Assign):
+                            for target in child.targets:
+                                if isinstance(target, ast.Name):
+                                    # Check if this is modifying a parameter
+                                    for arg in node.args.args:
+                                        if arg.arg == target.id:
+                                            violations.append(f"Function '{node.name}' modifies input argument '{target.id}' (not pure) in {filepath}")
         
         except Exception as e:
             violations.append(f"Error checking pure functions in {filepath}: {e}")
@@ -229,7 +248,7 @@ class ArchitectureChecker:
         
         # Check that all Python files have proper docstrings
         for py_file in Path('.').rglob('*.py'):
-            if '__pycache__' in str(py_file) or 'build_logs' in str(py_file):
+            if '__pycache__' in str(py_file) or 'build_logs' in str(py_file) or '.venv' in str(py_file):
                 continue
             
             try:

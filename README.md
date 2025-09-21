@@ -213,9 +213,12 @@ Edit `config.py`:
 ```
 
 **What it checks:**
-- ✅ **Code Quality & Style**: Flake8 linting with critical error detection
+- ✅ **Code Quality & Style**: Flake8 linting with `.flake8` configuration (120 char lines, E501/W503 ignored)
 - ✅ **Unit Tests**: Comprehensive test suite execution (45+ tests)
-- ✅ **Architectural Purity**: Custom checks for "Brain vs. Hands" architecture
+- ✅ **Architectural Purity**: Enhanced custom checks for "Brain vs. Hands" architecture
+  - Enforces forbidden imports: `analysis.py` cannot import MIDI I/O, `midi_io.py` cannot import analysis
+  - Validates pure functions in analysis.py (no side effects, no argument modification)
+  - Prevents heavy dependencies in core modules
 - ✅ **Integration Tests**: Main entry point functionality verification
 - ✅ **Documentation Consistency**: Docstring and documentation checks
 - ✅ **Dependencies**: Required package availability verification
