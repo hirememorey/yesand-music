@@ -1,33 +1,79 @@
-## YesAnd Music: Semantic MIDI Editing for Ardour
+## YesAnd Music: Semantic MIDI Editing
 
-A sophisticated Python framework for **natural language control of music creation and editing** in Ardour. Generate MIDI patterns, analyze existing music, and make intelligent modifications through chat commands.
+The goal of this project is to enable a musician to use a simple, natural language command like **"Make the bass beat from measures 8-12 jazzier"** to intelligently edit their music.
 
-### Current: Chat-driven MIDI control (implemented!)
-- **Interactive MIDI control via natural language commands**. Send commands to generate patterns, tweak dynamics, and modulate instruments via MIDI, embracing nondeterminism over tight sync.
-- **Real-time session state management** with persistent storage across commands.
-- **Multiple pattern types**: scales, arpeggios, random notes with configurable density and randomness.
-- **Control commands**: CC messages, modulation wheel, tempo, key, and more.
-- **CLI interface** ready for chat integration: `python control_plane_cli.py "play scale D minor"`
-- **JUCE Plugin Development**: Real-time MIDI effect plugin with swing, accent, and humanization transformations
-- **OSC Integration**: Complete Python-to-JUCE plugin communication with real-time parameter control
-- **Style Control**: Natural language control of plugin parameters via OSC messages
-- See: [Control Plane](docs/CONTROL_PLANE.md)
+## The Solution
 
-### Vision: Semantic MIDI Editing (roadmap)
-- **"Make the bass beat from measures 8-12 jazzier"** - Intelligent musical modifications
-- **Deep musical analysis** - Understand bass lines, chord progressions, rhythmic patterns
-- **Ardour integration** - Read existing MIDI, analyze, modify, and write back
-- **Style transformations** - Apply musical concepts like "jazzier", "simpler", "more aggressive"
-- **Context-aware editing** - Preserve musical relationships while making changes
+To achieve this, YesAnd Music is composed of two primary systems:
 
-### What this is
-- **Goal**: Semantic MIDI editing framework for intelligent music creation and modification.
-- **Data Core**: `midi_io.py` (universal MIDI I/O), `project.py` (musical data container) - foundation for semantic editing
-- **Core Modules**: `midi_player.py` (I/O), `sequencer.py` (timing), `theory.py` (music theory), `commands/` (control plane).
-- **Platform focus**: macOS with Ardour integration. IAC Driver support for GarageBand compatibility.
-- **Architecture**: Modular design supporting both real-time control and deep musical analysis.
+### Part 1: The Real-Time Control Plane (Live/Generative)
+A tool for real-time, interactive music creation. This system is currently functional and allows you to generate MIDI patterns (scales, arpeggios) on the fly via chat commands.
 
-### Quickstart (time-to-first-note)
+**Current Features:**
+- Interactive MIDI control via natural language commands
+- Real-time session state management with persistent storage
+- Multiple pattern types: scales, arpeggios, random notes with configurable density and randomness
+- Control commands: CC messages, modulation wheel, tempo, key, and more
+- CLI interface ready for chat integration: `python control_plane_cli.py "play scale D minor"`
+- JUCE Plugin Development: Real-time MIDI effect plugin with swing, accent, and humanization transformations
+- OSC Integration: Complete Python-to-JUCE plugin communication with real-time parameter control
+- Style Control: Natural language control of plugin parameters via OSC messages
+
+### Part 2: The Semantic Editor (Offline/Editorial)
+The next evolution of the project. A tool for intelligent, offline music editing of existing MIDI files from a DAW. This is currently under development.
+
+**Planned Features:**
+- "Make the bass beat from measures 8-12 jazzier" - Intelligent musical modifications
+- Deep musical analysis - Understand bass lines, chord progressions, rhythmic patterns
+- DAW integration - Read existing MIDI, analyze, modify, and write back
+- Style transformations - Apply musical concepts like "jazzier", "simpler", "more aggressive"
+- Context-aware editing - Preserve musical relationships while making changes
+
+## The Architecture
+
+Our architectural philosophy is to separate the core intelligence from the DAW integration.
+
+**The "Brain"** is a standalone Python application that handles all musical analysis and transformation. It takes a MIDI file as input and produces a new MIDI file as output.
+
+**The "Hands"** are the simple integration points that get MIDI data to and from the DAW.
+
+This separation allows us to:
+- Focus on musical intelligence without being constrained by DAW-specific APIs
+- Test and develop the core functionality independently
+- Support multiple DAWs through simple integration points
+- Maintain real-time safety and performance standards
+
+## The Roadmap
+
+Our development is focused on de-risking the biggest challenges first.
+
+### Phase 1: The "Manual Roundtrip" MVP
+Build the core "Brain" and prove the end-to-end editing loop works via a simple command-line interface.
+- Enhanced MIDI file I/O for DAW integration
+- Basic musical analysis functions
+- Simple command-line interface for testing transformations
+- Proof of concept for the full editing workflow
+
+### Phase 2: The Analysis Engine
+Teach the "Brain" to identify musical concepts like "bass lines" and "chords" within a MIDI file.
+- Bass line analysis and pattern recognition
+- Chord progression analysis and harmonic understanding
+- Rhythmic pattern analysis (swing, syncopation, groove)
+- Musical context understanding and element relationships
+
+### Phase 3: The Semantic Layer
+Build the full natural language parser and a simple "Controller" plugin for a seamless user experience.
+- Extended command parser for complex musical modifications
+- Style transformation engine with context preservation
+- Real-time DAW integration with OSC communication
+- Complete natural language interface for musicians
+
+## Developer Quickstart: Real-Time Control Plane
+
+The Real-Time Control Plane is currently functional and ready for use. Here's how to get started:
+
+### Quick Setup (time-to-first-note)
+
 1) Create and activate a virtualenv
 ```bash
 cd "/path/to/yesand-music"
@@ -38,7 +84,7 @@ source .venv/bin/activate
 2) Install dependencies
 ```bash
 pip3 install --upgrade pip setuptools wheel
-pip3 install mido python-rtmidi
+pip3 install mido python-rtmidi python-osc
 ```
 
 3) Enable IAC Driver and create a port named "IAC Driver Bus 1"
@@ -62,27 +108,10 @@ python3 control_plane_cli.py "play scale D minor"
 ```
 Expected: Terminal prints "Playing C Major Scale..." and GarageBand plays 8 notes.
 
-### Inline troubleshooting (top 5)
-- **Port not found**: If you see a message listing available ports, ensure one is exactly `IAC Driver Bus 1`, then re‑run.
-- **No sound but script runs**: In GarageBand, confirm the track is armed, monitoring is on, and an instrument is loaded. Watch input meters.
-- **Wrong device**: If you use a different port name, change `MIDI_PORT_NAME` in `config.py`.
-- **Backend not working**: Ensure `python-rtmidi` installed correctly (`pip show python-rtmidi`). Apple Silicon users should use native Python.
-- **Latency**: This simple sequencer is blocking and sleep‑based; DAW buffer size and system load affect timing.
-
-### Configure
-Edit `config.py`:
-- `MIDI_PORT_NAME` (default: `IAC Driver Bus 1`)
-- `BPM` (default: 120)
-
-### How it works
-- `MidiPlayer`: opens a mido output port and sends note_on → sleep → note_off.
-- `Sequencer`: stores notes as dicts with `start_beat` and `duration_beats`, converts beats to seconds using BPM, and schedules playback.
-- `theory.create_major_scale(60)`: returns `[60, 62, 64, 65, 67, 69, 71, 72]`.
-- `main.py`: wires components, schedules quarter notes of the C Major scale, and plays.
-
 ### Control Plane Commands
+
+#### Interactive Mode
 ```bash
-# Interactive mode
 python3 main.py --interactive
 
 # Then try these commands:
@@ -100,7 +129,7 @@ stop                      # Stop playback
 help                      # Show all commands
 ```
 
-### OSC Style Control (JUCE Plugin) ✅ WORKING
+#### OSC Style Control (JUCE Plugin) ✅ WORKING
 ```bash
 # Style parameter control (tested and working)
 python control_plane_cli.py "set swing to 0.7"          # Set swing ratio (0.0-1.0)
@@ -121,21 +150,45 @@ python control_plane_cli.py "set osc port to 3819"      # Set OSC port
 python control_plane_cli.py "reset osc"                 # Reset all parameters to defaults
 ```
 
-### Next steps
+### Configuration
+
+Edit `config.py`:
+- `MIDI_PORT_NAME` (default: `IAC Driver Bus 1`)
+- `BPM` (default: 120)
+
+### Troubleshooting
+
+- **Port not found**: If you see a message listing available ports, ensure one is exactly `IAC Driver Bus 1`, then re‑run.
+- **No sound but script runs**: In GarageBand, confirm the track is armed, monitoring is on, and an instrument is loaded. Watch input meters.
+- **Wrong device**: If you use a different port name, change `MIDI_PORT_NAME` in `config.py`.
+- **Backend not working**: Ensure `python-rtmidi` installed correctly (`pip show python-rtmidi`). Apple Silicon users should use native Python.
+- **Latency**: This simple sequencer is blocking and sleep‑based; DAW buffer size and system load affect timing.
+
+### How It Works
+
+- `MidiPlayer`: opens a mido output port and sends note_on → sleep → note_off.
+- `Sequencer`: stores notes as dicts with `start_beat` and `duration_beats`, converts beats to seconds using BPM, and schedules playback.
+- `theory.create_major_scale(60)`: returns `[60, 62, 64, 65, 67, 69, 71, 72]`.
+- `main.py`: wires components, schedules quarter notes of the C Major scale, and plays.
+
+### Next Steps
+
 - **Try the control plane**: `python3 main.py --interactive`
 - **Chat integration**: Use `python3 control_plane_cli.py "command"` in chat
 - **Launch Ardour**: Use `./launch_ardour.sh` for easy Ardour startup with proper backend detection.
 - **Explore the roadmap**: See [ROADMAP.md](ROADMAP.md) for the semantic MIDI editing vision
 - **JUCE Plugin Development**: See [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) for real-time MIDI style transformations
 - **OSC Integration**: See [OSC_INTEGRATION.md](OSC_INTEGRATION.md) for remote control capabilities
-- **Deep dive docs**:
-  - [Setup](docs/SETUP.md)
-  - [Architecture](docs/ARCHITECTURE.md)
-  - [Usage](docs/USAGE.md)
-  - [Troubleshooting](docs/TROUBLESHOOTING.md)
-  - [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Ardour 8.9 now builds and launches successfully on macOS with internal YTK (SDK 14.x, arm64). Backend detection resolved.
-  - [JUCE Plugin Development](docs/JUCE_PLUGIN_DEVELOPMENT.md) — Real-time MIDI effect plugin for style transformations
-  - [Contributing](CONTRIBUTING.md)
-  - [Changelog](CHANGELOG.md)
+
+### Deep Dive Documentation
+
+- [Setup](docs/SETUP.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Usage](docs/USAGE.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
+- [Ardour Integration Setup](docs/ARDOUR_SETUP.md) — Ardour 8.9 now builds and launches successfully on macOS with internal YTK (SDK 14.x, arm64). Backend detection resolved.
+- [JUCE Plugin Development](docs/JUCE_PLUGIN_DEVELOPMENT.md) — Real-time MIDI effect plugin for style transformations
+- [Contributing](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
 
 
