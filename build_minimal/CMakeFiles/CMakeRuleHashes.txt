@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+a8a43cebf70632a76bd20712143da7cf StyleTransfer_artefacts/JuceLibraryCode/StyleTransfer_AU/PkgInfo
+238846c8423f928098c2b14a947ca7e3 StyleTransfer_artefacts/JuceLibraryCode/StyleTransfer_VST3/PkgInfo

@@ -9,20 +9,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find required packages
 find_package(PkgConfig REQUIRED)
 
-# Find liblo (Lightweight OSC library) - real-time safe for audio applications
-pkg_check_modules(LIBLO REQUIRED liblo)
+# Find liblo (Lightweight OSC library) - will be added in next phase
+# pkg_check_modules(LIBLO REQUIRED liblo)
 
 # Add JUCE as a subdirectory (you'll need to have JUCE in your project)
 # Alternative: use find_package if JUCE is installed system-wide
 # find_package(JUCE REQUIRED)
 add_subdirectory(JUCE)
 
-# Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE ${LIBLO_INCLUDE_DIRS})
-
 # Create the plugin target
 juce_add_plugin(StyleTransfer
     COMPANY_NAME "YesAnd Music"
+    BUNDLE_ID "com.YesAndMusic.StyleTransfer"
     IS_SYNTH FALSE
     NEEDS_MIDI_INPUT TRUE
     NEEDS_MIDI_OUTPUT TRUE
@@ -42,11 +40,10 @@ target_sources(StyleTransfer
         StyleTransferAudioProcessor.h
         StyleTransferAudioProcessorEditor.cpp
         StyleTransferAudioProcessorEditor.h
-        PluginProcessor.cpp
-        PluginProcessor.h
-        PluginEditor.cpp
-        PluginEditor.h
 )
+
+# Include directories - OSC will be added in next phase
+# target_include_directories(StyleTransfer PRIVATE ${LIBLO_INCLUDE_DIRS})
 
 # Link libraries
 target_link_libraries(StyleTransfer
@@ -62,7 +59,7 @@ target_link_libraries(StyleTransfer
         juce::juce_graphics
         juce::juce_gui_basics
         juce::juce_gui_extra
-        ${LIBLO_LIBRARIES}
+        # ${LIBLO_LIBRARIES} - OSC will be added in next phase
 )
 
 # Compiler definitions

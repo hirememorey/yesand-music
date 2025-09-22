@@ -1,7 +1,16 @@
 #pragma once
 
-#include <JuceHeader.h>
-#include "StyleTransferAudioProcessor_Refactored.h"
+#include <juce_audio_processors/juce_audio_processors.h>
+
+// ============================================================================
+// STYLE PARAMETERS STRUCTURE
+// ============================================================================
+
+struct StyleParameters
+{
+    float swingRatio = 0.5f;     // 0.5 = straight, > 0.5 = swing feel
+    float accentAmount = 20.0f;  // Velocity to add to accented beats
+};
 
 // ============================================================================
 // MAIN AUDIO PROCESSOR CLASS (JUCE Entry Point)
@@ -64,14 +73,49 @@ private:
     void handleOSCMessage(const juce::String& address, const juce::var& value);
     
     // ============================================================================
+    // REAL-TIME SAFE TRANSFORMATION METHODS
+    // ============================================================================
+    
+    /**
+     * Apply swing feel to a MIDI message
+     * REAL-TIME SAFE: No memory allocation, locking, or blocking calls
+     */
+    juce::MidiMessage applySwing(const juce::MidiMessage& inputMessage, 
+                                const StyleParameters& style, 
+                                double beatsPerMinute, 
+                                double sampleRate);
+    
+    /**
+     * Apply accent emphasis to a MIDI message
+     * REAL-TIME SAFE: No memory allocation, locking, or blocking calls
+     */
+    juce::MidiMessage applyAccent(const juce::MidiMessage& inputMessage, 
+                                 const StyleParameters& style, 
+                                 double beatsPerMinute, 
+                                 double sampleRate);
+    
+    /**
+     * Apply all style transformations to a MIDI buffer
+     * REAL-TIME SAFE: No memory allocation, locking, or blocking calls
+     */
+    void applyStyle(juce::MidiBuffer& midiMessages, 
+                   const StyleParameters& style, 
+                   double beatsPerMinute, 
+                   double sampleRate);
+    
+    // ============================================================================
     // PRIVATE MEMBER VARIABLES
     // ============================================================================
     
-    // Core style transfer engine
-    StyleTransferAudioProcessor styleEngine;
+    // Current processing state
+    double currentBPM = 120.0;
+    double currentSampleRate = 44100.0;
     
     // Parameter management (thread-safe)
     juce::AudioProcessorValueTreeState parameters;
+    
+    // Make parameters accessible to editor
+    friend class StyleTransferAudioProcessorEditor;
     
     // Parameter IDs
     static constexpr const char* SWING_RATIO_ID = "swingRatio";
@@ -79,17 +123,9 @@ private:
     static constexpr const char* OSC_ENABLED_ID = "oscEnabled";
     static constexpr const char* OSC_PORT_ID = "oscPort";
     
-    // OSC state (non-real-time)
+    // OSC state (non-real-time) - will be implemented in next phase
     bool oscEnabled = false;
     int oscPort = 3819;
-    
-    // OSC message queue (thread-safe FIFO)
-    juce::AbstractFifo oscMessageFifo{1024};
-    std::array<juce::String, 1024> oscAddresses;
-    std::array<juce::var, 1024> oscValues;
-    
-    // OSC server (will be added in next step)
-    // juce::OSCReceiver oscReceiver;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(StyleTransferAudioProcessor)
 };
