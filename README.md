@@ -9,7 +9,7 @@ YesAnd Music transforms MIDI editing from technical manipulation to intelligent 
 - **Musical Intelligence**: Analyzes bass lines, melodies, harmony, and rhythm with visual feedback
 - **Problem Solving**: "Make this groove better", "Fix the harmony", "Improve the arrangement"
 - **Real-Time Control**: Generate MIDI patterns via natural language commands
-- **DAW Integration**: Works with GarageBand, Logic Pro, and Ardour
+- **DAW Integration**: Works with GarageBand, Logic Pro, and Ardour (with file-based integration)
 - **Educational**: Learn musical concepts through AI explanations
 
 ## Quick Start
@@ -41,6 +41,7 @@ python control_plane_cli.py "make this groove better"
 - **Contextual Intelligence**: Musical analysis with visual feedback
 - **Musical Solvers**: Groove improvement, harmony fixing, arrangement enhancement
 - **OSC Integration**: Python-to-plugin communication
+- **Ardour Integration**: File-based workflow with Ardour DAW
 
 ## Documentation
 

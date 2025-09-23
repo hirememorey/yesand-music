@@ -4,13 +4,13 @@ Get YesAnd Music running in 5 minutes.
 
 ## What This Is
 
-YesAnd Music is an AI-powered MIDI editing system that provides contextual intelligence and musical problem-solving through natural language commands. It works with your existing DAW workflow.
+YesAnd Music is an AI-powered MIDI editing system that provides contextual intelligence and musical problem-solving through natural language commands. It works with your existing DAW workflow, including direct integration with Ardour DAW.
 
 ## Prerequisites
 
 - macOS (tested on macOS 15.5)
 - Python 3.8+
-- A DAW (GarageBand, Logic Pro, or Ardour)
+- A DAW (GarageBand, Logic Pro, or Ardour with file-based integration)
 
 ## 1. Setup (2 minutes)
 
@@ -47,6 +47,10 @@ python main.py --interactive
 ```bash
 python control_plane_cli.py "play scale F# lydian"
 python control_plane_cli.py "make it jazz"
+
+# Ardour Integration (if Ardour is installed)
+python control_plane_cli.py "ardour connect"
+python control_plane_cli.py "ardour tracks"
 ```
 
 ## 3. Test Musical Intelligence (2 minutes)
@@ -68,6 +72,11 @@ python control_plane_cli.py "analyze all"
 python control_plane_cli.py "make this groove better"
 python control_plane_cli.py "fix the harmony"
 python control_plane_cli.py "improve the arrangement"
+
+# With Ardour Integration
+python control_plane_cli.py "ardour export selected"
+python control_plane_cli.py "ardour analyze selected"
+python control_plane_cli.py "ardour improve selected"
 ```
 
 ## 4. What You Should See
@@ -82,6 +91,7 @@ python control_plane_cli.py "improve the arrangement"
 - **For Users**: See [README.md](README.md) for full features
 - **For Developers**: See [DEVELOPMENT.md](DEVELOPMENT.md) for development workflows
 - **For Architecture**: See [ARCHITECTURE.md](ARCHITECTURE.md) for technical details
+- **For Ardour Integration**: See [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) for detailed Ardour workflow
 
 ## Troubleshooting
 

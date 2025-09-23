@@ -20,6 +20,7 @@ from sequencer import Sequencer
 from osc_sender import OSCSender
 from contextual_intelligence import ContextualIntelligence
 from musical_solvers import GrooveImprover, HarmonyFixer, ArrangementImprover
+from ardour_integration import ArdourIntegration
 import config
 
 
@@ -58,6 +59,9 @@ class ControlPlane:
         self.groove_improver = GrooveImprover()
         self.harmony_fixer = HarmonyFixer()
         self.arrangement_improver = ArrangementImprover()
+        
+        # Initialize Ardour integration
+        self.ardour_integration = ArdourIntegration()
         
         # Playback state (now handled by sequencer)
     
@@ -116,6 +120,14 @@ class ControlPlane:
                 CommandType.IMPROVE_GROOVE, CommandType.FIX_HARMONY, CommandType.IMPROVE_ARRANGEMENT
             ]:
                 return self._handle_musical_solver_command(command)
+            
+            # Handle Ardour integration commands
+            elif command.type in [
+                CommandType.ARDOUR_CONNECT, CommandType.ARDOUR_DISCONNECT, CommandType.ARDOUR_LIST_TRACKS,
+                CommandType.ARDOUR_EXPORT_SELECTED, CommandType.ARDOUR_IMPORT_MIDI,
+                CommandType.ARDOUR_ANALYZE_SELECTED, CommandType.ARDOUR_IMPROVE_SELECTED
+            ]:
+                return self._handle_ardour_command(command)
             
             # Handle system commands
             elif command.type == CommandType.STOP:
@@ -466,11 +478,93 @@ class ControlPlane:
         
         return response
     
+    def _handle_ardour_command(self, command: Command) -> str:
+        """Handle an Ardour integration command.
+        
+        Args:
+            command: The Ardour command to execute
+            
+        Returns:
+            Response message indicating success or failure
+        """
+        try:
+            if command.type == CommandType.ARDOUR_CONNECT:
+                if self.ardour_integration.connect():
+                    return "Ardour: Connected successfully"
+                else:
+                    return "Ardour: Failed to connect. Make sure Ardour is installed and running."
+            
+            elif command.type == CommandType.ARDOUR_DISCONNECT:
+                if self.ardour_integration.disconnect():
+                    return "Ardour: Disconnected successfully"
+                else:
+                    return "Ardour: Failed to disconnect"
+            
+            elif command.type == CommandType.ARDOUR_LIST_TRACKS:
+                tracks = self.ardour_integration.list_tracks()
+                if tracks:
+                    track_list = "\n".join([f"- {track.name} ({track.type})" for track in tracks])
+                    return f"Ardour Tracks:\n{track_list}"
+                else:
+                    return "Ardour: No tracks found or not connected"
+            
+            elif command.type == CommandType.ARDOUR_EXPORT_SELECTED:
+                exported_file = self.ardour_integration.export_selected_region()
+                if exported_file:
+                    return f"Ardour: Selected region exported to {exported_file}"
+                else:
+                    return "Ardour: Failed to export selected region"
+            
+            elif command.type == CommandType.ARDOUR_IMPORT_MIDI:
+                file_path = command.params.get("file_path", "")
+                if self.ardour_integration.import_midi_file(file_path):
+                    return f"Ardour: MIDI file imported successfully: {file_path}"
+                else:
+                    return f"Ardour: Failed to import MIDI file: {file_path}"
+            
+            elif command.type == CommandType.ARDOUR_ANALYZE_SELECTED:
+                analysis = self.ardour_integration.analyze_selected_region()
+                if "error" in analysis:
+                    return f"Ardour Analysis: {analysis['error']}"
+                else:
+                    # Format analysis results
+                    result = "Ardour Analysis Results:\n\n"
+                    for element, feedback in analysis.items():
+                        if feedback:
+                            result += f"{element.title()}:\n"
+                            for item in feedback:
+                                result += f"  - {item.message}\n"
+                            result += "\n"
+                    return result
+            
+            elif command.type == CommandType.ARDOUR_IMPROVE_SELECTED:
+                # For now, default to groove improvement
+                improvement = self.ardour_integration.improve_selected_region("groove")
+                if "error" in improvement:
+                    return f"Ardour Improvement: {improvement['error']}"
+                else:
+                    result = f"Ardour Improvement ({improvement['improvement_type']}):\n\n"
+                    result += f"{improvement['explanation']}\n\n"
+                    if improvement['changes_made']:
+                        result += "Changes Made:\n"
+                        for change in improvement['changes_made']:
+                            result += f"  - {change}\n"
+                    result += f"\nConfidence: {improvement['confidence']:.1%}"
+                    return result
+            
+            else:
+                return f"Ardour: Unknown command '{command.type.value}'"
+                
+        except Exception as e:
+            return f"Ardour: Error executing command: {str(e)}"
+    
     def close(self) -> None:
         """Close the control plane and clean up resources."""
         self.sequencer.stop()
         if self.midi_player:
             self.midi_player.close()
+        if self.ardour_integration:
+            self.ardour_integration.cleanup()
     
     def __enter__(self):
         """Context manager entry."""

@@ -53,6 +53,14 @@ class CommandType(Enum):
     IMPROVE_GROOVE = "improve_groove"
     FIX_HARMONY = "fix_harmony"
     IMPROVE_ARRANGEMENT = "improve_arrangement"
+    # Ardour Integration Commands
+    ARDOUR_CONNECT = "ardour_connect"
+    ARDOUR_DISCONNECT = "ardour_disconnect"
+    ARDOUR_LIST_TRACKS = "ardour_list_tracks"
+    ARDOUR_EXPORT_SELECTED = "ardour_export_selected"
+    ARDOUR_IMPORT_MIDI = "ardour_import_midi"
+    ARDOUR_ANALYZE_SELECTED = "ardour_analyze_selected"
+    ARDOUR_IMPROVE_SELECTED = "ardour_improve_selected"
 
 
 class Density(Enum):

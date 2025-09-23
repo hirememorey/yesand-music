@@ -5,6 +5,7 @@ Everything you need to know to develop YesAnd Music.
 ## Current State
 
 **Phase 3B Complete**: Musical problem solvers working  
+**Phase 3B+ Complete**: Ardour file-based integration working  
 **Next Phase**: Phase 3C - Advanced LLM integration
 
 ## Development Setup
@@ -47,6 +48,7 @@ music_cursor/
 ├── contextual_intelligence.py  # Musical analysis engine
 ├── visual_feedback_display.py  # Visual feedback system
 ├── musical_solvers.py    # Problem-solving algorithms
+├── ardour_integration.py # Ardour file-based integration
 ├── midi_io.py           # MIDI file I/O
 ├── project.py           # Project data management
 ├── analysis.py          # Musical analysis functions
@@ -80,6 +82,11 @@ music_cursor/
 ### Visual Feedback
 - **visual_feedback_display.py**: Color-coded visual feedback system
 - **osc_sender.py**: Python-to-JUCE plugin communication
+
+### DAW Integration
+- **ardour_integration.py**: File-based integration with Ardour DAW
+- **Project file parsing**: Automatic discovery and parsing of Ardour projects
+- **Export/Import workflow**: MIDI file exchange with Ardour
 
 ## Common Development Tasks
 
@@ -186,6 +193,10 @@ python control_plane_cli.py "analyze bass"
 # Test musical solvers
 python control_plane_cli.py "make this groove better"
 
+# Test Ardour integration
+python control_plane_cli.py "ardour connect"
+python control_plane_cli.py "ardour tracks"
+
 # Test plugin
 python test_plugin.py
 ```
@@ -199,6 +210,7 @@ python verify_implementation.py
 python demo_control_plane.py
 python demo_contextual_intelligence.py
 python demo_musical_solvers.py
+python demo_ardour_integration.py
 ```
 
 ## JUCE Plugin Development

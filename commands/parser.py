@@ -235,6 +235,49 @@ class CommandParser:
                 r"improve\s+arrangement",
                 r"make\s+it\s+more\s+interesting",
             ],
+            # Ardour Integration Commands
+            CommandType.ARDOUR_CONNECT: [
+                r"ardour\s+connect",
+                r"connect\s+to\s+ardour",
+                r"ardour\s+start",
+                r"start\s+ardour",
+            ],
+            CommandType.ARDOUR_DISCONNECT: [
+                r"ardour\s+disconnect",
+                r"disconnect\s+from\s+ardour",
+                r"ardour\s+stop",
+                r"stop\s+ardour",
+            ],
+            CommandType.ARDOUR_LIST_TRACKS: [
+                r"ardour\s+tracks",
+                r"show\s+ardour\s+tracks",
+                r"list\s+ardour\s+tracks",
+                r"ardour\s+list\s+tracks",
+            ],
+            CommandType.ARDOUR_EXPORT_SELECTED: [
+                r"ardour\s+export\s+selected",
+                r"export\s+selected\s+from\s+ardour",
+                r"ardour\s+export",
+                r"export\s+ardour",
+            ],
+            CommandType.ARDOUR_IMPORT_MIDI: [
+                r"ardour\s+import\s+(.+)",
+                r"import\s+(.+)\s+to\s+ardour",
+                r"ardour\s+load\s+(.+)",
+                r"load\s+(.+)\s+to\s+ardour",
+            ],
+            CommandType.ARDOUR_ANALYZE_SELECTED: [
+                r"ardour\s+analyze\s+selected",
+                r"analyze\s+selected\s+in\s+ardour",
+                r"ardour\s+analyze",
+                r"analyze\s+ardour",
+            ],
+            CommandType.ARDOUR_IMPROVE_SELECTED: [
+                r"ardour\s+improve\s+selected",
+                r"improve\s+selected\s+in\s+ardour",
+                r"ardour\s+improve",
+                r"improve\s+ardour",
+            ],
         }
         
         # Compile all patterns for efficiency
@@ -359,7 +402,11 @@ class CommandParser:
         elif cmd_type == CommandType.APPLY_SUGGESTION:
             params["suggestion"] = groups[0].strip()
             
-        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET, analysis commands) have empty params
+        # Ardour Integration Commands
+        elif cmd_type == CommandType.ARDOUR_IMPORT_MIDI:
+            params["file_path"] = groups[0].strip()
+            
+        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET, analysis commands, ardour commands) have empty params
         
         return params
     
@@ -408,6 +455,15 @@ Contextual Intelligence (Visual Analysis):
   apply suggestion [ID]      - Apply a specific suggestion
   show feedback              - Show visual feedback summary
   clear feedback             - Clear all visual feedback
+
+Ardour Integration:
+  ardour connect            - Connect to Ardour DAW
+  ardour disconnect         - Disconnect from Ardour
+  ardour tracks             - List Ardour tracks
+  ardour export selected    - Export selected region from Ardour
+  ardour import [FILE]      - Import MIDI file to Ardour
+  ardour analyze selected   - Analyze selected region in Ardour
+  ardour improve selected   - Improve selected region in Ardour
 
 System:
   stop                      - Stop current playback

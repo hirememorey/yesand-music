@@ -14,6 +14,9 @@ python -c "import mido; print('Available ports:', mido.get_output_names())"
 
 # Check dependencies
 pip list | grep -E "(mido|python-rtmidi|python-osc)"
+
+# Check Ardour integration
+python control_plane_cli.py "ardour connect"
 ```
 
 ## Common Issues
@@ -165,6 +168,36 @@ pip list | grep -E "(mido|python-rtmidi|python-osc)"
    lsof -i :3819
    ```
 
+### Ardour Integration Issues
+
+**Symptoms**: Ardour commands not working, connection failures
+
+**Solutions**:
+1. **Check Ardour Installation**:
+   ```bash
+   # Check if Ardour is installed
+   which ardour
+   # or
+   ls -la /Applications/Ardour.app/Contents/MacOS/ardour
+   ```
+
+2. **Start Ardour Manually**:
+   - Open Ardour application
+   - Create or open a project
+   - Try connecting again
+
+3. **Check Project Files**:
+   ```bash
+   # Look for Ardour project files
+   find ~/Documents -name "*.ardour" -type f
+   ```
+
+4. **Test Basic Commands**:
+   ```bash
+   python control_plane_cli.py "ardour connect"
+   python control_plane_cli.py "ardour tracks"
+   ```
+
 ### Performance Issues
 
 **Symptoms**: Audio dropouts, slow response, high CPU usage
@@ -291,8 +324,16 @@ print('Swing applied successfully')
 python -c "
 from commands.control_plane import ControlPlane
 cp = ControlPlane()
-result = cp.execute_command('play scale C major')
+result = cp.execute('play scale C major')
 print(f'Result: {result}')
+"
+
+# Test Ardour integration
+python -c "
+from ardour_integration import ArdourIntegration
+ardour = ArdourIntegration()
+print(f'Connected: {ardour.connect()}')
+print(f'Tracks: {len(ardour.list_tracks())}')
 "
 ```
 
@@ -302,6 +343,7 @@ print(f'Result: {result}')
 - **Setup Issues**: See [QUICKSTART.md](QUICKSTART.md)
 - **Development Issues**: See [DEVELOPMENT.md](DEVELOPMENT.md)
 - **Architecture Questions**: See [ARCHITECTURE.md](ARCHITECTURE.md)
+- **Ardour Integration**: See [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md)
 
 ### Run Tests
 ```bash

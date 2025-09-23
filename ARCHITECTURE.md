@@ -12,9 +12,10 @@ YesAnd Music follows a "Brain vs. Hands" architecture that separates core musica
 Natural Language → Command Parser → Control Plane → Contextual Intelligence → Visual Feedback Display
        ↓                ↓                ↓              ↓                        ↓
    "analyze bass"   Command Types    Pattern Gen    Musical Analysis        Color-Coded
-   "show melody"    (33+ types)      + OSC Sender   + Smart Suggestions      Highlighting
-   "get suggestions" + Visual        + MIDI Player  + Educational Content    + Explanations
-                     Feedback         (IAC Driver)  + Background Analysis    + Real-Time Updates
+   "show melody"    (40+ types)      + OSC Sender   + Smart Suggestions      Highlighting
+   "ardour tracks"  + Ardour Int.    + MIDI Player  + Educational Content    + Explanations
+   "get suggestions" + Visual        (IAC Driver)   + Background Analysis    + Real-Time Updates
+                     Feedback         + File I/O     + DAW Integration        + DAW State
 ```
 
 ## Core Components
@@ -77,6 +78,21 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
 - Handle real-time visual updates without blocking audio
 - Communicate with JUCE plugin via OSC
 
+### DAW Integration System
+**Purpose**: File-based integration with DAWs for state awareness
+
+**Key Files**:
+- `ardour_integration.py`: File-based Ardour DAW integration
+- Project file parsing for track/region information
+- Export/import workflow for MIDI data exchange
+
+**Responsibilities**:
+- Discover and parse DAW project files
+- Export selected regions for analysis
+- Import improved MIDI back to DAW
+- Generate automation scripts (Lua for Ardour)
+- Provide DAW state awareness through file-based workflow
+
 ## Data Flow
 
 ### Command Processing
@@ -104,12 +120,21 @@ MIDI Input → Control Plane → Pattern Engine → MIDI Output → DAW
   Parsing     Management      Patterns      Playback
 ```
 
+### DAW Integration Processing
+```
+DAW Project → File Parser → Export/Import → Musical Analysis → Improved MIDI → DAW
+     ↓            ↓             ↓              ↓                ↓
+  .ardour     Track/Region   MIDI Files    Contextual        Enhanced
+  Files       Discovery      Exchange     Intelligence       Versions
+```
+
 ## Design Principles
 
 ### 1. Separation of Concerns
 - **Musical Intelligence**: Pure algorithmic functions, testable and reliable
 - **MIDI I/O**: Simple data conversion without musical logic
 - **Visual Feedback**: Display logic separate from analysis
+- **DAW Integration**: File-based workflow separate from real-time processing
 - **Control Plane**: Orchestration without implementation details
 
 ### 2. Real-Time Safety
@@ -129,6 +154,12 @@ MIDI Input → Control Plane → Pattern Engine → MIDI Output → DAW
 - Clear explanations of musical concepts
 - Visual feedback helps understanding
 - AI reasoning is transparent and explainable
+
+### 5. DAW Integration
+- File-based workflow for reliability
+- No real-time dependencies on DAW APIs
+- Automatic project discovery and parsing
+- Seamless export/import workflow
 
 ## Key Design Decisions
 
@@ -177,6 +208,16 @@ MIDI Input → Control Plane → Pattern Engine → MIDI Output → DAW
 - Educational value through explanations
 - Natural language interface matching musical vocabulary
 
+### DAW Integration Architecture
+**Decision**: File-based workflow instead of real-time API integration
+
+**Rationale**:
+- Avoids unstable DAW APIs and version dependencies
+- Provides reliable state access through project files
+- Maintains performance without real-time polling
+- Enables cross-platform compatibility
+- Allows offline analysis and improvement
+
 ## Extension Points
 
 ### Adding New Commands
@@ -202,6 +243,13 @@ MIDI Input → Control Plane → Pattern Engine → MIDI Output → DAW
 2. Add command type and parsing
 3. Integrate with control plane
 4. Add visual feedback for changes
+
+### Adding DAW Integration
+1. Extend `ArdourIntegration` class with new functionality
+2. Add command types for new DAW operations
+3. Implement file parsing for additional DAW data
+4. Add export/import methods for new data types
+5. Create automation scripts for DAW-specific operations
 
 ## Performance Characteristics
 
@@ -230,6 +278,8 @@ MIDI Input → Control Plane → Pattern Engine → MIDI Output → DAW
 - **Plugin Integration**: JUCE plugin with AudioUnit/VST3 support
 - **OSC Communication**: Real-time parameter control
 - **File Exchange**: Standard MIDI file import/export
+- **Ardour Integration**: File-based workflow with project parsing
+- **State Awareness**: Track/region information from DAW project files
 
 ### External Dependencies
 - **Python**: Core runtime and libraries
@@ -246,7 +296,8 @@ User Chat → LLM Agent → Musical Intelligence Engine → Invisible Assistance
      ↓         ↓              ↓                           ↓                    ↓
 "Make this  Parse intent,   Apply specific            Provide assistance,   Seamless
 beat jazzier"  plan actions,   transformations,         explain reasoning    DAW workflow
-              coordinate      analyze results           + Chat response      integration
+              coordinate      analyze results           + Chat response      + File-based
+                                                                             + State awareness
 ```
 
 ### Key Changes
@@ -254,6 +305,7 @@ beat jazzier"  plan actions,   transformations,         explain reasoning    DAW
 - **Command Orchestration**: Complex command decomposition and planning
 - **Reasoning Engine**: Musical decision justification and explanation
 - **Invisible Intelligence**: Background assistance without visual interference
+- **Enhanced DAW Integration**: Real-time state access and seamless workflow
 
 ## Quality Assurance
 
