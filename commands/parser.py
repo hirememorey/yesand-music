@@ -210,6 +210,31 @@ class CommandParser:
                 r"hide\s+feedback",
                 r"reset\s+feedback",
             ],
+            # Musical Problem Solvers (Phase 3B)
+            CommandType.IMPROVE_GROOVE: [
+                r"make\s+this\s+groove\s+better",
+                r"improve\s+the\s+groove",
+                r"fix\s+the\s+rhythm",
+                r"make\s+it\s+groove",
+                r"groove\s+better",
+                r"improve\s+groove",
+            ],
+            CommandType.FIX_HARMONY: [
+                r"fix\s+the\s+harmony",
+                r"improve\s+the\s+harmony",
+                r"fix\s+harmony",
+                r"make\s+the\s+harmony\s+better",
+                r"harmony\s+better",
+                r"improve\s+harmony",
+            ],
+            CommandType.IMPROVE_ARRANGEMENT: [
+                r"improve\s+the\s+arrangement",
+                r"make\s+the\s+arrangement\s+better",
+                r"fix\s+the\s+arrangement",
+                r"arrangement\s+better",
+                r"improve\s+arrangement",
+                r"make\s+it\s+more\s+interesting",
+            ],
         }
         
         # Compile all patterns for efficiency

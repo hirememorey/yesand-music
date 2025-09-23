@@ -49,6 +49,10 @@ class CommandType(Enum):
     APPLY_SUGGESTION = "apply_suggestion"
     SHOW_FEEDBACK = "show_feedback"
     CLEAR_FEEDBACK = "clear_feedback"
+    # Musical Problem Solvers (Phase 3B)
+    IMPROVE_GROOVE = "improve_groove"
+    FIX_HARMONY = "fix_harmony"
+    IMPROVE_ARRANGEMENT = "improve_arrangement"
 
 
 class Density(Enum):

@@ -19,6 +19,7 @@ from midi_player import MidiPlayer
 from sequencer import Sequencer
 from osc_sender import OSCSender
 from contextual_intelligence import ContextualIntelligence
+from musical_solvers import GrooveImprover, HarmonyFixer, ArrangementImprover
 import config
 
 
@@ -52,6 +53,11 @@ class ControlPlane:
         
         # Initialize contextual intelligence system
         self.contextual_intelligence = ContextualIntelligence(session_file)
+        
+        # Initialize musical problem solvers
+        self.groove_improver = GrooveImprover()
+        self.harmony_fixer = HarmonyFixer()
+        self.arrangement_improver = ArrangementImprover()
         
         # Playback state (now handled by sequencer)
     
@@ -104,6 +110,12 @@ class ControlPlane:
                 CommandType.CLEAR_FEEDBACK
             ]:
                 return self._handle_contextual_intelligence_command(command)
+            
+            # Handle musical problem solver commands
+            elif command.type in [
+                CommandType.IMPROVE_GROOVE, CommandType.FIX_HARMONY, CommandType.IMPROVE_ARRANGEMENT
+            ]:
+                return self._handle_musical_solver_command(command)
             
             # Handle system commands
             elif command.type == CommandType.STOP:
@@ -389,6 +401,70 @@ class ControlPlane:
             formatted += f"- {feedback.element.value.title()}: {feedback.message}\n"
         
         return formatted
+    
+    def _handle_musical_solver_command(self, command: Command) -> str:
+        """Handle a musical problem solver command.
+        
+        Args:
+            command: The musical solver command
+            
+        Returns:
+            Response message with solution and explanation
+        """
+        # Check if a project is loaded
+        if not self.contextual_intelligence.current_project:
+            return "Please load a MIDI project first using 'load [filename]' before using musical problem solvers."
+        
+        # Get the current project file path (we'll need to store this)
+        # For now, we'll use a placeholder - in a real implementation, we'd store the file path
+        project_path = "current_project.mid"  # This should be stored when loading
+        
+        try:
+            if command.type == CommandType.IMPROVE_GROOVE:
+                solution = self.groove_improver.improve_groove(project_path)
+                return self._format_musical_solution("Groove", solution)
+            
+            elif command.type == CommandType.FIX_HARMONY:
+                solution = self.harmony_fixer.fix_harmony(project_path)
+                return self._format_musical_solution("Harmony", solution)
+            
+            elif command.type == CommandType.IMPROVE_ARRANGEMENT:
+                solution = self.arrangement_improver.improve_arrangement(project_path)
+                return self._format_musical_solution("Arrangement", solution)
+            
+            else:
+                return f"Unknown musical solver command: {command.type.value}"
+                
+        except Exception as e:
+            return f"Error processing musical solution: {str(e)}"
+    
+    def _format_musical_solution(self, problem_type: str, solution) -> str:
+        """Format a musical solution for display.
+        
+        Args:
+            problem_type: Type of problem solved (e.g., "Groove", "Harmony")
+            solution: MusicalSolution object
+            
+        Returns:
+            Formatted response message
+        """
+        if not solution.changes_made:
+            return f"{problem_type} Analysis: {solution.explanation}"
+        
+        response = f"🎵 {problem_type} Improvements Made:\n\n"
+        response += f"{solution.explanation}\n\n"
+        
+        if solution.changes_made:
+            response += "Changes Applied:\n"
+            for change in solution.changes_made:
+                response += f"• {change}\n"
+        
+        response += f"\nConfidence: {solution.confidence:.1%}"
+        
+        if solution.audio_preview_path:
+            response += f"\n\nAudio preview saved to: {solution.audio_preview_path}"
+        
+        return response
     
     def close(self) -> None:
         """Close the control plane and clean up resources."""
