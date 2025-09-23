@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides step-by-step instructions for testing the YesAnd Music system, including both the command-line MIDI editor and the visual-first interface (Phase 3). The test plan covers the complete workflow from DAW export to transformation to DAW import, as well as visual interface testing.
+This document provides step-by-step instructions for testing the YesAnd Music system, including both the command-line MIDI editor and the invisible intelligence interface (Phase 3). The test plan covers the complete workflow from DAW export to transformation to DAW import, as well as invisible intelligence testing.
 
 ## Prerequisites
 
@@ -208,69 +208,69 @@ If you encounter issues not covered in this test plan:
 
 **Note**: This test plan validates the core "Brain vs. Hands" architecture by testing the Python intelligence (swing transformation) working with simple MIDI file I/O, without requiring any DAW integration.
 
-## Test Plan: Visual Interface (Phase 3)
+## Test Plan: Invisible Intelligence Interface (Phase 3)
 
-### Prerequisites for Visual Interface Testing
-- Visual interface implementation (Phase 3A, 3B, 3C)
-- DAW with visual overlay support
+### Prerequisites for Invisible Intelligence Testing
+- Invisible intelligence implementation (Phase 3A, 3B, 3C)
+- DAW with background analysis support
 - Test MIDI files with various musical patterns
 
-### Phase 3A: Visual Foundation Testing
+### Phase 3A: Background Intelligence Foundation Testing
 
-#### Test 1: Visual Pattern Recognition
-1. **Load MIDI file** in DAW with visual interface enabled
-2. **Verify highlighting**:
-   - Bass lines highlighted in blue
-   - Melodies highlighted in green
-   - Chord progressions highlighted in purple
-   - Rhythmic patterns highlighted in orange
-   - Drums highlighted in red
+#### Test 1: Background Pattern Recognition
+1. **Load MIDI file** in DAW with invisible intelligence enabled
+2. **Verify background analysis**:
+   - Bass lines detected in background
+   - Melodies detected in background
+   - Chord progressions detected in background
+   - Rhythmic patterns detected in background
+   - Drums detected in background
 3. **Test real-time updates** as MIDI data changes
-4. **Verify performance** - no audio dropouts during highlighting
+4. **Verify performance** - no audio dropouts during background analysis
 
-#### Test 2: Interactive MIDI Manipulation
-1. **Drag and drop** musical elements
-2. **Verify immediate audio feedback** during manipulation
+#### Test 2: Contextual MIDI Assistance
+1. **Natural language commands** for musical modifications
+2. **Verify immediate audio feedback** during assistance
 3. **Test undo/redo** functionality
-4. **Verify visual state preservation** through operations
+4. **Verify background state preservation** through operations
 
 #### Test 3: DAW Integration
-1. **Verify seamless overlay** on DAW's piano roll
+1. **Verify seamless background operation** within DAW workflow
 2. **Test contextual menus** on right-click
 3. **Verify familiar DAW tools** still work
 4. **Test keyboard shortcuts** integration
 
-### Phase 3B: Smart Visual Suggestions Testing
+### Phase 3B: Smart Invisible Assistance Testing
 
 #### Test 1: Suggestion Display
 1. **Load complex MIDI pattern**
-2. **Verify suggestion indicators** appear
+2. **Verify suggestion indicators** appear through natural language
 3. **Test suggestion types**:
    - Harmonic suggestions
    - Rhythmic suggestions
    - Melodic suggestions
    - Dynamic suggestions
-4. **Verify visual clarity** of suggestion indicators
+4. **Verify natural language clarity** of suggestion indicators
 
-#### Test 2: One-Click Application
-1. **Click on suggestion** to apply
+#### Test 2: Natural Language Application
+1. **Use natural language commands** to apply suggestions
 2. **Verify immediate audio feedback**
 3. **Test batch application** of multiple suggestions
 4. **Verify undo/redo** for applied suggestions
 
 #### Test 3: Musical Intelligence Display
-1. **Hover over suggestions** to see explanations
+1. **Ask for explanations** through natural language
 2. **Verify musical theory** explanations are clear
 3. **Test educational content** for learning
-4. **Verify A/B comparison** interface
+4. **Verify A/B comparison** through audio preview
 
-### Phase 3C: Advanced Visual Features Testing
+### Phase 3C: Advanced Invisible Intelligence Features Testing
 
-#### Test 1: Advanced Visual Analysis
-1. **Test harmonic analysis** visualization
+#### Test 1: Advanced Background Analysis
+1. **Test harmonic analysis** without visual interference
 2. **Test rhythmic analysis** with groove patterns
-3. **Test melodic analysis** with contour display
-4. **Test dynamic analysis** with velocity visualization
+3. **Test melodic analysis** with contour detection
+4. **Test dynamic analysis** with velocity analysis
 
 #### Test 2: Multi-DAW Support
 1. **Test in Logic Pro**
@@ -279,14 +279,14 @@ If you encounter issues not covered in this test plan:
 4. **Verify consistent experience** across DAWs
 
 #### Test 3: Advanced Interaction Features
-1. **Test multi-touch support** (if available)
-2. **Test gesture-based manipulation**
-3. **Test keyboard shortcuts**
-4. **Test customizable themes**
+1. **Test voice commands** (if available)
+2. **Test keyboard shortcuts**
+3. **Test contextual menus**
+4. **Test natural language interaction**
 
-### Visual Interface Success Criteria
-- [ ] Visual analysis works in real-time without audio dropouts
-- [ ] Interactive manipulation provides immediate feedback
+### Invisible Intelligence Success Criteria
+- [ ] Background analysis works in real-time without audio dropouts
+- [ ] Natural language assistance provides immediate feedback
 - [ ] Smart suggestions improve musical quality
 - [ ] DAW integration preserves familiar workflows
 - [ ] Educational content helps users learn musical concepts

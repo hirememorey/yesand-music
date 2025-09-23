@@ -1,12 +1,12 @@
-## YesAnd Music: Visual-First Semantic MIDI Editing with Natural Language Interface
+## YesAnd Music: Invisible Intelligence for Semantic MIDI Editing with Natural Language Interface
 
-The goal of this project is to enable musicians to intelligently edit their music through **visual analysis, interactive manipulation, smart suggestions, and natural language conversation** that integrate seamlessly with their existing DAW workflows.
+The goal of this project is to enable musicians to intelligently edit their music through **background analysis, contextual intelligence, smart suggestions, and natural language conversation** that integrate seamlessly with their existing DAW workflows.
 
-## 🔄 Strategic Pivot: From Command-Based to Visual-First
+## 🔄 Strategic Pivot: From Visual-First to Invisible Intelligence
 
-**Critical Insight from Pre-Mortem Analysis**: Musicians are visual, immediate feedback creatures who work in familiar DAW environments. A command-based interface breaks their fundamental workflow of see-hear-adjust.
+**Critical Insight from Pre-Mortem Analysis**: Musicians are creatures of habit who have spent years perfecting their DAW workflow. Any visual overlay or new interface feels invasive and disrupts their sacred "see-hear-adjust" workflow.
 
-**New Vision**: Transform MIDI editing from technical manipulation to visual, intelligent interaction with natural language conversation that enhances rather than disrupts existing creative workflows.
+**New Vision**: Transform MIDI editing from technical manipulation to invisible, intelligent assistance with natural language conversation that enhances rather than disrupts existing creative workflows.
 
 ## The Solution
 
@@ -25,29 +25,29 @@ A tool for real-time, interactive music creation. This system is currently funct
 - OSC Integration: Complete Python-to-JUCE plugin communication with real-time parameter control
 - Style Control: Natural language control of plugin parameters via OSC messages
 
-### Part 2: The Visual MIDI Analysis Engine with Natural Language Interface (Next Focus) 🎯
-A visual-first system for intelligent MIDI editing with natural language conversation that integrates seamlessly with existing DAW workflows.
+### Part 2: The Invisible Intelligence Engine with Natural Language Interface (Next Focus) 🎯
+An invisible intelligence system for intelligent MIDI editing with natural language conversation that integrates seamlessly with existing DAW workflows.
 
-**Phase 3A Features (Visual Foundation + Chat Interface):**
-- **Visual Pattern Recognition**: Real-time MIDI analysis with color-coded highlighting
-- **Interactive MIDI Manipulation**: Drag-and-drop interface with immediate audio feedback
+**Phase 3A Features (Background Intelligence + Chat Interface):**
+- **Background Musical Analysis**: Silent MIDI analysis without visual interference
+- **Contextual Intelligence**: Understand current musical work without disrupting workflow
 - **Natural Language Chat Interface**: Conversational AI assistant for musical guidance and commands
-- **DAW Integration**: Seamless overlay on existing DAW piano roll interfaces
-- **Musical Element Highlighting**: Bass lines, melodies, chord progressions, rhythmic patterns
+- **DAW Integration**: Seamless background operation within existing DAW workflows
+- **Musical Element Detection**: Bass lines, melodies, chord progressions, rhythmic patterns in background
 
-**Phase 3B Features (Smart Suggestions + LLM Integration):**
-- **Smart Suggestion Engine**: Analyze patterns and suggest musical improvements
-- **Visual Feedback System**: Real-time highlighting of suggested changes
-- **One-Click Application**: Single-click application with immediate feedback
-- **Musical Intelligence Display**: Show musical theory behind suggestions
+**Phase 3B Features (Smart Assistance + LLM Integration):**
+- **Smart Suggestion Engine**: Analyze patterns and suggest musical improvements only when requested
+- **Contextual Assistance**: Provide help only when explicitly requested
+- **Natural Language Application**: Apply suggestions through conversation with immediate feedback
+- **Musical Intelligence Display**: Show musical theory behind suggestions through conversation
 - **Conversational Guidance**: LLM explains musical concepts and provides contextual help
 - **Natural Language Commands**: "Make the bass line more jazzy", "Simplify the drums in the chorus"
 
-**Phase 3C Features (Advanced Visual + Advanced Chat):**
-- **Advanced Visual Analysis**: Harmonic, rhythmic, melodic, and dynamic analysis
+**Phase 3C Features (Advanced Invisible Intelligence + Advanced Chat):**
+- **Advanced Background Analysis**: Harmonic, rhythmic, melodic, and dynamic analysis without visual interference
 - **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-- **Advanced Interaction**: Multi-touch, gestures, keyboard shortcuts
-- **Performance Optimization**: Real-time performance with GPU acceleration
+- **Advanced Interaction**: Keyboard shortcuts, voice commands, contextual menus
+- **Performance Optimization**: Real-time performance without impacting DAW operation
 - **Voice Integration**: Voice-to-text for hands-free operation while playing
 - **Collaborative Chat**: Multiple musicians can chat with the same AI assistant
 
@@ -71,7 +71,7 @@ Our architectural philosophy is to separate the core intelligence from the DAW i
 
 **The "Hands"** are the simple integration points that get MIDI data to and from the DAW.
 
-**The "Heart"** is the visual interface with natural language chat that provides immediate feedback and integrates seamlessly with existing DAW workflows.
+**The "Heart"** is the invisible intelligence with natural language chat that provides immediate feedback and integrates seamlessly with existing DAW workflows.
 
 This separation allows us to:
 - Focus on musical intelligence without being constrained by DAW-specific APIs
@@ -83,7 +83,7 @@ This separation allows us to:
 
 ## The Roadmap
 
-Our development is focused on de-risking the biggest challenges first, with a strategic pivot to visual-first approach based on pre-mortem analysis.
+Our development is focused on de-risking the biggest challenges first, with a strategic pivot to invisible intelligence approach based on pre-mortem analysis.
 
 ### Phase 1: The "Manual Roundtrip" MVP ✅ COMPLETE
 Built the core "Brain" and proved the end-to-end editing loop works via a simple command-line interface.
@@ -113,31 +113,31 @@ Complete Python-to-JUCE plugin communication with style presets and natural lang
 - ✅ Thread-safe design with error isolation
 - ✅ Parameter validation and clamping working properly
 
-### Phase 3: Visual MIDI Analysis Engine with Natural Language Interface 🎯 NEXT FOCUS
-**Strategic Pivot**: Transform from command-based to visual-first approach with natural language conversation based on pre-mortem insights.
+### Phase 3: Invisible Intelligence Engine with Natural Language Interface 🎯 NEXT FOCUS
+**Strategic Pivot**: Transform from command-based to invisible intelligence approach with natural language conversation based on pre-mortem insights.
 
-**Phase 3A: Visual Foundation + Chat Interface (Weeks 1-2)**
-- Visual pattern recognition with real-time highlighting
-- Interactive MIDI manipulation with drag-and-drop
+**Phase 3A: Background Intelligence + Chat Interface (Weeks 1-2)**
+- Background musical analysis without visual interference
+- Contextual intelligence that understands current musical work
 - Natural language chat interface for musical guidance
 - DAW integration preserving familiar workflows
-- Basic visual interface with immediate feedback
+- Invisible assistance with immediate feedback
 
-**Phase 3B: Smart Visual Suggestions + LLM Integration (Weeks 3-4)**
-- Smart suggestion engine with visual indicators
-- One-click application with immediate feedback
+**Phase 3B: Smart Assistance + LLM Integration (Weeks 3-4)**
+- Smart suggestion engine with contextual assistance
+- Natural language application with immediate feedback
 - Musical intelligence display with educational content
 - Conversational AI assistant for complex musical operations
 - Natural language commands: "Make the bass line more jazzy", "Simplify the drums in the chorus"
-- A/B comparison interface for testing changes
+- A/B comparison through audio preview
 
-**Phase 3C: Advanced Visual Features + Advanced Chat (Weeks 5-6)**
-- Advanced visual analysis (harmonic, rhythmic, melodic, dynamic)
+**Phase 3C: Advanced Invisible Intelligence + Advanced Chat (Weeks 5-6)**
+- Advanced background analysis (harmonic, rhythmic, melodic, dynamic)
 - Multi-DAW support (Logic Pro, Pro Tools, Cubase)
-- Advanced interaction features (multi-touch, gestures, shortcuts)
+- Advanced interaction features (keyboard shortcuts, voice commands, contextual menus)
 - Voice integration for hands-free operation
 - Collaborative chat for multiple musicians
-- Performance optimization with GPU acceleration
+- Performance optimization without impacting DAW operation
 
 ## Current Development Status
 

@@ -13,23 +13,23 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
     musical_analysis (future)
 ```
 
-### Vision: AI-Powered Visual-First Semantic MIDI Editing Architecture with Natural Language Interface
+### Vision: AI-Powered Invisible Intelligence Architecture with Natural Language Interface
 ```
-MIDI Input → Musical Intelligence Engine → LLM Chat Interface → Visual Interface → DAW Integration
-     ↓              ↓                           ↓                    ↓                ↓
-  DAW Track    Real-time Pattern         Natural Language      Drag & Drop      Visual Overlay
-  (Piano Roll)  Recognition &             Conversation &        Interface        on DAW Interface
-                Analysis                   Orchestration         with Audio
-                (Harmonic, Rhythmic,      (Chat Commands,       Feedback
-                Melodic, Style)           Voice Integration,    + Chat Panel
-                                         Context Awareness)
+MIDI Input → Background Intelligence Engine → LLM Chat Interface → Invisible Assistance → DAW Integration
+     ↓              ↓                           ↓                    ↓                    ↓
+  DAW Track    Silent Pattern              Natural Language      Contextual Help       Seamless
+  (Piano Roll)  Recognition &               Conversation &        (On-Demand)          DAW Workflow
+                Analysis                     Orchestration         + Chat Panel         Integration
+                (Harmonic, Rhythmic,        (Chat Commands,       + Voice Control      (No Visual
+                Melodic, Style)             Voice Integration,    + Keyboard           Interference)
+                                         Context Awareness)       Shortcuts)
 ```
 
 ### LLM Integration Pattern: Natural Language Interface and Orchestrator
 ```
-User Chat → LLM Chat Interface → Musical Intelligence Engine → Visual + Audio Feedback
+User Chat → LLM Chat Interface → Musical Intelligence Engine → Invisible + Audio Feedback
      ↓            ↓                      ↓                           ↓
-"Make this    Parse conversation,    Apply specific            Show changes,
+"Make this    Parse conversation,    Apply specific            Provide assistance,
 beat jazzier"  understand context,    transformations,          explain reasoning
               plan actions,          analyze results           + Chat response
               coordinate
@@ -43,14 +43,15 @@ Natural Language → Command Parser → Control Plane → MIDI Output + OSC Cont
     with jazz"     (23+ types)      + OSC Sender   (IAC Driver)  (Style Effects)
 ```
 
-### Future: Visual-First with Natural Language Chat Interface (Primary)
+### Future: Invisible Intelligence with Natural Language Chat Interface (Primary)
 ```
-Natural Language → LLM Chat Interface → Musical Intelligence → Visual Interface → DAW Integration
-       ↓                ↓                      ↓                    ↓                ↓
-   "Make the bass   Parse conversation,    Apply musical        Show visual      Seamless
-    line jazzier"   understand context,    transformations,     highlighting,    DAW overlay
-                    plan actions,          analyze results      drag & drop,     with chat
-                    coordinate                                    audio feedback   panel
+Natural Language → LLM Chat Interface → Musical Intelligence → Invisible Assistance → DAW Integration
+       ↓                ↓                      ↓                    ↓                    ↓
+   "Make the bass   Parse conversation,    Apply musical        Provide contextual   Seamless
+    line jazzier"   understand context,    transformations,     help and            DAW workflow
+                    plan actions,          analyze results      explanations        integration
+                    coordinate                                    (on-demand)         (no visual
+                                                                                      interference)
 ```
 
 ### JUCE Plugin Architecture (Real-Time MIDI Processing)

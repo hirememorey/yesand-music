@@ -19,9 +19,9 @@ This distinction is critical for:
 ### LLM as Orchestrator Pattern
 
 ```
-User Command → LLM Agent → Musical Intelligence Engine → Visual Feedback
+User Command → LLM Agent → Musical Intelligence Engine → Invisible Assistance
      ↓            ↓              ↓                           ↓
-"Make this    Parse intent,   Apply specific            Show changes,
+"Make this    Parse intent,   Apply specific            Provide assistance,
 beat jazzier"  plan actions,   transformations,          explain reasoning
               coordinate      analyze results
 ```
@@ -136,35 +136,32 @@ class MusicalCommandParser:
             return self.llm_agent.process_command(command)
 ```
 
-### 2. Visual Interface Integration
+### 2. Invisible Intelligence Integration
 
-Connect LLM agent to visual interface for real-time feedback:
+Connect LLM agent to invisible intelligence for real-time assistance:
 
 ```python
-# New component: visual_interface.py
-class VisualMIDIEditor:
+# New component: invisible_intelligence.py
+class InvisibleIntelligence:
     def __init__(self, llm_agent: MusicalLLMAgent):
         self.llm_agent = llm_agent
-        self.piano_roll = PianoRollWidget()
-        self.change_visualizer = ChangeVisualizer()
+        self.background_analyzer = BackgroundAnalyzer()
+        self.context_manager = ContextManager()
     
     def process_ai_command(self, command: str):
-        """Process AI command and show visual feedback"""
+        """Process AI command and provide invisible assistance"""
         
-        # Get current MIDI data
-        current_notes = self.piano_roll.get_notes()
+        # Get current MIDI data from background analysis
+        current_notes = self.background_analyzer.get_current_notes()
         
         # Process with LLM agent
         action = self.llm_agent.process_command(command, current_notes)
         
-        # Show changes visually
-        self.change_visualizer.show_changes(current_notes, action.result)
+        # Apply changes invisibly
+        self.background_analyzer.apply_changes(action.result)
         
-        # Update piano roll
-        self.piano_roll.update_notes(action.result)
-        
-        # Show explanation
-        self.show_explanation(action.explanation)
+        # Provide natural language explanation
+        self.provide_explanation(action.explanation)
 ```
 
 ### 3. Real-time Integration
@@ -199,7 +196,7 @@ class RealTimeLLMIntegration:
 ### 1. Separation of Concerns
 - **Musical Intelligence**: Pure algorithmic functions, testable and reliable
 - **LLM Reasoning**: Natural language understanding and orchestration
-- **Visual Interface**: User interaction and feedback
+- **Invisible Intelligence**: User interaction and feedback
 - **Real-time Processing**: Uninterrupted MIDI processing
 
 ### 2. Performance
@@ -234,11 +231,11 @@ class RealTimeLLMIntegration:
 - Implement command parsing and planning
 - Add explanation and reasoning capabilities
 
-### Week 5-6: Visual Interface Integration
-- Connect LLM agent to visual interface
-- Implement change visualization system
-- Add real-time feedback mechanisms
-- Create A/B comparison interface
+### Week 5-6: Invisible Intelligence Integration
+- Connect LLM agent to invisible intelligence
+- Implement background change management system
+- Add real-time assistance mechanisms
+- Create A/B comparison through audio preview
 
 ### Week 7-8: Advanced Features
 - Add context management and conversation memory

@@ -1,20 +1,20 @@
-## Control Plane for Visual-First Semantic MIDI Editing
+## Control Plane for Invisible Intelligence Semantic MIDI Editing
 
 ### Purpose
-Provide a real-time control plane for MIDI generation and style control, with the primary focus on visual-first semantic MIDI editing with natural language conversation that integrates seamlessly with existing DAW workflows.
+Provide a real-time control plane for MIDI generation and style control, with the primary focus on invisible intelligence semantic MIDI editing with natural language conversation that integrates seamlessly with existing DAW workflows.
 
-### Vision: Visual-First Semantic MIDI Editing with Natural Language Interface
-The ultimate goal is to enable visual, immediate feedback musical editing through:
-- **Visual Pattern Recognition**: Highlight bass lines, melodies, chord progressions in real-time
-- **Interactive MIDI Manipulation**: Drag-and-drop musical elements with instant audio feedback
-- **Smart Visual Suggestions**: Show musical improvements with one-click application
+### Vision: Invisible Intelligence Semantic MIDI Editing with Natural Language Interface
+The ultimate goal is to enable intelligent, non-intrusive musical assistance through:
+- **Background Musical Analysis**: Silent, continuous analysis that doesn't interrupt workflow
+- **Contextual Intelligence**: Understand what musicians are working on without visual intrusion
+- **Smart Suggestions**: Provide musical improvements only when requested
 - **Natural Language Conversation**: Chat with AI assistant for musical guidance and complex operations
 - **Seamless DAW Integration**: Work within familiar DAW workflows, not against them
 
-### Strategic Pivot: From Command-Based to Visual-First
-**Critical Insight from Pre-Mortem Analysis**: Musicians are visual, immediate feedback creatures who work in familiar DAW environments. A command-based interface breaks their fundamental workflow of see-hear-adjust.
+### Strategic Pivot: From Visual-First to Invisible Intelligence
+**Critical Insight from Pre-Mortem Analysis**: Musicians are creatures of habit who have spent years perfecting their DAW workflow. Any visual overlay or new interface feels invasive and disrupts their sacred "see-hear-adjust" workflow.
 
-**New Approach**: The control plane now serves as a secondary interface, with the primary focus on visual analysis and manipulation with natural language conversation that integrates seamlessly with existing DAW workflows.
+**New Approach**: The control plane now serves as a secondary interface, with the primary focus on invisible intelligence and natural language conversation that integrates seamlessly with existing DAW workflows without visual interference.
 
 ### Principles
 - Embrace nondeterminism and simplicity: minimal timing guarantees, fast iteration.
@@ -23,29 +23,29 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
 
 ### Layers
 
-#### Primary: Visual-First Interface with Natural Language Chat (Next Focus)
-1. **Visual MIDI Analysis Engine + Chat Interface** (Phase 3A - Weeks 1-2)
-   - Real-time MIDI analysis with color-coded highlighting
-   - Interactive drag-and-drop manipulation with immediate audio feedback
+#### Primary: Invisible Intelligence Interface with Natural Language Chat (Next Focus)
+1. **Background MIDI Analysis Engine + Chat Interface** (Phase 3A - Weeks 1-2)
+   - Silent MIDI analysis without visual interference
+   - Background musical element detection (bass, melody, harmony, rhythm, drums)
    - Natural language chat interface for musical guidance and commands
    - DAW integration preserving familiar workflows
-   - Musical element highlighting (bass, melody, harmony, rhythm, drums)
+   - Contextual intelligence that understands current musical work
 
-2. **Smart Visual Suggestions + LLM Integration** (Phase 3B - Weeks 3-4)
-   - Analyze patterns and suggest musical improvements
-   - Visual indicators for potential enhancements
-   - One-click application with immediate feedback
+2. **Smart Invisible Suggestions + LLM Integration** (Phase 3B - Weeks 3-4)
+   - Analyze patterns and suggest musical improvements only when requested
+   - Contextual assistance for potential enhancements
+   - Natural language application with immediate feedback
    - Musical intelligence display with educational content
    - Conversational AI assistant for complex musical operations
    - Natural language commands: "Make the bass line more jazzy", "Simplify the drums in the chorus"
 
-3. **Advanced Visual Features + Advanced Chat** (Phase 3C - Weeks 5-6)
-   - Advanced visual analysis (harmonic, rhythmic, melodic, dynamic)
+3. **Advanced Invisible Intelligence Features + Advanced Chat** (Phase 3C - Weeks 5-6)
+   - Advanced background analysis (harmonic, rhythmic, melodic, dynamic)
    - Multi-DAW support (Logic Pro, Pro Tools, Cubase)
-   - Advanced interaction features (multi-touch, gestures, shortcuts)
+   - Advanced interaction features (keyboard shortcuts, voice commands, contextual menus)
    - Voice integration for hands-free operation while playing
    - Collaborative chat for multiple musicians
-   - Performance optimization with GPU acceleration
+   - Performance optimization without impacting DAW operation
 
 #### Secondary: Control Plane (Current - Maintained)
 4. **Core control plane** (implemented, always works)
@@ -66,7 +66,7 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
    - Visual interface can reference logical parts for highlighting
 7. **Best-effort DAW context** (optional)
    - Use macOS Accessibility for track names and armed state
-   - Fail gracefully; visual interface works without this
+   - Fail gracefully; invisible intelligence works without this
 8. **Audio-derived suggestions** (optional)
    - Lightweight key estimation for visual analysis hints
 
@@ -75,15 +75,15 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
 - Intents: play scale/arp/random-walk; set key/scale; adjust density/register/velocity/randomness; send CC; stop.
 - Patterns are simple, timed with `sleep`, and may randomize timing/velocity/pitch within constraints.
 
-### Future Scope (Visual-First Semantic MIDI Editing with Natural Language Interface)
-- **Visual Pattern Recognition**: Real-time highlighting of musical elements
-- **Interactive Manipulation**: Drag-and-drop interface with immediate feedback
-- **Smart Suggestions**: Visual indicators for musical improvements
+### Future Scope (Invisible Intelligence Semantic MIDI Editing with Natural Language Interface)
+- **Background Pattern Recognition**: Silent analysis of musical elements without visual interference
+- **Contextual Assistance**: Invisible help with immediate feedback
+- **Smart Suggestions**: Natural language indicators for musical improvements
 - **Natural Language Conversation**: Chat with AI assistant for musical guidance and complex operations
-- **DAW Integration**: Seamless overlay on existing DAW interfaces with floating chat window
-- **Educational Value**: Visual explanations of musical theory and concepts with conversational guidance
+- **DAW Integration**: Seamless background operation within existing DAW workflows
+- **Educational Value**: Natural language explanations of musical theory and concepts with conversational guidance
 - **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-- **Advanced Features**: Multi-touch, gestures, keyboard shortcuts, voice integration
+- **Advanced Features**: Keyboard shortcuts, voice commands, contextual menus
 - **Collaborative Features**: Multiple musicians can chat with the same AI assistant
 
 ### Intent Grammar (Current)
