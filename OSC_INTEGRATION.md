@@ -1,8 +1,8 @@
 # OSC Integration for StyleTransfer JUCE Plugin
 
-## Status: ✅ PRODUCTION READY
+## Status: ✅ PRODUCTION READY (Secondary Interface)
 
-**The OSC integration is fully implemented and working correctly.** All Python-side components are operational and ready for use with the JUCE plugin.
+**The OSC integration is fully implemented and working correctly.** All Python-side components are operational and ready for use with the JUCE plugin. **Note**: OSC integration now serves as a secondary interface, with the primary focus on visual-first semantic MIDI editing.
 
 ### What's Working
 - ✅ **Python OSC Sender**: Complete implementation with thread-safe design

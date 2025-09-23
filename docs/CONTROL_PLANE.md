@@ -1,14 +1,19 @@
-## Chat-driven Control Plane for Ardour
+## Control Plane for Visual-First Semantic MIDI Editing
 
 ### Purpose
-Use Cursor chat as a real-time control plane to influence Ardour via MIDI and eventually perform semantic MIDI editing. Precision sync is not required; nondeterministic, improvisatory output is desirable. Optional project context (key, track names) may inform behavior.
+Provide a real-time control plane for MIDI generation and style control, with the primary focus on visual-first semantic MIDI editing that integrates seamlessly with existing DAW workflows.
 
-### Vision: Semantic MIDI Editing
-The ultimate goal is to enable natural language commands like:
-- **"Make the bass beat from measures 8-12 jazzier"** - Intelligent musical modifications
-- **"Simplify the harmony in the chorus"** - Context-aware editing
-- **"Add more syncopation to the drums"** - Style transformations
-- **"Make it more aggressive"** - Musical concept application
+### Vision: Visual-First Semantic MIDI Editing
+The ultimate goal is to enable visual, immediate feedback musical editing through:
+- **Visual Pattern Recognition**: Highlight bass lines, melodies, chord progressions in real-time
+- **Interactive MIDI Manipulation**: Drag-and-drop musical elements with instant audio feedback
+- **Smart Visual Suggestions**: Show musical improvements with one-click application
+- **Seamless DAW Integration**: Work within familiar DAW workflows, not against them
+
+### Strategic Pivot: From Command-Based to Visual-First
+**Critical Insight from Pre-Mortem Analysis**: Musicians are visual, immediate feedback creatures who work in familiar DAW environments. A command-based interface breaks their fundamental workflow of see-hear-adjust.
+
+**New Approach**: The control plane now serves as a secondary interface, with the primary focus on visual analysis and manipulation that integrates seamlessly with existing DAW workflows.
 
 ### Principles
 - Embrace nondeterminism and simplicity: minimal timing guarantees, fast iteration.
@@ -16,42 +21,62 @@ The ultimate goal is to enable natural language commands like:
 - Make the system transparent: show current assumptions (key, target, randomness).
 
 ### Layers
-1. **Core control plane** (implemented, always works)
-   - Parse chat into intents (play/pattern/cc/settings).
-   - Maintain session state (key/scale, density, register, velocity, randomness).
-   - Send MIDI to `IAC Driver Bus 1` toward the armed track in Ardour/GarageBand.
-2. **Musical Analysis Engine** (planned)
-   - Analyze existing MIDI data for bass lines, chord progressions, rhythmic patterns
-   - Understand musical context and relationships
-   - Identify musical elements and their functions
-3. **Semantic MIDI Editing** (planned)
-   - Parse complex musical commands ("make bass jazzier")
-   - Apply style transformations while preserving context
-   - Read, modify, and write MIDI data back to Ardour
-4. **Ardour Integration** (partially implemented)
-   - OSC communication for real-time control
-   - MIDI file I/O for project data access
-   - Project structure parsing (tracks, regions, measures)
-5. **Declarative project manifest** (opt-in)
-   - `project.yaml` or `project.json` describing key/scale, logical parts (piano, bass, pad), and suggested MIDI channels or track nicknames.
-   - Chat can reference logical parts; the control plane maps intents to targets.
-6. **Best-effort DAW context** (optional)
-   - Use macOS Accessibility or AppleScript UI scripting to read track names and armed/selected state; optionally toggle arm/solo.
-   - Fail gracefully; if unavailable or denied, continue with previous layers.
-7. **Audio-derived suggestions** (optional)
-   - With a loopback device (e.g., BlackHole), capture brief audio and run lightweight key estimation for hints, not authority.
+
+#### Primary: Visual-First Interface (Next Focus)
+1. **Visual MIDI Analysis Engine** (Phase 3A - Weeks 1-2)
+   - Real-time MIDI analysis with color-coded highlighting
+   - Interactive drag-and-drop manipulation with immediate audio feedback
+   - DAW integration preserving familiar workflows
+   - Musical element highlighting (bass, melody, harmony, rhythm, drums)
+
+2. **Smart Visual Suggestions** (Phase 3B - Weeks 3-4)
+   - Analyze patterns and suggest musical improvements
+   - Visual indicators for potential enhancements
+   - One-click application with immediate feedback
+   - Musical intelligence display with educational content
+
+3. **Advanced Visual Features** (Phase 3C - Weeks 5-6)
+   - Advanced visual analysis (harmonic, rhythmic, melodic, dynamic)
+   - Multi-DAW support (Logic Pro, Pro Tools, Cubase)
+   - Advanced interaction features (multi-touch, gestures, shortcuts)
+   - Performance optimization with GPU acceleration
+
+#### Secondary: Control Plane (Current - Maintained)
+4. **Core control plane** (implemented, always works)
+   - Parse chat into intents (play/pattern/cc/settings)
+   - Maintain session state (key/scale, density, register, velocity, randomness)
+   - Send MIDI to `IAC Driver Bus 1` toward the armed track in Ardour/GarageBand
+   - OSC integration for real-time parameter control
+
+5. **JUCE Plugin Integration** (implemented)
+   - Real-time MIDI effect plugin with swing, accent, humanization
+   - Thread-safe parameter management with APVTS
+   - Style presets (jazz, classical, electronic, blues, straight)
+   - Production-ready AudioUnit & VST3 formats
+
+#### Optional: Enhanced Features
+6. **Declarative project manifest** (opt-in)
+   - `project.yaml` or `project.json` describing key/scale, logical parts
+   - Visual interface can reference logical parts for highlighting
+7. **Best-effort DAW context** (optional)
+   - Use macOS Accessibility for track names and armed state
+   - Fail gracefully; visual interface works without this
+8. **Audio-derived suggestions** (optional)
+   - Lightweight key estimation for visual analysis hints
 
 ### Current Scope (Implemented)
 - Single-armed track model; user arms the target in Ardour/GarageBand.
 - Intents: play scale/arp/random-walk; set key/scale; adjust density/register/velocity/randomness; send CC; stop.
 - Patterns are simple, timed with `sleep`, and may randomize timing/velocity/pitch within constraints.
 
-### Future Scope (Semantic MIDI Editing)
-- **Musical Analysis**: Understand bass lines, chord progressions, rhythmic patterns
-- **Complex Commands**: "Make bass jazzier", "simplify harmony", "add syncopation"
-- **Context Preservation**: Maintain musical relationships during modifications
-- **Ardour Integration**: Read existing MIDI, analyze, modify, write back
-- **Style Transformations**: Apply musical concepts intelligently
+### Future Scope (Visual-First Semantic MIDI Editing)
+- **Visual Pattern Recognition**: Real-time highlighting of musical elements
+- **Interactive Manipulation**: Drag-and-drop interface with immediate feedback
+- **Smart Suggestions**: Visual indicators for musical improvements
+- **DAW Integration**: Seamless overlay on existing DAW interfaces
+- **Educational Value**: Visual explanations of musical theory and concepts
+- **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
+- **Advanced Features**: Multi-touch, gestures, keyboard shortcuts
 
 ### Intent Grammar (Current)
 - play: "play [scale|arp|random] in [KEY MODE] for [DURATION]"
@@ -114,11 +139,18 @@ randomness: 0.35
 - Optional: UI read smoke test guarded by platform checks.
 
 ### Next Steps
-- **Phase 1**: Enhanced MIDI file I/O for Ardour integration
-- **Phase 2**: Musical analysis engine for bass lines, chord progressions, rhythmic patterns
-- **Phase 3**: Semantic command parsing for complex musical modifications
-- **Phase 4**: Style transformation engine for "jazzier", "simpler", "more aggressive"
-- **Phase 5**: Advanced Ardour integration with real-time project awareness
+- **Phase 3A**: Visual MIDI Analysis Foundation (Weeks 1-2)
+  - Visual pattern recognition with real-time highlighting
+  - Interactive MIDI manipulation with drag-and-drop
+  - DAW integration preserving familiar workflows
+- **Phase 3B**: Smart Visual Suggestions (Weeks 3-4)
+  - Smart suggestion engine with visual indicators
+  - One-click application with immediate feedback
+  - Musical intelligence display with educational content
+- **Phase 3C**: Advanced Visual Features (Weeks 5-6)
+  - Advanced visual analysis (harmonic, rhythmic, melodic, dynamic)
+  - Multi-DAW support (Logic Pro, Pro Tools, Cubase)
+  - Advanced interaction features and performance optimization
 - See [ROADMAP.md](../ROADMAP.md) for detailed implementation phases
 
 

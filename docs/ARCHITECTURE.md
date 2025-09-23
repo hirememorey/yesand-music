@@ -13,15 +13,17 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
     musical_analysis (future)
 ```
 
-### Vision: Semantic MIDI Editing Architecture
+### Vision: Visual-First Semantic MIDI Editing Architecture
 ```
-Natural Language → Command Parser → Musical Analysis → Style Transform → Ardour Integration
-       ↓                ↓                ↓                ↓                ↓
-   "make bass      Command Types    Bass Pattern    Jazz Style      Write MIDI
-    jazzier"       (existing)       Analysis        Application     Back to DAW
+MIDI Input → Visual Analysis Engine → Interactive UI → Smart Suggestions → DAW Integration
+     ↓              ↓                      ↓              ↓                ↓
+  DAW Track    Real-time Pattern      Drag & Drop    One-Click Apply   Visual Overlay
+  (Piano Roll)  Recognition &          Interface     with Immediate    on DAW Interface
+                Highlighting           with Audio     Audio Feedback
+                                       Feedback
 ```
 
-### Current: Chat-driven Control with OSC Integration
+### Current: Chat-driven Control with OSC Integration (Secondary)
 ```
 Natural Language → Command Parser → Control Plane → MIDI Output + OSC Control
        ↓                ↓                ↓              ↓           ↓
