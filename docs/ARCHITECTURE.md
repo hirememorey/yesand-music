@@ -13,14 +13,26 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
     musical_analysis (future)
 ```
 
-### Vision: Visual-First Semantic MIDI Editing Architecture
+### Vision: AI-Powered Visual-First Semantic MIDI Editing Architecture with Natural Language Interface
 ```
-MIDI Input → Visual Analysis Engine → Interactive UI → Smart Suggestions → DAW Integration
-     ↓              ↓                      ↓              ↓                ↓
-  DAW Track    Real-time Pattern      Drag & Drop    One-Click Apply   Visual Overlay
-  (Piano Roll)  Recognition &          Interface     with Immediate    on DAW Interface
-                Highlighting           with Audio     Audio Feedback
-                                       Feedback
+MIDI Input → Musical Intelligence Engine → LLM Chat Interface → Visual Interface → DAW Integration
+     ↓              ↓                           ↓                    ↓                ↓
+  DAW Track    Real-time Pattern         Natural Language      Drag & Drop      Visual Overlay
+  (Piano Roll)  Recognition &             Conversation &        Interface        on DAW Interface
+                Analysis                   Orchestration         with Audio
+                (Harmonic, Rhythmic,      (Chat Commands,       Feedback
+                Melodic, Style)           Voice Integration,    + Chat Panel
+                                         Context Awareness)
+```
+
+### LLM Integration Pattern: Natural Language Interface and Orchestrator
+```
+User Chat → LLM Chat Interface → Musical Intelligence Engine → Visual + Audio Feedback
+     ↓            ↓                      ↓                           ↓
+"Make this    Parse conversation,    Apply specific            Show changes,
+beat jazzier"  understand context,    transformations,          explain reasoning
+              plan actions,          analyze results           + Chat response
+              coordinate
 ```
 
 ### Current: Chat-driven Control with OSC Integration (Secondary)
@@ -29,6 +41,16 @@ Natural Language → Command Parser → Control Plane → MIDI Output + OSC Cont
        ↓                ↓                ↓              ↓           ↓
    "play scale     Command Types    Pattern Gen    MIDI Player   JUCE Plugin
     with jazz"     (23+ types)      + OSC Sender   (IAC Driver)  (Style Effects)
+```
+
+### Future: Visual-First with Natural Language Chat Interface (Primary)
+```
+Natural Language → LLM Chat Interface → Musical Intelligence → Visual Interface → DAW Integration
+       ↓                ↓                      ↓                    ↓                ↓
+   "Make the bass   Parse conversation,    Apply musical        Show visual      Seamless
+    line jazzier"   understand context,    transformations,     highlighting,    DAW overlay
+                    plan actions,          analyze results      drag & drop,     with chat
+                    coordinate                                    audio feedback   panel
 ```
 
 ### JUCE Plugin Architecture (Real-Time MIDI Processing)
@@ -62,7 +84,9 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   - **Parameter Validation**: Automatic clamping and validation of all values
   - **Error Isolation**: OSC failures don't affect MIDI functionality
 - **Future extensions** (planned):
-  - **Musical Analysis Engine**: Deep analysis of bass lines, chord progressions, rhythmic patterns
+  - **Enhanced Musical Intelligence Engine**: Deep analysis of bass lines, chord progressions, rhythmic patterns
+  - **LLM Reasoning Layer**: Natural language understanding and orchestration of musical operations
+  - **Visual MIDI Editor**: Interactive piano roll with real-time visualization and editing
   - **Semantic MIDI Editing**: "Make bass jazzier", "simplify harmony", "add syncopation"
   - **Ardour Integration**: Read existing MIDI, analyze, modify, write back
   - **Style Transformations**: Apply musical concepts and maintain context
@@ -109,13 +133,25 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   - **Separation of concerns** - pure data management without musical analysis logic
   - Prevents "Spaghetti Code Problem" through clean, focused design
 
-- `analysis.py`
+- `analysis.py` (Musical Intelligence Engine Foundation)
   - **Pure functions** for musical data analysis and transformation
   - `filter_notes_by_pitch()`: Filter notes by pitch range for bass line analysis
   - `apply_swing()`: Apply swing feel by delaying off-beat notes
   - **No side effects** - creates new data instead of modifying original
   - **Foundation for semantic MIDI editing** - implements transformations that will be used in JUCE plugin
   - **Testable in isolation** - each function can be tested independently
+  - **Future extensions**: Harmonic analysis, rhythmic analysis, style classification, intelligent suggestions
+
+### LLM Integration Layer (Future Component)
+- `llm_agent.py` (Planned)
+  - **Natural language conversation** for musical guidance and commands
+  - **Chat interface** that responds to visual selections and provides contextual help
+  - **Orchestration layer** that coordinates musical intelligence engine
+  - **Command parsing and planning** for complex musical operations
+  - **Reasoning and explanation** for musical decisions
+  - **Voice integration** for hands-free operation while playing
+  - **Context awareness** for understanding current musical selection and project state
+  - **Integration with existing musical intelligence engine** (analysis.py, theory.py)
 
 ### Modules and responsibilities
 - `midi_player.py`

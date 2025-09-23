@@ -1,19 +1,20 @@
 ## Control Plane for Visual-First Semantic MIDI Editing
 
 ### Purpose
-Provide a real-time control plane for MIDI generation and style control, with the primary focus on visual-first semantic MIDI editing that integrates seamlessly with existing DAW workflows.
+Provide a real-time control plane for MIDI generation and style control, with the primary focus on visual-first semantic MIDI editing with natural language conversation that integrates seamlessly with existing DAW workflows.
 
-### Vision: Visual-First Semantic MIDI Editing
+### Vision: Visual-First Semantic MIDI Editing with Natural Language Interface
 The ultimate goal is to enable visual, immediate feedback musical editing through:
 - **Visual Pattern Recognition**: Highlight bass lines, melodies, chord progressions in real-time
 - **Interactive MIDI Manipulation**: Drag-and-drop musical elements with instant audio feedback
 - **Smart Visual Suggestions**: Show musical improvements with one-click application
+- **Natural Language Conversation**: Chat with AI assistant for musical guidance and complex operations
 - **Seamless DAW Integration**: Work within familiar DAW workflows, not against them
 
 ### Strategic Pivot: From Command-Based to Visual-First
 **Critical Insight from Pre-Mortem Analysis**: Musicians are visual, immediate feedback creatures who work in familiar DAW environments. A command-based interface breaks their fundamental workflow of see-hear-adjust.
 
-**New Approach**: The control plane now serves as a secondary interface, with the primary focus on visual analysis and manipulation that integrates seamlessly with existing DAW workflows.
+**New Approach**: The control plane now serves as a secondary interface, with the primary focus on visual analysis and manipulation with natural language conversation that integrates seamlessly with existing DAW workflows.
 
 ### Principles
 - Embrace nondeterminism and simplicity: minimal timing guarantees, fast iteration.
@@ -22,23 +23,28 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
 
 ### Layers
 
-#### Primary: Visual-First Interface (Next Focus)
-1. **Visual MIDI Analysis Engine** (Phase 3A - Weeks 1-2)
+#### Primary: Visual-First Interface with Natural Language Chat (Next Focus)
+1. **Visual MIDI Analysis Engine + Chat Interface** (Phase 3A - Weeks 1-2)
    - Real-time MIDI analysis with color-coded highlighting
    - Interactive drag-and-drop manipulation with immediate audio feedback
+   - Natural language chat interface for musical guidance and commands
    - DAW integration preserving familiar workflows
    - Musical element highlighting (bass, melody, harmony, rhythm, drums)
 
-2. **Smart Visual Suggestions** (Phase 3B - Weeks 3-4)
+2. **Smart Visual Suggestions + LLM Integration** (Phase 3B - Weeks 3-4)
    - Analyze patterns and suggest musical improvements
    - Visual indicators for potential enhancements
    - One-click application with immediate feedback
    - Musical intelligence display with educational content
+   - Conversational AI assistant for complex musical operations
+   - Natural language commands: "Make the bass line more jazzy", "Simplify the drums in the chorus"
 
-3. **Advanced Visual Features** (Phase 3C - Weeks 5-6)
+3. **Advanced Visual Features + Advanced Chat** (Phase 3C - Weeks 5-6)
    - Advanced visual analysis (harmonic, rhythmic, melodic, dynamic)
    - Multi-DAW support (Logic Pro, Pro Tools, Cubase)
    - Advanced interaction features (multi-touch, gestures, shortcuts)
+   - Voice integration for hands-free operation while playing
+   - Collaborative chat for multiple musicians
    - Performance optimization with GPU acceleration
 
 #### Secondary: Control Plane (Current - Maintained)
@@ -69,14 +75,16 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
 - Intents: play scale/arp/random-walk; set key/scale; adjust density/register/velocity/randomness; send CC; stop.
 - Patterns are simple, timed with `sleep`, and may randomize timing/velocity/pitch within constraints.
 
-### Future Scope (Visual-First Semantic MIDI Editing)
+### Future Scope (Visual-First Semantic MIDI Editing with Natural Language Interface)
 - **Visual Pattern Recognition**: Real-time highlighting of musical elements
 - **Interactive Manipulation**: Drag-and-drop interface with immediate feedback
 - **Smart Suggestions**: Visual indicators for musical improvements
-- **DAW Integration**: Seamless overlay on existing DAW interfaces
-- **Educational Value**: Visual explanations of musical theory and concepts
+- **Natural Language Conversation**: Chat with AI assistant for musical guidance and complex operations
+- **DAW Integration**: Seamless overlay on existing DAW interfaces with floating chat window
+- **Educational Value**: Visual explanations of musical theory and concepts with conversational guidance
 - **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-- **Advanced Features**: Multi-touch, gestures, keyboard shortcuts
+- **Advanced Features**: Multi-touch, gestures, keyboard shortcuts, voice integration
+- **Collaborative Features**: Multiple musicians can chat with the same AI assistant
 
 ### Intent Grammar (Current)
 - play: "play [scale|arp|random] in [KEY MODE] for [DURATION]"
@@ -85,16 +93,21 @@ The ultimate goal is to enable visual, immediate feedback musical editing throug
 - target (with manifest or UI read): "target [piano|bass|pad]"
 - stop: "stop", "silence"
 
-### Intent Grammar (Future - Semantic MIDI Editing)
+### Intent Grammar (Future - Semantic MIDI Editing with Natural Language Conversation)
 - modify: "make [element] [style]", "modify [element] from [location] [transformation]"
 - analyze: "analyze [element]", "show [element] pattern", "what's the [element] doing"
 - transform: "make it [style]", "add [characteristic]", "simplify [element]"
 - context: "in [location]", "from [measure] to [measure]", "in the [section]"
+- conversation: "How can I improve this?", "What would make this more interesting?", "Explain what's happening here"
+- voice: Voice-to-text commands for hands-free operation while playing
 - Examples:
   - "make the bass beat from measures 8-12 jazzier"
   - "simplify the harmony in the chorus"
   - "add more syncopation to the drums"
   - "make it more aggressive"
+  - "How can I make this section more dynamic?"
+  - "What's the harmonic function of this chord progression?"
+  - "Show me alternative voicings for this chord"
 
 ### Project Manifest (optional)
 Example `project.yaml`:
