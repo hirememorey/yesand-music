@@ -2,90 +2,115 @@
 
 **AI-Powered Musical Collaborator with Conversational Intelligence**
 
-YesAnd Music transforms MIDI editing from technical manipulation to intelligent musical collaboration through natural language conversation that integrates seamlessly with existing DAW workflows.
+Transform MIDI editing from technical manipulation to intelligent musical collaboration through natural language conversation that integrates seamlessly with existing DAW workflows.
 
-## What It Does
+## 🚀 Quick Start
 
-- **Musical Conversation**: Chat with an AI musical collaborator in natural language
-- **Intelligent Generation**: "Generate a funky bass line", "Make it groove like Stevie Wonder"
-- **Iterative Refinement**: "Make it more complex" → "This is too busy, simplify it"
-- **Musical Intelligence**: Analyzes bass lines, melodies, harmony, and rhythm with visual feedback
-- **Problem Solving**: "Make this groove better", "Fix the harmony", "Improve the arrangement"
-- **Real-Time Control**: Generate MIDI patterns via natural language commands
-- **DAW Integration**: Works with GarageBand, Logic Pro, and Ardour (with file-based integration)
-- **Educational**: Learn musical concepts through AI explanations and musical references
+Choose your path based on what you want to do:
 
-## Quick Start
-
-### Live MIDI Streaming (New!)
+### 🎵 **Live MIDI Streaming** (Recommended)
+Generate and stream MIDI directly to your DAW in real-time:
 ```bash
-# 1. Setup (2 minutes)
-python -c "import mido; print('Available ports:', mido.get_output_names())"
+# Setup (2 minutes)
 pip install -r requirements.txt
 export OPENAI_API_KEY="your-api-key-here"
+# Enable IAC Driver in Audio MIDI Setup → Create "IAC Driver Bus 1"
 
-# 2. Enable IAC Driver in Audio MIDI Setup
-# Create port named "IAC Driver Bus 1"
-
-# 3. Start Ardour and create a MIDI track
-
-# 4. Start live MIDI streaming
+# Start live streaming
 python live_control_plane_cli.py
-
-# 5. Try live generation
-"Give me a funky bassline"
-"Make it more complex"
-"Add some swing to it"
+# Try: "Give me a funky bassline" → "Make it more complex"
 ```
 
-### Traditional Conversation
+### 💬 **Musical Conversation**
+Chat with an AI musical collaborator:
 ```bash
-# 1. Setup (2 minutes)
-python -c "import mido; print('Available ports:', mido.get_output_names())"
+# Setup (2 minutes)
 pip install -r requirements.txt
 export OPENAI_API_KEY="your-api-key-here"
 
-# 2. Start musical conversation
+# Start conversation
 python enhanced_control_plane_cli.py --conversation
-
-# 3. Try musical conversation
-"I need a funky bass line for my song"
-"Make it groove like Stevie Wonder"
-"This chorus sounds flat, brighten it up"
+# Try: "I need a funky bass line" → "Make it groove like Stevie Wonder"
 ```
 
-**See [QUICKSTART.md](QUICKSTART.md) for detailed setup instructions.**
+### 🎛️ **Traditional Commands**
+Use natural language commands for MIDI control:
+```bash
+# Setup (2 minutes)
+pip install -r requirements.txt
 
-## Current Status
+# Start control plane
+python control_plane_cli.py "play scale C major"
+# Try: "analyze bass", "make this groove better"
+```
+
+**📖 [Complete Setup Guide](QUICKSTART.md) | [Troubleshooting](TROUBLESHOOTING.md)**
+
+## 🎯 What It Does
+
+- **🎵 Live MIDI Streaming**: Generate and stream MIDI directly to Ardour tracks in real-time
+- **💬 Musical Conversation**: Chat with AI musical collaborator in natural language
+- **🧠 Musical Intelligence**: Analyze bass lines, melodies, harmony, and rhythm with visual feedback
+- **🛠️ Problem Solving**: "Make this groove better", "Fix the harmony", "Improve the arrangement"
+- **🎨 Musical References**: "Make it groove like Stevie Wonder", "Give it that Motown feel"
+- **🔄 Iterative Refinement**: "Make it more complex" → "This is too busy, simplify it"
+- **🎚️ DAW Integration**: Works with Ardour, Logic Pro, and GarageBand
+- **📚 Educational**: Learn musical concepts through AI explanations
+
+## 🛤️ Common Paths
+
+### 🎵 **I Want to Generate Music Live**
+1. Start with [Live MIDI Streaming Setup](QUICKSTART.md#-live-midi-streaming-setup)
+2. Learn more: [Live MIDI Streaming Guide](docs/guides/LIVE_MIDI_STREAMING_README.md)
+3. Integrate with DAW: [Ardour Integration](docs/ARDOUR_INTEGRATION.md)
+
+### 💬 **I Want to Chat About Music**
+1. Start with [Musical Conversation Setup](QUICKSTART.md#-musical-conversation-setup)
+2. Learn more: [Musical Conversation Guide](docs/guides/MUSICAL_CONVERSATION_README.md)
+3. Try examples: "I need a funky bass line" → "Make it more complex"
+
+### 🛠️ **I Want to Develop Features**
+1. Start with [Developer Setup](DEVELOPMENT.md#-quick-setup)
+2. Understand architecture: [Architecture Overview](ARCHITECTURE.md)
+3. Add new features: [Development Guide](DEVELOPMENT.md)
+
+### 🐛 **I'm Having Issues**
+1. Check [Quick Troubleshooting](TROUBLESHOOTING.md#quick-diagnostics)
+2. Find your issue: [Common Issues](TROUBLESHOOTING.md#common-issues)
+3. Get help: [Getting Help](TROUBLESHOOTING.md#getting-help)
+
+## 📊 Current Status
 
 ✅ **Phase 4A Complete**: Live MIDI streaming system working  
 ✅ **Phase 3C Complete**: Musical conversation system working  
 🎯 **Next**: Advanced features and multi-user collaboration
 
-### What Works Now
+## 📚 Documentation
 
-- **🎵 Live MIDI Streaming**: Generate and stream MIDI directly to Ardour tracks in real-time
-- **⚡ Real-Time Editing**: Modify existing MIDI content through natural language
-- **🤖 Musical Conversation**: Chat with AI musical collaborator in natural language
-- **🎼 Intelligent Generation**: Generate musical patterns through conversation
-- **🔄 Iterative Refinement**: Refine musical ideas through feedback loops
-- **🎨 Musical References**: Use artist and style references in conversation
-- **🎛️ Control Plane**: 23+ natural language commands for MIDI generation
-- **🔌 JUCE Plugin**: Real-time MIDI effects (swing, accent, humanization)
-- **🧠 Contextual Intelligence**: Musical analysis with visual feedback
-- **🛠️ Musical Solvers**: Groove improvement, harmony fixing, arrangement enhancement
-- **📡 OSC Integration**: Python-to-plugin communication
-- **🎚️ Ardour Integration**: Live streaming + file-based workflow with Ardour DAW
-
-## Documentation
-
-- **[QUICKSTART.md](QUICKSTART.md)** - Get running in 5 minutes
-- **[LIVE_MIDI_STREAMING_README.md](LIVE_MIDI_STREAMING_README.md)** - Live MIDI streaming and real-time editing guide
-- **[MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md)** - Musical conversation system guide
-- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Development workflows and guides
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design
+### 🚀 **Getting Started**
+- **[QUICKSTART.md](QUICKSTART.md)** - Complete setup guide with multiple paths
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
 
-## Vision
+### 🎵 **Feature Guides**
+- **[docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md)** - Live MIDI streaming and real-time editing
+- **[docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md)** - Musical conversation system
+- **[docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md)** - Ardour DAW integration
+
+### 🛠️ **Development**
+- **[DEVELOPMENT.md](DEVELOPMENT.md)** - Developer workflows and guides
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design
+- **[docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md)** - JUCE plugin development
+
+### 📋 **Reference**
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and changes
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute
+
+## 🎯 Vision
 
 Enable musicians to intelligently edit their music through background analysis, contextual intelligence, and natural language conversation that enhances rather than disrupts their creative workflow.
+
+---
+
+**💡 New to the project?** Start with [QUICKSTART.md](QUICKSTART.md)  
+**🐛 Having issues?** Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md)  
+**🔧 Want to contribute?** See [CONTRIBUTING.md](CONTRIBUTING.md)

@@ -4,6 +4,12 @@
 
 This system enables live MIDI streaming and real-time editing through natural language conversation, transforming YesAnd Music into a true live musical collaborator.
 
+## 🎯 What This Is
+
+**For New Developers:** This is the most advanced feature of YesAnd Music, enabling real-time MIDI generation and editing directly in your DAW. It's like having an AI musical collaborator that can generate and modify MIDI in real-time as you work.
+
+**For Musicians:** This transforms your DAW into an intelligent musical partner that can generate basslines, melodies, and other musical content on demand, then modify it in real-time based on your feedback.
+
 ## 🎵 What This Solves
 
 The pre-mortem analysis revealed that musicians don't want to "import MIDI files" - they want to work with MIDI in their existing live workflow. This system provides:
@@ -13,6 +19,20 @@ The pre-mortem analysis revealed that musicians don't want to "import MIDI files
 - **Natural Language Control**: "Give me a funky bassline" → instant MIDI generation
 - **Seamless DAW Integration**: Works with existing Ardour workflow
 - **Immediate Feedback**: See and hear changes instantly
+
+## 📋 Prerequisites
+
+**Before You Start:**
+- **macOS** (tested on macOS 15.5) - Required for IAC Driver
+- **Python 3.8+** - Core runtime
+- **Ardour DAW** - Must be installed and running
+- **IAC Driver** - Must be enabled in Audio MIDI Setup
+- **OpenAI API key** - Required for conversational AI features
+
+**Why These Prerequisites Matter:**
+- **Ardour DAW**: This system is specifically designed for Ardour integration
+- **IAC Driver**: Enables MIDI communication between Python and Ardour
+- **OpenAI API**: Powers the natural language understanding for musical commands
 
 ## 🚀 Quick Start
 

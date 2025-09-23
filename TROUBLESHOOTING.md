@@ -2,6 +2,25 @@
 
 Common issues and solutions for YesAnd Music.
 
+## 📋 Table of Contents
+
+- [Quick Diagnostics](#quick-diagnostics)
+- [Common Issues](#common-issues)
+  - [No Sound / MIDI Not Working](#no-sound--midi-not-working)
+  - [Commands Not Parsing](#commands-not-parsing)
+  - [Plugin Not Loading](#plugin-not-loading)
+  - [Visual Feedback Not Displaying](#visual-feedback-not-displaying)
+  - [OSC Communication Issues](#osc-communication-issues)
+  - [Ardour Integration Issues](#ardour-integration-issues)
+  - [Performance Issues](#performance-issues)
+  - [Build Issues](#build-issues)
+  - [Python Environment Issues](#python-environment-issues)
+- [Debug Commands](#debug-commands)
+- [Common Error Messages](#common-error-messages)
+- [Getting Help](#getting-help)
+
+---
+
 ## Quick Diagnostics
 
 ### Check System Status
@@ -397,3 +416,25 @@ tail -f build_logs/latest.log
 5. **Verify setup**: Ensure all prerequisites are met
 
 If you're still stuck, the issue might be environment-specific. Check your system configuration and compare with the requirements in [DEVELOPMENT.md](DEVELOPMENT.md).
+
+---
+
+## 📚 See Also
+
+### 🚀 **Getting Started**
+- [README.md](README.md) - Project overview and quick start
+- [QUICKSTART.md](QUICKSTART.md) - Complete setup guide with multiple paths
+
+### 🎵 **Feature Guides**
+- [docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md) - Live MIDI streaming and real-time editing
+- [docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md) - Musical conversation system
+- [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) - Ardour DAW integration
+
+### 🛠️ **Development**
+- [DEVELOPMENT.md](DEVELOPMENT.md) - Developer workflows and guides
+- [ARCHITECTURE.md](ARCHITECTURE.md) - Technical architecture and design
+- [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) - JUCE plugin development
+
+### 📋 **Reference**
+- [CHANGELOG.md](CHANGELOG.md) - Version history and changes
+- [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute

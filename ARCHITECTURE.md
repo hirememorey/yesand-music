@@ -2,6 +2,30 @@
 
 Technical architecture and design decisions for YesAnd Music.
 
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [System Architecture](#system-architecture)
+  - [Traditional Architecture (File-Based)](#traditional-architecture-file-based)
+  - [Live MIDI Streaming Architecture (Phase 4A)](#live-midi-streaming-architecture-phase-4a)
+- [Core Components](#core-components)
+  - [Control Plane](#control-plane-commands)
+  - [Musical Intelligence Engine](#musical-intelligence-engine)
+  - [MIDI Processing Layer](#midi-processing-layer)
+  - [Visual Feedback System](#visual-feedback-system)
+  - [DAW Integration System](#daw-integration-system)
+  - [Live MIDI Streaming System](#live-midi-streaming-system-phase-4a)
+- [Data Flow](#data-flow)
+- [Design Principles](#design-principles)
+- [Key Design Decisions](#key-design-decisions)
+- [Extension Points](#extension-points)
+- [Performance Characteristics](#performance-characteristics)
+- [Integration Points](#integration-points)
+- [Future Architecture](#future-architecture)
+- [Quality Assurance](#quality-assurance)
+
+---
+
 ## Overview
 
 YesAnd Music follows a "Brain vs. Hands" architecture that separates core musical intelligence from DAW integration, enabling focus on musical intelligence without being constrained by DAW-specific APIs.
@@ -387,3 +411,25 @@ beat jazzier"  plan actions,   transformations,         explain reasoning    DAW
 The architecture successfully separates concerns while maintaining real-time performance and educational value. The modular design enables easy extension while preserving the core principles of musical intelligence, non-intrusive integration, and user learning.
 
 The system is ready for Phase 3C LLM integration, which will add natural language understanding and orchestration while maintaining the existing architectural principles.
+
+---
+
+## 📚 See Also
+
+### 🚀 **Getting Started**
+- [README.md](README.md) - Project overview and quick start
+- [QUICKSTART.md](QUICKSTART.md) - Complete setup guide with multiple paths
+- [DEVELOPMENT.md](DEVELOPMENT.md) - Developer workflows and guides
+
+### 🎵 **Feature Guides**
+- [docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md) - Live MIDI streaming and real-time editing
+- [docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md) - Musical conversation system
+- [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) - Ardour DAW integration
+
+### 🛠️ **Development**
+- [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) - JUCE plugin development
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Common issues and solutions
+
+### 📋 **Reference**
+- [CHANGELOG.md](CHANGELOG.md) - Version history and changes
+- [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute

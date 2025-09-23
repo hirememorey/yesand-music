@@ -1,77 +1,164 @@
 # Development Guide
 
-Everything you need to know to develop YesAnd Music.
+Everything you need to know to develop YesAnd Music, organized for different developer experience levels.
 
-## Current State
+## 🎯 Choose Your Development Path
+
+### 🚀 **New Developer** (First Time)
+Get up and running quickly with the basics
+→ [Jump to Quick Setup](#-quick-setup)
+
+### 🔧 **Experienced Developer** (Adding Features)
+Understand the architecture and add new functionality
+→ [Jump to Architecture Overview](#-architecture-overview)
+
+### 🏗️ **System Developer** (Core Changes)
+Work on core systems and major architectural changes
+→ [Jump to Core Systems](#-core-systems)
+
+---
+
+## 📊 Current State
 
 **Phase 4A Complete**: Live MIDI streaming system working  
 **Phase 3C Complete**: Musical conversation system working  
 **Phase 3B+ Complete**: Ardour file-based integration working  
 **Next Phase**: Advanced features and multi-user collaboration
 
-## Development Setup
+---
+
+## 🚀 Quick Setup
 
 ### Prerequisites
-- macOS (tested on macOS 15.5)
-- Python 3.8+
-- Xcode Command Line Tools
-- CMake 3.31.7+
-- OpenAI API key (for conversational AI features)
+- **macOS** (tested on macOS 15.5)
+- **Python 3.8+**
+- **Xcode Command Line Tools**
+- **CMake 3.31.7+**
+- **OpenAI API key** (for conversational AI features)
 
-### Environment Setup
+### 1. Clone and Setup
 ```bash
-# Clone and setup
 git clone <repository>
 cd music_cursor
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
+### 2. Configure Environment
+```bash
 # Set OpenAI API key
 export OPENAI_API_KEY="your-api-key-here"
 
-# Verify setup
-python control_plane_cli.py status
-python enhanced_control_plane_cli.py --help-enhanced
-```
-
-### MIDI Setup
-```bash
-# Enable IAC Driver in Audio MIDI Setup
-# Create port named "IAC Driver Bus 1"
+# Enable MIDI Driver
+# Open Audio MIDI Setup → Create "IAC Driver Bus 1"
 python -c "import mido; print('Ports:', mido.get_output_names())"
 ```
 
-## Project Structure
+### 3. Verify Setup
+```bash
+# Test basic functionality
+python control_plane_cli.py status
+python enhanced_control_plane_cli.py --help-enhanced
 
-```
-music_cursor/
-├── commands/           # Control plane system
-│   ├── control_plane.py    # Main orchestrator
-│   ├── parser.py          # Command parsing
-│   ├── pattern_engine.py  # Musical pattern generation
-│   └── session.py         # State management
-├── musical_conversation_engine.py  # LLM integration for conversation
-├── iterative_musical_workflow.py  # Conversational workflow management
-├── enhanced_control_plane.py      # Enhanced control plane with AI
-├── enhanced_control_plane_cli.py  # Enhanced CLI interface
-├── contextual_intelligence.py  # Musical analysis engine
-├── visual_feedback_display.py  # Visual feedback system
-├── musical_solvers.py    # Problem-solving algorithms
-├── ardour_integration.py # Ardour file-based integration
-├── midi_io.py           # MIDI file I/O
-├── project.py           # Project data management
-├── analysis.py          # Musical analysis functions
-├── theory.py            # Music theory helpers
-├── osc_sender.py        # OSC communication
-├── main.py              # Entry point
-├── control_plane_cli.py # CLI interface
-├── demo_musical_conversation.py  # Demo and testing
-├── test_musical_conversation.py  # Unit tests
-└── tests/               # Test suite
+# Test live MIDI streaming
+python live_control_plane_cli.py --command "Give me a C major scale"
 ```
 
-## Key Components
+**✅ Success:** You should see MIDI notes and command responses!
+
+---
+
+## 🏗️ Architecture Overview
+
+**Perfect for:** Experienced developers adding features
+
+### Core Architecture Principles
+
+**"Brain vs. Hands" Design:**
+- **Brain** (Musical Intelligence): Pure analysis functions, no side effects
+- **Hands** (MIDI I/O): Simple data conversion, no musical logic
+- **Separation**: Analysis cannot import MIDI I/O, MIDI I/O cannot import analysis
+
+### System Components
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   User Input    │───▶│  Control Plane   │───▶│ Musical Output  │
+│ (Natural Lang)  │    │   (Orchestrator) │    │   (MIDI/DAW)    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌──────────────────┐
+                       │ Musical Intelligence │
+                       │  (Analysis & AI)    │
+                       └──────────────────┘
+```
+
+### Key Systems
+
+#### 🎵 **Live MIDI Streaming** (Phase 4A)
+- **ardour_live_integration.py**: Real-time MIDI streaming to Ardour DAW
+- **live_editing_engine.py**: Real-time MIDI modification and editing
+- **live_conversation_workflow.py**: Natural language control of live operations
+
+#### 💬 **Musical Conversation** (Phase 3C)
+- **musical_conversation_engine.py**: LLM integration for natural language conversation
+- **iterative_musical_workflow.py**: Conversational workflow and project management
+- **enhanced_control_plane.py**: Enhanced control plane with AI capabilities
+
+#### 🧠 **Musical Intelligence** (Phase 3A)
+- **contextual_intelligence.py**: Core analysis engine for musical elements
+- **musical_solvers.py**: Problem-solving algorithms (groove, harmony, arrangement)
+- **analysis.py**: Pure functions for musical analysis and transformation
+
+#### 🎛️ **Control Plane** (commands/)
+- **control_plane.py**: Main orchestrator, handles all commands
+- **parser.py**: Natural language command parsing with regex patterns
+- **pattern_engine.py**: Generates musical patterns from commands
+- **session.py**: Persistent state management
+
+### Data Flow
+
+```
+User Input → Command Parser → Control Plane → Musical Intelligence → MIDI Output
+     ↓              ↓              ↓              ↓                    ↓
+Natural Lang → Command Types → Orchestrate → Analyze Music → DAW/Plugin
+```
+
+---
+
+## 🔧 Core Systems
+
+**Perfect for:** System developers working on core functionality
+
+### Universal Note Format
+All MIDI data uses a consistent dictionary format:
+```python
+{
+    'pitch': int,                    # MIDI note number
+    'velocity': int,                 # Note velocity (0-127)
+    'start_time_seconds': float,     # Start time in seconds
+    'duration_seconds': float,       # Note duration in seconds
+    'track_index': int              # Track number
+}
+```
+
+### Real-Time Safety Rules
+- **NEVER** allocate memory in audio thread
+- **NEVER** use locking mechanisms in audio thread
+- **NEVER** make blocking calls in audio thread
+- Use `AudioProcessorValueTreeState` for thread-safe parameter access
+
+### Architecture Enforcement
+- `analysis.py` cannot import MIDI I/O modules
+- `midi_io.py` cannot import analysis modules
+- Pure functions in `analysis.py` (no side effects)
+- No heavy dependencies in core modules
+
+---
+
+## 🛠️ Common Development Tasks
 
 ### Live MIDI Streaming System (Phase 4A)
 - **ardour_live_integration.py**: Real-time MIDI streaming to Ardour DAW

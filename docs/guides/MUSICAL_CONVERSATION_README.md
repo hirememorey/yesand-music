@@ -2,9 +2,28 @@
 
 This document describes the new musical conversation capabilities added to YesAnd Music, enabling natural language musical collaboration through AI.
 
+## 🎯 What This Is
+
+**For New Developers:** This is the conversational AI layer that transforms YesAnd Music from a command-based tool into a natural language musical collaborator. It uses OpenAI's GPT-4 to understand musical requests and generate appropriate responses.
+
+**For Musicians:** This enables you to have natural conversations about music with an AI that understands musical concepts, references, and can help you create, refine, and improve your musical ideas through dialogue.
+
 ## Overview
 
 The Musical Conversation System transforms YesAnd Music from a command-based tool into a conversational musical collaborator. Users can now engage in natural musical dialogue, describe what they want in their own words, and receive intelligent musical assistance.
+
+## 📋 Prerequisites
+
+**Before You Start:**
+- **OpenAI API key** - Required for conversational AI features
+- **Python 3.8+** - Core runtime
+- **Internet connection** - Required for OpenAI API calls
+- **Basic understanding of music** - Helpful for effective conversation
+
+**Why These Prerequisites Matter:**
+- **OpenAI API**: Powers the natural language understanding and generation
+- **Internet connection**: Required for real-time API communication
+- **Musical knowledge**: Helps you communicate effectively with the AI about musical concepts
 
 ## Key Features
 
