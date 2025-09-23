@@ -31,6 +31,7 @@ juce_add_plugin(StyleTransfer
     PLUGIN_CODE StTr
     FORMATS AU VST3
     PRODUCT_NAME "Style Transfer"
+    AU_MAIN_TYPE kAudioUnitType_MusicEffect
 )
 
 # Add source files

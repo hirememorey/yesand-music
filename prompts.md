@@ -25,5 +25,5 @@ Let’s pause. Now that we’re here, I want you to think about your mental spac
 ## @PostMortemInject
 Before you begin, another developer started at this exact spot and spent a lot of time and energy trying to solve this issue. When said developer was asked what information did they wish they knew earlier that would have saved them the most time and heartache, they had the following to say. Please use their insights to come up with a first principles plan of implementation. From there ask yourself why won't this plan work? Then use the answer from that question to further redevelop and refine your plan. Do not generate any code just walk me through your plan in detail.
 
-## @UpdateDocs ✅ COMPLETED
+## @UpdateDocs
 Please update and/or remove any necessary markdown files based on the changes we've implemented. Ensure that another developer could pick up from where we left off with all the context they need. Once done, please commit and push the changes to github.
