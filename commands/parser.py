@@ -144,6 +144,72 @@ class CommandParser:
                 r"reset\s+style",
                 r"style\s+reset",
             ],
+            # Contextual Intelligence Commands
+            CommandType.LOAD_PROJECT: [
+                r"load\s+project\s+(.+)",
+                r"load\s+(.+)",
+                r"open\s+(.+)",
+            ],
+            CommandType.ANALYZE_BASS: [
+                r"analyze\s+bass",
+                r"show\s+bass",
+                r"what\s+is\s+the\s+bass\s+doing",
+                r"bass\s+analysis",
+                r"highlight\s+bass",
+            ],
+            CommandType.ANALYZE_MELODY: [
+                r"analyze\s+melody",
+                r"show\s+melody",
+                r"what\s+is\s+the\s+melody\s+doing",
+                r"melody\s+analysis",
+                r"highlight\s+melody",
+            ],
+            CommandType.ANALYZE_HARMONY: [
+                r"analyze\s+harmony",
+                r"show\s+harmony",
+                r"what\s+is\s+the\s+harmony\s+doing",
+                r"harmony\s+analysis",
+                r"highlight\s+harmony",
+            ],
+            CommandType.ANALYZE_RHYTHM: [
+                r"analyze\s+rhythm",
+                r"show\s+rhythm",
+                r"what\s+is\s+the\s+rhythm\s+doing",
+                r"rhythm\s+analysis",
+                r"highlight\s+rhythm",
+            ],
+            CommandType.ANALYZE_ALL: [
+                r"analyze\s+all",
+                r"analyze\s+everything",
+                r"show\s+analysis",
+                r"complete\s+analysis",
+                r"full\s+analysis",
+            ],
+            CommandType.GET_SUGGESTIONS: [
+                r"get\s+suggestions",
+                r"show\s+suggestions",
+                r"what\s+can\s+I\s+improve",
+                r"how\s+can\s+I\s+make\s+this\s+better",
+                r"suggest\s+improvements",
+            ],
+            CommandType.APPLY_SUGGESTION: [
+                r"apply\s+suggestion\s+(.+)",
+                r"use\s+suggestion\s+(.+)",
+                r"try\s+suggestion\s+(.+)",
+                r"implement\s+(.+)",
+            ],
+            CommandType.SHOW_FEEDBACK: [
+                r"show\s+feedback",
+                r"feedback\s+summary",
+                r"what\s+did\s+you\s+find",
+                r"show\s+results",
+            ],
+            CommandType.CLEAR_FEEDBACK: [
+                r"clear\s+feedback",
+                r"clear\s+visuals",
+                r"hide\s+feedback",
+                r"reset\s+feedback",
+            ],
         }
         
         # Compile all patterns for efficiency
@@ -261,7 +327,14 @@ class CommandParser:
         elif cmd_type == CommandType.SET_STYLE_PRESET:
             params["preset"] = groups[0].lower()
             
-        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET) have empty params
+        # Contextual Intelligence Commands
+        elif cmd_type == CommandType.LOAD_PROJECT:
+            params["file_path"] = groups[0].strip()
+            
+        elif cmd_type == CommandType.APPLY_SUGGESTION:
+            params["suggestion"] = groups[0].strip()
+            
+        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET, analysis commands) have empty params
         
         return params
     
@@ -298,6 +371,18 @@ OSC Style Control (JUCE Plugin):
   set style to [PRESET]      - Apply style preset (e.g., "set style to jazz")
   make it [STYLE]            - Apply style (e.g., "make it jazzier")
   reset osc                  - Reset all OSC parameters to defaults
+
+Contextual Intelligence (Visual Analysis):
+  load [FILE]                - Load MIDI project for analysis (e.g., "load song.mid")
+  analyze bass               - Show bass line analysis and highlighting
+  analyze melody             - Show melody analysis and highlighting
+  analyze harmony            - Show harmony analysis and highlighting
+  analyze rhythm             - Show rhythm analysis and highlighting
+  analyze all                - Complete musical analysis
+  get suggestions            - Get improvement suggestions
+  apply suggestion [ID]      - Apply a specific suggestion
+  show feedback              - Show visual feedback summary
+  clear feedback             - Clear all visual feedback
 
 System:
   stop                      - Stop current playback

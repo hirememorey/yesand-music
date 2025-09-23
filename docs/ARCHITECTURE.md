@@ -13,16 +13,16 @@ main.py → Sequencer → MidiPlayer → mido → OS MIDI → Ardour/GarageBand
     musical_analysis (future)
 ```
 
-### Vision: AI-Powered Invisible Intelligence Architecture with Natural Language Interface
+### Vision: Contextual Intelligence Architecture with On-Demand Visual Feedback
 ```
-MIDI Input → Background Intelligence Engine → LLM Chat Interface → Invisible Assistance → DAW Integration
-     ↓              ↓                           ↓                    ↓                    ↓
-  DAW Track    Silent Pattern              Natural Language      Contextual Help       Seamless
-  (Piano Roll)  Recognition &               Conversation &        (On-Demand)          DAW Workflow
-                Analysis                     Orchestration         + Chat Panel         Integration
-                (Harmonic, Rhythmic,        (Chat Commands,       + Voice Control      (No Visual
-                Melodic, Style)             Voice Integration,    + Keyboard           Interference)
-                                         Context Awareness)       Shortcuts)
+MIDI Input → Background Intelligence Engine → Contextual Intelligence → Visual Feedback Display → DAW Integration
+     ↓              ↓                           ↓                        ↓                        ↓
+  DAW Track    Silent Pattern              On-Demand Visual         Color-Coded              Seamless
+  (Piano Roll)  Recognition &               Feedback System          Highlighting             DAW Workflow
+                Analysis                     + Educational            + Explanations           Integration
+                (Harmonic, Rhythmic,        Content                  + Smart Suggestions      (Non-Intrusive
+                Melodic, Style)             + Natural Language       + Real-Time Updates      Visual Feedback)
+                                         Commands
 ```
 
 ### LLM Integration Pattern: Natural Language Interface and Orchestrator
@@ -35,7 +35,17 @@ beat jazzier"  understand context,    transformations,          explain reasonin
               coordinate
 ```
 
-### Current: Chat-driven Control with OSC Integration (Secondary)
+### Current: Contextual Intelligence with Visual Feedback (Primary)
+```
+Natural Language → Command Parser → Control Plane → Contextual Intelligence → Visual Feedback Display
+       ↓                ↓                ↓              ↓                        ↓
+   "analyze bass"   Command Types    Pattern Gen    Musical Analysis        Color-Coded
+   "show melody"    (33+ types)      + OSC Sender   + Smart Suggestions      Highlighting
+   "get suggestions" + Visual        + MIDI Player  + Educational Content    + Explanations
+                     Feedback         (IAC Driver)  + Background Analysis    + Real-Time Updates
+```
+
+### Secondary: Chat-driven Control with OSC Integration
 ```
 Natural Language → Command Parser → Control Plane → MIDI Output + OSC Control
        ↓                ↓                ↓              ↓           ↓
@@ -117,6 +127,56 @@ MIDI Input → Style Transfer Plugin → Real-Time Transformations → MIDI Outp
   - **Advanced OSC Features**: Bidirectional communication, parameter automation, preset management
   - **Machine Learning**: Style learning and adaptive processing
 - See: `docs/JUCE_PLUGIN_DEVELOPMENT.md` for detailed implementation and development approach.
+
+## Contextual Intelligence Components (Phase 3A Complete)
+
+### Contextual Intelligence Engine (`contextual_intelligence.py`)
+**Purpose**: Core musical analysis and smart suggestion generation
+
+**Key Components**:
+- `ContextualIntelligence` class: Main orchestrator
+- `MusicalAnalysis` dataclass: Comprehensive musical analysis results
+- `VisualFeedback` dataclass: Structured feedback for display
+- `MusicalElement` enum: Bass, melody, harmony, rhythm, drums
+- `VisualFeedbackType` enum: Highlight, diff, explanation, suggestion, analysis
+
+**Musical Analysis Capabilities**:
+- **Bass Line Detection**: Identifies low-pitch notes (≤C4) as bass elements
+- **Melody Recognition**: Finds highest-pitch notes in each time segment
+- **Harmony Analysis**: Identifies supporting chord tones
+- **Rhythm Analysis**: Calculates swing, syncopation, and complexity
+- **Style Classification**: Detects jazz, classical, electronic, blues, pop styles
+- **Confidence Scoring**: Provides reliability metrics for each analysis
+
+### Visual Feedback Display System (`visual_feedback_display.py`)
+**Purpose**: Non-intrusive visual feedback display
+
+**Key Components**:
+- `VisualFeedbackDisplay` class: Main display window
+- Color-coded highlighting system
+- Real-time updates without blocking audio
+- Educational overlays and explanations
+- Thread-safe operation
+
+**Visual Features**:
+- **Color Coding**: Blue (bass), Green (melody), Purple (harmony), Orange (rhythm), Red (drums)
+- **Educational Content**: Musical theory explanations and AI reasoning
+- **Smart Suggestions**: Actionable improvement recommendations
+- **Real-Time Updates**: Live feedback as users interact
+- **Non-Intrusive Design**: Separate window that doesn't interfere with DAW
+
+### Extended Command System
+**New Command Types** (10 additional commands):
+- `load [FILE]` - Load MIDI project for analysis
+- `analyze bass` - Show bass line analysis and highlighting
+- `analyze melody` - Show melody analysis and highlighting
+- `analyze harmony` - Show harmony analysis and highlighting
+- `analyze rhythm` - Show rhythm analysis and highlighting
+- `analyze all` - Complete musical analysis
+- `get suggestions` - Get improvement suggestions
+- `apply suggestion [ID]` - Apply a specific suggestion
+- `show feedback` - Show visual feedback summary
+- `clear feedback` - Clear all visual feedback
 
 ### Data Core (New Foundation)
 - `midi_io.py`

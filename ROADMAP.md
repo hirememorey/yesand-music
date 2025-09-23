@@ -1,26 +1,27 @@
-# Roadmap: Invisible Intelligence for Semantic MIDI Editing with Natural Language Interface
+# Roadmap: Contextual Intelligence for Semantic MIDI Editing with Visual Feedback
 
-This document outlines the implementation roadmap for transforming YesAnd Music from a chat-driven MIDI control system into an intelligent, invisible assistant that enhances musical creativity through natural language conversation without disrupting existing DAW workflows.
+This document outlines the implementation roadmap for transforming YesAnd Music from a chat-driven MIDI control system into an intelligent, contextual assistant that enhances musical creativity through natural language conversation and on-demand visual feedback without disrupting existing DAW workflows.
 
 ## Vision
 
-Enable intelligent, non-intrusive musical assistance through:
+Enable intelligent, contextual musical assistance through:
 - **Background Musical Analysis**: Silent, continuous analysis that doesn't interrupt workflow
-- **Contextual Intelligence**: Understand what musicians are working on without visual intrusion
+- **Contextual Intelligence**: Understand what musicians are working on with on-demand visual feedback
 - **Natural Language Conversation**: Chat with AI assistant for musical guidance and complex operations
+- **Visual Learning**: On-demand visual feedback that helps musicians understand and learn
 - **Workflow Preservation**: Enhance existing DAW workflows without disrupting them
-- **Invisible Assistance**: Provide help only when requested, never intrusively
+- **Educational Value**: Help musicians learn musical concepts through visual explanations
 
-## Strategic Pivot: From Visual-First to Invisible Intelligence
+## Strategic Pivot: From Invisible to Contextual Intelligence
 
 **Critical Insight from Pre-Mortem Analysis**: Musicians are creatures of habit who have spent years perfecting their DAW workflow. Any visual overlay or new interface feels invasive and disrupts their sacred "see-hear-adjust" workflow.
 
-**New Approach**: Build an invisible intelligence system that works in the background, providing assistance only when requested through natural language conversation, without any visual interference with existing DAW workflows.
+**Updated Approach**: Build a contextual intelligence system that works in the background, providing assistance only when requested through natural language conversation, with **on-demand visual feedback** that helps musicians understand, learn, and trust the system.
 
-## Current State (v0.3.0)
+## Current State (v0.4.0)
 
 ✅ **Complete Control Plane Implementation**
-- Natural language command parsing (23+ command types)
+- Natural language command parsing (33+ command types including contextual intelligence)
 - Real-time MIDI control with non-blocking playback
 - Session state management with persistence
 - Multiple pattern types (scales, arpeggios, random notes)
@@ -53,13 +54,22 @@ Enable intelligent, non-intrusive musical assistance through:
   - Plugin now passes complete AudioUnit validation
   - Verified working in GarageBand 10.4.12
 
-🎯 **Phase 3: Invisible Intelligence Engine with Natural Language Interface (Next Focus)**
-- Background musical analysis without visual interference
-- Contextual intelligence that understands current musical work
-- Natural language chat interface for musical guidance and commands
-- Smart suggestions provided only when requested
-- Conversational AI assistant for complex musical operations
-- Seamless DAW integration that preserves familiar workflows
+✅ **Phase 3A: Contextual Intelligence Engine with Visual Feedback (Complete)**
+- **Musical Analysis Engine**: Bass line, melody, harmony, rhythm, and style analysis
+- **Visual Feedback System**: Color-coded highlighting and educational explanations
+- **Smart Suggestions**: Algorithmic generation of musical improvements
+- **Natural Language Commands**: 10 new commands for analysis and feedback
+- **Educational Content**: Musical theory explanations and AI reasoning
+- **Non-Intrusive Design**: Separate visual feedback window
+- **Background Analysis**: Silent musical analysis without visual interference
+- **On-Demand Visual Feedback**: Smart, contextual visuals that appear only when requested
+
+🎯 **Phase 3B: Advanced Visual Features (Next Focus)**
+- Visual diff system showing before/after changes
+- Interactive suggestions with click-to-apply
+- Advanced educational content and explanations
+- A/B comparison through audio preview
+- LLM integration for conversational assistance
 
 ## Implementation Phases
 

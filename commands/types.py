@@ -38,6 +38,17 @@ class CommandType(Enum):
     SET_OSC_PORT = "set_osc_port"
     SET_STYLE_PRESET = "set_style_preset"
     OSC_RESET = "osc_reset"
+    # Contextual Intelligence Commands
+    LOAD_PROJECT = "load_project"
+    ANALYZE_BASS = "analyze_bass"
+    ANALYZE_MELODY = "analyze_melody"
+    ANALYZE_HARMONY = "analyze_harmony"
+    ANALYZE_RHYTHM = "analyze_rhythm"
+    ANALYZE_ALL = "analyze_all"
+    GET_SUGGESTIONS = "get_suggestions"
+    APPLY_SUGGESTION = "apply_suggestion"
+    SHOW_FEEDBACK = "show_feedback"
+    CLEAR_FEEDBACK = "clear_feedback"
 
 
 class Density(Enum):

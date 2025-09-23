@@ -18,6 +18,7 @@ from .types import Command, CommandType, Note
 from midi_player import MidiPlayer
 from sequencer import Sequencer
 from osc_sender import OSCSender
+from contextual_intelligence import ContextualIntelligence
 import config
 
 
@@ -48,6 +49,9 @@ class ControlPlane:
         
         # Initialize OSC sender for JUCE plugin control
         self.osc_sender = OSCSender(config.OSC_IP_ADDRESS, config.OSC_PORT)
+        
+        # Initialize contextual intelligence system
+        self.contextual_intelligence = ContextualIntelligence(session_file)
         
         # Playback state (now handled by sequencer)
     
@@ -91,6 +95,15 @@ class ControlPlane:
                 CommandType.SET_STYLE_PRESET, CommandType.OSC_RESET
             ]:
                 return self._handle_osc_command(command)
+            
+            # Handle contextual intelligence commands
+            elif command.type in [
+                CommandType.LOAD_PROJECT, CommandType.ANALYZE_BASS, CommandType.ANALYZE_MELODY,
+                CommandType.ANALYZE_HARMONY, CommandType.ANALYZE_RHYTHM, CommandType.ANALYZE_ALL,
+                CommandType.GET_SUGGESTIONS, CommandType.APPLY_SUGGESTION, CommandType.SHOW_FEEDBACK,
+                CommandType.CLEAR_FEEDBACK
+            ]:
+                return self._handle_contextual_intelligence_command(command)
             
             # Handle system commands
             elif command.type == CommandType.STOP:
@@ -297,6 +310,85 @@ class ControlPlane:
                 
         except Exception as e:
             return f"OSC: Error executing command: {str(e)}"
+    
+    def _handle_contextual_intelligence_command(self, command: Command) -> str:
+        """Handle contextual intelligence commands.
+        
+        Args:
+            command: The contextual intelligence command to execute
+            
+        Returns:
+            Response message indicating success or failure
+        """
+        try:
+            if command.type == CommandType.LOAD_PROJECT:
+                file_path = command.params.get("file_path", "")
+                if self.contextual_intelligence.load_project(file_path):
+                    return f"Project loaded: {file_path}"
+                else:
+                    return f"Failed to load project: {file_path}"
+            
+            elif command.type == CommandType.ANALYZE_BASS:
+                feedback = self.contextual_intelligence.get_visual_feedback("analyze bass")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.ANALYZE_MELODY:
+                feedback = self.contextual_intelligence.get_visual_feedback("analyze melody")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.ANALYZE_HARMONY:
+                feedback = self.contextual_intelligence.get_visual_feedback("analyze harmony")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.ANALYZE_RHYTHM:
+                feedback = self.contextual_intelligence.get_visual_feedback("analyze rhythm")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.ANALYZE_ALL:
+                feedback = self.contextual_intelligence.get_visual_feedback("analyze all")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.GET_SUGGESTIONS:
+                feedback = self.contextual_intelligence.get_visual_feedback("get suggestions")
+                return self._format_visual_feedback(feedback)
+            
+            elif command.type == CommandType.APPLY_SUGGESTION:
+                suggestion = command.params.get("suggestion", "")
+                if self.contextual_intelligence.apply_suggestion({"suggestion": suggestion}):
+                    return f"Suggestion applied: {suggestion}"
+                else:
+                    return f"Failed to apply suggestion: {suggestion}"
+            
+            elif command.type == CommandType.SHOW_FEEDBACK:
+                return self.contextual_intelligence.get_feedback_summary()
+            
+            elif command.type == CommandType.CLEAR_FEEDBACK:
+                self.contextual_intelligence.clear_feedback()
+                return "Visual feedback cleared"
+            
+            else:
+                return f"Unknown contextual intelligence command: {command.type.value}"
+                
+        except Exception as e:
+            return f"Contextual Intelligence: Error executing command: {str(e)}"
+    
+    def _format_visual_feedback(self, feedback_list) -> str:
+        """Format visual feedback for display.
+        
+        Args:
+            feedback_list: List of VisualFeedback objects
+            
+        Returns:
+            Formatted string representation
+        """
+        if not feedback_list:
+            return "No visual feedback available."
+        
+        formatted = "Visual Feedback:\n"
+        for feedback in feedback_list:
+            formatted += f"- {feedback.element.value.title()}: {feedback.message}\n"
+        
+        return formatted
     
     def close(self) -> None:
         """Close the control plane and clean up resources."""

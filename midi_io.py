@@ -108,13 +108,13 @@ def parse_midi_file(filepath: str) -> List[Dict[str, Any]]:
     return notes_data
 
 
-def save_midi_file(filepath: str, notes_data: List[Dict[str, Any]], ticks_per_beat: int = 480) -> None:
+def save_midi_file(notes_data: List[Dict[str, Any]], filepath: str, ticks_per_beat: int = 480) -> None:
     """
     Save a list of note dictionaries to a MIDI file.
     
     Args:
-        filepath: Path where to save the MIDI file
         notes_data: List of note dictionaries with the structure:
+        filepath: Path where to save the MIDI file
                    {
                        'pitch': int,
                        'velocity': int, 
