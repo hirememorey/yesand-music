@@ -8,6 +8,7 @@ YesAnd Music follows a "Brain vs. Hands" architecture that separates core musica
 
 ## System Architecture
 
+### Traditional Architecture (File-Based)
 ```
 Natural Language → Command Parser → Control Plane → Contextual Intelligence → Visual Feedback Display
        ↓                ↓                ↓              ↓                        ↓
@@ -16,6 +17,16 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
    "ardour tracks"  + Ardour Int.    + MIDI Player  + Educational Content    + Explanations
    "get suggestions" + Visual        (IAC Driver)   + Background Analysis    + Real-Time Updates
                      Feedback         + File I/O     + DAW Integration        + DAW State
+```
+
+### Live MIDI Streaming Architecture (Phase 4A)
+```
+Natural Language → Live Conversation → Live Editing → MIDI Stream → Real-Time → Ardour DAW
+       ↓                ↓                ↓              ↓            ↓           ↓
+   "funky bass"    AI Analysis      Live Commands   MIDI Events   IAC Driver   Live Track
+   "make complex"   + Context        + Operations   + Timing      + Streaming   + Playback
+   "add swing"      + References     + History      + Velocity    + Real-Time   + Visual
+   "brighter"       + Session        + Undo/Redo    + Channel     + Safety      + Editing
 ```
 
 ## Core Components
@@ -93,6 +104,37 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
 - Generate automation scripts (Lua for Ardour)
 - Provide DAW state awareness through file-based workflow
 
+### Live MIDI Streaming System (Phase 4A)
+**Purpose**: Real-time MIDI generation and streaming to DAWs
+
+**Key Files**:
+- `ardour_live_integration.py`: Real-time MIDI streaming to Ardour DAW
+- `live_editing_engine.py`: Real-time MIDI modification and editing
+- `live_conversation_workflow.py`: Natural language control of live operations
+- `live_control_plane_cli.py`: Interactive CLI for live MIDI streaming
+
+**Responsibilities**:
+- Stream MIDI events directly to DAW tracks in real-time
+- Provide live editing capabilities for existing MIDI content
+- Manage live editing sessions and track state
+- Handle real-time MIDI port communication
+- Coordinate between conversation AI and live operations
+
+### Live Editing Engine
+**Purpose**: Real-time MIDI modification and editing operations
+
+**Key Files**:
+- `live_editing_engine.py`: Core live editing functionality
+- Live edit commands and operations
+- Edit history and undo/redo management
+
+**Responsibilities**:
+- Apply real-time MIDI modifications (velocity, swing, accent, humanization)
+- Manage edit history and provide undo/redo functionality
+- Ensure real-time performance and thread safety
+- Coordinate with live conversation workflow
+- Provide structured command interface for live operations
+
 ## Data Flow
 
 ### Command Processing
@@ -126,6 +168,25 @@ DAW Project → File Parser → Export/Import → Musical Analysis → Improved 
      ↓            ↓             ↓              ↓                ↓
   .ardour     Track/Region   MIDI Files    Contextual        Enhanced
   Files       Discovery      Exchange     Intelligence       Versions
+```
+
+### Live MIDI Streaming Processing (Phase 4A)
+```
+User Input → Live Conversation → Live Editing → MIDI Stream → Real-Time → Ardour DAW
+     ↓              ↓                ↓              ↓            ↓           ↓
+"funky bass"   AI Analysis      Live Commands   MIDI Events   IAC Driver   Live Track
+"make complex" + Context        + Operations   + Timing      + Streaming   + Playback
+"add swing"    + References     + History      + Velocity    + Real-Time   + Visual
+"brighter"     + Session        + Undo/Redo    + Channel     + Safety      + Editing
+```
+
+### Live Editing Processing
+```
+Existing MIDI → Live Edit Command → Real-Time Modification → Updated MIDI → DAW Track
+     ↓               ↓                      ↓                    ↓            ↓
+  Current Track   Operation Type        Apply Changes        New Version   Live Update
+  + Content      + Parameters          + History            + Feedback    + Playback
+  + State        + Intensity           + Undo/Redo          + Validation  + Visual
 ```
 
 ## Design Principles

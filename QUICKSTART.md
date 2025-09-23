@@ -4,14 +4,14 @@ Get YesAnd Music running in 5 minutes.
 
 ## What This Is
 
-YesAnd Music is an AI-powered musical collaborator that provides contextual intelligence and musical problem-solving through natural language conversation. It works with your existing DAW workflow, including direct integration with Ardour DAW, and can engage in musical dialogue to help you create, improve, and understand music.
+YesAnd Music is an AI-powered musical collaborator that provides contextual intelligence and musical problem-solving through natural language conversation. It works with your existing DAW workflow, including **live MIDI streaming** to Ardour DAW, and can engage in musical dialogue to help you create, improve, and understand music in real-time.
 
 ## Prerequisites
 
 - macOS (tested on macOS 15.5)
 - Python 3.8+
 - OpenAI API key (for conversational AI features)
-- A DAW (GarageBand, Logic Pro, or Ardour with file-based integration)
+- Ardour DAW (for live MIDI streaming) or other DAW (for traditional features)
 
 ## 1. Setup (2 minutes)
 
@@ -38,7 +38,23 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ## 2. Run It (1 minute)
 
-### Musical Conversation (Recommended)
+### Live MIDI Streaming (New! Recommended)
+```bash
+# 1. Start Ardour and create a MIDI track
+# 2. Arm the track for recording and enable monitoring
+
+# 3. Start live MIDI streaming
+python live_control_plane_cli.py
+
+# 4. Try these examples:
+"Give me a funky bassline"
+"Make it more complex"
+"Add some swing to it"
+"Make it brighter"
+"Stop" to end the session
+```
+
+### Musical Conversation (Traditional)
 ```bash
 # Start conversation mode
 python enhanced_control_plane_cli.py --conversation
@@ -114,6 +130,14 @@ python control_plane_cli.py "ardour improve selected"
 
 ## 4. What You Should See
 
+### Live MIDI Streaming
+- **Live MIDI Generation**: MIDI notes appear in Ardour in real-time as you speak
+- **Real-Time Editing**: Existing MIDI content changes immediately in Ardour
+- **Immediate Feedback**: See and hear changes instantly in your DAW
+- **Live Conversation**: Natural dialogue with AI that controls live MIDI
+- **Session Management**: Track your live editing sessions and modifications
+
+### Traditional Features
 - **Musical Conversation**: Natural dialogue with AI musical collaborator
 - **Generated Content**: MIDI files created from your requests
 - **Iterative Refinement**: Back-and-forth conversation to perfect ideas
@@ -125,6 +149,7 @@ python control_plane_cli.py "ardour improve selected"
 
 ## 5. Next Steps
 
+- **For Live MIDI Streaming**: See [LIVE_MIDI_STREAMING_README.md](LIVE_MIDI_STREAMING_README.md) for detailed live streaming guide
 - **For Users**: See [README.md](README.md) for full features
 - **For Musical Conversation**: See [MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md) for detailed conversation guide
 - **For Developers**: See [DEVELOPMENT.md](DEVELOPMENT.md) for development workflows

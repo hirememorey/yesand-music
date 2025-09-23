@@ -296,7 +296,7 @@ Return JSON with:
             
             # Get LLM response
             response = self.client.chat.completions.create(
-                model="gpt-4",
+                model="gpt-3.5-turbo",
                 messages=[
                     {"role": "system", "content": self.conversation_prompts["system"]},
                     {"role": "user", "content": prompt}
@@ -348,7 +348,7 @@ Return JSON with:
                 action_prompt = self.conversation_prompts["action"]
                 
                 action_response = self.client.chat.completions.create(
-                    model="gpt-4",
+                    model="gpt-3.5-turbo",
                     messages=[
                         {"role": "user", "content": f"User: {user_input}\nLLM Response: {llm_response}\n\n{action_prompt}"}
                     ],

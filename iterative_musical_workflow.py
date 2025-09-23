@@ -17,7 +17,7 @@ from commands.control_plane import ControlPlane
 from commands.types import CommandType
 from midi_io import parse_midi_file, save_midi_file
 from analysis import apply_swing, filter_notes_by_pitch
-from theory import generate_scale, generate_arpeggio
+from theory import create_scale, create_arpeggio
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -253,7 +253,7 @@ class IterativeMusicalWorkflow:
     def _generate_melody_pattern(self, style: str, key: str, tempo: int) -> List[Dict[str, Any]]:
         """Generate a melody pattern"""
         # Generate scale-based melody
-        scale_notes = generate_scale(key, "major")
+        scale_notes = create_scale(key, "major")
         pattern = []
         
         for i, note in enumerate(scale_notes[:8]):
