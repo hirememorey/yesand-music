@@ -4,12 +4,13 @@ Get YesAnd Music running in 5 minutes.
 
 ## What This Is
 
-YesAnd Music is an AI-powered MIDI editing system that provides contextual intelligence and musical problem-solving through natural language commands. It works with your existing DAW workflow, including direct integration with Ardour DAW.
+YesAnd Music is an AI-powered musical collaborator that provides contextual intelligence and musical problem-solving through natural language conversation. It works with your existing DAW workflow, including direct integration with Ardour DAW, and can engage in musical dialogue to help you create, improve, and understand music.
 
 ## Prerequisites
 
 - macOS (tested on macOS 15.5)
 - Python 3.8+
+- OpenAI API key (for conversational AI features)
 - A DAW (GarageBand, Logic Pro, or Ardour with file-based integration)
 
 ## 1. Setup (2 minutes)
@@ -29,22 +30,37 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### Set OpenAI API Key
+```bash
+# Get your API key from https://platform.openai.com/
+export OPENAI_API_KEY="your-api-key-here"
+```
+
 ## 2. Run It (1 minute)
 
-### Basic Demo
+### Musical Conversation (Recommended)
 ```bash
+# Start conversation mode
+python enhanced_control_plane_cli.py --conversation
+
+# Try these examples:
+"I need a funky bass line for my song"
+"Make it groove like Stevie Wonder"
+"This chorus sounds flat, brighten it up"
+"Make it more complex"
+```
+
+### Traditional Commands
+```bash
+# Basic demo
 python main.py
 # Expected: "Playing C Major Scale..." and 8 notes in your DAW
-```
 
-### Interactive Mode
-```bash
+# Interactive mode
 python main.py --interactive
 # Try: "play scale D minor", "set tempo to 140", "stop"
-```
 
-### CLI Commands
-```bash
+# CLI commands
 python control_plane_cli.py "play scale F# lydian"
 python control_plane_cli.py "make it jazz"
 
@@ -55,20 +71,37 @@ python control_plane_cli.py "ardour tracks"
 
 ## 3. Test Musical Intelligence (2 minutes)
 
-### Load a MIDI File
+### Musical Conversation Examples
 ```bash
-python control_plane_cli.py "load test_simple.mid"
+# Start conversation mode
+python enhanced_control_plane_cli.py --conversation
+
+# Generate musical content
+"I need a funky bass line for my song"
+"Create a jazz melody in C major"
+"Make a blues chord progression"
+
+# Use musical references
+"Make it groove like Stevie Wonder"
+"Give it that Motown feel"
+"I want something dark and moody"
+
+# Provide feedback and refinement
+"Make it more complex"
+"This is too busy, simplify it"
+"Make it swing more"
+"I want it in a different key"
 ```
 
-### Analyze Music
+### Traditional Analysis
 ```bash
+# Load and analyze MIDI files
+python control_plane_cli.py "load test_simple.mid"
 python control_plane_cli.py "analyze bass"
 python control_plane_cli.py "analyze melody"
 python control_plane_cli.py "analyze all"
-```
 
-### Solve Musical Problems
-```bash
+# Solve musical problems
 python control_plane_cli.py "make this groove better"
 python control_plane_cli.py "fix the harmony"
 python control_plane_cli.py "improve the arrangement"
@@ -81,6 +114,10 @@ python control_plane_cli.py "ardour improve selected"
 
 ## 4. What You Should See
 
+- **Musical Conversation**: Natural dialogue with AI musical collaborator
+- **Generated Content**: MIDI files created from your requests
+- **Iterative Refinement**: Back-and-forth conversation to perfect ideas
+- **Musical References**: AI understanding of artists, styles, and techniques
 - **MIDI Output**: Notes playing in your DAW
 - **Visual Feedback**: Color-coded analysis (Blue=bass, Green=melody, Purple=harmony, Orange=rhythm)
 - **Musical Improvements**: Better-sounding versions saved as new MIDI files
@@ -89,6 +126,7 @@ python control_plane_cli.py "ardour improve selected"
 ## 5. Next Steps
 
 - **For Users**: See [README.md](README.md) for full features
+- **For Musical Conversation**: See [MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md) for detailed conversation guide
 - **For Developers**: See [DEVELOPMENT.md](DEVELOPMENT.md) for development workflows
 - **For Architecture**: See [ARCHITECTURE.md](ARCHITECTURE.md) for technical details
 - **For Ardour Integration**: See [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) for detailed Ardour workflow

@@ -4,9 +4,9 @@ Everything you need to know to develop YesAnd Music.
 
 ## Current State
 
-**Phase 3B Complete**: Musical problem solvers working  
+**Phase 3C Complete**: Musical conversation system working  
 **Phase 3B+ Complete**: Ardour file-based integration working  
-**Next Phase**: Phase 3C - Advanced LLM integration
+**Next Phase**: Advanced features and multi-user collaboration
 
 ## Development Setup
 
@@ -15,6 +15,7 @@ Everything you need to know to develop YesAnd Music.
 - Python 3.8+
 - Xcode Command Line Tools
 - CMake 3.31.7+
+- OpenAI API key (for conversational AI features)
 
 ### Environment Setup
 ```bash
@@ -25,8 +26,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
+# Set OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+
 # Verify setup
 python control_plane_cli.py status
+python enhanced_control_plane_cli.py --help-enhanced
 ```
 
 ### MIDI Setup
@@ -45,6 +50,10 @@ music_cursor/
 │   ├── parser.py          # Command parsing
 │   ├── pattern_engine.py  # Musical pattern generation
 │   └── session.py         # State management
+├── musical_conversation_engine.py  # LLM integration for conversation
+├── iterative_musical_workflow.py  # Conversational workflow management
+├── enhanced_control_plane.py      # Enhanced control plane with AI
+├── enhanced_control_plane_cli.py  # Enhanced CLI interface
 ├── contextual_intelligence.py  # Musical analysis engine
 ├── visual_feedback_display.py  # Visual feedback system
 ├── musical_solvers.py    # Problem-solving algorithms
@@ -56,10 +65,18 @@ music_cursor/
 ├── osc_sender.py        # OSC communication
 ├── main.py              # Entry point
 ├── control_plane_cli.py # CLI interface
+├── demo_musical_conversation.py  # Demo and testing
+├── test_musical_conversation.py  # Unit tests
 └── tests/               # Test suite
 ```
 
 ## Key Components
+
+### Musical Conversation System
+- **musical_conversation_engine.py**: LLM integration for natural language conversation
+- **iterative_musical_workflow.py**: Conversational workflow and project management
+- **enhanced_control_plane.py**: Enhanced control plane with AI capabilities
+- **enhanced_control_plane_cli.py**: Interactive CLI with conversation support
 
 ### Control Plane (`commands/`)
 - **control_plane.py**: Main orchestrator, handles all commands
@@ -186,7 +203,7 @@ python -m pytest --cov=. tests/
 
 ### Manual Testing
 ```bash
-# Test control plane
+# Test traditional control plane
 python control_plane_cli.py "play scale C major"
 python control_plane_cli.py "analyze bass"
 
@@ -196,6 +213,10 @@ python control_plane_cli.py "make this groove better"
 # Test Ardour integration
 python control_plane_cli.py "ardour connect"
 python control_plane_cli.py "ardour tracks"
+
+# Test musical conversation system
+python enhanced_control_plane_cli.py --conversation
+# Try: "I need a funky bass line", "Make it more complex"
 
 # Test plugin
 python test_plugin.py
@@ -211,6 +232,12 @@ python demo_control_plane.py
 python demo_contextual_intelligence.py
 python demo_musical_solvers.py
 python demo_ardour_integration.py
+
+# Musical conversation demos
+python demo_musical_conversation.py
+python demo_musical_conversation.py interactive
+python demo_musical_conversation.py feedback
+python demo_musical_conversation.py references
 ```
 
 ## JUCE Plugin Development
@@ -305,19 +332,66 @@ python control_plane_cli.py "your command"
 - Manual testing for user-facing changes
 - Performance testing for real-time components
 
+## Musical Conversation Development
+
+### Adding New Musical References
+```python
+# In musical_conversation_engine.py
+class MusicalReferenceLibrary:
+    def __init__(self):
+        self.references = {
+            "your_style": [
+                MusicalReference(
+                    name="Artist Name",
+                    type="artist",
+                    description="Musical description",
+                    examples=["Song 1", "Song 2"],
+                    musical_elements={"rhythm": "style", "harmony": "type"}
+                )
+            ]
+        }
+```
+
+### Adding New Feedback Handlers
+```python
+# In iterative_musical_workflow.py
+class IterativeMusicalWorkflow:
+    def __init__(self):
+        self.feedback_handlers = {
+            "your_feedback_type": self._handle_your_feedback,
+            # ... existing handlers
+        }
+    
+    def _handle_your_feedback(self, feedback: str, iteration: MusicalIteration) -> Dict[str, Any]:
+        # Implement your feedback handling logic
+        return {"action": "generate_pattern", "parameters": {...}}
+```
+
+### Extending Conversation Prompts
+```python
+# In musical_conversation_engine.py
+class MusicalConversationEngine:
+    def __init__(self):
+        self.conversation_prompts = {
+            "system": "Your enhanced system prompt...",
+            "conversation": "Your enhanced conversation prompt...",
+            "action": "Your enhanced action prompt..."
+        }
+```
+
 ## Next Steps
 
-### Phase 3C: Advanced LLM Integration
-- LLM agent implementation
-- Command orchestration system
-- Reasoning and explanation engine
-- DAW workflow integration
+### Advanced Features
+- **Voice Integration**: Speech-to-text for hands-free operation
+- **Multi-User Collaboration**: Multiple users in same project
+- **Advanced Musical Analysis**: Deeper understanding of musical context
+- **Custom Style Learning**: Learn from user preferences
 
 ### Development Priorities
-1. **LLM Integration**: Natural language understanding and orchestration
-2. **Performance Optimization**: Real-time analysis and memory efficiency
-3. **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-4. **Advanced Features**: Voice integration, collaborative features
+1. **Performance Optimization**: Real-time analysis and memory efficiency
+2. **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
+3. **Advanced Features**: Voice integration, collaborative features
+4. **Local LLM Support**: Offline operation with local models
 
 ## Getting Help
 

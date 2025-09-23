@@ -1,16 +1,19 @@
 # YesAnd Music
 
-**Contextual Intelligence for Semantic MIDI Editing with Visual Feedback**
+**AI-Powered Musical Collaborator with Conversational Intelligence**
 
-YesAnd Music transforms MIDI editing from technical manipulation to intelligent assistance through natural language conversation that integrates seamlessly with existing DAW workflows.
+YesAnd Music transforms MIDI editing from technical manipulation to intelligent musical collaboration through natural language conversation that integrates seamlessly with existing DAW workflows.
 
 ## What It Does
 
+- **Musical Conversation**: Chat with an AI musical collaborator in natural language
+- **Intelligent Generation**: "Generate a funky bass line", "Make it groove like Stevie Wonder"
+- **Iterative Refinement**: "Make it more complex" → "This is too busy, simplify it"
 - **Musical Intelligence**: Analyzes bass lines, melodies, harmony, and rhythm with visual feedback
 - **Problem Solving**: "Make this groove better", "Fix the harmony", "Improve the arrangement"
 - **Real-Time Control**: Generate MIDI patterns via natural language commands
 - **DAW Integration**: Works with GarageBand, Logic Pro, and Ardour (with file-based integration)
-- **Educational**: Learn musical concepts through AI explanations
+- **Educational**: Learn musical concepts through AI explanations and musical references
 
 ## Quick Start
 
@@ -18,24 +21,30 @@ YesAnd Music transforms MIDI editing from technical manipulation to intelligent 
 # 1. Setup (2 minutes)
 python -c "import mido; print('Available ports:', mido.get_output_names())"
 pip install -r requirements.txt
+export OPENAI_API_KEY="your-api-key-here"
 
-# 2. Run it
-python main.py
+# 2. Start musical conversation
+python enhanced_control_plane_cli.py --conversation
 
-# 3. Try musical intelligence
-python control_plane_cli.py "load test_simple.mid"
-python control_plane_cli.py "make this groove better"
+# 3. Try musical conversation
+"I need a funky bass line for my song"
+"Make it groove like Stevie Wonder"
+"This chorus sounds flat, brighten it up"
 ```
 
 **See [QUICKSTART.md](QUICKSTART.md) for detailed setup instructions.**
 
 ## Current Status
 
-✅ **Phase 3B Complete**: Musical problem solvers working  
-🎯 **Next**: Phase 3C - Advanced LLM integration
+✅ **Phase 3C Complete**: Musical conversation system working  
+🎯 **Next**: Advanced features and multi-user collaboration
 
 ### What Works Now
 
+- **Musical Conversation**: Chat with AI musical collaborator in natural language
+- **Intelligent Generation**: Generate musical patterns through conversation
+- **Iterative Refinement**: Refine musical ideas through feedback loops
+- **Musical References**: Use artist and style references in conversation
 - **Control Plane**: 23+ natural language commands for MIDI generation
 - **JUCE Plugin**: Real-time MIDI effects (swing, accent, humanization)
 - **Contextual Intelligence**: Musical analysis with visual feedback
@@ -46,6 +55,7 @@ python control_plane_cli.py "make this groove better"
 ## Documentation
 
 - **[QUICKSTART.md](QUICKSTART.md)** - Get running in 5 minutes
+- **[MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md)** - Musical conversation system guide
 - **[DEVELOPMENT.md](DEVELOPMENT.md)** - Development workflows and guides
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design
 - **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
