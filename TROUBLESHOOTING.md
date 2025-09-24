@@ -4,7 +4,22 @@ Common issues and solutions for YesAnd Music.
 
 ## Quick Diagnostics
 
-### Check System Status
+### Check Security-First System Status (NEW)
+```bash
+# Check security-first system status
+python secure_enhancement_cli.py --status
+
+# Check system health
+python -c "from secure_enhancement_system import FailFastEnhancer; e = FailFastEnhancer(); print(e.get_system_status())"
+
+# Run comprehensive tests
+python test_security_first_system.py
+
+# Check component health
+python -c "from secure_llm_client import SecureLLMClient, LLMConfig; c = SecureLLMClient(LLMConfig('test')); print(c.get_rate_limit_status())"
+```
+
+### Check Legacy System Status
 ```bash
 # Check if everything is working
 python control_plane_cli.py status
@@ -24,7 +39,154 @@ python test_real_time_integration.py
 
 ---
 
-## Real-Time Enhancement Issues (NEW)
+## Security-First System Issues (NEW)
+
+### System Not Healthy
+**Symptoms**: `❌ System is not healthy` or `❌ Component health check failed`
+
+**Solutions**:
+1. **Check System Status**:
+   ```bash
+   python secure_enhancement_cli.py --status
+   ```
+
+2. **Check Component Health**:
+   ```bash
+   python -c "from secure_enhancement_system import FailFastEnhancer; e = FailFastEnhancer(); print(e.get_system_status())"
+   ```
+
+3. **Restart System**:
+   ```bash
+   # Kill any running processes
+   pkill -f secure_enhancement
+   
+   # Restart system
+   python secure_enhancement_cli.py --status
+   ```
+
+### Rate Limiting Issues
+**Symptoms**: `❌ Rate limit exceeded` or `❌ Too many requests`
+
+**Solutions**:
+1. **Check Rate Limit Status**:
+   ```bash
+   python -c "from secure_llm_client import SecureLLMClient, LLMConfig; c = SecureLLMClient(LLMConfig('test')); print(c.get_rate_limit_status())"
+   ```
+
+2. **Wait for Rate Limit Reset**:
+   ```bash
+   # Check wait time
+   python -c "from secure_llm_client import SecureLLMClient, LLMConfig; c = SecureLLMClient(LLMConfig('test')); print(f'Wait time: {c.get_rate_limit_status()[\"wait_time\"]} seconds')"
+   ```
+
+3. **Adjust Rate Limits**:
+   ```python
+   # In your configuration
+   llm_config = LLMConfig(
+       rate_limit_per_minute=120,  # Increase limit
+       rate_limit_burst=20         # Increase burst
+   )
+   ```
+
+### Security Errors
+**Symptoms**: `❌ Security error` or `❌ Input validation failed`
+
+**Solutions**:
+1. **Check Input Validation**:
+   ```bash
+   # Enable debug mode
+   export DEBUG=1
+   python secure_enhancement_cli.py --interactive
+   ```
+
+2. **Check Security Level**:
+   ```bash
+   # Use lower security level for testing
+   python secure_enhancement_cli.py --request "test" --security-level low
+   ```
+
+3. **Check File Permissions**:
+   ```bash
+   # Check quarantine directory permissions
+   ls -la /tmp/quarantine
+   chmod 755 /tmp/quarantine
+   ```
+
+### Component Initialization Failed
+**Symptoms**: `❌ Failed to initialize component` or `❌ Component not available`
+
+**Solutions**:
+1. **Check Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Check Configuration**:
+   ```bash
+   # Verify environment variables
+   echo $OPENAI_API_KEY
+   echo $OSC_HOST
+   echo $OSC_PORT
+   ```
+
+3. **Check Component Health**:
+   ```bash
+   python -c "from secure_enhancement_system import FailFastEnhancer; e = FailFastEnhancer(); print(e.get_system_status())"
+   ```
+
+### Performance Issues
+**Symptoms**: Slow response times or high resource usage
+
+**Solutions**:
+1. **Check System Resources**:
+   ```bash
+   # Check memory usage
+   ps aux | grep python
+   
+   # Check CPU usage
+   top -p $(pgrep -f secure_enhancement)
+   ```
+
+2. **Adjust Configuration**:
+   ```python
+   # Reduce rate limits
+   llm_config = LLMConfig(
+       rate_limit_per_minute=30,  # Reduce limit
+       max_prompt_length=2000     # Reduce prompt length
+   )
+   ```
+
+3. **Check System Mode**:
+   ```bash
+   # Check current mode
+   python secure_enhancement_cli.py --status
+   ```
+
+### File Processing Issues
+**Symptoms**: `❌ File validation failed` or `❌ File too large`
+
+**Solutions**:
+1. **Check File Size**:
+   ```bash
+   # Check file size
+   ls -lh your_file.mid
+   ```
+
+2. **Check File Type**:
+   ```bash
+   # Check file extension
+   file your_file.mid
+   ```
+
+3. **Check Quarantine**:
+   ```bash
+   # Check quarantined files
+   ls -la /tmp/quarantine
+   ```
+
+---
+
+## Real-Time Enhancement Issues
 
 ### OSC Connection Failed
 **Symptoms**: `❌ Failed to start OSC monitoring` or `❌ No project state available`
