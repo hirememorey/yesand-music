@@ -23,7 +23,8 @@ Work on core systems and major architectural changes
 **Phase 4A Complete**: Live MIDI streaming system working  
 **Phase 3C Complete**: Musical conversation system working  
 **Phase 3B+ Complete**: Ardour file-based integration working  
-**Next Phase**: Advanced features and multi-user collaboration
+**🚨 CRITICAL GAP IDENTIFIED**: Context-aware architecture missing (Musical Scribe model)
+**Next Phase**: Implement Musical Scribe architecture for true context awareness
 
 ---
 
@@ -517,6 +518,98 @@ class TestYourNewFeature(unittest.TestCase):
         pass
 ```
 
+## Musical Scribe Architecture Development
+
+### Implementation Guide
+
+The Musical Scribe architecture is the **critical missing piece** that transforms YesAnd Music from a command tool into a context-aware musical collaborator. This section provides implementation guidance for developers.
+
+### Core Components to Implement
+
+#### 1. Project State Parser (`project_state_parser.py`)
+```python
+class ProjectStateParser:
+    def parse_daw_project(self, project_path: str) -> Dict[str, Any]:
+        """Convert entire DAW project to structured JSON"""
+        # Implementation needed:
+        # - Parse Ardour project files (.ardour)
+        # - Extract track information and regions
+        # - Convert MIDI data to universal format
+        # - Analyze musical elements (key, tempo, style)
+        # - Build structured JSON representation
+        pass
+```
+
+#### 2. Musical Context Engine (`musical_context_engine.py`)
+```python
+class MusicalContextEngine:
+    def analyze_project_context(self, project_state: Dict) -> Dict[str, Any]:
+        """Analyze project-wide musical relationships and style"""
+        # Implementation needed:
+        # - Detect overall musical style
+        # - Analyze harmonic progression
+        # - Identify rhythmic patterns
+        # - Understand track relationships
+        # - Find enhancement opportunities
+        pass
+```
+
+#### 3. Contextual Prompt Builder (`contextual_prompt_builder.py`)
+```python
+class MusicalScribePromptBuilder:
+    def build_prompt(self, project_state: Dict, musical_context: Dict, user_request: str) -> str:
+        """Build specialized prompt like Sully.ai's medical scribe"""
+        # Implementation needed:
+        # - Determine musical role from user request
+        # - Format project context for LLM
+        # - Include musical analysis in prompt
+        # - Structure prompt for optimal LLM response
+        pass
+```
+
+#### 4. Enhanced LLM Integration (`musical_scribe_engine.py`)
+```python
+class MusicalScribeEngine:
+    def enhance_music(self, project_path: str, user_request: str) -> List[MIDIPattern]:
+        """Main entry point - like Sully.ai's scribe workflow"""
+        # Implementation needed:
+        # - Orchestrate all components
+        # - Send context + request to LLM
+        # - Parse structured MIDI responses
+        # - Return multiple contextual options
+        pass
+```
+
+### Implementation Priority
+
+1. **Start with Project State Parser** - This is the foundation
+2. **Build Musical Context Engine** - Analyze project-wide relationships
+3. **Create Contextual Prompt Builder** - Specialized musical prompts
+4. **Enhance LLM Integration** - Send context + requests to LLM
+5. **Test with Real Projects** - Validate the approach
+
+### Key Files to Create
+
+- `project_state_parser.py` - Parse DAW projects to JSON
+- `musical_context_engine.py` - Analyze musical relationships
+- `contextual_prompt_builder.py` - Build specialized prompts
+- `musical_scribe_engine.py` - Main orchestration
+- `test_musical_scribe.py` - Comprehensive tests
+
+### Integration Points
+
+- **Existing Ardour Integration**: Extend `ardour_integration.py`
+- **Musical Analysis**: Use existing `analysis.py` functions
+- **LLM Integration**: Extend `musical_conversation_engine.py`
+- **MIDI Generation**: Integrate with `pattern_engine.py`
+
+### Testing Strategy
+
+1. **Unit Tests**: Test each component individually
+2. **Integration Tests**: Test full workflow with real projects
+3. **Context Validation**: Ensure generated patterns fit musical context
+4. **Quality Assessment**: Validate musical coherence and enhancement value
+
 ## Musical Conversation Development
 
 ### Adding New Musical References
@@ -564,19 +657,42 @@ class MusicalConversationEngine:
         }
 ```
 
+## 🚨 Critical Architecture Gap Identified
+
+### The Problem: Command-Driven vs Context-Driven
+The current YesAnd Music architecture is **command-driven** rather than **context-driven**, severely limiting its effectiveness:
+
+**Current (Limited)**: User says "funky bass" → Generate generic funky bassline
+**Needed (Context-Aware)**: User says "funky bass" → Analyze entire project → Generate contextually appropriate bassline
+
+### The Solution: Musical Scribe Architecture (Inspired by Sully.ai)
+Transform YesAnd Music to work like Sully.ai's medical scribe:
+1. **DAW Project Input**: Full project state (tracks, regions, arrangements)
+2. **Musical Context**: Project converted to structured JSON with musical analysis
+3. **Contextual Prompt**: Musical context + specialized prompt sent to LLM
+4. **Enhanced MIDI**: LLM returns contextually appropriate MIDI patterns
+
 ## Next Steps
 
-### Advanced Features
+### 🎯 IMMEDIATE PRIORITY: Musical Scribe Architecture
+1. **Project State Parser** - Convert DAW projects to structured JSON
+2. **Musical Context Engine** - Analyze project-wide musical relationships
+3. **Contextual Prompt Builder** - Create specialized musical prompts
+4. **Enhanced LLM Integration** - Send project context + user requests
+5. **Contextual MIDI Generation** - Generate patterns that fit existing musical context
+
+### Future Features (After Context Architecture)
 - **Voice Integration**: Speech-to-text for hands-free operation
 - **Multi-User Collaboration**: Multiple users in same project
 - **Advanced Musical Analysis**: Deeper understanding of musical context
 - **Custom Style Learning**: Learn from user preferences
 
 ### Development Priorities
-1. **Performance Optimization**: Real-time analysis and memory efficiency
-2. **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-3. **Advanced Features**: Voice integration, collaborative features
-4. **Local LLM Support**: Offline operation with local models
+1. **🚨 CRITICAL: Musical Scribe Architecture** - Context-aware musical collaboration
+2. **Performance Optimization**: Real-time analysis and memory efficiency
+3. **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
+4. **Advanced Features**: Voice integration, collaborative features
+5. **Local LLM Support**: Offline operation with local models
 
 ## Getting Help
 

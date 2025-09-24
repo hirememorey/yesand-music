@@ -83,7 +83,8 @@ python control_plane_cli.py "play scale C major"
 
 ✅ **Phase 4A Complete**: Live MIDI streaming system working  
 ✅ **Phase 3C Complete**: Musical conversation system working  
-🎯 **Next**: Advanced features and multi-user collaboration
+🚨 **CRITICAL GAP IDENTIFIED**: Context-aware architecture missing (Musical Scribe model)
+🎯 **Next**: Implement Musical Scribe architecture for true context awareness
 
 ## 📚 Documentation
 
@@ -99,6 +100,7 @@ python control_plane_cli.py "play scale C major"
 ### 🛠️ **Development**
 - **[DEVELOPMENT.md](DEVELOPMENT.md)** - Developer workflows and guides
 - **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design
+- **[MUSICAL_SCRIBE_ARCHITECTURE.md](MUSICAL_SCRIBE_ARCHITECTURE.md)** - 🚨 **CRITICAL**: Musical Scribe architecture (Sully.ai-inspired)
 - **[docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md)** - JUCE plugin development
 
 ### 📋 **Reference**
@@ -107,7 +109,34 @@ python control_plane_cli.py "play scale C major"
 
 ## 🎯 Vision
 
-Enable musicians to intelligently edit their music through background analysis, contextual intelligence, and natural language conversation that enhances rather than disrupts their creative workflow.
+Enable musicians to intelligently edit their music through **context-aware analysis**, **musical scribe architecture**, and natural language conversation that enhances rather than disrupts their creative workflow.
+
+**🚨 CRITICAL ARCHITECTURAL EVOLUTION**: The project is evolving toward a **"Musical Scribe" architecture** inspired by Sully.ai's medical scribe model, where the system maintains full DAW project context awareness to provide truly intelligent musical assistance.
+
+## 🎵 The Musical Scribe Architecture
+
+### The Problem
+The current YesAnd Music architecture is **command-driven** rather than **context-driven**, severely limiting its effectiveness:
+
+**Current (Limited)**: User says "funky bass" → Generate generic funky bassline
+**Needed (Context-Aware)**: User says "funky bass" → Analyze entire project → Generate contextually appropriate bassline
+
+### The Solution (Inspired by Sully.ai)
+Transform YesAnd Music to work like Sully.ai's medical scribe:
+
+1. **DAW Project Input**: Full project state (tracks, regions, arrangements)
+2. **Musical Context**: Project converted to structured JSON with musical analysis
+3. **Contextual Prompt**: Musical context + specialized prompt sent to LLM
+4. **Enhanced MIDI**: LLM returns contextually appropriate MIDI patterns
+
+### Example Workflow
+```
+User: "Give me a funky bassline"
+System: Analyzes entire project → "This is a jazz ballad in C major with complex piano chords and soft drums. The piano is busy and needs a supportive bass foundation. Generate 2-3 funky bassline options that complement the existing arrangement."
+Result: Contextually appropriate bassline patterns that actually enhance the song
+```
+
+**📖 [Read the full Musical Scribe Architecture Guide](MUSICAL_SCRIBE_ARCHITECTURE.md)**
 
 ---
 

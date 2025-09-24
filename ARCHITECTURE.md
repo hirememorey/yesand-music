@@ -30,6 +30,8 @@ Technical architecture and design decisions for YesAnd Music.
 
 YesAnd Music follows a "Brain vs. Hands" architecture that separates core musical intelligence from DAW integration, enabling focus on musical intelligence without being constrained by DAW-specific APIs.
 
+**CRITICAL ARCHITECTURAL INSIGHT**: The project is evolving toward a **"Musical Scribe" architecture** inspired by Sully.ai's medical scribe model, where the system maintains full DAW project context awareness to provide truly intelligent musical assistance.
+
 ## System Architecture
 
 ### Traditional Architecture (File-Based)
@@ -375,22 +377,35 @@ Existing MIDI → Live Edit Command → Real-Time Modification → Updated MIDI 
 
 ## Future Architecture
 
-### Phase 3C: LLM Integration
+### Musical Scribe Architecture (Inspired by Sully.ai)
 ```
-User Chat → LLM Agent → Musical Intelligence Engine → Invisible Assistance → DAW Integration
-     ↓         ↓              ↓                           ↓                    ↓
-"Make this  Parse intent,   Apply specific            Provide assistance,   Seamless
-beat jazzier"  plan actions,   transformations,         explain reasoning    DAW workflow
-              coordinate      analyze results           + Chat response      + File-based
-                                                                             + State awareness
+DAW Project → Project State Parser → Musical Context Engine → Contextual Prompt Builder → LLM → Enhanced MIDI
+     ↓              ↓                      ↓                        ↓                    ↓        ↓
+Full Project    Convert to JSON      Analyze Musical        Build Specialized      Generate    Contextually
+State          + Track Info         Relationships          Musical Prompts        Patterns    Appropriate
++ Regions      + Musical Analysis   + Style Detection      + Project Context      + Multiple   Music
++ Arrangement  + Harmonic Context   + Arrangement          + User Request         Options     + Coherent
 ```
 
-### Key Changes
-- **LLM Agent**: Natural language understanding and orchestration
-- **Command Orchestration**: Complex command decomposition and planning
-- **Reasoning Engine**: Musical decision justification and explanation
-- **Invisible Intelligence**: Background assistance without visual interference
-- **Enhanced DAW Integration**: Real-time state access and seamless workflow
+### Key Components (Musical Scribe Model)
+- **Project State Parser**: Convert entire DAW project to structured JSON
+- **Musical Context Engine**: Analyze project-wide musical relationships and style
+- **Contextual Prompt Builder**: Create specialized prompts like Sully.ai's medical scribe
+- **Enhanced LLM Integration**: Send project context + user request to LLM
+- **Contextual MIDI Generation**: Generate patterns that fit the existing musical context
+
+### Critical Architecture Gap Identified
+The current system is **command-driven** rather than **context-driven**, severely limiting its effectiveness:
+
+**Current (Limited)**: User says "funky bass" → Generate generic funky bassline
+**Musical Scribe (Context-Aware)**: User says "funky bass" → Analyze entire project → "This is a jazz ballad in C major with complex chords, generate a simpler bassline that complements the piano and vocals" → Contextually appropriate bassline
+
+### Implementation Priority
+1. **Project State Parser** - Convert DAW projects to structured JSON
+2. **Musical Context Engine** - Analyze project-wide musical relationships  
+3. **Contextual Prompt Builder** - Create specialized musical prompts
+4. **Enhanced LLM Integration** - Send project context + user requests
+5. **Contextual MIDI Generation** - Generate patterns that fit existing musical context
 
 ## Quality Assurance
 
