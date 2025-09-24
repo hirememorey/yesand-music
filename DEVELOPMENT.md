@@ -179,8 +179,8 @@ music_cursor/
 ├── analysis.py                     # Musical analysis functions
 ├── theory.py                       # Music theory helpers
 ├── osc_sender.py                   # OSC communication
-├── main.py                         # Entry point
-├── control_plane_cli.py            # CLI interface
+├── control_plane_cli.py            # Traditional CLI entry point
+├── enhanced_control_plane_cli.py   # Enhanced CLI with conversational AI
 ├── live_control_plane_cli.py       # Live MIDI streaming CLI
 ├── demo_*.py                       # Demo and testing scripts
 ├── test_*.py                       # Unit tests

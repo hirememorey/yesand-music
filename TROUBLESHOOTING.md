@@ -52,8 +52,8 @@ python control_plane_cli.py "ardour connect"
 4. **Test MIDI Output**:
    ```bash
    # Simple test
-   python main.py
-   # Should see "Playing C Major Scale..." and hear 8 notes
+   python control_plane_cli.py "play scale C major"
+   # Should play C Major scale and hear 8 notes
    ```
 
 ### Commands Not Parsing

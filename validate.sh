@@ -30,7 +30,7 @@ print_success() {
 }
 
 # Check if we're in the right directory
-if [ ! -f "main.py" ] || [ ! -f "requirements.txt" ]; then
+if [ ! -f "control_plane_cli.py" ] || [ ! -f "requirements.txt" ]; then
     print_error "This script must be run from the YesAnd Music project root directory"
     exit 1
 fi
@@ -235,14 +235,6 @@ echo "-----------------------------"
 # Test that main entry points work
 print_status "Testing main entry points..."
 
-# Test main.py help
-if python main.py --help > /dev/null 2>&1; then
-    print_success "main.py --help works"
-else
-    print_error "main.py --help failed"
-    exit 1
-fi
-
 # Test control_plane_cli.py help
 if python control_plane_cli.py --help > /dev/null 2>&1; then
     print_success "control_plane_cli.py --help works"
@@ -251,11 +243,11 @@ else
     exit 1
 fi
 
-# Test edit.py help
-if python edit.py --help > /dev/null 2>&1; then
-    print_success "edit.py --help works"
+# Test enhanced_control_plane_cli.py help
+if python enhanced_control_plane_cli.py --help > /dev/null 2>&1; then
+    print_success "enhanced_control_plane_cli.py --help works"
 else
-    print_error "edit.py --help failed"
+    print_error "enhanced_control_plane_cli.py --help failed"
     exit 1
 fi
 
@@ -315,7 +307,7 @@ print_status "Rule 7: File Structure Validation"
 echo "------------------------------------"
 
 # Check for required files
-required_files=("main.py" "requirements.txt" "config.py" "midi_io.py" "analysis.py" "project.py")
+required_files=("control_plane_cli.py" "enhanced_control_plane_cli.py" "requirements.txt" "config.py" "midi_io.py" "analysis.py" "project.py")
 missing_files=0
 
 for file in "${required_files[@]}"; do
