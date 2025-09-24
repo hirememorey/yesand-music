@@ -7,10 +7,9 @@ Transform MIDI editing from technical manipulation to intelligent musical collab
 ## 🚀 Quick Start (2 minutes)
 
 ### Prerequisites
-- **macOS** (tested on macOS 15.5)
 - **Python 3.8+**
 - **OpenAI API key** (for AI features)
-- **IAC Driver** enabled in Audio MIDI Setup
+- **macOS** (for DAW integration features)
 
 ### Installation
 ```bash
@@ -19,16 +18,25 @@ pip install -r requirements.txt
 
 # 2. Set OpenAI API key
 export OPENAI_API_KEY="your-api-key-here"
-
-# 3. Enable IAC Driver
-# Open Audio MIDI Setup → Window → Show MIDI Studio
-# Double-click IAC Driver → check "Device is online"
-# Create port named "IAC Driver Bus 1"
 ```
 
 ### Try It Now
+
+#### 🎵 MVP MIDI Generator (NEW - DAW Independent)
 ```bash
-# Security-First Real-Time Enhancement (NEW - Recommended)
+# Generate MIDI from natural language
+python3 mvp_midi_generator.py "generate me a bass line in gminor as if Jeff Ament of Pearl Jam did a line of coke and just threw up prior to generating this"
+
+# Interactive mode
+python3 mvp_midi_generator.py --interactive
+
+# With output file
+python3 mvp_midi_generator.py "create a funky bass line" --output funky_bass.mid
+```
+
+#### 🔒 Security-First Real-Time Enhancement (DAW Integration)
+```bash
+# Security-First Real-Time Enhancement (macOS + DAW)
 python secure_enhancement_cli.py --interactive
 # Try: "enhance create a funky bassline" → Secure AI enhancement!
 # Try: "status" → Check system health and security status
@@ -38,8 +46,10 @@ python secure_enhancement_cli.py --request "add drums to this track" --type drum
 
 # System Status
 python secure_enhancement_cli.py --status
+```
 
-# Legacy Commands (Still Available)
+#### 🎛️ Legacy Commands (Still Available)
+```bash
 python real_time_enhancement_cli.py --interactive
 python live_control_plane_cli.py
 python enhanced_control_plane_cli.py --conversation
@@ -51,6 +61,7 @@ python control_plane_cli.py "play scale C major"
 **YesAnd Music** is a context-aware AI musical collaborator that understands your entire project and provides intelligent enhancements through natural language conversation.
 
 ### Core Capabilities
+- **🎵 MVP MIDI Generator**: DAW-independent AI-powered MIDI generation from natural language prompts
 - **🔒 Security-First Architecture**: Built-in security, validation, and safety monitoring
 - **🚀 Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with real-time project context
 - **⚡ Automatic Import**: Seamless MIDI import to Ardour using Lua scripting - no manual steps!
@@ -77,6 +88,7 @@ python control_plane_cli.py "play scale C major"
 ## 📚 Documentation
 
 ### For Users
+- **[MVP MIDI Generator](MVP_README.md)** - Complete guide to the new DAW-independent MIDI generator
 - **[Security-First Implementation](SECURITY_FIRST_IMPLEMENTATION.md)** - Complete guide to the new security-first system
 - **[Quick Start Guide](QUICK_START.md)** - Get started quickly with the new system
 - **[Auto-Import Guide](AUTO_IMPORT_GUIDE.md)** - Complete guide to automatic Ardour import
@@ -95,7 +107,12 @@ python control_plane_cli.py "play scale C major"
 
 ## 🎵 Example Workflows
 
-### MIDI to JSON Workflow (NEW - Target Implementation)
+### MVP MIDI Generator (NEW - Available Now)
+1. **Generate**: `python3 mvp_midi_generator.py "generate me a bass line in gminor as if Jeff Ament of Pearl Jam did a line of coke and just threw up prior to generating this"`
+2. **Interactive**: `python3 mvp_midi_generator.py --interactive`
+3. **Output File**: `python3 mvp_midi_generator.py "create a funky bass line" --output funky_bass.mid`
+
+### MIDI to JSON Workflow (Target Implementation)
 1. **Generate**: `python music_generator_cli.py "generate a bass pattern like Alice In Chains in GMinor"`
 2. **Context**: System extracts existing MIDI from Ardour project
 3. **Convert**: MIDI converted to musical notation JSON
