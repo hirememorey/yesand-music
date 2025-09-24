@@ -360,12 +360,12 @@ The system is ready for Phase 3C LLM integration, which will add natural languag
 
 ### 🚀 **Getting Started**
 - [README.md](README.md) - Project overview and quick start
-- [QUICKSTART.md](QUICKSTART.md) - Complete setup guide with multiple paths
+- [FEATURES.md](FEATURES.md) - Complete feature guide
 - [DEVELOPMENT.md](DEVELOPMENT.md) - Developer workflows and guides
 
 ### 🎵 **Feature Guides**
-- [docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md) - Live MIDI streaming and real-time editing
-- [docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md) - Musical conversation system
+- [FEATURES.md](FEATURES.md) - Complete guide to all features and capabilities
+- [REFERENCE.md](REFERENCE.md) - Commands and APIs
 - [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) - Ardour DAW integration
 
 ### 🛠️ **Development**

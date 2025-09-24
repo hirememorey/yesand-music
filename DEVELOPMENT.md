@@ -1,22 +1,49 @@
 # Development Guide
 
-Everything you need to know to develop YesAnd Music.
+Complete guide for developing and contributing to YesAnd Music.
+
+## Table of Contents
+
+- [Current State](#current-state)
+- [Development Setup](#development-setup)
+- [Project Structure](#project-structure)
+- [Architecture Overview](#architecture-overview)
+- [Key Components](#key-components)
+- [Common Development Tasks](#common-development-tasks)
+- [Testing](#testing)
+- [JUCE Plugin Development](#juce-plugin-development)
+- [Performance Considerations](#performance-considerations)
+- [Code Quality](#code-quality)
+- [Contributing](#contributing)
+
+---
 
 ## Current State
 
-**Phase 3C Complete**: Musical conversation system working  
-**Phase 3B+ Complete**: Ardour file-based integration working  
-**✅ Musical Scribe Complete**: Context-aware architecture implemented and integrated
-**Next Phase**: Test with real projects and refine musical analysis algorithms
+**✅ Production Ready Features:**
+- Live MIDI streaming to Ardour
+- Musical conversation system with OpenAI integration
+- Context-aware Musical Scribe architecture
+- Comprehensive musical problem solvers
+- File-based DAW integration
+- Real-time MIDI editing capabilities
+
+**🎯 Next Priorities:**
+- Test Musical Scribe with real projects
+- Refine musical analysis algorithms
+- Performance optimization
+- Multi-DAW support expansion
+
+---
 
 ## Development Setup
 
 ### Prerequisites
-- macOS (tested on macOS 15.5)
-- Python 3.8+
-- Xcode Command Line Tools
-- CMake 3.31.7+
-- OpenAI API key (for conversational AI features)
+- **macOS** (tested on macOS 15.5)
+- **Python 3.8+**
+- **Xcode Command Line Tools**
+- **CMake 3.31.7+**
+- **OpenAI API key** (for conversational AI features)
 
 ### Environment Setup
 ```bash
@@ -42,83 +69,184 @@ python enhanced_control_plane_cli.py --help-enhanced
 python -c "import mido; print('Ports:', mido.get_output_names())"
 ```
 
+---
+
 ## Project Structure
 
 ```
 music_cursor/
-├── commands/           # Control plane system
-│   ├── control_plane.py    # Main orchestrator
-│   ├── parser.py          # Command parsing
-│   ├── pattern_engine.py  # Musical pattern generation
-│   └── session.py         # State management
-├── musical_conversation_engine.py  # LLM integration for conversation
-├── iterative_musical_workflow.py  # Conversational workflow management
-├── enhanced_control_plane.py      # Enhanced control plane with AI
-├── enhanced_control_plane_cli.py  # Enhanced CLI interface
-├── contextual_intelligence.py  # Musical analysis engine
-├── visual_feedback_display.py  # Visual feedback system
-├── musical_solvers.py    # Problem-solving algorithms
-├── ardour_integration.py # Ardour file-based integration
-├── musical_scribe/       # Musical Scribe architecture (NEW)
-│   ├── __init__.py
-│   ├── project_state_parser.py    # Full DAW project analysis
-│   ├── musical_context_engine.py  # Project-wide musical analysis
+├── commands/                    # Control plane system
+│   ├── control_plane.py        # Main orchestrator
+│   ├── parser.py              # Command parsing
+│   ├── pattern_engine.py      # Musical pattern generation
+│   ├── session.py             # State management
+│   └── types.py               # Command type definitions
+├── musical_conversation_engine.py    # LLM integration for conversation
+├── iterative_musical_workflow.py     # Conversational workflow management
+├── enhanced_control_plane.py         # Enhanced control plane with AI
+├── enhanced_control_plane_cli.py     # Enhanced CLI interface
+├── contextual_intelligence.py        # Musical analysis engine
+├── visual_feedback_display.py        # Visual feedback system
+├── musical_solvers.py               # Problem-solving algorithms
+├── ardour_integration.py            # Ardour file-based integration
+├── musical_scribe/                  # Musical Scribe architecture
+│   ├── project_state_parser.py      # Full DAW project analysis
+│   ├── musical_context_engine.py    # Project-wide musical analysis
 │   ├── contextual_prompt_builder.py # Specialized prompt generation
-│   └── musical_scribe_engine.py   # Main orchestrator
-├── musical_scribe_integration.py  # Integration layer
-├── midi_io.py           # MIDI file I/O
-├── project.py           # Project data management
-├── analysis.py          # Musical analysis functions
-├── theory.py            # Music theory helpers
-├── osc_sender.py        # OSC communication
-├── main.py              # Entry point
-├── control_plane_cli.py # CLI interface
-├── demo_musical_conversation.py  # Demo and testing
-├── test_musical_conversation.py  # Unit tests
-└── tests/               # Test suite
+│   └── musical_scribe_engine.py     # Main orchestrator
+├── musical_scribe_integration.py    # Integration layer
+├── midi_io.py                      # MIDI file I/O
+├── project.py                      # Project data management
+├── analysis.py                     # Musical analysis functions
+├── theory.py                       # Music theory helpers
+├── osc_sender.py                   # OSC communication
+├── main.py                         # Entry point
+├── control_plane_cli.py            # CLI interface
+├── live_control_plane_cli.py       # Live MIDI streaming CLI
+├── demo_*.py                       # Demo and testing scripts
+├── test_*.py                       # Unit tests
+└── tests/                          # Test suite
 ```
+
+---
+
+## Architecture Overview
+
+YesAnd Music follows a "Brain vs. Hands" architecture that separates core musical intelligence from DAW integration, enabling focus on musical intelligence without being constrained by DAW-specific APIs.
+
+### Core Principles
+
+#### 1. Separation of Concerns
+- **Musical Intelligence**: Pure algorithmic functions, testable and reliable
+- **MIDI I/O**: Simple data conversion without musical logic
+- **Visual Feedback**: Display logic separate from analysis
+- **DAW Integration**: File-based workflow separate from real-time processing
+- **Control Plane**: Orchestration without implementation details
+
+#### 2. Real-Time Safety
+- No memory allocation in audio-critical paths
+- No blocking operations in MIDI processing
+- Thread-safe communication between components
+- Background analysis doesn't interfere with audio
+
+#### 3. Extensibility
+- Easy to add new command types
+- Simple to extend musical analysis
+- Modular visual feedback system
+- Clear interfaces between components
+
+#### 4. Educational Value
+- Every feature provides learning value
+- Clear explanations of musical concepts
+- Visual feedback helps understanding
+- AI reasoning is transparent and explainable
+
+### System Architecture
+
+```
+Natural Language → Command Parser → Control Plane → Contextual Intelligence → Visual Feedback Display
+       ↓                ↓                ↓              ↓                        ↓
+   "analyze bass"   Command Types    Pattern Gen    Musical Analysis        Color-Coded
+   "show melody"    (40+ types)      + OSC Sender   + Smart Suggestions      Highlighting
+   "ardour tracks"  + Ardour Int.    + MIDI Player  + Educational Content    + Explanations
+   "get suggestions" + Visual        (IAC Driver)   + Background Analysis    + Real-Time Updates
+                     Feedback         + File I/O     + DAW Integration        + DAW State
+```
+
+---
 
 ## Key Components
 
-### Musical Conversation System
-- **musical_conversation_engine.py**: LLM integration for natural language conversation
-- **iterative_musical_workflow.py**: Conversational workflow and project management
-- **enhanced_control_plane.py**: Enhanced control plane with AI capabilities
-- **enhanced_control_plane_cli.py**: Interactive CLI with conversation support
-
 ### Control Plane (`commands/`)
-- **control_plane.py**: Main orchestrator, handles all commands
-- **parser.py**: Natural language command parsing with regex patterns
-- **pattern_engine.py**: Generates musical patterns from commands
-- **session.py**: Persistent state management
+**Purpose**: Natural language command processing and orchestration
 
-### Musical Intelligence
-- **contextual_intelligence.py**: Core analysis engine for musical elements
-- **musical_solvers.py**: Problem-solving algorithms (groove, harmony, arrangement)
-- **analysis.py**: Pure functions for musical analysis and transformation
-- **theory.py**: Music theory helpers and generators
+**Key Files**:
+- `control_plane.py`: Main orchestrator coordinating all components
+- `parser.py`: Natural language command parsing with regex patterns
+- `pattern_engine.py`: Musical pattern generation from commands
+- `session.py`: Persistent state management with file-based storage
 
-### Musical Scribe Architecture (NEW)
-- **musical_scribe/project_state_parser.py**: Converts entire DAW projects to structured JSON
-- **musical_scribe/musical_context_engine.py**: Analyzes project-wide musical relationships
-- **musical_scribe/contextual_prompt_builder.py**: Creates specialized prompts like Sully.ai's medical scribe
-- **musical_scribe/musical_scribe_engine.py**: Main orchestrator coordinating all components
-- **musical_scribe_integration.py**: Integration layer with existing system
+**Responsibilities**:
+- Parse natural language commands into structured operations
+- Maintain session state across command executions
+- Coordinate between MIDI generation and visual feedback
+- Handle error isolation and graceful degradation
 
-### MIDI Processing
-- **midi_io.py**: Universal MIDI file I/O with consistent data format
-- **project.py**: Project data management and querying
-- **midi_player.py**: Real-time MIDI output
-- **sequencer.py**: Non-blocking MIDI playback
+### Musical Intelligence Engine
+**Purpose**: Core musical analysis and problem-solving algorithms
 
-### Visual Feedback
-- **visual_feedback_display.py**: Color-coded visual feedback system
-- **osc_sender.py**: Python-to-JUCE plugin communication
+**Key Files**:
+- `contextual_intelligence.py`: Main analysis orchestrator
+- `musical_solvers.py`: Problem-solving algorithms (groove, harmony, arrangement)
+- `analysis.py`: Pure functions for musical analysis and transformation
+- `theory.py`: Music theory helpers and generators
 
-### DAW Integration
-- **ardour_integration.py**: File-based integration with Ardour DAW
-- **Project file parsing**: Automatic discovery and parsing of Ardour projects
-- **Export/Import workflow**: MIDI file exchange with Ardour
+**Responsibilities**:
+- Analyze musical elements (bass, melody, harmony, rhythm)
+- Generate smart suggestions for musical improvements
+- Apply musical transformations and problem-solving
+- Provide educational content and explanations
+
+### Musical Scribe Architecture
+**Purpose**: Context-aware AI enhancement system
+
+**Key Files**:
+- `musical_scribe/project_state_parser.py`: Converts entire DAW projects to structured JSON
+- `musical_scribe/musical_context_engine.py`: Analyzes project-wide musical relationships
+- `musical_scribe/contextual_prompt_builder.py`: Creates specialized prompts like Sully.ai's medical scribe
+- `musical_scribe/musical_scribe_engine.py`: Main orchestrator coordinating all components
+- `musical_scribe_integration.py`: Integration layer with existing system
+
+**Responsibilities**:
+- Analyze entire musical projects for context
+- Generate contextually appropriate musical suggestions
+- Maintain musical coherence and style consistency
+- Provide multiple enhancement options
+
+### MIDI Processing Layer
+**Purpose**: Universal MIDI data handling and real-time processing
+
+**Key Files**:
+- `midi_io.py`: Universal MIDI file I/O with consistent data format
+- `project.py`: Project data management and querying
+- `midi_player.py`: Real-time MIDI output
+- `sequencer.py`: Non-blocking MIDI playback
+
+**Responsibilities**:
+- Convert MIDI files to universal note format
+- Handle MIDI format constraints and validation
+- Provide real-time MIDI output without blocking
+- Manage project data and metadata
+
+### Visual Feedback System
+**Purpose**: On-demand visual feedback and educational display
+
+**Key Files**:
+- `visual_feedback_display.py`: Color-coded visual feedback system
+- `osc_sender.py`: Python-to-JUCE plugin communication
+
+**Responsibilities**:
+- Display color-coded musical element highlighting
+- Provide educational overlays and explanations
+- Handle real-time visual updates without blocking audio
+- Communicate with JUCE plugin via OSC
+
+### DAW Integration System
+**Purpose**: File-based integration with DAWs for state awareness
+
+**Key Files**:
+- `ardour_integration.py`: File-based Ardour DAW integration
+- Project file parsing for track/region information
+- Export/import workflow for MIDI data exchange
+
+**Responsibilities**:
+- Discover and parse DAW project files
+- Export selected regions for analysis
+- Import improved MIDI back to DAW
+- Generate automation scripts (Lua for Ardour)
+- Provide DAW state awareness through file-based workflow
+
+---
 
 ## Common Development Tasks
 
@@ -202,6 +330,45 @@ def _display_feedback(self, feedback: VisualFeedback) -> None:
         # New feedback display logic
 ```
 
+### Adding MIDI Transformations
+
+1. **Implement pure function** in `analysis.py`:
+```python
+def new_transformation(notes: List[Dict[str, Any]], **kwargs) -> List[Dict[str, Any]]:
+    """Apply new transformation to notes."""
+    # Implementation
+    return transformed_notes
+```
+
+2. **Add command type and parsing**:
+```python
+# In commands/types.py
+NEW_TRANSFORMATION = "new_transformation"
+
+# In commands/parser.py
+CommandType.NEW_TRANSFORMATION: [
+    r"apply\s+new\s+transformation",
+    r"transform\s+with\s+new",
+],
+```
+
+3. **Integrate with control plane**:
+```python
+# In commands/control_plane.py
+elif command.type == CommandType.NEW_TRANSFORMATION:
+    transformed_notes = analysis.new_transformation(notes, **parameters)
+    # Apply transformation
+```
+
+4. **Add visual feedback for changes**:
+```python
+# In visual_feedback_display.py
+def _display_transformation_feedback(self, changes: List[Dict]) -> None:
+    # Show what was changed
+```
+
+---
+
 ## Testing
 
 ### Run All Tests
@@ -237,13 +404,10 @@ python enhanced_control_plane_cli.py --conversation
 python control_plane_cli.py "musical scribe status"
 python control_plane_cli.py "musical scribe analyze"
 python control_plane_cli.py "musical scribe enhance add a funky bassline"
-python control_plane_cli.py "musical scribe prompt create a jazz melody"
 
-# Test Musical Scribe test suite
-python test_musical_scribe.py
-
-# Test plugin
-python test_plugin.py
+# Test live MIDI streaming
+python live_control_plane_cli.py
+# Try: "Give me a funky bassline", "Make it more complex"
 ```
 
 ### Integration Testing
@@ -256,13 +420,11 @@ python demo_control_plane.py
 python demo_contextual_intelligence.py
 python demo_musical_solvers.py
 python demo_ardour_integration.py
-
-# Musical conversation demos
 python demo_musical_conversation.py
-python demo_musical_conversation.py interactive
-python demo_musical_conversation.py feedback
-python demo_musical_conversation.py references
+python demo_musical_scribe.py
 ```
+
+---
 
 ## JUCE Plugin Development
 
@@ -289,35 +451,12 @@ make -C build_minimal
 - **NEVER** make blocking calls in audio thread
 - Use `AudioProcessorValueTreeState` for thread-safe parameter access
 
-## Debugging
-
 ### Common Issues
+- **Plugin not loading**: Check installation paths and AudioUnit type configuration
+- **Build errors**: Check CMake version and Xcode Command Line Tools
+- **Real-time crashes**: Avoid memory allocation and locking in audio thread
 
-**MIDI not working:**
-```bash
-# Check port availability
-python -c "import mido; print(mido.get_output_names())"
-
-# Check session state
-python control_plane_cli.py status
-```
-
-**Plugin not loading:**
-- Check installation paths
-- Verify AudioUnit type configuration
-- Check build logs in `build_minimal/`
-
-**Commands not parsing:**
-- Check regex patterns in `commands/parser.py`
-- Verify command type enum values
-- Test with simple commands first
-
-### Debug Mode
-```bash
-# Enable debug output
-export DEBUG=1
-python control_plane_cli.py "your command"
-```
+---
 
 ## Performance Considerations
 
@@ -335,6 +474,8 @@ python control_plane_cli.py "your command"
 - All visual feedback operations are thread-safe
 - MIDI I/O operations are isolated from visual feedback
 - Control plane operations are synchronized
+
+---
 
 ## Code Quality
 
@@ -356,278 +497,73 @@ python control_plane_cli.py "your command"
 - Manual testing for user-facing changes
 - Performance testing for real-time components
 
-<<<<<<< Current (Your changes)
-=======
-## Live MIDI Streaming Development
+---
 
-### Adding New Live Edit Operations
-```python
-# In live_editing_engine.py
-class EditingOperation(Enum):
-    # ... existing operations ...
-    NEW_OPERATION = "new_operation"
-
-class LiveEditingEngine:
-    def _get_edit_function(self, operation: EditingOperation) -> Optional[Callable]:
-        edit_functions = {
-            # ... existing functions ...
-            EditingOperation.NEW_OPERATION: self._new_operation,
-        }
-        return edit_functions.get(operation)
-    
-    def _new_operation(self, command: LiveEditCommand) -> LiveEditResult:
-        # Implement your new operation
-        return LiveEditResult(
-            success=True,
-            operation=command.operation,
-            changes_applied=1,
-            explanation="Your operation explanation",
-            confidence=0.8
-        )
-```
-
-### Adding New MIDI Stream Styles
-```python
-# In ardour_live_integration.py
-class MIDIStreamGenerator:
-    def generate_bassline_stream(self, style: str = "funky", key: str = "C", 
-                                duration: float = 8.0) -> Generator[MIDIStreamEvent, None, None]:
-        # ... existing styles ...
-        if style == "your_style":
-            pattern = self._create_your_style_pattern(scale_notes, duration)
-        # ... rest of method ...
-    
-    def _create_your_style_pattern(self, scale_notes: List[int], duration: float) -> List[Dict[str, Any]]:
-        # Implement your style pattern
-        pattern = []
-        # ... your pattern logic ...
-        return pattern
-```
-
-### Adding New Live Conversation Commands
-```python
-# In live_conversation_workflow.py
-class LiveConversationWorkflow:
-    def _execute_musical_action(self, action_data: Dict[str, Any], user_input: str) -> Optional[Dict[str, Any]]:
-        action_type = action_data.get("action", "")
-        
-        # ... existing actions ...
-        elif action_type == "your_action":
-            return self._your_action(parameters, user_input)
-    
-    def _your_action(self, parameters: Dict[str, Any], user_input: str) -> Dict[str, Any]:
-        # Implement your action
-        return {
-            "success": True,
-            "explanation": "Your action explanation",
-            "confidence": 0.8
-        }
-```
-
-### Testing Live MIDI Streaming
-```python
-# In test_live_midi_streaming.py
-class TestYourNewFeature(unittest.TestCase):
-    def test_your_new_feature(self):
-        # Test your new feature
-        pass
-```
-
-## Musical Scribe Architecture Development
-
-### Implementation Status
-
-The Musical Scribe architecture has been **fully implemented** and represents a fundamental evolution from command-driven to context-driven musical collaboration. This section provides development guidance for working with the implemented system.
-
-### Implemented Components
-
-#### 1. Project State Parser (`musical_scribe/project_state_parser.py`) ✅ IMPLEMENTED
-```python
-class ProjectStateParser:
-    def parse_project(self, project_path: str) -> ProjectState:
-        """Convert entire DAW project to structured JSON"""
-        # ✅ Parses Ardour project files (.ardour)
-        # ✅ Extracts track information and regions
-        # ✅ Converts MIDI data to universal format
-        # ✅ Analyzes musical elements (key, tempo, style)
-        # ✅ Builds structured JSON representation
-```
-
-#### 2. Musical Context Engine (`musical_scribe/musical_context_engine.py`) ✅ IMPLEMENTED
-```python
-class MusicalContextEngine:
-    def analyze_project_context(self, project_state: ProjectState) -> MusicalContext:
-        """Analyze project-wide musical relationships and style"""
-        # ✅ Detects overall musical style
-        # ✅ Analyzes harmonic progression
-        # ✅ Identifies rhythmic patterns
-        # ✅ Understands track relationships
-        # ✅ Finds enhancement opportunities
-```
-
-#### 3. Contextual Prompt Builder (`musical_scribe/contextual_prompt_builder.py`) ✅ IMPLEMENTED
-```python
-class ContextualPromptBuilder:
-    def build_enhancement_prompt(self, project_state: ProjectState, 
-                                musical_context: MusicalContext, 
-                                user_request: str) -> ContextualPrompt:
-        """Build specialized prompt like Sully.ai's medical scribe"""
-        # ✅ Determines musical role from user request
-        # ✅ Formats project context for LLM
-        # ✅ Includes musical analysis in prompt
-        # ✅ Structures prompt for optimal LLM response
-```
-
-#### 4. Musical Scribe Engine (`musical_scribe/musical_scribe_engine.py`) ✅ IMPLEMENTED
-```python
-class MusicalScribeEngine:
-    def enhance_music(self, project_path: str, user_request: str) -> MusicalScribeResult:
-        """Main entry point - like Sully.ai's scribe workflow"""
-        # ✅ Orchestrates all components
-        # ✅ Sends context + request to LLM
-        # ✅ Parses structured MIDI responses
-        # ✅ Returns multiple contextual options
-```
-
-#### 5. Integration Layer (`musical_scribe_integration.py`) ✅ IMPLEMENTED
-```python
-class MusicalScribeIntegration:
-    def enhance_project(self, project_path: str, user_request: str) -> Dict[str, Any]:
-        """Integration with existing system"""
-        # ✅ Bridges Musical Scribe with existing control plane
-        # ✅ Provides fallback safety
-        # ✅ Maintains compatibility with existing commands
-```
-
-### New Commands Available
-
-```bash
-musical scribe enhance [REQUEST]    # Enhance project with contextual AI
-musical scribe analyze              # Analyze entire project context  
-musical scribe prompt [REQUEST]     # Generate contextual prompt
-musical scribe status               # Show Musical Scribe system status
-```
+## Contributing
 
 ### Development Workflow
+1. **Fork and clone** the repository
+2. **Create feature branch** from `main`
+3. **Make changes** following code style guidelines
+4. **Add tests** for new functionality
+5. **Run validation** suite: `./validate.sh`
+6. **Submit pull request** with clear description
 
-1. **Test with Real Projects**: Use `musical scribe analyze` to test project parsing
-2. **Enhance Musical Analysis**: Improve algorithms in `musical_context_engine.py`
-3. **Refine Prompts**: Update templates in `contextual_prompt_builder.py`
-4. **Add New DAW Support**: Extend `project_state_parser.py` for Logic Pro, Pro Tools
-5. **Optimize Performance**: Improve parsing speed for large projects
+### Code Style
+- Prefer clear, descriptive names over abbreviations
+- Keep functions small and focused; avoid deep nesting
+- Add concise docstrings explaining purpose and behavior
+- Follow existing patterns and conventions
 
-### Key Files (All Implemented)
+### Commit Messages
+- Use imperative style: "Add X", "Fix Y"
+- Reference issues when applicable: `Fixes #123`
+- Keep first line under 50 characters
+- Add detailed description if needed
 
-- `musical_scribe/project_state_parser.py` - Parse DAW projects to JSON ✅
-- `musical_scribe/musical_context_engine.py` - Analyze musical relationships ✅
-- `musical_scribe/contextual_prompt_builder.py` - Build specialized prompts ✅
-- `musical_scribe/musical_scribe_engine.py` - Main orchestration ✅
-- `musical_scribe_integration.py` - Integration layer ✅
-- `test_musical_scribe.py` - Comprehensive tests ✅
+### Pull Request Process
+1. **Keep PRs small and focused** with clear description
+2. **Note any platform-specific testing** (macOS, Apple Silicon, DAW versions)
+3. **Include testing steps** for reviewers
+4. **Update documentation** if adding new features
 
-### Testing Commands
+### Quality Gates
+The project includes a comprehensive validation system that must pass before submitting changes:
 
 ```bash
-# Test Musical Scribe
-python test_musical_scribe.py
-
-# Test integration
-python control_plane_cli.py "musical scribe status"
-python control_plane_cli.py "musical scribe analyze"
-python control_plane_cli.py "musical scribe enhance add a funky bassline"
-
-# Run demo
-python demo_musical_scribe.py
+# Run the complete validation suite
+./validate.sh
 ```
 
->>>>>>> Incoming (Background Agent changes)
-## Musical Conversation Development
+This checks:
+- Code quality and style (flake8)
+- Unit tests (45+ tests)
+- Architectural purity (Brain vs. Hands)
+- Integration tests
+- Documentation consistency
+- Dependencies
+- File structure
 
-### Adding New Musical References
-```python
-# In musical_conversation_engine.py
-class MusicalReferenceLibrary:
-    def __init__(self):
-        self.references = {
-            "your_style": [
-                MusicalReference(
-                    name="Artist Name",
-                    type="artist",
-                    description="Musical description",
-                    examples=["Song 1", "Song 2"],
-                    musical_elements={"rhythm": "style", "harmony": "type"}
-                )
-            ]
-        }
-```
-
-### Adding New Feedback Handlers
-```python
-# In iterative_musical_workflow.py
-class IterativeMusicalWorkflow:
-    def __init__(self):
-        self.feedback_handlers = {
-            "your_feedback_type": self._handle_your_feedback,
-            # ... existing handlers
-        }
-    
-    def _handle_your_feedback(self, feedback: str, iteration: MusicalIteration) -> Dict[str, Any]:
-        # Implement your feedback handling logic
-        return {"action": "generate_pattern", "parameters": {...}}
-```
-
-### Extending Conversation Prompts
-```python
-# In musical_conversation_engine.py
-class MusicalConversationEngine:
-    def __init__(self):
-        self.conversation_prompts = {
-            "system": "Your enhanced system prompt...",
-            "conversation": "Your enhanced conversation prompt...",
-            "action": "Your enhanced action prompt..."
-        }
-```
-
-## 🚨 Critical Architecture Gap Identified
-
-### The Problem: Command-Driven vs Context-Driven
-The current YesAnd Music architecture is **command-driven** rather than **context-driven**, severely limiting its effectiveness:
-
-**Current (Limited)**: User says "funky bass" → Generate generic funky bassline
-**Needed (Context-Aware)**: User says "funky bass" → Analyze entire project → Generate contextually appropriate bassline
-
-### The Solution: Musical Scribe Architecture (Inspired by Sully.ai)
-Transform YesAnd Music to work like Sully.ai's medical scribe:
-1. **DAW Project Input**: Full project state (tracks, regions, arrangements)
-2. **Musical Context**: Project converted to structured JSON with musical analysis
-3. **Contextual Prompt**: Musical context + specialized prompt sent to LLM
-4. **Enhanced MIDI**: LLM returns contextually appropriate MIDI patterns
-
-## Next Steps
-
-### 🎯 IMMEDIATE PRIORITY: Musical Scribe Architecture
-1. **Project State Parser** - Convert DAW projects to structured JSON
-2. **Musical Context Engine** - Analyze project-wide musical relationships
-3. **Contextual Prompt Builder** - Create specialized musical prompts
-4. **Enhanced LLM Integration** - Send project context + user requests
-5. **Contextual MIDI Generation** - Generate patterns that fit existing musical context
-
-### Future Features (After Context Architecture)
-- **Voice Integration**: Speech-to-text for hands-free operation
-- **Multi-User Collaboration**: Multiple users in same project
-- **Advanced Musical Analysis**: Deeper understanding of musical context
-- **Custom Style Learning**: Learn from user preferences
-
-### Development Priorities
-1. **🚨 CRITICAL: Musical Scribe Architecture** - Context-aware musical collaboration
-2. **Performance Optimization**: Real-time analysis and memory efficiency
-3. **Multi-DAW Support**: Logic Pro, Pro Tools, Cubase integration
-4. **Advanced Features**: Voice integration, collaborative features
-5. **Local LLM Support**: Offline operation with local models
+---
 
 ## Getting Help
 
-- **Architecture Questions**: See [ARCHITECTURE.md](ARCHITECTURE.md)
-- **Setup Issues**: See [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Quick Start**: See [QUICKSTART.md](QUICKSTART.md)
-- **Code Issues**: Check test suite and validation output
+### Documentation
+- **Features Guide**: [FEATURES.md](FEATURES.md) - Complete feature documentation
+- **Reference**: [REFERENCE.md](REFERENCE.md) - Commands and APIs
+- **Troubleshooting**: [TROUBLESHOOTING.md](TROUBLESHOOTING.md) - Common issues
+
+### Development Resources
+- **Architecture**: [ARCHITECTURE.md](ARCHITECTURE.md) - Technical architecture details
+- **JUCE Plugin Development**: [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md)
+- **Ardour Integration**: [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md)
+
+### Common Issues
+- **MIDI not working**: Check IAC Driver setup and DAW configuration
+- **Commands not parsing**: Check regex patterns and command types
+- **Plugin not loading**: Check build and installation paths
+- **Tests failing**: Check dependencies and environment setup
+
+---
+
+**Ready to contribute?** Start with the [Features Guide](FEATURES.md) to understand the system, then check out the [Reference](REFERENCE.md) for technical details.

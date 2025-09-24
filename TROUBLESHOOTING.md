@@ -2,25 +2,6 @@
 
 Common issues and solutions for YesAnd Music.
 
-## 📋 Table of Contents
-
-- [Quick Diagnostics](#quick-diagnostics)
-- [Common Issues](#common-issues)
-  - [No Sound / MIDI Not Working](#no-sound--midi-not-working)
-  - [Commands Not Parsing](#commands-not-parsing)
-  - [Plugin Not Loading](#plugin-not-loading)
-  - [Visual Feedback Not Displaying](#visual-feedback-not-displaying)
-  - [OSC Communication Issues](#osc-communication-issues)
-  - [Ardour Integration Issues](#ardour-integration-issues)
-  - [Performance Issues](#performance-issues)
-  - [Build Issues](#build-issues)
-  - [Python Environment Issues](#python-environment-issues)
-- [Debug Commands](#debug-commands)
-- [Common Error Messages](#common-error-messages)
-- [Getting Help](#getting-help)
-
----
-
 ## Quick Diagnostics
 
 ### Check System Status
@@ -32,11 +13,13 @@ python control_plane_cli.py status
 python -c "import mido; print('Available ports:', mido.get_output_names())"
 
 # Check dependencies
-pip list | grep -E "(mido|python-rtmidi|python-osc)"
+pip list | grep -E "(mido|python-rtmidi|python-osc|openai)"
 
 # Check Ardour integration
 python control_plane_cli.py "ardour connect"
 ```
+
+---
 
 ## Common Issues
 
@@ -101,6 +84,31 @@ python control_plane_cli.py "ardour connect"
    python control_plane_cli.py "play scale C major"
    ```
 
+### AI Features Not Working
+
+**Symptoms**: Musical conversation or Musical Scribe commands fail
+
+**Solutions**:
+1. **Check OpenAI API Key**:
+   ```bash
+   echo $OPENAI_API_KEY
+   # Should show your API key
+   ```
+
+2. **Set API Key**:
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   ```
+
+3. **Test AI Features**:
+   ```bash
+   # Test musical conversation
+   python enhanced_control_plane_cli.py --conversation
+   
+   # Test Musical Scribe
+   python control_plane_cli.py "musical scribe status"
+   ```
+
 ### Plugin Not Loading
 
 **Symptoms**: Plugin doesn't appear in DAW or crashes on load
@@ -126,10 +134,6 @@ python control_plane_cli.py "ardour connect"
    - **GarageBand**: Look in MIDI Effects section
    - **Logic Pro**: Look in MIDI Effects section
    - **Other DAWs**: Check VST3 support
-
-4. **Verify AudioUnit Type**:
-   - Plugin should be configured as Music Effect (aumf), not MIDI Effect (aumi)
-   - Check CMakeLists.txt for `AU_MAIN_TYPE kAudioUnitType_MusicEffect`
 
 ### Visual Feedback Not Displaying
 
@@ -158,33 +162,6 @@ python control_plane_cli.py "ardour connect"
    start_visual_feedback()
    print('Visual feedback started')
    "
-   ```
-
-### OSC Communication Issues
-
-**Symptoms**: OSC commands not reaching plugin
-
-**Solutions**:
-1. **Check Plugin OSC Settings**:
-   - Enable OSC in plugin UI
-   - Set correct port (default: 3819)
-   - Verify plugin is loaded in DAW
-
-2. **Test OSC Connection**:
-   ```bash
-   # Test OSC directly
-   python -c "
-   from osc_sender import OSCSender
-   sender = OSCSender()
-   sender.send_swing(0.7)
-   print('OSC sent')
-   "
-   ```
-
-3. **Check Port Availability**:
-   ```bash
-   # Check if port is in use
-   lsof -i :3819
    ```
 
 ### Ardour Integration Issues
@@ -300,6 +277,8 @@ python control_plane_cli.py "ardour connect"
    python --version  # Should be 3.8+
    ```
 
+---
+
 ## Debug Commands
 
 ### Enable Debug Output
@@ -318,7 +297,7 @@ python control_plane_cli.py "status"
 python -c "import mido; print('Ports:', mido.get_output_names())"
 
 # Check dependencies
-pip list | grep -E "(mido|python-rtmidi|python-osc)"
+pip list | grep -E "(mido|python-rtmidi|python-osc|openai)"
 ```
 
 ### Test Individual Components
@@ -346,44 +325,9 @@ cp = ControlPlane()
 result = cp.execute('play scale C major')
 print(f'Result: {result}')
 "
-
-# Test Ardour integration
-python -c "
-from ardour_integration import ArdourIntegration
-ardour = ArdourIntegration()
-print(f'Connected: {ardour.connect()}')
-print(f'Tracks: {len(ardour.list_tracks())}')
-"
 ```
 
-## Getting Help
-
-### Check Documentation
-- **Setup Issues**: See [QUICKSTART.md](QUICKSTART.md)
-- **Development Issues**: See [DEVELOPMENT.md](DEVELOPMENT.md)
-- **Architecture Questions**: See [ARCHITECTURE.md](ARCHITECTURE.md)
-- **Ardour Integration**: See [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md)
-
-### Run Tests
-```bash
-# Run all tests
-python -m pytest tests/
-
-# Run specific test
-python -m pytest tests/test_control_plane.py -v
-
-# Run with coverage
-python -m pytest --cov=. tests/
-```
-
-### Check Logs
-```bash
-# Check build logs
-ls -la build_logs/
-
-# Check recent errors
-tail -f build_logs/latest.log
-```
+---
 
 ## Common Error Messages
 
@@ -407,6 +351,47 @@ tail -f build_logs/latest.log
 **Cause**: Plugin not built or wrong AudioUnit type
 **Solution**: Rebuild plugin and check AudioUnit configuration
 
+### "OpenAI API key not set"
+**Cause**: Missing OpenAI API key for AI features
+**Solution**: Set OPENAI_API_KEY environment variable
+
+### "LLM response error"
+**Cause**: OpenAI API error or network issue
+**Solution**: Check API key, internet connection, and try again
+
+---
+
+## Getting Help
+
+### Check Documentation
+- **Setup Issues**: See [README.md](README.md) for quick start
+- **Feature Questions**: See [FEATURES.md](FEATURES.md) for detailed guides
+- **Development Issues**: See [DEVELOPMENT.md](DEVELOPMENT.md) for technical details
+- **Command Reference**: See [REFERENCE.md](REFERENCE.md) for all commands
+
+### Run Tests
+```bash
+# Run all tests
+python -m pytest tests/
+
+# Run specific test
+python -m pytest tests/test_control_plane.py -v
+
+# Run with coverage
+python -m pytest --cov=. tests/
+```
+
+### Check Logs
+```bash
+# Check build logs
+ls -la build_logs/
+
+# Check recent errors
+tail -f build_logs/latest.log
+```
+
+---
+
 ## Still Having Issues?
 
 1. **Check the logs**: Look for error messages in terminal output
@@ -419,22 +404,7 @@ If you're still stuck, the issue might be environment-specific. Check your syste
 
 ---
 
-## 📚 See Also
-
-### 🚀 **Getting Started**
-- [README.md](README.md) - Project overview and quick start
-- [QUICKSTART.md](QUICKSTART.md) - Complete setup guide with multiple paths
-
-### 🎵 **Feature Guides**
-- [docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md) - Live MIDI streaming and real-time editing
-- [docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md) - Musical conversation system
-- [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) - Ardour DAW integration
-
-### 🛠️ **Development**
-- [DEVELOPMENT.md](DEVELOPMENT.md) - Developer workflows and guides
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Technical architecture and design
-- [docs/JUCE_PLUGIN_DEVELOPMENT.md](docs/JUCE_PLUGIN_DEVELOPMENT.md) - JUCE plugin development
-
-### 📋 **Reference**
-- [CHANGELOG.md](CHANGELOG.md) - Version history and changes
-- [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute
+**Quick Links**:
+- [Features Guide](FEATURES.md) - Complete feature documentation
+- [Reference](REFERENCE.md) - Commands and APIs
+- [Development Guide](DEVELOPMENT.md) - Technical details
