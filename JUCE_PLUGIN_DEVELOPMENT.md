@@ -1,22 +1,37 @@
-# JUCE Plugin Development: Style Transfer MIDI Effect
+# JUCE Plugin Development: YesAnd Music AI Collaborator
 
-This document outlines the development of a real-time MIDI effect plugin using the JUCE framework to support the YesAnd Music semantic MIDI editing vision.
+This document outlines the development of a native DAW plugin using the JUCE framework to support the YesAnd Music AI-powered musical collaboration vision.
 
 ## Project Overview
 
-**Plugin Name**: Style Transfer  
-**Type**: MIDI Effect Plugin  
-**Formats**: VST3, AudioUnit (AU)  
-**Purpose**: Apply real-time stylistic transformations to MIDI notes
+**Plugin Name**: YesAnd Music AI Collaborator  
+**Type**: MIDI Effect Plugin with AI Integration  
+**Formats**: VST3, AudioUnit (AU), Ardour Plugin  
+**Purpose**: Native DAW integration for AI-powered musical collaboration
 
 ## Vision Integration
 
-This JUCE plugin directly supports the YesAnd Music semantic MIDI editing vision by providing:
+This JUCE plugin represents the **future direction** of YesAnd Music, providing:
 
-- **Low-level MIDI processing** for real-time style transformations
-- **Real-time safe operations** for professional audio applications
-- **Extensible architecture** for adding new style transformations
-- **Parameter control** for integration with YesAnd Music's command system
+- **Native DAW Integration**: Text input directly in Ardour interface
+- **AI-Powered Generation**: Real-time MIDI generation from natural language prompts
+- **Automatic Track Management**: Create and modify tracks based on user requests
+- **Zero Context Switching**: Stay in the DAW, never leave for external tools
+- **Professional Workflow**: Feels like a built-in DAW feature
+
+## Future Architecture
+
+### Target User Experience
+```
+User opens Ardour → Loads YesAnd Music plugin → Types "a bass line that wouldn't feel out of place in a Red Hot Chili Peppers song" → Clicks Send → Plugin creates new MIDI track with generated bass line
+```
+
+### Core Components (Planned)
+- **Text Input UI**: Native text input field in plugin interface
+- **Send Button**: Triggers AI generation and track creation
+- **AI Integration**: Real-time LLM processing within the plugin
+- **Track Management**: Direct Ardour track creation and modification
+- **MIDI Generation**: Real-time MIDI pattern creation and import
 
 ## Technical Architecture
 
