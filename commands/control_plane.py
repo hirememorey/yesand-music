@@ -129,6 +129,13 @@ class ControlPlane:
             ]:
                 return self._handle_ardour_command(command)
             
+            # Handle Musical Scribe commands
+            elif command.type in [
+                CommandType.MUSICAL_SCRIBE_ENHANCE, CommandType.MUSICAL_SCRIBE_ANALYZE,
+                CommandType.MUSICAL_SCRIBE_PROMPT, CommandType.MUSICAL_SCRIBE_STATUS
+            ]:
+                return self._handle_musical_scribe_command(command)
+            
             # Handle system commands
             elif command.type == CommandType.STOP:
                 return self._handle_stop_command()
@@ -557,6 +564,138 @@ class ControlPlane:
                 
         except Exception as e:
             return f"Ardour: Error executing command: {str(e)}"
+    
+    def _handle_musical_scribe_command(self, command: Command) -> str:
+        """Handle a Musical Scribe command.
+        
+        Args:
+            command: The Musical Scribe command to execute
+            
+        Returns:
+            Response message indicating success or failure
+        """
+        try:
+            # Import Musical Scribe Integration
+            from musical_scribe_integration import MusicalScribeIntegration
+            
+            # Initialize Musical Scribe Integration
+            if not hasattr(self, 'musical_scribe_integration'):
+                self.musical_scribe_integration = MusicalScribeIntegration()
+            
+            if command.type == CommandType.MUSICAL_SCRIBE_ENHANCE:
+                user_request = command.params.get("user_request", "")
+                if not user_request:
+                    return "Musical Scribe: Please provide an enhancement request (e.g., 'add a funky bassline')"
+                
+                # For now, use a default project path - in practice, this would come from session state
+                project_path = "demo_project.ardour"  # This should be configurable
+                
+                result = self.musical_scribe_integration.enhance_project(project_path, user_request)
+                
+                if result['success']:
+                    response = f"Musical Scribe Enhancement: {user_request}\n\n"
+                    response += f"Generated {len(result['patterns'])} patterns:\n\n"
+                    
+                    for i, pattern in enumerate(result['patterns'], 1):
+                        response += f"{i}. {pattern['name']}\n"
+                        response += f"   Description: {pattern['description']}\n"
+                        response += f"   Type: {pattern['enhancement_type']}\n"
+                        response += f"   Confidence: {pattern['confidence_score']:.1%}\n"
+                        response += f"   Justification: {pattern['musical_justification']}\n\n"
+                    
+                    if result.get('fallback_used'):
+                        response += "Note: Used fallback system due to Musical Scribe limitations.\n"
+                    
+                    return response
+                else:
+                    return f"Musical Scribe: Enhancement failed - {result.get('error', 'Unknown error')}"
+            
+            elif command.type == CommandType.MUSICAL_SCRIBE_ANALYZE:
+                # For now, use a default project path
+                project_path = "demo_project.ardour"
+                
+                analysis = self.musical_scribe_integration.analyze_project_context(project_path)
+                
+                if analysis['success']:
+                    response = "Musical Scribe Project Analysis:\n\n"
+                    response += f"Project: {analysis['project_info']['name']}\n"
+                    response += f"Tempo: {analysis['project_info']['tempo']} BPM\n"
+                    response += f"Time Signature: {analysis['project_info']['time_signature']}\n"
+                    response += f"Tracks: {analysis['project_info']['tracks']}\n\n"
+                    
+                    # Musical context
+                    mc = analysis['musical_context']
+                    response += "Musical Context:\n"
+                    response += f"- Key: {mc['harmonic_analysis']['key_signature'] or 'Unknown'}\n"
+                    response += f"- Harmonic Complexity: {mc['harmonic_analysis']['harmonic_complexity']}\n"
+                    response += f"- Groove Quality: {mc['rhythmic_analysis']['groove_quality']}\n"
+                    response += f"- Primary Genre: {mc['style_analysis']['primary_genre']}\n"
+                    response += f"- Complexity Level: {mc['style_analysis']['complexity_level']}\n"
+                    response += f"- Musical Coherence: {mc['musical_coherence_score']:.1%}\n\n"
+                    
+                    # Enhancement opportunities
+                    eo = mc['enhancement_opportunities']
+                    if eo['missing_elements']:
+                        response += "Missing Elements:\n"
+                        for element in eo['missing_elements']:
+                            response += f"- {element.replace('_', ' ').title()}\n"
+                        response += "\n"
+                    
+                    if eo['weak_areas']:
+                        response += "Weak Areas:\n"
+                        for area in eo['weak_areas']:
+                            response += f"- {area.replace('_', ' ').title()}\n"
+                        response += "\n"
+                    
+                    response += f"Priority Level: {eo['priority_level'].upper()}\n"
+                    
+                    return response
+                else:
+                    return f"Musical Scribe: Analysis failed - {analysis.get('error', 'Unknown error')}"
+            
+            elif command.type == CommandType.MUSICAL_SCRIBE_PROMPT:
+                user_request = command.params.get("user_request", "")
+                if not user_request:
+                    return "Musical Scribe: Please provide a request for prompt generation"
+                
+                # For now, use a default project path
+                project_path = "demo_project.ardour"
+                
+                prompt_result = self.musical_scribe_integration.generate_contextual_prompt(project_path, user_request)
+                
+                if prompt_result['success']:
+                    response = f"Musical Scribe Contextual Prompt for: {user_request}\n\n"
+                    response += f"Role: {prompt_result['role']['name']}\n"
+                    response += f"Description: {prompt_result['role']['description']}\n"
+                    response += f"Expertise Areas: {', '.join(prompt_result['role']['expertise_areas'])}\n\n"
+                    response += f"Confidence Score: {prompt_result['confidence_score']:.1%}\n\n"
+                    response += "Full Prompt:\n"
+                    response += "=" * 50 + "\n"
+                    response += prompt_result['full_prompt']
+                    response += "\n" + "=" * 50
+                    
+                    return response
+                else:
+                    return f"Musical Scribe: Prompt generation failed - {prompt_result.get('error', 'Unknown error')}"
+            
+            elif command.type == CommandType.MUSICAL_SCRIBE_STATUS:
+                status = self.musical_scribe_integration.get_system_status()
+                
+                response = "Musical Scribe System Status:\n\n"
+                response += f"Musical Scribe Available: {'Yes' if status['musical_scribe_available'] else 'No'}\n"
+                response += f"LLM Integration: {'Available' if status['llm_available'] else 'Not Available'}\n"
+                response += f"Supported DAWs: {', '.join(status['supported_daws'])}\n"
+                response += f"Fallback Enabled: {'Yes' if status['fallback_enabled'] else 'No'}\n"
+                response += f"Debug Export: {'Enabled' if status['debug_export_enabled'] else 'Disabled'}\n"
+                response += f"Debug Output Directory: {status['debug_output_dir']}\n"
+                
+                return response
+            
+            else:
+                return f"Musical Scribe: Unknown command '{command.type.value}'"
+                
+        except Exception as e:
+            return f"Musical Scribe: Error executing command: {str(e)}"
     
     def close(self) -> None:
         """Close the control plane and clean up resources."""

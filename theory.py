@@ -240,3 +240,53 @@ def get_scale_notes_for_mode(mode: Mode) -> List[int]:
     return mode_patterns.get(mode, mode_patterns[Mode.MAJOR])
 
 
+def generate_scale(key: str, mode: str, octave_start: int, octave_end: int) -> List[int]:
+    """Generate a scale for the given key and mode across multiple octaves.
+    
+    Args:
+        key: The key (e.g., "C", "F#", "Bb")
+        mode: The mode (e.g., "major", "minor", "dorian")
+        octave_start: Starting octave (e.g., 2 for C2)
+        octave_end: Ending octave (e.g., 6 for C6)
+        
+    Returns:
+        List of MIDI note numbers for the scale across octaves
+    """
+    # Convert key to MIDI note number
+    key_to_midi = {
+        "C": 0, "C#": 1, "Db": 1, "D": 2, "D#": 3, "Eb": 3,
+        "E": 4, "F": 5, "F#": 6, "Gb": 6, "G": 7, "G#": 8,
+        "Ab": 8, "A": 9, "A#": 10, "Bb": 10, "B": 11
+    }
+    
+    # Convert mode to Mode enum
+    mode_map = {
+        "major": Mode.MAJOR,
+        "minor": Mode.MINOR,
+        "dorian": Mode.DORIAN,
+        "phrygian": Mode.PHRYGIAN,
+        "lydian": Mode.LYDIAN,
+        "mixolydian": Mode.MIXOLYDIAN,
+        "locrian": Mode.LOCRIAN
+    }
+    
+    if key not in key_to_midi:
+        key = "C"  # Default to C if key not found
+    
+    if mode not in mode_map:
+        mode = "major"  # Default to major if mode not found
+    
+    # Get the base scale pattern
+    base_pattern = get_scale_notes_for_mode(mode_map[mode])
+    
+    # Generate scale across multiple octaves
+    scale_notes = []
+    for octave in range(octave_start, octave_end + 1):
+        for semitone_offset in base_pattern:
+            # Calculate MIDI note number
+            midi_note = key_to_midi[key] + (octave * 12) + semitone_offset
+            scale_notes.append(midi_note)
+    
+    return scale_notes
+
+

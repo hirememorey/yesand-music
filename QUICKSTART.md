@@ -1,33 +1,28 @@
 # Quick Start Guide
 
-Get YesAnd Music running in 5 minutes with clear paths for different use cases.
+Get YesAnd Music running in 5 minutes.
 
-## 🎯 Choose Your Path
+## What This Is
 
-### 🎵 **Live MIDI Streaming** (Musicians & Producers)
-Generate and stream MIDI directly to your DAW in real-time
-→ [Jump to Live MIDI Setup](#-live-midi-streaming-setup)
+YesAnd Music is an AI-powered musical collaborator that provides contextual intelligence and musical problem-solving through natural language conversation. It works with your existing DAW workflow, including direct integration with Ardour DAW, and can engage in musical dialogue to help you create, improve, and understand music.
 
-### 💬 **Musical Conversation** (Songwriters & Composers)  
-Chat with an AI musical collaborator for creative assistance
-→ [Jump to Conversation Setup](#-musical-conversation-setup)
+## Prerequisites
 
-### 🎛️ **Traditional Commands** (Developers & Technical Users)
-Use natural language commands for MIDI control and analysis
-→ [Jump to Traditional Setup](#-traditional-commands-setup)
+- macOS (tested on macOS 15.5)
+- Python 3.8+
+- OpenAI API key (for conversational AI features)
+- A DAW (GarageBand, Logic Pro, or Ardour with file-based integration)
 
----
+## 1. Setup (2 minutes)
 
-## 📋 Prerequisites
+### Enable MIDI Port
+```bash
+# Open Audio MIDI Setup and enable IAC Driver
+# Create a port named "IAC Driver Bus 1"
+python -c "import mido; print('Available ports:', mido.get_output_names())"
+```
 
-- **macOS** (tested on macOS 15.5)
-- **Python 3.8+**
-- **OpenAI API key** (for conversational AI features)
-- **DAW** (Ardour for live streaming, any DAW for traditional features)
-
-## 🚀 Universal Setup (2 minutes)
-
-### 1. Install Dependencies
+### Install Dependencies
 ```bash
 cd /path/to/music_cursor
 python3 -m venv .venv
@@ -35,145 +30,146 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Set OpenAI API Key
+### Set OpenAI API Key
 ```bash
 # Get your API key from https://platform.openai.com/
 export OPENAI_API_KEY="your-api-key-here"
 ```
 
-### 3. Enable MIDI Port
+## 2. Run It (1 minute)
+
+### Musical Conversation (Recommended)
 ```bash
-# Open Audio MIDI Setup → Window → Show MIDI Studio
-# Double-click IAC Driver → check "Device is online"
-# Create port named "IAC Driver Bus 1"
-python -c "import mido; print('Available ports:', mido.get_output_names())"
-```
-
----
-
-## 🎵 Live MIDI Streaming Setup
-
-**Perfect for:** Musicians, producers, live performers
-
-### 1. Start Ardour DAW
-```bash
-# Open Ardour and create a new project
-# Create a Software Instrument track
-# Arm the track for recording and enable monitoring
-```
-
-### 2. Start Live Streaming
-```bash
-python live_control_plane_cli.py
-```
-
-### 3. Try Live Generation
-```
-"Give me a funky bassline"
-"Make it more complex" 
-"Add some swing to it"
-"Make it brighter"
-"Stop" to end the session
-```
-
-**✅ Success:** You should see MIDI notes appearing in Ardour in real-time!
-
----
-
-## 💬 Musical Conversation Setup
-
-**Perfect for:** Songwriters, composers, creative exploration
-
-### 1. Start Conversation Mode
-```bash
+# Start conversation mode
 python enhanced_control_plane_cli.py --conversation
-```
 
-### 2. Try Musical Dialogue
-```
+# Try these examples:
 "I need a funky bass line for my song"
 "Make it groove like Stevie Wonder"
 "This chorus sounds flat, brighten it up"
 "Make it more complex"
 ```
 
-**✅ Success:** You should have a natural conversation with AI about music!
-
----
-
-## 🎛️ Traditional Commands Setup
-
-**Perfect for:** Developers, technical users, automation
-
-### 1. Basic Demo
+### Traditional Commands
 ```bash
+# Basic demo
 python main.py
 # Expected: "Playing C Major Scale..." and 8 notes in your DAW
-```
 
-### 2. Interactive Mode
-```bash
+# Interactive mode
 python main.py --interactive
 # Try: "play scale D minor", "set tempo to 140", "stop"
-```
 
-### 3. CLI Commands
-```bash
+# CLI commands
 python control_plane_cli.py "play scale F# lydian"
 python control_plane_cli.py "make it jazz"
-python control_plane_cli.py "analyze bass"
+
+# Ardour Integration (if Ardour is installed)
+python control_plane_cli.py "ardour connect"
+python control_plane_cli.py "ardour tracks"
 ```
 
-**✅ Success:** You should hear MIDI notes and see command responses!
-
----
-
-## 🧪 Test Your Setup
-
-### Quick Tests for Each Path
-
-**Live MIDI Streaming:**
+### Musical Scribe (Context-Aware AI)
 ```bash
-python live_control_plane_cli.py
-# Try: "Give me a C major scale"
-# Expected: Notes appear in Ardour in real-time
+# Check Musical Scribe status
+python control_plane_cli.py "musical scribe status"
+
+# Analyze entire project context
+python control_plane_cli.py "musical scribe analyze"
+
+# Enhance with context-aware AI
+python control_plane_cli.py "musical scribe enhance add a funky bassline"
+python control_plane_cli.py "musical scribe enhance improve the arrangement"
+python control_plane_cli.py "musical scribe enhance add some drums"
+
+# Generate contextual prompts
+python control_plane_cli.py "musical scribe prompt create a jazz melody"
+python control_plane_cli.py "musical scribe prompt add a walking bass line"
 ```
 
-**Musical Conversation:**
+## 3. Test Musical Intelligence (2 minutes)
+
+### Musical Conversation Examples
 ```bash
+# Start conversation mode
 python enhanced_control_plane_cli.py --conversation
-# Try: "Create a simple melody"
-# Expected: Natural conversation with musical generation
+
+# Generate musical content
+"I need a funky bass line for my song"
+"Create a jazz melody in C major"
+"Make a blues chord progression"
+
+# Use musical references
+"Make it groove like Stevie Wonder"
+"Give it that Motown feel"
+"I want something dark and moody"
+
+# Provide feedback and refinement
+"Make it more complex"
+"This is too busy, simplify it"
+"Make it swing more"
+"I want it in a different key"
 ```
 
-**Traditional Commands:**
+### Traditional Analysis
 ```bash
-python control_plane_cli.py "play scale C major"
-# Expected: Hear 8 notes in your DAW
+# Load and analyze MIDI files
+python control_plane_cli.py "load test_simple.mid"
+python control_plane_cli.py "analyze bass"
+python control_plane_cli.py "analyze melody"
+python control_plane_cli.py "analyze all"
+
+# Solve musical problems
+python control_plane_cli.py "make this groove better"
+python control_plane_cli.py "fix the harmony"
+python control_plane_cli.py "improve the arrangement"
+
+# With Ardour Integration
+python control_plane_cli.py "ardour export selected"
+python control_plane_cli.py "ardour analyze selected"
+python control_plane_cli.py "ardour improve selected"
 ```
 
----
+### Musical Scribe Examples
+```bash
+# Context-aware enhancement
+python control_plane_cli.py "musical scribe enhance add a funky bassline"
+python control_plane_cli.py "musical scribe enhance improve the arrangement"
+python control_plane_cli.py "musical scribe enhance add some drums"
 
-## 🎯 What You Should See
+# Project analysis
+python control_plane_cli.py "musical scribe analyze"
 
-### ✅ Live MIDI Streaming Success
-- MIDI notes appear in Ardour in real-time as you speak
-- Existing MIDI content changes immediately in Ardour
-- Natural dialogue with AI that controls live MIDI
+# Contextual prompt generation
+python control_plane_cli.py "musical scribe prompt create a jazz melody"
+python control_plane_cli.py "musical scribe prompt add a walking bass line"
 
-### ✅ Musical Conversation Success
-- Natural dialogue with AI musical collaborator
-- Generated MIDI files created from your requests
-- Back-and-forth conversation to perfect ideas
+# System status
+python control_plane_cli.py "musical scribe status"
+```
 
-### ✅ Traditional Commands Success
-- MIDI notes playing in your DAW
-- Command responses and feedback
-- Visual analysis (Blue=bass, Green=melody, Purple=harmony, Orange=rhythm)
+## 4. What You Should See
 
----
+- **Musical Conversation**: Natural dialogue with AI musical collaborator
+- **Musical Scribe**: Context-aware AI that understands your entire project
+- **Generated Content**: MIDI files created from your requests
+- **Contextual Enhancement**: AI-generated patterns that fit your existing musical context
+- **Iterative Refinement**: Back-and-forth conversation to perfect ideas
+- **Musical References**: AI understanding of artists, styles, and techniques
+- **MIDI Output**: Notes playing in your DAW
+- **Visual Feedback**: Color-coded analysis (Blue=bass, Green=melody, Purple=harmony, Orange=rhythm)
+- **Musical Improvements**: Better-sounding versions saved as new MIDI files
+- **Educational Content**: Explanations of what the AI changed and why
 
-## 🚨 Quick Troubleshooting
+## 5. Next Steps
+
+- **For Users**: See [README.md](README.md) for full features
+- **For Musical Conversation**: See [MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md) for detailed conversation guide
+- **For Developers**: See [DEVELOPMENT.md](DEVELOPMENT.md) for development workflows
+- **For Architecture**: See [ARCHITECTURE.md](ARCHITECTURE.md) for technical details
+- **For Ardour Integration**: See [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) for detailed Ardour workflow
+
+## Troubleshooting
 
 **No sound?**
 - Check IAC Driver is enabled and port is named "IAC Driver Bus 1"
@@ -184,25 +180,6 @@ python control_plane_cli.py "play scale C major"
 - Check you're in the virtual environment: `source .venv/bin/activate`
 - Verify dependencies: `pip list | grep mido`
 
-**Need more help?**
+**Need help?**
 - See [TROUBLESHOOTING.md](TROUBLESHOOTING.md) for detailed solutions
 - Check [DEVELOPMENT.md](DEVELOPMENT.md) for development issues
-
----
-
-## 📚 Next Steps
-
-### 🎵 **Live MIDI Streaming**
-- [docs/guides/LIVE_MIDI_STREAMING_README.md](docs/guides/LIVE_MIDI_STREAMING_README.md) - Detailed live streaming guide
-- [docs/ARDOUR_INTEGRATION.md](docs/ARDOUR_INTEGRATION.md) - Ardour DAW integration
-
-### 💬 **Musical Conversation**
-- [docs/guides/MUSICAL_CONVERSATION_README.md](docs/guides/MUSICAL_CONVERSATION_README.md) - Detailed conversation guide
-
-### 🛠️ **Development**
-- [DEVELOPMENT.md](DEVELOPMENT.md) - Developer workflows and guides
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Technical architecture and design
-
-### 📋 **Reference**
-- [README.md](README.md) - Full project overview
-- [CHANGELOG.md](CHANGELOG.md) - Version history and changes

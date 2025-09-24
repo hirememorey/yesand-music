@@ -61,6 +61,11 @@ class CommandType(Enum):
     ARDOUR_IMPORT_MIDI = "ardour_import_midi"
     ARDOUR_ANALYZE_SELECTED = "ardour_analyze_selected"
     ARDOUR_IMPROVE_SELECTED = "ardour_improve_selected"
+    # Musical Scribe Commands
+    MUSICAL_SCRIBE_ENHANCE = "musical_scribe_enhance"
+    MUSICAL_SCRIBE_ANALYZE = "musical_scribe_analyze"
+    MUSICAL_SCRIBE_PROMPT = "musical_scribe_prompt"
+    MUSICAL_SCRIBE_STATUS = "musical_scribe_status"
 
 
 class Density(Enum):

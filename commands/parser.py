@@ -278,6 +278,41 @@ class CommandParser:
                 r"ardour\s+improve",
                 r"improve\s+ardour",
             ],
+            # Musical Scribe Commands
+            CommandType.MUSICAL_SCRIBE_ENHANCE: [
+                r"musical\s+scribe\s+enhance\s+(.+)",
+                r"enhance\s+with\s+musical\s+scribe\s+(.+)",
+                r"musical\s+scribe\s+(.+)",
+                r"contextual\s+enhance\s+(.+)",
+                r"enhance\s+contextually\s+(.+)",
+                r"improve\s+with\s+context\s+(.+)",
+                r"musical\s+ai\s+enhance\s+(.+)",
+                r"ai\s+enhance\s+(.+)",
+            ],
+            CommandType.MUSICAL_SCRIBE_ANALYZE: [
+                r"musical\s+scribe\s+analyze",
+                r"analyze\s+with\s+musical\s+scribe",
+                r"contextual\s+analyze",
+                r"analyze\s+contextually",
+                r"musical\s+ai\s+analyze",
+                r"ai\s+analyze",
+                r"project\s+analysis",
+                r"full\s+project\s+analysis",
+            ],
+            CommandType.MUSICAL_SCRIBE_PROMPT: [
+                r"musical\s+scribe\s+prompt\s+(.+)",
+                r"generate\s+prompt\s+for\s+(.+)",
+                r"contextual\s+prompt\s+(.+)",
+                r"musical\s+ai\s+prompt\s+(.+)",
+                r"ai\s+prompt\s+(.+)",
+            ],
+            CommandType.MUSICAL_SCRIBE_STATUS: [
+                r"musical\s+scribe\s+status",
+                r"musical\s+scribe\s+info",
+                r"contextual\s+status",
+                r"musical\s+ai\s+status",
+                r"ai\s+status",
+            ],
         }
         
         # Compile all patterns for efficiency
@@ -406,7 +441,14 @@ class CommandParser:
         elif cmd_type == CommandType.ARDOUR_IMPORT_MIDI:
             params["file_path"] = groups[0].strip()
             
-        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET, analysis commands, ardour commands) have empty params
+        # Musical Scribe Commands
+        elif cmd_type == CommandType.MUSICAL_SCRIBE_ENHANCE:
+            params["user_request"] = groups[0].strip()
+            
+        elif cmd_type == CommandType.MUSICAL_SCRIBE_PROMPT:
+            params["user_request"] = groups[0].strip()
+            
+        # Commands with no parameters (STOP, STATUS, HELP, OSC_RESET, analysis commands, ardour commands, musical scribe commands) have empty params
         
         return params
     
@@ -464,6 +506,12 @@ Ardour Integration:
   ardour import [FILE]      - Import MIDI file to Ardour
   ardour analyze selected   - Analyze selected region in Ardour
   ardour improve selected   - Improve selected region in Ardour
+
+Musical Scribe (Context-Aware AI):
+  musical scribe enhance [REQUEST] - Enhance project with contextual AI (e.g., "musical scribe enhance add a funky bassline")
+  musical scribe analyze           - Analyze entire project context
+  musical scribe prompt [REQUEST]  - Generate contextual prompt for request
+  musical scribe status            - Show Musical Scribe system status
 
 System:
   stop                      - Stop current playback
