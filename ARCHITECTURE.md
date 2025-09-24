@@ -25,15 +25,15 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
                      Feedback         + File I/O     + DAW Integration        + DAW State
 ```
 
-### Real-Time Enhancement Architecture (NEW)
+### Real-Time Enhancement Architecture with Auto-Import (NEW)
 ```
-Ardour OSC → Project State Capture → LLM Enhancement → MIDI Generation → Ardour Import
+Ardour OSC → Project State Capture → LLM Enhancement → MIDI Generation → Auto-Import → Ardour
+     ↓              ↓                      ↓                ↓              ↓           ↓
+Live Project    Musical Context      AI Analysis      MIDI Patterns    Lua Script   Ready to
+State          Analysis             & Generation     & Validation      Generation   Play!
      ↓              ↓                      ↓                ↓              ↓
-Live Project    Musical Context      AI Analysis      MIDI Patterns    Import Script
-State          Analysis             & Generation     & Validation      & Automation
-     ↓              ↓                      ↓                ↓              ↓
-Real-Time      Enhancement          Pattern         Universal        Lua Script
-Monitoring     Opportunities        Generation      MIDI Format      Generation
+Real-Time      Enhancement          Pattern         Universal        Track Mgmt
+Monitoring     Opportunities        Generation      MIDI Format      & Import
 ```
 
 ## Core Components
@@ -418,9 +418,9 @@ musical scribe status               # Show Musical Scribe system status
 - **Fallback Safety**: Maintains existing functionality when Musical Scribe is unavailable
 - **Educational Value**: Explains musical choices and provides learning opportunities
 
-### Real-Time Enhancement System (NEW)
+### Real-Time Enhancement System with Auto-Import (NEW)
 
-The Real-Time Enhancement System represents the evolution from file-based to real-time DAW integration, providing live LLM-powered track enhancement with real-time project context monitoring.
+The Real-Time Enhancement System represents the evolution from file-based to real-time DAW integration, providing live LLM-powered track enhancement with automatic MIDI import using Lua scripting.
 
 #### Core Components (Implemented)
 - **`RealTimeArdourEnhancer`** (`real_time_ardour_enhancer.py`): Main integration system orchestrating all components
@@ -429,26 +429,59 @@ The Real-Time Enhancement System represents the evolution from file-based to rea
 - **`MIDIStreamAnalyzer`** (`midi_stream_analyzer.py`): Real-time MIDI stream analysis and monitoring
 - **`LLMTrackEnhancer`** (`llm_track_enhancer.py`): OpenAI-powered track enhancement with context awareness
 - **`MIDIPatternParser`** (`midi_pattern_parser.py`): MIDI pattern generation, validation, and Ardour optimization
+- **`ArdourLuaImporter`** (`ardour_lua_importer.py`): Automatic MIDI import using Lua scripting
+- **`TrackManager`** (`track_manager.py`): Intelligent track creation and management
 - **`RealTimeEnhancementCLI`** (`real_time_enhancement_cli.py`): Interactive CLI interface
 
 #### Architecture Evolution
-**Before (File-Based)**: Export project → Analyze → Generate enhancement → Import back
-**After (Real-Time)**: Live OSC monitoring → Real-time context analysis → Live LLM enhancement → Seamless import
+**Before (File-Based)**: Export project → Analyze → Generate enhancement → Manual import
+**After (Real-Time with Auto-Import)**: Live OSC monitoring → Real-time context analysis → Live LLM enhancement → Automatic import via Lua scripting
 
 #### New Commands Available
 ```bash
 python real_time_enhancement_cli.py --interactive    # Interactive enhancement mode
-python real_time_enhancement_cli.py --command enhance --request "make bassline groovier"
+python real_time_enhancement_cli.py --command enhance --request "create a funky bassline"
 python real_time_enhancement_cli.py --status         # Show project status
 python real_time_enhancement_cli.py --suggestions    # Show enhancement suggestions
+
+# Interactive commands:
+enhance> enhance create a walking bass line          # Auto-imports to Ardour
+enhance> imports                                     # Check import status
+enhance> enhance drums add ghost notes               # Multiple pattern import
 ```
 
 #### Key Benefits
 - **Real-Time Accuracy**: Always works with current project state, not stale data
 - **Live Context Awareness**: Monitors project changes in real-time via OSC
-- **Seamless Integration**: Direct integration with Ardour without file exports
+- **Automatic Import**: Seamless MIDI import using reliable Lua scripting
+- **Intelligent Track Management**: Automatically creates appropriate tracks
 - **Intelligent Enhancement**: LLM-powered suggestions based on full project context
 - **Professional Workflow**: Maintains professional DAW workflows while adding AI intelligence
+
+### Auto-Import Architecture
+
+The automatic import system uses Lua scripting instead of OSC for reliable MIDI import to Ardour.
+
+#### Core Components
+- **`ArdourLuaImporter`**: Generates and executes Lua scripts for MIDI import
+- **`TrackManager`**: Intelligent track creation and management
+- **Lua Script Generation**: Creates Ardour-compatible import scripts
+- **Error Recovery**: Comprehensive error handling and user feedback
+
+#### Import Workflow
+```
+MIDI Generation → Track Management → Lua Script Generation → Ardour Execution → Import Complete
+     ↓                ↓                      ↓                    ↓              ↓
+Generated Files   Track Config         Lua Script File      Ardour Lua      Ready to
+                  Creation             Creation             Execution       Play!
+```
+
+#### Key Design Decisions
+- **Lua over OSC**: More reliable than OSC import commands
+- **Script Generation**: Creates Ardour-compatible Lua scripts
+- **Track Templates**: Pre-configured track settings for different enhancement types
+- **Error Handling**: Comprehensive error reporting and recovery
+- **User Feedback**: Real-time import status and results
 
 ## Quality Assurance
 

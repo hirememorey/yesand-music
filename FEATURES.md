@@ -4,7 +4,7 @@ Complete guide to all YesAnd Music features and capabilities.
 
 ## Table of Contents
 
-- [Real-Time Ardour Enhancement](#real-time-ardour-enhancement) (NEW)
+- [Real-Time Ardour Enhancement with Auto-Import](#real-time-ardour-enhancement-with-auto-import) (NEW)
 - [Live MIDI Streaming](#live-midi-streaming)
 - [Musical Conversation](#musical-conversation)
 - [Musical Scribe (Context-Aware AI)](#musical-scribe-context-aware-ai)
@@ -15,17 +15,19 @@ Complete guide to all YesAnd Music features and capabilities.
 
 ---
 
-## Real-Time Ardour Enhancement (NEW)
+## Real-Time Ardour Enhancement with Auto-Import (NEW)
 
-**Live LLM-Powered Track Enhancement with Real-Time Project Context**
+**Live LLM-Powered Track Enhancement with Automatic MIDI Import**
 
 ### What It Is
-Real-Time Ardour Enhancement provides live LLM-powered track enhancement that monitors your Ardour project in real-time via OSC and provides intelligent musical suggestions based on the complete project context. It's like having an AI musical producer that understands your entire project and can enhance any track with contextually appropriate suggestions.
+Real-Time Ardour Enhancement provides live LLM-powered track enhancement that monitors your Ardour project in real-time via OSC and provides intelligent musical suggestions based on the complete project context. The system automatically imports generated MIDI patterns to Ardour using Lua scripting, eliminating manual import steps. It's like having an AI musical producer that understands your entire project and can enhance any track with contextually appropriate suggestions that appear instantly in your DAW.
 
 ### Key Features
 - **Real-Time Project Monitoring**: Live monitoring of Ardour project state via OSC
 - **Context-Aware Intelligence**: Full project context for intelligent enhancements
 - **LLM-Powered Enhancement**: OpenAI GPT models for musical analysis and generation
+- **Automatic Import**: Seamless MIDI import to Ardour using Lua scripting
+- **Intelligent Track Management**: Automatically creates appropriate tracks
 - **Multiple Enhancement Types**: Bass, drums, melody, harmony, and general enhancements
 - **Seamless Integration**: Direct Ardour integration without file exports
 - **Interactive CLI**: User-friendly interface for real-time enhancement
@@ -69,8 +71,8 @@ python real_time_enhancement_cli.py --suggestions
 
 #### Interactive Commands
 ```bash
-enhance> enhance make the bassline groovier
-🎵 Enhancing track: make the bassline groovier
+enhance> enhance create a funky bassline
+🎵 Enhancing track: create a funky bassline
 ✅ Enhancement completed in 2.34s
 📊 Confidence: 0.87
 🎼 Generated 3 patterns
@@ -81,6 +83,12 @@ enhance> enhance make the bassline groovier
   3. Complex Bass Pattern (Confidence: 0.82)
      Advanced bass line with chord tones and rhythm variations
 
+🚀 Auto-import status:
+  ✅ Successfully imported to 3 tracks:
+    - Bass at position 0
+    - Bass_2 at position 32
+    - Bass_3 at position 64
+
 enhance> enhance drums add ghost notes
 🎵 Enhancing track: add ghost notes
 ✅ Enhancement completed in 1.98s
@@ -90,6 +98,20 @@ enhance> enhance drums add ghost notes
      Adds subtle ghost notes for realistic drum feel
   2. Complex Ghost Pattern (Confidence: 0.89)
      Advanced ghost note pattern with dynamic variation
+
+🚀 Auto-import status:
+  ✅ Successfully imported to 2 tracks:
+    - Drums at position 0
+    - Drums_2 at position 32
+
+enhance> imports
+🚀 Import Status (5 total):
+  ✅ Successful imports (5):
+    - Bass at position 0
+    - Bass_2 at position 32
+    - Bass_3 at position 64
+    - Drums at position 0
+    - Drums_2 at position 32
 ```
 
 ### Enhancement Types
@@ -119,6 +141,13 @@ enhance> enhance drums add ghost notes
 - **Voice Leading**: Smooth voice leading between chords
 
 ### Advanced Features
+
+#### Automatic Import System
+- **Lua Scripting**: Reliable MIDI import using Ardour's Lua API
+- **Track Creation**: Automatically creates appropriate tracks for different content types
+- **Smart Naming**: Intelligent track naming based on enhancement type
+- **Error Recovery**: Comprehensive error handling and user feedback
+- **Import Status**: Real-time feedback on import success/failure
 
 #### Real-Time Context Analysis
 - **Project State Monitoring**: Live monitoring of tracks, regions, and selections

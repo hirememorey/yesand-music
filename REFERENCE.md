@@ -46,12 +46,12 @@ python live_control_plane_cli.py [OPTIONS] [COMMAND]
 - **Features**: Live streaming to Ardour, real-time editing
 - **Best for**: Live musical creation and performance
 
-#### Real-Time Ardour Enhancement (NEW)
+#### Real-Time Ardour Enhancement with Auto-Import (NEW)
 ```bash
 python real_time_enhancement_cli.py [OPTIONS] [COMMAND]
 ```
-- **Purpose**: Live LLM-powered track enhancement with real-time project context
-- **Features**: OSC monitoring, context-aware enhancement, seamless Ardour integration
+- **Purpose**: Live LLM-powered track enhancement with automatic MIDI import
+- **Features**: OSC monitoring, context-aware enhancement, automatic import via Lua scripting
 - **Best for**: Professional track enhancement and production workflows
 
 ### Command Line Options
@@ -85,10 +85,11 @@ python real_time_enhancement_cli.py --interactive
 **Interactive Commands**:
 - `enhance <request>` - Enhance any track with natural language request
 - `enhance track <id> <request>` - Enhance specific track by ID
-- `enhance bass [request]` - Enhance bass line (default: "make the bassline groovier")
+- `enhance bass [request]` - Enhance bass line (default: "create a funky bassline")
 - `enhance drums [request]` - Enhance drum pattern (default: "add a drum pattern")
 - `enhance melody [request]` - Enhance melody (default: "add a melody")
 - `enhance harmony [request]` - Enhance harmony (default: "add harmony")
+- `imports` - Show import status and results
 - `suggestions` - Show enhancement suggestions for current project
 - `status` - Show current project status
 - `help` - Show available commands
@@ -635,6 +636,42 @@ class ArdourIntegration:
     def import_midi_file(self, filename: str) -> bool
 ```
 
+#### RealTimeArdourEnhancer (NEW)
+```python
+class RealTimeArdourEnhancer:
+    def start_enhancement_session(self, session_id: str = None) -> str
+    def stop_enhancement_session(self) -> None
+    def enhance_track(self, user_request: str, track_id: str = None, 
+                     enhancement_type: str = "general") -> EnhancementResult
+    def get_import_results(self) -> List[ImportResult]
+    def get_import_history(self) -> List[ImportResult]
+    def get_enhancement_suggestions(self, track_id: str = None) -> List[str]
+```
+
+#### ArdourLuaImporter (NEW)
+```python
+class ArdourLuaImporter:
+    def auto_import_midi(self, midi_file_path: str, track_config: TrackConfig, 
+                        position: float = 0.0) -> ImportResult
+    def create_track_if_needed(self, track_config: TrackConfig) -> bool
+    def import_multiple_patterns(self, patterns: List[Dict[str, Any]], 
+                               base_track_name: str = "Generated") -> List[ImportResult]
+    def get_import_history(self) -> List[ImportResult]
+```
+
+#### TrackManager (NEW)
+```python
+class TrackManager:
+    def get_track_for_enhancement(self, enhancement_type: EnhancementType, 
+                                 track_name: str = None) -> Tuple[str, bool]
+    def create_track_config(self, enhancement_type: EnhancementType, 
+                          track_name: str = None, position: float = 0.0) -> Dict[str, Any]
+    def get_track_placement_strategy(self, enhancement_type: EnhancementType, 
+                                   existing_tracks: List[TrackInfo]) -> Dict[str, Any]
+    def suggest_track_improvements(self, track_info: TrackInfo, 
+                                 enhancement_type: EnhancementType) -> List[str]
+```
+
 ### Data Structures
 
 #### Universal Note Format
@@ -646,6 +683,56 @@ class ArdourIntegration:
     'duration_seconds': float,       # Note duration in seconds
     'track_index': int              # Track number
 }
+```
+
+#### Auto-Import Data Structures (NEW)
+
+##### ImportResult
+```python
+@dataclass
+class ImportResult:
+    success: bool                    # Whether import was successful
+    track_name: str                  # Name of the track
+    region_id: Optional[str]         # ID of imported region
+    position: float                  # Position in timeline
+    error_message: Optional[str]     # Error message if failed
+    lua_script_path: Optional[str]   # Path to generated Lua script
+```
+
+##### TrackConfig
+```python
+@dataclass
+class TrackConfig:
+    name: str                        # Track name
+    type: str                        # Track type ("midi", "audio", "bus")
+    channel_count: int               # Number of channels
+    auto_create: bool                # Whether to create track if missing
+    position: float                  # Position in timeline
+```
+
+##### TrackInfo
+```python
+@dataclass
+class TrackInfo:
+    id: str                          # Track ID
+    name: str                        # Track name
+    type: TrackType                  # Track type enum
+    channel_count: int               # Number of channels
+    volume: float                    # Track volume
+    pan: float                       # Track pan
+    muted: bool                      # Whether track is muted
+    solo: bool                       # Whether track is soloed
+    armed: bool                      # Whether track is armed
+```
+
+##### EnhancementType (Enum)
+```python
+class EnhancementType(Enum):
+    BASS = "bass"
+    DRUMS = "drums"
+    MELODY = "melody"
+    HARMONY = "harmony"
+    GENERAL = "general"
 ```
 
 #### MusicalResponse

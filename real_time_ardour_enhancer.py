@@ -5,6 +5,7 @@ Integrates all components for real-time track enhancement in Ardour.
 Provides complete workflow from OSC monitoring to LLM enhancement to MIDI generation.
 """
 
+import os
 import time
 import logging
 from typing import Dict, List, Any, Optional, Callable
@@ -16,6 +17,8 @@ from project_state_capture import ProjectStateCapture, LiveProjectContext
 from midi_stream_analyzer import MIDIStreamAnalyzer, TrackStreamAnalysis
 from llm_track_enhancer import LLMTrackEnhancer, EnhancementRequest, EnhancementResult
 from midi_pattern_parser import MIDIPatternParser, MIDIGenerationOptions
+from ardour_lua_importer import ArdourLuaImporter, ImportResult, TrackConfig
+from track_manager import TrackManager, EnhancementType
 
 
 @dataclass
@@ -26,6 +29,7 @@ class EnhancementSession:
     project_context: Optional[LiveProjectContext]
     enhancement_results: List[EnhancementResult]
     generated_files: List[Dict[str, Any]]
+    import_results: List[ImportResult]
     is_active: bool = True
 
 
@@ -54,6 +58,8 @@ class RealTimeArdourEnhancer:
         self.midi_analyzer = MIDIStreamAnalyzer()
         self.llm_enhancer = LLMTrackEnhancer(openai_api_key)
         self.pattern_parser = MIDIPatternParser()
+        self.lua_importer = ArdourLuaImporter()
+        self.track_manager = TrackManager()
         
         # Session management
         self.current_session: Optional[EnhancementSession] = None
@@ -85,7 +91,8 @@ class RealTimeArdourEnhancer:
             start_time=time.time(),
             project_context=None,
             enhancement_results=[],
-            generated_files=[]
+            generated_files=[],
+            import_results=[]
         )
         
         # Start monitoring
@@ -182,6 +189,10 @@ class RealTimeArdourEnhancer:
             self.current_session.enhancement_results.append(result)
             self.current_session.generated_files.extend(generated_files)
             
+            # Auto-import to Ardour
+            import_results = self._auto_import_enhancement(result, generated_files)
+            self.current_session.import_results.extend(import_results)
+            
             # Notify callbacks
             for callback in self.enhancement_callbacks:
                 try:
@@ -211,35 +222,105 @@ class RealTimeArdourEnhancer:
         
         return suggestions
     
+    def _auto_import_enhancement(self, result: EnhancementResult, 
+                                generated_files: List[Dict[str, Any]]) -> List[ImportResult]:
+        """
+        Automatically import enhancement result to Ardour.
+        
+        Args:
+            result: Enhancement result
+            generated_files: Generated MIDI files
+            
+        Returns:
+            List of import results
+        """
+        import_results = []
+        
+        if not result.success or not generated_files:
+            return import_results
+        
+        try:
+            # Determine enhancement type
+            enhancement_type = self._determine_enhancement_type(result.enhancement_type)
+            
+            # Get track configuration
+            track_name, was_created = self.track_manager.get_track_for_enhancement(
+                enhancement_type, result.track_id
+            )
+            
+            # Create track if needed
+            if was_created:
+                track_config = self.track_manager.create_track_config(
+                    enhancement_type, track_name
+                )
+                self.lua_importer.create_track_if_needed(
+                    TrackConfig(
+                        name=track_config["name"],
+                        type=track_config["type"],
+                        channel_count=track_config["channel_count"],
+                        auto_create=track_config.get("auto_create", True)
+                    )
+                )
+            
+            # Import each generated file
+            for i, file_info in enumerate(generated_files):
+                if not os.path.exists(file_info["file_path"]):
+                    self.logger.warning(f"Generated file not found: {file_info['file_path']}")
+                    continue
+                
+                # Create track config for this pattern
+                pattern_track_name = f"{track_name}_{i+1}" if len(generated_files) > 1 else track_name
+                track_config = TrackConfig(
+                    name=pattern_track_name,
+                    type="midi",
+                    auto_create=True
+                )
+                
+                # Import MIDI file
+                import_result = self.lua_importer.auto_import_midi(
+                    file_info["file_path"],
+                    track_config,
+                    position=i * 32  # 32 beats apart
+                )
+                
+                import_results.append(import_result)
+                
+                if import_result.success:
+                    self.logger.info(f"Successfully imported {file_info['file_path']} to {pattern_track_name}")
+                else:
+                    self.logger.error(f"Failed to import {file_info['file_path']}: {import_result.error_message}")
+            
+        except Exception as e:
+            self.logger.error(f"Error in auto-import: {e}")
+        
+        return import_results
+    
+    def _determine_enhancement_type(self, enhancement_type_str: str) -> EnhancementType:
+        """Determine enhancement type from string."""
+        type_mapping = {
+            "bass": EnhancementType.BASS,
+            "drums": EnhancementType.DRUMS,
+            "melody": EnhancementType.MELODY,
+            "harmony": EnhancementType.HARMONY,
+            "general": EnhancementType.GENERAL
+        }
+        
+        return type_mapping.get(enhancement_type_str.lower(), EnhancementType.GENERAL)
+    
     def import_enhancement_to_ardour(self, result: EnhancementResult, 
                                    pattern_index: int = 0) -> bool:
-        """Import enhancement result to Ardour."""
+        """Import enhancement result to Ardour (legacy method for compatibility)."""
         if not result.success or not result.patterns:
             return False
         
         if pattern_index >= len(result.patterns):
             return False
         
-        pattern = result.patterns[pattern_index]
+        # Use auto-import functionality
+        generated_files = self.pattern_parser.parse_enhancement_result(result)
+        import_results = self._auto_import_enhancement(result, generated_files)
         
-        try:
-            # Generate MIDI file
-            generated_files = self.pattern_parser.parse_enhancement_result(result)
-            if not generated_files:
-                return False
-            
-            # Create Ardour import script
-            script_path = self.pattern_parser.create_ardour_import_script(
-                generated_files, 
-                self.osc_monitor.get_current_state().project_name
-            )
-            
-            self.logger.info(f"Created Ardour import script: {script_path}")
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"Error importing enhancement to Ardour: {e}")
-            return False
+        return any(ir.success for ir in import_results)
     
     def get_current_project_state(self) -> Optional[LiveProjectState]:
         """Get current project state."""
@@ -252,6 +333,21 @@ class RealTimeArdourEnhancer:
     def get_enhancement_history(self) -> List[EnhancementSession]:
         """Get enhancement history."""
         return self.enhancement_history.copy()
+    
+    def get_import_results(self) -> List[ImportResult]:
+        """Get import results from current session."""
+        if self.current_session:
+            return self.current_session.import_results.copy()
+        return []
+    
+    def get_import_history(self) -> List[ImportResult]:
+        """Get all import results from all sessions."""
+        all_imports = []
+        for session in self.enhancement_history:
+            all_imports.extend(session.import_results)
+        if self.current_session:
+            all_imports.extend(self.current_session.import_results)
+        return all_imports
     
     def add_enhancement_callback(self, callback: Callable[[EnhancementResult], None]):
         """Add callback for enhancement results."""
@@ -306,6 +402,8 @@ class RealTimeArdourEnhancer:
         summary_parts.append(f"**Duration:** {time.time() - session.start_time:.2f}s")
         summary_parts.append(f"**Enhancements:** {len(session.enhancement_results)}")
         summary_parts.append(f"**Generated Files:** {len(session.generated_files)}")
+        summary_parts.append(f"**Imports:** {len(session.import_results)}")
+        summary_parts.append(f"**Successful Imports:** {len([ir for ir in session.import_results if ir.success])}")
         summary_parts.append(f"")
         
         # Add enhancement results
@@ -317,6 +415,17 @@ class RealTimeArdourEnhancer:
             summary_parts.append(f"**Request:** {result.user_request}")
             summary_parts.append(f"**Confidence:** {result.confidence:.2f}")
             summary_parts.append(f"**Processing Time:** {result.processing_time:.2f}s")
+            
+            # Add import information
+            related_imports = [ir for ir in session.import_results if ir.track_name.startswith(result.track_id or "")]
+            if related_imports:
+                summary_parts.append(f"**Imports:** {len(related_imports)}")
+                for j, import_result in enumerate(related_imports, 1):
+                    status = "✅ Success" if import_result.success else "❌ Failed"
+                    summary_parts.append(f"  - Import {j}: {import_result.track_name} {status}")
+                    if not import_result.success and import_result.error_message:
+                        summary_parts.append(f"    Error: {import_result.error_message}")
+            
             summary_parts.append(f"")
         
         # Save summary

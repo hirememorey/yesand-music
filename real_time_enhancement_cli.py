@@ -77,6 +77,25 @@ class RealTimeEnhancementCLI:
                 print(f"  {i}. {pattern.name} (Confidence: {pattern.confidence_score:.2f})")
                 print(f"     {pattern.description}")
             
+            # Show import status
+            import_results = self.enhancer.get_import_results()
+            if import_results:
+                print(f"🚀 Auto-import status:")
+                successful_imports = [ir for ir in import_results if ir.success]
+                failed_imports = [ir for ir in import_results if not ir.success]
+                
+                if successful_imports:
+                    print(f"  ✅ Successfully imported to {len(successful_imports)} tracks:")
+                    for ir in successful_imports:
+                        print(f"    - {ir.track_name} at position {ir.position}")
+                
+                if failed_imports:
+                    print(f"  ❌ Failed to import to {len(failed_imports)} tracks:")
+                    for ir in failed_imports:
+                        print(f"    - {ir.track_name}: {ir.error_message}")
+            else:
+                print(f"⚠️  No auto-import results available")
+            
             # Display suggestions
             if result.suggestions:
                 print(f"💡 Suggestions:")
@@ -99,6 +118,34 @@ class RealTimeEnhancementCLI:
             print("No suggestions available")
         
         return suggestions
+    
+    def show_import_status(self):
+        """Show current import status."""
+        import_results = self.enhancer.get_import_results()
+        
+        if not import_results:
+            print("No import results available")
+            return
+        
+        print(f"🚀 Import Status ({len(import_results)} total):")
+        
+        successful_imports = [ir for ir in import_results if ir.success]
+        failed_imports = [ir for ir in import_results if not ir.success]
+        
+        if successful_imports:
+            print(f"  ✅ Successful imports ({len(successful_imports)}):")
+            for ir in successful_imports:
+                print(f"    - {ir.track_name} at position {ir.position}")
+        
+        if failed_imports:
+            print(f"  ❌ Failed imports ({len(failed_imports)}):")
+            for ir in failed_imports:
+                print(f"    - {ir.track_name}: {ir.error_message}")
+        
+        # Show import history
+        all_imports = self.enhancer.get_import_history()
+        if len(all_imports) > len(import_results):
+            print(f"  📊 Total imports this session: {len(all_imports)}")
     
     def get_project_status(self) -> Dict[str, Any]:
         """Get current project status."""
@@ -156,6 +203,8 @@ class RealTimeEnhancementCLI:
                         self.display_status()
                     elif command.lower() == 'suggestions':
                         self.get_suggestions()
+                    elif command.lower() == 'imports':
+                        self.show_import_status()
                     elif command.startswith('enhance '):
                         request = command[8:].strip()
                         if request:
@@ -199,6 +248,7 @@ class RealTimeEnhancementCLI:
         print("  help                    - Show this help")
         print("  status                  - Show project status")
         print("  suggestions             - Show enhancement suggestions")
+        print("  imports                 - Show import status")
         print("  enhance <request>       - Enhance any track")
         print("  enhance track <id> <request> - Enhance specific track")
         print("  enhance bass [request]  - Enhance bass line")

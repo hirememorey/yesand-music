@@ -28,9 +28,10 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 ```bash
-# Real-Time Ardour Enhancement (NEW - Recommended)
+# Real-Time Ardour Enhancement with Auto-Import (NEW - Recommended)
 python real_time_enhancement_cli.py --interactive
-# Try: "enhance make the bassline groovier" → Real-time LLM enhancement
+# Try: "enhance create a funky bassline" → Auto-imports to Ardour!
+# Try: "imports" → Check import status
 
 # Live MIDI Streaming
 python live_control_plane_cli.py
@@ -51,6 +52,7 @@ python control_plane_cli.py "play scale C major"
 
 ### Core Capabilities
 - **🚀 Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with real-time project context
+- **⚡ Automatic Import**: Seamless MIDI import to Ardour using Lua scripting - no manual steps!
 - **🎵 Live MIDI Streaming**: Generate and stream MIDI directly to Ardour tracks in real-time
 - **💬 Musical Conversation**: Chat with AI musical collaborator in natural language
 - **🧠 Musical Scribe**: Context-aware AI that understands your entire project and provides intelligent enhancements
@@ -70,6 +72,7 @@ python control_plane_cli.py "play scale C major"
 ## 📚 Documentation
 
 ### For Users
+- **[Auto-Import Guide](AUTO_IMPORT_GUIDE.md)** - Complete guide to automatic Ardour import
 - **[Real-Time Enhancement Guide](REAL_TIME_ENHANCEMENT.md)** - Complete guide to real-time Ardour enhancement
 - **[Features Guide](FEATURES.md)** - Complete guide to all features and capabilities
 - **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions
@@ -81,11 +84,11 @@ python control_plane_cli.py "play scale C major"
 
 ## 🎵 Example Workflows
 
-### Real-Time Ardour Enhancement (NEW)
+### Real-Time Ardour Enhancement with Auto-Import (NEW)
 1. **Start**: `python real_time_enhancement_cli.py --interactive`
-2. **Enhance**: `enhance make the bassline groovier` → Real-time LLM analysis
-3. **Review**: AI generates multiple patterns with musical justification
-4. **Import**: Patterns automatically imported to Ardour
+2. **Enhance**: `enhance create a funky bassline` → Real-time LLM analysis
+3. **Auto-Import**: Patterns automatically imported to Ardour tracks
+4. **Check Status**: `imports` → See what was imported successfully
 5. **Refine**: `enhance make it more complex` → Iterative improvement
 
 ### Live MIDI Creation
@@ -118,6 +121,7 @@ YesAnd Music follows a "Brain vs. Hands" architecture:
 
 **✅ Production Ready Features:**
 - **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with OSC monitoring
+- **Automatic Import**: Seamless MIDI import to Ardour using Lua scripting
 - Live MIDI streaming to Ardour
 - Musical conversation system with OpenAI integration
 - Context-aware Musical Scribe architecture
