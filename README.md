@@ -28,7 +28,11 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 ```bash
-# Live MIDI Streaming (Recommended)
+# Real-Time Ardour Enhancement (NEW - Recommended)
+python real_time_enhancement_cli.py --interactive
+# Try: "enhance make the bassline groovier" → Real-time LLM enhancement
+
+# Live MIDI Streaming
 python live_control_plane_cli.py
 # Try: "Give me a funky bassline" → "Make it more complex"
 
@@ -46,6 +50,7 @@ python control_plane_cli.py "play scale C major"
 **YesAnd Music** is a context-aware AI musical collaborator that understands your entire project and provides intelligent enhancements through natural language conversation.
 
 ### Core Capabilities
+- **🚀 Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with real-time project context
 - **🎵 Live MIDI Streaming**: Generate and stream MIDI directly to Ardour tracks in real-time
 - **💬 Musical Conversation**: Chat with AI musical collaborator in natural language
 - **🧠 Musical Scribe**: Context-aware AI that understands your entire project and provides intelligent enhancements
@@ -65,6 +70,7 @@ python control_plane_cli.py "play scale C major"
 ## 📚 Documentation
 
 ### For Users
+- **[Real-Time Enhancement Guide](REAL_TIME_ENHANCEMENT.md)** - Complete guide to real-time Ardour enhancement
 - **[Features Guide](FEATURES.md)** - Complete guide to all features and capabilities
 - **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions
 - **[Reference](REFERENCE.md)** - Complete command and API reference
@@ -74,6 +80,13 @@ python control_plane_cli.py "play scale C major"
 - **[Architecture](ARCHITECTURE.md)** - Technical architecture and design details
 
 ## 🎵 Example Workflows
+
+### Real-Time Ardour Enhancement (NEW)
+1. **Start**: `python real_time_enhancement_cli.py --interactive`
+2. **Enhance**: `enhance make the bassline groovier` → Real-time LLM analysis
+3. **Review**: AI generates multiple patterns with musical justification
+4. **Import**: Patterns automatically imported to Ardour
+5. **Refine**: `enhance make it more complex` → Iterative improvement
 
 ### Live MIDI Creation
 1. **Generate**: "Give me a funky bassline" → MIDI streams to Ardour
@@ -104,6 +117,7 @@ YesAnd Music follows a "Brain vs. Hands" architecture:
 ## 🚀 Current Status
 
 **✅ Production Ready Features:**
+- **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with OSC monitoring
 - Live MIDI streaming to Ardour
 - Musical conversation system with OpenAI integration
 - Context-aware Musical Scribe architecture

@@ -4,6 +4,7 @@ Complete guide to all YesAnd Music features and capabilities.
 
 ## Table of Contents
 
+- [Real-Time Ardour Enhancement](#real-time-ardour-enhancement) (NEW)
 - [Live MIDI Streaming](#live-midi-streaming)
 - [Musical Conversation](#musical-conversation)
 - [Musical Scribe (Context-Aware AI)](#musical-scribe-context-aware-ai)
@@ -11,6 +12,145 @@ Complete guide to all YesAnd Music features and capabilities.
 - [DAW Integration](#daw-integration)
 - [Visual Feedback System](#visual-feedback-system)
 - [Musical Intelligence](#musical-intelligence)
+
+---
+
+## Real-Time Ardour Enhancement (NEW)
+
+**Live LLM-Powered Track Enhancement with Real-Time Project Context**
+
+### What It Is
+Real-Time Ardour Enhancement provides live LLM-powered track enhancement that monitors your Ardour project in real-time via OSC and provides intelligent musical suggestions based on the complete project context. It's like having an AI musical producer that understands your entire project and can enhance any track with contextually appropriate suggestions.
+
+### Key Features
+- **Real-Time Project Monitoring**: Live monitoring of Ardour project state via OSC
+- **Context-Aware Intelligence**: Full project context for intelligent enhancements
+- **LLM-Powered Enhancement**: OpenAI GPT models for musical analysis and generation
+- **Multiple Enhancement Types**: Bass, drums, melody, harmony, and general enhancements
+- **Seamless Integration**: Direct Ardour integration without file exports
+- **Interactive CLI**: User-friendly interface for real-time enhancement
+
+### How to Use
+
+#### Setup
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Set OpenAI API key
+export OPENAI_API_KEY="your-api-key-here"
+
+# 3. Enable IAC Driver
+# Open Audio MIDI Setup → Window → Show MIDI Studio
+# Double-click IAC Driver → check "Device is online"
+# Create port named "IAC Driver Bus 1"
+
+# 4. Enable OSC in Ardour
+# Ardour → Preferences → OSC → Enable OSC
+# Set OSC port to 3819
+
+# 5. Start Ardour with a project
+```
+
+#### Basic Usage
+```bash
+# Interactive mode (recommended)
+python real_time_enhancement_cli.py --interactive
+
+# Single command
+python real_time_enhancement_cli.py --command enhance --request "make the bassline groovier"
+
+# Show project status
+python real_time_enhancement_cli.py --status
+
+# Show enhancement suggestions
+python real_time_enhancement_cli.py --suggestions
+```
+
+#### Interactive Commands
+```bash
+enhance> enhance make the bassline groovier
+🎵 Enhancing track: make the bassline groovier
+✅ Enhancement completed in 2.34s
+📊 Confidence: 0.87
+🎼 Generated 3 patterns
+  1. Walking Bass Pattern (Confidence: 0.89)
+     Provides solid rhythmic foundation with root notes
+  2. Syncopated Bass Pattern (Confidence: 0.85)
+     Adds rhythmic interest with off-beat emphasis
+  3. Complex Bass Pattern (Confidence: 0.82)
+     Advanced bass line with chord tones and rhythm variations
+
+enhance> enhance drums add ghost notes
+🎵 Enhancing track: add ghost notes
+✅ Enhancement completed in 1.98s
+📊 Confidence: 0.91
+🎼 Generated 2 patterns
+  1. Ghost Note Pattern (Confidence: 0.93)
+     Adds subtle ghost notes for realistic drum feel
+  2. Complex Ghost Pattern (Confidence: 0.89)
+     Advanced ghost note pattern with dynamic variation
+```
+
+### Enhancement Types
+
+#### Bass Enhancement
+- **Walking Bass Lines**: Jazz-style bass lines with chord tones
+- **Syncopated Patterns**: Funk and R&B style bass lines
+- **Root Note Patterns**: Simple but effective bass foundations
+- **Complex Bass Lines**: Advanced bass lines with rhythm variations
+
+#### Drum Enhancement
+- **Basic Patterns**: Simple 4/4 drum patterns
+- **Ghost Notes**: Subtle ghost notes for realistic feel
+- **Fills and Variations**: Drum fills and pattern variations
+- **Style-Specific Patterns**: Jazz, funk, rock, electronic patterns
+
+#### Melody Enhancement
+- **Melodic Lines**: Compelling melodic content
+- **Harmonic Support**: Melodies that support the harmony
+- **Style Adaptation**: Melodies that match the musical style
+- **Development**: Melodic development and variation
+
+#### Harmony Enhancement
+- **Chord Progressions**: Harmonic support and development
+- **Voicings**: Different chord voicings and inversions
+- **Extensions**: Chord extensions and alterations
+- **Voice Leading**: Smooth voice leading between chords
+
+### Advanced Features
+
+#### Real-Time Context Analysis
+- **Project State Monitoring**: Live monitoring of tracks, regions, and selections
+- **Musical Context Analysis**: Harmonic progression, rhythm, and style analysis
+- **Enhancement Opportunities**: Automatic identification of improvement areas
+- **Track Analysis**: Individual track analysis with musical role detection
+
+#### LLM Integration
+- **Context-Aware Prompts**: Specialized prompts based on project context
+- **Musical Justification**: Explanations of musical choices and reasoning
+- **Confidence Scoring**: Confidence levels for generated patterns
+- **Multiple Options**: Multiple enhancement options for each request
+
+#### MIDI Pattern Generation
+- **Universal MIDI Format**: Consistent MIDI data structure
+- **Pattern Validation**: Validation of generated patterns for correctness
+- **Ardour Optimization**: Optimization for Ardour import
+- **Import Automation**: Automatic generation of Ardour import scripts
+
+### Troubleshooting
+
+#### Common Issues
+- **OSC Connection Failed**: Enable OSC in Ardour (Preferences → OSC)
+- **No Project State**: Ensure Ardour project is open and OSC is enabled
+- **LLM Enhancement Failed**: Check OpenAI API key and internet connection
+- **MIDI Import Failed**: Verify IAC Driver is enabled and MIDI port is configured
+
+#### Debug Mode
+```bash
+export DEBUG=1
+python real_time_enhancement_cli.py --interactive
+```
 
 ---
 

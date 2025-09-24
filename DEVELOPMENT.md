@@ -21,6 +21,7 @@ Complete guide for developing and contributing to YesAnd Music.
 ## Current State
 
 **✅ Production Ready Features:**
+- **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with OSC monitoring
 - Live MIDI streaming to Ardour
 - Musical conversation system with OpenAI integration
 - Context-aware Musical Scribe architecture
@@ -203,6 +204,25 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
 - Generate contextually appropriate musical suggestions
 - Maintain musical coherence and style consistency
 - Provide multiple enhancement options
+
+### Real-Time Enhancement System (NEW)
+**Purpose**: Live LLM-powered track enhancement with real-time project context
+
+**Key Files**:
+- `real_time_ardour_enhancer.py`: Main integration system orchestrating all components
+- `ardour_osc_monitor.py`: Real-time OSC monitoring of Ardour project state
+- `project_state_capture.py`: Live project state analysis and musical context
+- `midi_stream_analyzer.py`: Real-time MIDI stream analysis and monitoring
+- `llm_track_enhancer.py`: OpenAI-powered track enhancement with context awareness
+- `midi_pattern_parser.py`: MIDI pattern generation, validation, and Ardour optimization
+- `real_time_enhancement_cli.py`: Interactive CLI interface
+
+**Responsibilities**:
+- Monitor Ardour project state in real-time via OSC
+- Analyze musical context and identify enhancement opportunities
+- Generate intelligent track enhancements using LLM
+- Create and validate MIDI patterns for Ardour import
+- Provide seamless integration with existing DAW workflows
 
 ### MIDI Processing Layer
 **Purpose**: Universal MIDI data handling and real-time processing

@@ -10,8 +10,11 @@ YesAnd Music follows a "Brain vs. Hands" architecture that separates core musica
 
 **🎯 USER-CENTRIC QUALITY PRIORITY**: The current focus is on implementing a **User-Centric Quality System** that learns and adapts to each user's unique musical preferences. This includes building personalized quality profiles, adaptive generation engines, and user-controlled quality systems to ensure generated patterns match each user's individual taste and creative vision.
 
+**🚀 REAL-TIME ENHANCEMENT SYSTEM**: The project now includes a **Real-Time Ardour Enhancement System** that provides live LLM-powered track enhancement with real-time project context monitoring via OSC. This system represents the evolution from file-based to real-time DAW integration, ensuring musicians always work with current project state for accurate and relevant enhancements.
+
 ## System Architecture
 
+### Traditional Command-Based Architecture
 ```
 Natural Language → Command Parser → Control Plane → Contextual Intelligence → Visual Feedback Display
        ↓                ↓                ↓              ↓                        ↓
@@ -20,6 +23,17 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
    "ardour tracks"  + Ardour Int.    + MIDI Player  + Educational Content    + Explanations
    "get suggestions" + Visual        (IAC Driver)   + Background Analysis    + Real-Time Updates
                      Feedback         + File I/O     + DAW Integration        + DAW State
+```
+
+### Real-Time Enhancement Architecture (NEW)
+```
+Ardour OSC → Project State Capture → LLM Enhancement → MIDI Generation → Ardour Import
+     ↓              ↓                      ↓                ↓              ↓
+Live Project    Musical Context      AI Analysis      MIDI Patterns    Import Script
+State          Analysis             & Generation     & Validation      & Automation
+     ↓              ↓                      ↓                ↓              ↓
+Real-Time      Enhancement          Pattern         Universal        Lua Script
+Monitoring     Opportunities        Generation      MIDI Format      Generation
 ```
 
 ## Core Components
@@ -403,6 +417,38 @@ musical scribe status               # Show Musical Scribe system status
 - **Project-Wide Analysis**: Analyzes musical relationships across all tracks
 - **Fallback Safety**: Maintains existing functionality when Musical Scribe is unavailable
 - **Educational Value**: Explains musical choices and provides learning opportunities
+
+### Real-Time Enhancement System (NEW)
+
+The Real-Time Enhancement System represents the evolution from file-based to real-time DAW integration, providing live LLM-powered track enhancement with real-time project context monitoring.
+
+#### Core Components (Implemented)
+- **`RealTimeArdourEnhancer`** (`real_time_ardour_enhancer.py`): Main integration system orchestrating all components
+- **`ArdourOSCMonitor`** (`ardour_osc_monitor.py`): Real-time OSC monitoring of Ardour project state
+- **`ProjectStateCapture`** (`project_state_capture.py`): Live project state analysis and musical context
+- **`MIDIStreamAnalyzer`** (`midi_stream_analyzer.py`): Real-time MIDI stream analysis and monitoring
+- **`LLMTrackEnhancer`** (`llm_track_enhancer.py`): OpenAI-powered track enhancement with context awareness
+- **`MIDIPatternParser`** (`midi_pattern_parser.py`): MIDI pattern generation, validation, and Ardour optimization
+- **`RealTimeEnhancementCLI`** (`real_time_enhancement_cli.py`): Interactive CLI interface
+
+#### Architecture Evolution
+**Before (File-Based)**: Export project → Analyze → Generate enhancement → Import back
+**After (Real-Time)**: Live OSC monitoring → Real-time context analysis → Live LLM enhancement → Seamless import
+
+#### New Commands Available
+```bash
+python real_time_enhancement_cli.py --interactive    # Interactive enhancement mode
+python real_time_enhancement_cli.py --command enhance --request "make bassline groovier"
+python real_time_enhancement_cli.py --status         # Show project status
+python real_time_enhancement_cli.py --suggestions    # Show enhancement suggestions
+```
+
+#### Key Benefits
+- **Real-Time Accuracy**: Always works with current project state, not stale data
+- **Live Context Awareness**: Monitors project changes in real-time via OSC
+- **Seamless Integration**: Direct integration with Ardour without file exports
+- **Intelligent Enhancement**: LLM-powered suggestions based on full project context
+- **Professional Workflow**: Maintains professional DAW workflows while adding AI intelligence
 
 ## Quality Assurance
 

@@ -17,7 +17,147 @@ pip list | grep -E "(mido|python-rtmidi|python-osc|openai)"
 
 # Check Ardour integration
 python control_plane_cli.py "ardour connect"
+
+# Check real-time enhancement system
+python test_real_time_integration.py
 ```
+
+---
+
+## Real-Time Enhancement Issues (NEW)
+
+### OSC Connection Failed
+**Symptoms**: `❌ Failed to start OSC monitoring` or `❌ No project state available`
+
+**Solutions**:
+1. **Enable OSC in Ardour**:
+   - Ardour → Preferences → OSC
+   - Check "Enable OSC"
+   - Set port to 3819 (default)
+   - Restart Ardour
+
+2. **Check Ardour is Running**:
+   ```bash
+   # Verify Ardour is running
+   ps aux | grep ardour
+   ```
+
+3. **Verify OSC Port**:
+   ```bash
+   # Check if port is available
+   lsof -i :3819
+   ```
+
+4. **Check Firewall**:
+   - Ensure firewall allows local connections
+   - macOS: System Preferences → Security & Privacy → Firewall
+
+### No Project State Available
+**Symptoms**: `❌ No project state available` or empty project status
+
+**Solutions**:
+1. **Open Project in Ardour**:
+   - Create or open a project in Ardour
+   - Ensure project has tracks and regions
+
+2. **Check OSC Configuration**:
+   - Verify OSC is enabled in Ardour
+   - Check OSC port matches (default: 3819)
+
+3. **Restart Enhancement Session**:
+   ```bash
+   # Stop and restart enhancement session
+   python real_time_enhancement_cli.py --interactive
+   ```
+
+### LLM Enhancement Failed
+**Symptoms**: `❌ Enhancement failed: OpenAI API error` or `❌ Enhancement failed: No current project context`
+
+**Solutions**:
+1. **Check OpenAI API Key**:
+   ```bash
+   echo $OPENAI_API_KEY
+   # Should show your API key
+   ```
+
+2. **Verify API Key is Valid**:
+   ```bash
+   # Test API key
+   python -c "import openai; openai.api_key='$OPENAI_API_KEY'; print('API key valid')"
+   ```
+
+3. **Check Internet Connection**:
+   ```bash
+   # Test internet connectivity
+   ping openai.com
+   ```
+
+4. **Check Project Context**:
+   - Ensure Ardour project is open
+   - Verify OSC monitoring is working
+   - Check project has musical content
+
+### MIDI Import Failed
+**Symptoms**: `❌ Failed to import MIDI to Ardour` or patterns not appearing in Ardour
+
+**Solutions**:
+1. **Check IAC Driver**:
+   - Audio MIDI Setup → Window → Show MIDI Studio
+   - Double-click IAC Driver → check "Device is online"
+   - Create port named "IAC Driver Bus 1"
+
+2. **Verify MIDI Track in Ardour**:
+   - Create MIDI track in Ardour
+   - Set input to "IAC Driver Bus 1"
+   - Enable track monitoring
+
+3. **Check Generated Files**:
+   ```bash
+   # Check if MIDI files were generated
+   ls -la generated_patterns/
+   ```
+
+4. **Manual Import**:
+   - Use Ardour's File → Import → Audio/MIDI
+   - Navigate to `generated_patterns/` folder
+   - Import the generated MIDI files
+
+### Enhancement Suggestions Not Working
+**Symptoms**: `No suggestions available` or empty suggestions list
+
+**Solutions**:
+1. **Check Project Content**:
+   - Ensure project has musical content
+   - Verify tracks have MIDI data
+   - Check regions are selected
+
+2. **Verify Context Analysis**:
+   ```bash
+   # Check project status
+   python real_time_enhancement_cli.py --status
+   ```
+
+3. **Restart Analysis**:
+   - Stop and restart enhancement session
+   - Wait for context analysis to complete
+
+### Performance Issues
+**Symptoms**: Slow enhancement responses or system lag
+
+**Solutions**:
+1. **Check System Resources**:
+   ```bash
+   # Check CPU and memory usage
+   top -l 1 | head -10
+   ```
+
+2. **Reduce Enhancement Complexity**:
+   - Use simpler enhancement requests
+   - Avoid multiple simultaneous enhancements
+
+3. **Check OSC Message Rate**:
+   - Reduce OSC update frequency if needed
+   - Check for excessive OSC messages
 
 ---
 

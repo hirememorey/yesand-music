@@ -5,6 +5,7 @@ Complete command and API reference for YesAnd Music.
 ## Table of Contents
 
 - [Command Line Interfaces](#command-line-interfaces)
+- [Real-Time Enhancement Commands](#real-time-enhancement-commands) (NEW)
 - [Traditional Commands](#traditional-commands)
 - [Musical Conversation Commands](#musical-conversation-commands)
 - [Musical Scribe Commands](#musical-scribe-commands)
@@ -45,6 +46,14 @@ python live_control_plane_cli.py [OPTIONS] [COMMAND]
 - **Features**: Live streaming to Ardour, real-time editing
 - **Best for**: Live musical creation and performance
 
+#### Real-Time Ardour Enhancement (NEW)
+```bash
+python real_time_enhancement_cli.py [OPTIONS] [COMMAND]
+```
+- **Purpose**: Live LLM-powered track enhancement with real-time project context
+- **Features**: OSC monitoring, context-aware enhancement, seamless Ardour integration
+- **Best for**: Professional track enhancement and production workflows
+
 ### Command Line Options
 
 #### Enhanced Control Plane Options
@@ -61,6 +70,110 @@ python live_control_plane_cli.py [OPTIONS] [COMMAND]
 --track-name NAME       # Set custom track name
 --verbose               # Enable verbose output
 ```
+
+---
+
+## Real-Time Enhancement Commands (NEW)
+
+### Real-Time Ardour Enhancement CLI
+
+#### Interactive Mode
+```bash
+python real_time_enhancement_cli.py --interactive
+```
+
+**Interactive Commands**:
+- `enhance <request>` - Enhance any track with natural language request
+- `enhance track <id> <request>` - Enhance specific track by ID
+- `enhance bass [request]` - Enhance bass line (default: "make the bassline groovier")
+- `enhance drums [request]` - Enhance drum pattern (default: "add a drum pattern")
+- `enhance melody [request]` - Enhance melody (default: "add a melody")
+- `enhance harmony [request]` - Enhance harmony (default: "add harmony")
+- `suggestions` - Show enhancement suggestions for current project
+- `status` - Show current project status
+- `help` - Show available commands
+- `quit` - Exit interactive mode
+
+#### Command Line Mode
+```bash
+python real_time_enhancement_cli.py [OPTIONS] [COMMAND]
+```
+
+**Options**:
+- `--api-key KEY` - OpenAI API key
+- `--session-id ID` - Session ID for enhancement session
+- `--command COMMAND` - Command to execute
+- `--request REQUEST` - Enhancement request
+- `--track-id ID` - Track ID for enhancement
+- `--enhancement-type TYPE` - Enhancement type (general, bass, drums, melody, harmony)
+- `--interactive` - Start interactive mode
+- `--status` - Show project status
+- `--suggestions` - Show enhancement suggestions
+- `--verbose` - Enable verbose logging
+
+**Examples**:
+```bash
+# Interactive mode
+python real_time_enhancement_cli.py --interactive
+
+# Single enhancement command
+python real_time_enhancement_cli.py --command enhance --request "make the bassline groovier"
+
+# Enhance specific track
+python real_time_enhancement_cli.py --command enhance --request "add more complexity" --track-id "1"
+
+# Show project status
+python real_time_enhancement_cli.py --status
+
+# Show enhancement suggestions
+python real_time_enhancement_cli.py --suggestions
+```
+
+### Enhancement Types
+
+#### Bass Enhancement
+- **Walking Bass Lines**: Jazz-style bass lines with chord tones
+- **Syncopated Patterns**: Funk and R&B style bass lines
+- **Root Note Patterns**: Simple but effective bass foundations
+- **Complex Bass Lines**: Advanced bass lines with rhythm variations
+
+#### Drum Enhancement
+- **Basic Patterns**: Simple 4/4 drum patterns
+- **Ghost Notes**: Subtle ghost notes for realistic feel
+- **Fills and Variations**: Drum fills and pattern variations
+- **Style-Specific Patterns**: Jazz, funk, rock, electronic patterns
+
+#### Melody Enhancement
+- **Melodic Lines**: Compelling melodic content
+- **Harmonic Support**: Melodies that support the harmony
+- **Style Adaptation**: Melodies that match the musical style
+- **Development**: Melodic development and variation
+
+#### Harmony Enhancement
+- **Chord Progressions**: Harmonic support and development
+- **Voicings**: Different chord voicings and inversions
+- **Extensions**: Chord extensions and alterations
+- **Voice Leading**: Smooth voice leading between chords
+
+### Real-Time Features
+
+#### OSC Monitoring
+- **Live Project State**: Real-time monitoring of Ardour project state
+- **Track Information**: Live track data including volume, pan, mute, solo
+- **Region Information**: Live region data including position, length, selection
+- **Selection Information**: Live selection data including start/end times
+
+#### Context Analysis
+- **Musical Context**: Harmonic progression, rhythm, and style analysis
+- **Enhancement Opportunities**: Automatic identification of improvement areas
+- **Track Analysis**: Individual track analysis with musical role detection
+- **Project Coherence**: Analysis of overall project musical coherence
+
+#### LLM Integration
+- **Context-Aware Prompts**: Specialized prompts based on project context
+- **Musical Justification**: Explanations of musical choices and reasoning
+- **Confidence Scoring**: Confidence levels for generated patterns
+- **Multiple Options**: Multiple enhancement options for each request
 
 ---
 
