@@ -8,7 +8,7 @@ YesAnd Music follows a "Brain vs. Hands" architecture that separates core musica
 
 **CRITICAL ARCHITECTURAL EVOLUTION**: The project has implemented a **"Musical Scribe" architecture** inspired by Sully.ai's medical scribe model, where the system maintains full DAW project context awareness to provide truly intelligent musical assistance. This represents a fundamental shift from command-driven to context-driven musical collaboration.
 
-**🎯 MUSICAL QUALITY-FIRST PRIORITY**: The current focus is on implementing a **Musical Quality-First Architecture** that prioritizes musical excellence above all else. This includes building specialized musical engines (Groove, Harmonic Intelligence, Style) and quality assessment systems to ensure generated patterns sound professional and authentic.
+**🎯 USER-CENTRIC QUALITY PRIORITY**: The current focus is on implementing a **User-Centric Quality System** that learns and adapts to each user's unique musical preferences. This includes building personalized quality profiles, adaptive generation engines, and user-controlled quality systems to ensure generated patterns match each user's individual taste and creative vision.
 
 ## System Architecture
 
