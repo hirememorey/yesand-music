@@ -32,6 +32,7 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ## Quick Test
 
+### Test Security-First System
 ```bash
 # Test the security-first system
 python secure_enhancement_cli.py --status
@@ -42,6 +43,18 @@ python secure_enhancement_cli.py --status
 # 📊 SYSTEM STATUS
 # Mode: offline
 # Healthy: ✅
+```
+
+### Test MIDI to JSON Workflow (NEW)
+```bash
+# Test basic MIDI generation
+python music_generator_cli.py "generate a simple bass line in C major"
+
+# Test style reference generation
+python music_generator_cli.py "generate a bass pattern like Alice In Chains in GMinor"
+
+# Test context extraction
+python music_generator_cli.py --extract-context
 ```
 
 ## Interactive Mode
@@ -190,9 +203,10 @@ llm_config = LLMConfig(
 ## Next Steps
 
 1. **Read the Documentation**: Check out [SECURITY_FIRST_IMPLEMENTATION.md](SECURITY_FIRST_IMPLEMENTATION.md)
-2. **Explore Features**: Try different enhancement types and security levels
-3. **Run Tests**: Ensure everything is working correctly
-4. **Contribute**: See [DEVELOPMENT.md](DEVELOPMENT.md) for contribution guidelines
+2. **Implement MIDI to JSON Workflow**: Follow [MIDI_TO_JSON_IMPLEMENTATION.md](MIDI_TO_JSON_IMPLEMENTATION.md)
+3. **Explore Features**: Try different enhancement types and security levels
+4. **Run Tests**: Ensure everything is working correctly
+5. **Contribute**: See [DEVELOPMENT.md](DEVELOPMENT.md) for contribution guidelines
 
 ## Support
 

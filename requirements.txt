@@ -9,6 +9,9 @@ python-osc>=1.7.4
 # LLM integration for musical conversation
 openai>=1.0.0
 
+# MIDI to JSON workflow dependencies
+music21>=8.0.0  # For musical analysis and notation
+numpy>=1.21.0   # For numerical operations
+
 # Optional: For enhanced functionality
-# numpy>=1.21.0  # For advanced musical analysis (future)
 # scipy>=1.7.0   # For signal processing (future)

@@ -4,12 +4,19 @@ This project follows a lightweight semantic versioning approach (MAJOR.MINOR.PAT
 
 ### [Unreleased]
 
-#### 🎯 Current Focus: Native DAW Integration and Plugin Development
-- **Production Ready**: All core features implemented and tested
-- **Native Plugin Development**: Building Ardour plugin with integrated text input UI
-- **Seamless Workflow**: Text input directly in DAW → immediate MIDI track creation/modification
-- **Zero Context Switching**: Stay in Ardour, no external tools or command lines
-- **Professional Integration**: Native DAW experience with AI-powered musical intelligence
+#### 🎯 Current Focus: MIDI to JSON Workflow Implementation
+- **Context-Aware Generation**: Extract MIDI from Ardour projects and send as musical notation JSON to OpenAI
+- **Style-Reference Generation**: Generate MIDI patterns based on specific artists and styles (e.g., "Alice In Chains bass pattern in G minor")
+- **Complete Workflow**: User prompt → Context extraction → AI generation → Ardour import
+- **Implementation Guide**: Complete documentation for new developers to implement the system
+- **Target Workflow**: Generate contextually appropriate MIDI that fits existing project music
+
+#### 📋 Implementation Priority: MIDI to JSON Workflow
+- **Basic MIDI Generation**: OpenAI-powered MIDI generation from natural language prompts
+- **Musical Notation Conversion**: Convert MIDI data to JSON format for LLM processing
+- **Context Extraction**: Extract existing MIDI from Ardour projects for context awareness
+- **Ardour Integration**: Seamless import of generated MIDI back to Ardour tracks
+- **Command Line Interface**: Simple CLI for testing and development
 
 #### 🔮 Future Direction: Native Ardour Plugin Integration
 - **Plugin UI**: Text input field and send button directly in Ardour interface

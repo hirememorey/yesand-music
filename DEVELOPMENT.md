@@ -29,13 +29,15 @@ Complete guide for developing and contributing to YesAnd Music.
 - File-based DAW integration
 - Real-time MIDI editing capabilities
 
-**🎯 Current Focus**: Native DAW Integration and Plugin Development
+**🎯 Current Focus**: MIDI to JSON Workflow Implementation
 
 The system is production-ready with comprehensive features. Current development focuses on:
-- **Native Plugin Development**: Building Ardour plugin with integrated text input UI
-- **Seamless Workflow**: Text input directly in DAW → immediate MIDI track creation/modification
-- **Zero Context Switching**: Stay in Ardour, no external tools or command lines
-- **Professional Integration**: Native DAW experience with AI-powered musical intelligence
+- **Context-Aware Generation**: Extract MIDI from Ardour projects and send as musical notation JSON to OpenAI
+- **Style-Reference Generation**: Generate MIDI patterns based on specific artists and styles (e.g., "Alice In Chains bass pattern in G minor")
+- **Complete Workflow**: User prompt → Context extraction → AI generation → Ardour import
+- **Implementation Guide**: Complete documentation for new developers to implement the system
+
+**📋 Implementation Priority**: See [MIDI_TO_JSON_IMPLEMENTATION.md](MIDI_TO_JSON_IMPLEMENTATION.md) for complete implementation guide
 
 **🔮 Future Direction**: Native Ardour Plugin Integration
 - **Plugin UI**: Text input field and send button directly in Ardour interface
@@ -275,6 +277,30 @@ Natural Language → Command Parser → Control Plane → Contextual Intelligenc
 - Provide DAW state awareness through file-based workflow
 
 ---
+
+## MIDI to JSON Workflow Implementation
+
+### Implementation Priority
+The current development focus is implementing the MIDI to JSON workflow as described in [MIDI_TO_JSON_IMPLEMENTATION.md](MIDI_TO_JSON_IMPLEMENTATION.md).
+
+### Key Implementation Steps
+1. **Basic MIDI Generation**: Create `midi_generator.py` for OpenAI-powered MIDI generation
+2. **Musical Notation Conversion**: Build `musical_notation_converter.py` for MIDI to JSON conversion
+3. **Context Extraction**: Implement `ardour_midi_extractor.py` for Ardour project analysis
+4. **Ardour Integration**: Create `ardour_midi_importer.py` for seamless import
+5. **User Interface**: Build `music_generator_cli.py` for command-line interface
+
+### Target Workflow
+```
+User Prompt → Extract MIDI from Ardour → Convert to Musical Notation JSON → Send to OpenAI → Generate New MIDI → Import to Ardour
+```
+
+### Example Usage
+```bash
+python music_generator_cli.py "generate a bass pattern like Alice In Chains in GMinor"
+python music_generator_cli.py --interactive
+python music_generator_cli.py --extract-context
+```
 
 ## Common Development Tasks
 

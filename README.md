@@ -86,6 +86,8 @@ python control_plane_cli.py "play scale C major"
 - **[Reference](REFERENCE.md)** - Complete command and API reference
 
 ### For Developers
+- **[MIDI to JSON Implementation](MIDI_TO_JSON_IMPLEMENTATION.md)** - Complete implementation guide for context-aware generation
+- **[Implementation Status](IMPLEMENTATION_STATUS.md)** - Current implementation status and next steps
 - **[Development Guide](DEVELOPMENT.md)** - Complete development and contribution guide
 - **[Architecture](ARCHITECTURE.md)** - Technical architecture and design details
 - **[Implementation Complete](IMPLEMENTATION_COMPLETE.md)** - Summary of completed implementation
@@ -93,7 +95,14 @@ python control_plane_cli.py "play scale C major"
 
 ## 🎵 Example Workflows
 
-### Security-First Real-Time Enhancement (NEW)
+### MIDI to JSON Workflow (NEW - Target Implementation)
+1. **Generate**: `python music_generator_cli.py "generate a bass pattern like Alice In Chains in GMinor"`
+2. **Context**: System extracts existing MIDI from Ardour project
+3. **Convert**: MIDI converted to musical notation JSON
+4. **Generate**: OpenAI creates contextually appropriate bass pattern
+5. **Import**: MIDI automatically imported to Ardour track
+
+### Security-First Real-Time Enhancement
 1. **Start**: `python secure_enhancement_cli.py --interactive`
 2. **Enhance**: `enhance create a funky bassline` → Secure AI enhancement
 3. **Check Status**: `status` → See system health and security status
@@ -152,12 +161,14 @@ YesAnd Music follows a **Security-First Architecture** with "Brain vs. Hands" de
 - Real-time MIDI editing capabilities
 - **Comprehensive Testing**: 95%+ test coverage with security validation
 
-**🎯 Current Focus**: Native DAW Integration and User Experience
-- **Native Plugin Development**: Building Ardour plugin with integrated text input UI
-- **Seamless Workflow**: Text input directly in DAW → immediate MIDI track creation/modification
-- **Zero Context Switching**: Stay in Ardour, no external tools or command lines
-- **Professional Integration**: Native DAW experience with AI-powered musical intelligence
-- **Future Vision**: Plugin UI with text input → Send button → automatic track creation and MIDI generation
+**🎯 Current Focus**: MIDI to JSON Workflow Implementation
+- **Context-Aware Generation**: Extract MIDI from Ardour projects and send as musical notation JSON to OpenAI
+- **Style-Reference Generation**: Generate MIDI patterns based on specific artists and styles
+- **Seamless Import**: Automatically import generated MIDI back to Ardour tracks
+- **Complete Workflow**: User prompt → Context extraction → AI generation → Ardour import
+- **Implementation Guide**: Complete documentation for new developers to implement the system
+
+**📋 Next Implementation**: See [MIDI_TO_JSON_IMPLEMENTATION.md](MIDI_TO_JSON_IMPLEMENTATION.md) for complete implementation guide
 
 **🔮 Future Direction**: Native Ardour Plugin Integration
 - **Plugin UI**: Text input field and send button directly in Ardour interface
