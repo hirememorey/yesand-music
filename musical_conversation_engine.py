@@ -57,6 +57,7 @@ class MusicalConversationEngine:
         self.project_analyzer = ProjectStateAnalyzer()
         self.conversation_context = None
         self.suggestion_history = []
+        self.conversation_mode = "initial"  # "initial", "interview", "conversation"
         
         # Musical knowledge base
         self.musical_styles = {
@@ -98,14 +99,12 @@ class MusicalConversationEngine:
             except Exception as e:
                 print(f"Warning: Could not analyze project {project_path}: {e}")
         
-        return f"""🎵 Welcome to Musical Conversation Engine!
-
-I'm here to help you solve musical problems and provide contextual suggestions.
-
-Session ID: {session_id}
-
-Let's start by understanding your musical context. I'll ask you some questions to get a complete picture of your song and the challenge you're facing.
-"""
+        # Start interview immediately and take control
+        self.context_interview.start_interview()
+        self.conversation_mode = "interview"
+        
+        # Return interview's welcome message
+        return self.context_interview.start_interview()
     
     def get_context_summary(self) -> str:
         """Get a summary of the current conversation context"""
@@ -146,12 +145,38 @@ Let's start by understanding your musical context. I'll ask you some questions t
             'content': user_input
         })
         
+        # CRITICAL: Let interview system handle ALL input during interview phase
+        if self.conversation_mode == "interview":
+            return self._handle_interview_phase(user_input)
+        else:
+            return self._handle_conversation_phase(user_input)
+    
+    def _handle_interview_phase(self, user_input: str) -> str:
+        """Handle user input during interview phase"""
+        question = self.context_interview.get_next_question()
+        
+        # Process answer through interview system
+        success, message = self.context_interview.answer_question(question.question_id, user_input)
+        if not success:
+            return f"❌ {message}\n\n{question.question_text}"
+        
+        # Check if all required questions are answered
+        answered, total = self.context_interview.get_progress()
+        if answered >= total:
+            # All required questions answered - transition to conversation mode
+            self.conversation_mode = "conversation"
+            self.conversation_context.user_context = self.context_interview.current_context
+            return "Great! Now I have enough context to help you. What specific musical challenge are you facing?"
+        
+        # More questions to answer
+        return f"✅ {message}\n\n{self._get_next_question_prompt()}"
+    
+    def _handle_conversation_phase(self, user_input: str) -> str:
+        """Handle user input during conversation phase"""
         # Determine response type
         response_type = self._determine_response_type(user_input)
         
-        if response_type == "context_interview":
-            return self._handle_context_interview(user_input)
-        elif response_type == "musical_suggestion":
+        if response_type == "musical_suggestion":
             return self._handle_musical_suggestion(user_input)
         elif response_type == "problem_clarification":
             return self._handle_problem_clarification(user_input)
@@ -159,6 +184,14 @@ Let's start by understanding your musical context. I'll ask you some questions t
             return self._handle_suggestion_refinement(user_input)
         else:
             return self._handle_general_conversation(user_input)
+    
+    def _get_next_question_prompt(self) -> str:
+        """Get the next question prompt"""
+        question = self.context_interview.get_next_question()
+        if question:
+            return f"Next question: {question.question_text}"
+        else:
+            return "Great! Now I have enough context to help you. What specific musical challenge are you facing?"
     
     def _determine_response_type(self, user_input: str) -> str:
         """Determine the type of response needed based on user input"""
@@ -182,18 +215,6 @@ Let's start by understanding your musical context. I'll ask you some questions t
         
         return "general_conversation"
     
-    def _handle_context_interview(self, user_input: str) -> str:
-        """Handle context interview responses"""
-        # This would integrate with the MusicalContextInterview system
-        # For now, we'll provide a simple response
-        
-        return """I understand you're providing context about your song. Let me ask you a few more questions to get a complete picture:
-
-1. What's the main musical challenge you're facing?
-2. What instruments or parts do you already have?
-3. What musical style or artists are you inspired by?
-
-This will help me give you the most relevant suggestions."""
     
     def _handle_musical_suggestion(self, user_input: str) -> str:
         """Handle requests for musical suggestions"""
@@ -286,7 +307,13 @@ The more context you provide, the better I can help you solve your musical probl
         context = self._get_suggestion_context()
         
         # Generate suggestions based on the musical problem
-        problem = self.conversation_context.user_context.musical_problem
+        # Use context from interview if available, otherwise fall back to conversation context
+        if self.context_interview.is_complete():
+            interview_context = self.context_interview.get_context_for_ai()
+            problem = interview_context.get('musical_problem', '')
+        else:
+            problem = self.conversation_context.user_context.musical_problem
+        
         if not problem:
             return suggestions
         
