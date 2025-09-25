@@ -22,7 +22,19 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 
-#### 🎵 MVP MIDI Generator (NEW - DAW Independent)
+#### 🎵 MVP User-Driven MIDI Generator (NEW - Production Ready)
+```bash
+# Generate high-quality MIDI from any prompt
+python mvp_user_driven_generator.py "Create a jazz bass line in C major at 120 BPM for 8 measures"
+
+# Interactive mode with user feedback
+python mvp_user_driven_generator.py --interactive
+
+# With user ID for feedback tracking
+python mvp_user_driven_generator.py "Generate a funky drum pattern" --user-id "musician_123"
+```
+
+#### 🎵 Legacy MVP MIDI Generator (Still Available)
 ```bash
 # Generate MIDI from natural language
 python3 mvp_midi_generator.py "generate me a bass line in gminor as if Jeff Ament of Pearl Jam did a line of coke and just threw up prior to generating this"
@@ -61,7 +73,8 @@ python control_plane_cli.py "play scale C major"
 **YesAnd Music** is a context-aware AI musical collaborator that understands your entire project and provides intelligent enhancements through natural language conversation.
 
 ### Core Capabilities
-- **🎵 MVP MIDI Generator**: DAW-independent AI-powered MIDI generation from natural language prompts
+- **🎵 MVP User-Driven Generator**: Production-ready AI MIDI generation with built-in quality gates and user feedback
+- **🎵 Legacy MVP MIDI Generator**: DAW-independent AI-powered MIDI generation from natural language prompts
 - **🔒 Security-First Architecture**: Built-in security, validation, and safety monitoring
 - **🚀 Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with real-time project context
 - **⚡ Automatic Import**: Seamless MIDI import to Ardour using Lua scripting - no manual steps!
@@ -88,7 +101,8 @@ python control_plane_cli.py "play scale C major"
 ## 📚 Documentation
 
 ### For Users
-- **[MVP MIDI Generator](MVP_README.md)** - Complete guide to the new DAW-independent MIDI generator
+- **[MVP User-Driven Generator](MVP_USER_DRIVEN_README.md)** - Complete guide to the production-ready MVP system
+- **[Legacy MVP MIDI Generator](MVP_README.md)** - Complete guide to the DAW-independent MIDI generator
 - **[Security-First Implementation](SECURITY_FIRST_IMPLEMENTATION.md)** - Complete guide to the new security-first system
 - **[Quick Start Guide](QUICK_START.md)** - Get started quickly with the new system
 - **[Auto-Import Guide](AUTO_IMPORT_GUIDE.md)** - Complete guide to automatic Ardour import
@@ -98,6 +112,7 @@ python control_plane_cli.py "play scale C major"
 - **[Reference](REFERENCE.md)** - Complete command and API reference
 
 ### For Developers
+- **[Current State](CURRENT_STATE.md)** - Complete project status and developer onboarding
 - **[MIDI to JSON Implementation](MIDI_TO_JSON_IMPLEMENTATION.md)** - Complete implementation guide for context-aware generation
 - **[Implementation Status](IMPLEMENTATION_STATUS.md)** - Current implementation status and next steps
 - **[Development Guide](DEVELOPMENT.md)** - Complete development and contribution guide
@@ -107,7 +122,12 @@ python control_plane_cli.py "play scale C major"
 
 ## 🎵 Example Workflows
 
-### MVP MIDI Generator (NEW - Available Now)
+### MVP User-Driven Generator (NEW - Production Ready)
+1. **Generate**: `python mvp_user_driven_generator.py "Create a jazz bass line in C major at 120 BPM for 8 measures"`
+2. **Interactive**: `python mvp_user_driven_generator.py --interactive`
+3. **With Feedback**: `python mvp_user_driven_generator.py "Generate a funky drum pattern" --user-id "musician_123"`
+
+### Legacy MVP MIDI Generator (Still Available)
 1. **Generate**: `python3 mvp_midi_generator.py "generate me a bass line in gminor as if Jeff Ament of Pearl Jam did a line of coke and just threw up prior to generating this"`
 2. **Interactive**: `python3 mvp_midi_generator.py --interactive`
 3. **Output File**: `python3 mvp_midi_generator.py "create a funky bass line" --output funky_bass.mid`
@@ -165,7 +185,8 @@ YesAnd Music follows a **Security-First Architecture** with "Brain vs. Hands" de
 ## 🚀 Current Status
 
 **✅ Production Ready Features:**
-- **MVP MIDI Generator**: DAW-independent AI-powered MIDI generation with dynamic length parsing
+- **MVP User-Driven Generator**: Production-ready AI MIDI generation with quality gates and user feedback
+- **Legacy MVP MIDI Generator**: DAW-independent AI-powered MIDI generation with dynamic length parsing
 - **Security-First Real-Time Enhancement**: Live LLM-powered track enhancement with built-in security
 - **Comprehensive Security**: Input validation, output sanitization, rate limiting, encryption
 - **Fail-Fast Architecture**: Health monitoring, circuit breakers, graceful degradation

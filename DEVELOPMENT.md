@@ -21,6 +21,8 @@ Complete guide for developing and contributing to YesAnd Music.
 ## Current State
 
 **✅ Production Ready Features:**
+- **MVP User-Driven Generator**: Production-ready AI MIDI generation with quality gates and user feedback
+- **Legacy MVP MIDI Generator**: DAW-independent AI-powered MIDI generation
 - **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with OSC monitoring
 - Live MIDI streaming to Ardour
 - Musical conversation system with OpenAI integration

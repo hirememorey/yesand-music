@@ -1,0 +1,16 @@
+# MVP User-Driven MIDI Generator Requirements
+
+# Core dependencies
+mido>=1.2.10
+openai>=1.0.0
+
+# Optional dependencies for enhanced functionality
+numpy>=1.21.0
+music21>=8.0.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Note: This is a minimal requirements file for the MVP system.
+# The main requirements.txt contains all dependencies for the full YesAnd Music system.
