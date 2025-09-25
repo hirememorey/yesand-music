@@ -29,4 +29,4 @@ Before you begin, another developer started at this exact spot and spent a lot o
 Please update and/or remove any necessary markdown files based on the changes we've implemented. Ensure that another developer could pick up from where we left off with all the context they need. Once done, please commit and push the changes to github.
 
 ## @CleanupDocs
-I want you to utilize first principles to ensure that only necessary markdown files and markdown content within those files are in this project. I worry about documentation creep and want to make sure that only the minimum amount of content is available for a brand new developer with no context to pick up from where the project was last left off.
+I want you to utilize first principles to ensure that only necessary markdown files and markdown content within those files are in this project. I worry about documentation creep and want to make sure that only the minimum amount of content is available for a brand new developer with no context to pick up from where the project was last left off. Do not touch prompts.md

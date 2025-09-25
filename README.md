@@ -1,24 +1,25 @@
 # YesAnd Music
 
-**Musical Conversation & Problem-Solving System with Context-Aware Intelligence**
+**Musical Conversation & Problem-Solving System**
 
-Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities. Built with dual context sources (project state + user input) for production-ready musical collaboration.
+Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
 
-## 🎵 Musical Conversation System - PRIMARY FOCUS
+## 🎯 Core Philosophy
 
-**Date:** December 2024  
-**Status:** **PRODUCTION READY - PRIMARY SYSTEM**
+**"Musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want."**
 
-The Musical Conversation & Problem-Solving System addresses the critical insight that **musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want**.
+## 🎵 Musical Conversation System - PRIMARY FEATURE
 
-This system enables the target workflow: **minimal musical description + automatic pattern generation for immediate testing with your ears**.
+**Status:** ✅ **PRODUCTION READY**
+
+The Musical Conversation System addresses the critical insight that users need help communicating their musical vision to AI, not just better technical generation.
 
 **Key Features:**
-- **Minimal Description**: Describe your song concept, not technical details
-- **Context-Aware Analysis**: Understands psychological/creative context
-- **Intelligent Suggestions**: Musical reasoning based on context, not technical metrics
-- **Automatic Pattern Generation**: MIDI sketches for immediate testing
-- **Ear-Based Validation**: Test with your ears, not technical assessments
+- **Guided Context Building**: Step-by-step help for describing your musical vision
+- **Dual Context Sources**: Project analysis + user input for complete understanding
+- **Contextual Suggestions**: AI suggestions that actually fit your musical context
+- **Rapid Testing**: Quick MIDI sketches for immediate idea validation
+- **Musical Reasoning**: Understand why suggestions work with your existing parts
 
 **Example Workflow:**
 ```
@@ -34,9 +35,7 @@ AI: "Based on your context, here are bridge suggestions:
      [Generates MIDI sketches for immediate testing]"
 ```
 
-**See:** [MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md) for complete documentation.
-
-## 🚀 Quick Start (2 minutes)
+## 🚀 Quick Start
 
 ### Prerequisites
 - **Python 3.8+**
@@ -53,7 +52,7 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 
-#### 🎵 Musical Conversation System (PRIMARY - Production Ready)
+#### 🎵 Musical Conversation System (PRIMARY)
 ```bash
 # Start interactive musical conversation
 python musical_conversation_cli.py --interactive
@@ -65,94 +64,61 @@ python musical_conversation_cli.py --interactive --project /path/to/your/project
 python musical_conversation_cli.py --demo
 ```
 
-#### 🎵 Legacy Systems (Deprecated - Use Musical Conversation System Instead)
-```bash
-# Musical Quality First Generator (LEGACY - Use Musical Conversation System)
-python mvp_musical_quality_first.py "I want 16 measures of an anthemic bass line as if Flea and Jeff Ament had a baby in g minor"
-
-# MVP User-Driven Generator (LEGACY - Use Musical Conversation System)
-python mvp_user_driven_generator.py "Create a jazz bass line in C major at 120 BPM for 8 measures"
-```
-
-**Note:** Legacy systems are maintained for compatibility but should not be used for new development. The Musical Conversation System addresses the fundamental insight about musical quality being a psychological rather than technical issue.
-
-
 #### 🔒 Security-First Real-Time Enhancement (DAW Integration)
 ```bash
 # Security-First Real-Time Enhancement (macOS + DAW)
 python secure_enhancement_cli.py --interactive
 # Try: "enhance create a funky bassline" → Secure AI enhancement!
-# Try: "status" → Check system health and security status
-
-# Single Command Mode
-python secure_enhancement_cli.py --request "add drums to this track" --type drums --track-id "2"
 
 # System Status
 python secure_enhancement_cli.py --status
 ```
 
-#### 🎛️ Legacy Commands (Still Available)
-```bash
-python real_time_enhancement_cli.py --interactive
-python live_control_plane_cli.py
-python enhanced_control_plane_cli.py --conversation
-python control_plane_cli.py "play scale C major"
-```
-
 ## 🎯 What It Does
 
-**YesAnd Music** is a musical conversation and problem-solving system that transforms how you work with AI for music creation through guided context gathering and rapid testing capabilities.
+**YesAnd Music** transforms musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
 
 ### Core Capabilities
 
-#### 🎵 Musical Conversation System (NEW - Production Ready)
+#### 🎵 Musical Conversation System (PRIMARY)
 - **Guided Context Building**: Step-by-step help for describing your musical vision
 - **Dual Context Sources**: Project analysis + user input for complete understanding
 - **Contextual Suggestions**: AI suggestions that actually fit your musical context
 - **Rapid Testing**: Quick MIDI sketches for immediate idea validation
 - **Musical Reasoning**: Understand why suggestions work with your existing parts
-- **Seamless Workflow**: Integrates naturally into your creative process
 
-#### 🎵 Legacy Systems (Still Available)
-- **Musical Quality First Generator**: Handles creative, metaphorical prompts with musical quality focus
-- **MVP User-Driven Generator**: Production-ready AI MIDI generation with built-in quality gates
-- **Legacy MVP MIDI Generator**: DAW-independent AI-powered MIDI generation
-- **Security-First Architecture**: Built-in security, validation, and safety monitoring
-- **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with project context
-- **Musical Scribe**: Context-aware AI that understands your entire project
-- **DAW Integration**: Works with Ardour, Logic Pro, and GarageBand
+#### 🔒 Supporting Systems
+- **Security-First Real-Time Enhancement**: Live LLM-powered track enhancement with security
+- **Real-Time Ardour Enhancement**: Live LLM-powered track enhancement with OSC monitoring
+- **Musical Scribe Architecture**: Context-aware AI for project-wide analysis
+- **Live MIDI Streaming**: Real-time MIDI generation and streaming
+- **DAW Integration**: File-based integration with professional DAWs
+- **JUCE Plugin System**: Native DAW plugin integration
 
 ### Key Features
 - **Security-First Design**: Security built into every component, not added as overhead
 - **Context-Aware Intelligence**: Understands entire musical projects, not just individual tracks
-- **Sully.ai-Inspired Architecture**: Uses specialized prompts for different musical roles
 - **Real-Time Performance**: Live MIDI streaming with professional audio safety
 - **Non-Intrusive Integration**: Preserves existing DAW workflows while adding intelligence
-- **Fail-Fast Architecture**: Quick failure detection and graceful degradation
 - **Comprehensive Testing**: 95%+ test coverage with security validation
 
 ## 📚 Documentation
 
 ### For Users
-- **[Musical Conversation System](MUSICAL_CONVERSATION_README.md)** - Complete guide to the new conversation-based system
-- **[Musical Conversation Implementation](MUSICAL_CONVERSATION_IMPLEMENTATION_SUMMARY.md)** - Implementation details and architecture
-- **[MVP User-Driven Generator](MVP_USER_DRIVEN_README.md)** - Complete guide to the production-ready MVP system
-- **[Legacy MVP MIDI Generator](MVP_README.md)** - Complete guide to the DAW-independent MIDI generator
-- **[Security-First Implementation](SECURITY_FIRST_IMPLEMENTATION.md)** - Complete guide to the security-first system
+- **[Musical Conversation System](MUSICAL_CONVERSATION_README.md)** - Complete guide to the conversation-based system
 - **[Features Guide](FEATURES.md)** - Complete guide to all features and capabilities
 - **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions
 - **[Reference](REFERENCE.md)** - Complete command and API reference
 
 ### For Developers
-- **[Current State](CURRENT_STATE.md)** - Complete project status and developer onboarding
-- **[Development Guide](DEVELOPMENT.md)** - Complete development and contribution guide
+- **[Project Status](PROJECT_STATUS.md)** - Current project status and overview
+- **[Development Guide](DEVELOPMENT.md)** - Development guide and workflows
 - **[Architecture](ARCHITECTURE.md)** - Technical architecture and design details
-- **[Implementation Complete](IMPLEMENTATION_COMPLETE.md)** - Summary of completed implementation
-- **[Native DAW Integration](NATIVE_DAW_INTEGRATION.md)** - Future vision for native plugin integration
+- **[Quick Start](QUICK_START.md)** - Quick start guide for developers
 
-## 🎵 Example Workflows
+## 🎵 Example Workflow
 
-### Musical Conversation System (NEW - Production Ready)
+### Musical Conversation System
 1. **Start Conversation**: `python musical_conversation_cli.py --interactive`
 2. **With Project**: `python musical_conversation_cli.py --interactive --project /path/to/project.mid`
 3. **Run Demo**: `python musical_conversation_cli.py --demo`
@@ -175,51 +141,6 @@ python control_plane_cli.py "play scale C major"
     Use 'test 1' to generate a MIDI sketch for testing.
 ```
 
-### Legacy Systems (Still Available)
-1. **Musical Quality First**: `python mvp_musical_quality_first.py "I want 16 measures of an anthemic bass line"`
-2. **MVP User-Driven**: `python mvp_user_driven_generator.py "Create a jazz bass line in C major"`
-3. **Legacy MVP**: `python3 mvp_midi_generator.py "generate me a bass line in gminor"`
-
-### MIDI to JSON Workflow (Target Implementation)
-1. **Generate**: `python music_generator_cli.py "generate a bass pattern like Alice In Chains in GMinor"`
-2. **Context**: System extracts existing MIDI from Ardour project
-3. **Convert**: MIDI converted to musical notation JSON
-4. **Generate**: OpenAI creates contextually appropriate bass pattern
-5. **Import**: MIDI automatically imported to Ardour track
-
-### Security-First Real-Time Enhancement
-1. **Start**: `python secure_enhancement_cli.py --interactive`
-2. **Enhance**: `enhance create a funky bassline` → Secure AI enhancement
-3. **Check Status**: `status` → See system health and security status
-4. **Refine**: `enhance make it more complex` → Iterative improvement
-5. **Monitor**: System automatically monitors health and security
-
-### Legacy Real-Time Ardour Enhancement with Auto-Import
-1. **Start**: `python real_time_enhancement_cli.py --interactive`
-2. **Enhance**: `enhance create a funky bassline` → Real-time LLM analysis
-3. **Auto-Import**: Patterns automatically imported to Ardour tracks
-4. **Check Status**: `imports` → See what was imported successfully
-5. **Refine**: `enhance make it more complex` → Iterative improvement
-
-### Live MIDI Creation
-1. **Generate**: "Give me a funky bassline" → MIDI streams to Ardour
-2. **Refine**: "Make it more complex" → Real-time modification
-3. **Style**: "Make it groove like Bootsy Collins" → Style transformation
-4. **Polish**: "Add some swing" → Final touches
-
-### Musical Conversation
-1. **Start**: "I need help with my jazz ballad"
-2. **Analyze**: AI analyzes your entire project context
-3. **Suggest**: "The piano is busy, try a simpler bassline"
-4. **Generate**: Creates contextually appropriate bassline
-5. **Refine**: "Make it darker" → Iterative improvement
-
-### Problem Solving
-1. **Load**: `load my_song.mid`
-2. **Analyze**: `analyze all` → Complete musical analysis
-3. **Improve**: `make this groove better` → Enhanced version
-4. **Compare**: Listen to original vs. improved
-
 ## 🏗️ Architecture
 
 YesAnd Music follows a **Security-First Architecture** with "Brain vs. Hands" design:
@@ -232,41 +153,27 @@ YesAnd Music follows a **Security-First Architecture** with "Brain vs. Hands" de
 
 ## 🚀 Current Status
 
-**✅ Production Ready Features:**
-- **Musical Conversation System**: NEW - Complete conversation-based musical problem-solving system
+**✅ Production Ready:**
+- **Musical Conversation System**: Complete conversation-based musical problem-solving system
 - **Guided Context Building**: Step-by-step help for describing musical vision
 - **Dual Context Sources**: Project analysis + user input for complete understanding
 - **Contextual Suggestions**: AI suggestions that actually fit musical context
 - **Rapid Testing**: Quick MIDI sketches for immediate idea validation
-- **Musical Reasoning**: Understand why suggestions work with existing parts
 - **Comprehensive Testing**: 95%+ test coverage across all components
-- **Complete Documentation**: User guides, implementation details, and developer documentation
 
 **🎯 Current Focus**: User Testing and Feedback Collection
 - **Production Ready**: System is complete and ready for real-world use
 - **User Testing**: Collect feedback on the conversation-based approach
 - **Performance Optimization**: Improve response times and user experience
-- **Feature Enhancement**: Add new suggestion types and sketch variations
 
-**📋 Next Phase**: Advanced Features
-- **Enhanced AI Integration**: Better prompt engineering and response processing
-- **More Sketch Types**: Additional MIDI generation patterns and styles
-- **DAW Integration**: Direct integration with popular DAWs
-- **User Learning**: System learns from user preferences over time
-
-**🔮 Future Direction**: Real-Time Collaboration
+**🔮 Future Direction**: Native DAW Integration
 - **Live Musical Conversation**: Real-time conversation during DAW sessions
 - **Advanced Music Theory**: Integration with music theory libraries
 - **Machine Learning**: Custom models trained on user preferences
-- **Cloud Integration**: Share and collaborate on musical projects
 
 ## 🤝 Contributing
 
-We welcome contributions! See our [Development Guide](DEVELOPMENT.md) for:
-- Development setup and workflows
-- Code style and testing requirements
-- Pull request process
-- Architecture guidelines
+We welcome contributions! See our [Development Guide](DEVELOPMENT.md) for development setup, code style, and pull request process.
 
 ## 📄 License
 
@@ -274,4 +181,4 @@ This project is part of YesAnd Music. See [LICENSE](LICENSE) for details.
 
 ---
 
-**Ready to start?** Check out the [Features Guide](FEATURES.md) for detailed usage instructions, or jump straight to [Troubleshooting](TROUBLESHOOTING.md) if you run into issues.
+**Ready to start?** Check out the [Musical Conversation System](MUSICAL_CONVERSATION_README.md) for detailed usage instructions, or jump straight to [Troubleshooting](TROUBLESHOOTING.md) if you run into issues.
