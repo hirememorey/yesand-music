@@ -1,0 +1,107 @@
+{
+  "tempo": 120,
+  "key": "C major",
+  "tracks": [
+    {
+      "name": "Track 1",
+      "notes": [
+        {
+          "pitch": "C3",
+          "startTime": 0.0,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "D3",
+          "startTime": 0.5,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "E3",
+          "startTime": 1.25,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "F3",
+          "startTime": 2.25,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "G3",
+          "startTime": 3.5,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "A3",
+          "startTime": 5.0,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "B3",
+          "startTime": 6.75,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "C4",
+          "startTime": 8.75,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "C3",
+          "startTime": 11.0,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "D3",
+          "startTime": 13.5,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "E3",
+          "startTime": 16.25,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "F3",
+          "startTime": 19.25,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "G3",
+          "startTime": 22.5,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "A3",
+          "startTime": 26.0,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "B3",
+          "startTime": 29.75,
+          "duration": 0.25,
+          "velocity": 80
+        },
+        {
+          "pitch": "C4",
+          "startTime": 33.75,
+          "duration": 0.25,
+          "velocity": 80
+        }
+      ]
+    }
+  ]
+}
