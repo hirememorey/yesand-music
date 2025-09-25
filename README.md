@@ -22,7 +22,19 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 
-#### 🎵 MVP User-Driven MIDI Generator (NEW - Production Ready)
+#### 🎵 Musical Quality First Generator (NEW - Production Ready)
+```bash
+# Generate musically complete MIDI from creative prompts
+python mvp_musical_quality_first.py "I want 16 measures of an anthemic bass line as if Flea and Jeff Ament had a baby in g minor"
+
+# Interactive mode with musical quality focus
+python mvp_musical_quality_first.py --interactive
+
+# With user ID for musical feedback tracking
+python mvp_musical_quality_first.py "Create a melancholic melody that makes me feel intrigued and scared" --user-id "musician_123"
+```
+
+#### 🎵 Legacy MVP User-Driven MIDI Generator (Still Available)
 ```bash
 # Generate high-quality MIDI from any prompt
 python mvp_user_driven_generator.py "Create a jazz bass line in C major at 120 BPM for 8 measures"
@@ -73,6 +85,7 @@ python control_plane_cli.py "play scale C major"
 **YesAnd Music** is a context-aware AI musical collaborator that understands your entire project and provides intelligent enhancements through natural language conversation.
 
 ### Core Capabilities
+- **🎵 Musical Quality First Generator**: NEW - Handles creative, metaphorical prompts with musical quality focus
 - **🎵 MVP User-Driven Generator**: Production-ready AI MIDI generation with built-in quality gates and user feedback
 - **🎵 Legacy MVP MIDI Generator**: DAW-independent AI-powered MIDI generation from natural language prompts
 - **🔒 Security-First Architecture**: Built-in security, validation, and safety monitoring
