@@ -15,6 +15,8 @@ Key Features:
 import json
 import time
 import hashlib
+import re
+from datetime import datetime
 from typing import Dict, List, Optional, Any, Generator, Tuple
 from dataclasses import dataclass
 from pathlib import Path
@@ -64,7 +66,12 @@ class AIMIDIGenerator(SecurityFirstComponent):
     
     def __init__(self, openai_api_key: str, security_level: SecurityLevel = SecurityLevel.MEDIUM):
         super().__init__(security_level)
-        self.llm_client = SecureLLMClient(LLMConfig(openai_api_key))
+        self.llm_client = SecureLLMClient(LLMConfig(
+            api_key=openai_api_key,
+            max_tokens=4000,
+            max_response_length=8000,  # Increased for longer pieces
+            model="gpt-4"
+        ))
         self.generation_history: List[MIDIGenerationResult] = []
         self.style_database = self._initialize_style_database()
         self.musical_context = {}
@@ -133,6 +140,7 @@ class AIMIDIGenerator(SecurityFirstComponent):
                 user_id="mvp_user",
                 session_id="mvp_session",
                 security_level=self.security_level,
+                timestamp=datetime.now(),
                 request_id=request_id
             )
             
@@ -293,6 +301,20 @@ class AIMIDIGenerator(SecurityFirstComponent):
         if tempo_match:
             musical_context["tempo"] = int(tempo_match.group(1))
         
+        # Extract length (measures/bars)
+        length_patterns = {
+            r"(\d+)\s*measures?": lambda m: int(m.group(1)),
+            r"(\d+)\s*bars?": lambda m: int(m.group(1)),
+            r"(\d+)\s*beats?": lambda m: int(m.group(1)),
+        }
+        
+        musical_context["length_measures"] = 4  # Default to 4 measures (2-4 bars)
+        for pattern, extractor in length_patterns.items():
+            match = re.search(pattern, prompt, re.IGNORECASE)
+            if match:
+                musical_context["length_measures"] = extractor(match)
+                break
+        
         # Extract instrument
         if "bass" in prompt.lower():
             musical_context["instrument"] = "bass"
@@ -363,6 +385,7 @@ class AIMIDIGenerator(SecurityFirstComponent):
         key = musical_context.get("key", "C major")
         tempo = musical_context.get("tempo", 120)
         instrument = musical_context.get("instrument", "bass")
+        length_measures = musical_context.get("length_measures", 4)
         
         # Build the enhanced prompt
         enhanced_prompt = f"""You are a professional {instrument} player and music producer. Generate a {instrument} line that matches the following request:
@@ -379,7 +402,7 @@ STYLE CHARACTERISTICS:
 {json.dumps(style_characteristics, indent=2)}
 
 REQUIREMENTS:
-1. Generate exactly 2-4 bars of {instrument} content
+1. Generate exactly {length_measures} measures of {instrument} content
 2. Use the specified key ({key}) as the foundation
 3. Match the tempo ({tempo} BPM)
 4. Incorporate the style characteristics listed above
@@ -410,14 +433,14 @@ Generate the {instrument} line now:"""
 
         return enhanced_prompt
     
-    def _generate_midi_with_ai(self, enhanced_prompt: str, musical_context: Dict[str, Any], security_context: SecurityContext) -> List[Dict[str, Any]]:
+    def _generate_midi_with_ai(self, enhanced_prompt: str, musical_context: Dict[str, Any], security_context: SecurityContext = None) -> List[Dict[str, Any]]:
         """Generate MIDI data using AI"""
         
         # Create LLM request
         llm_request = LLMRequest(
             prompt=enhanced_prompt,
             model="gpt-4",
-            max_tokens=2000,
+            max_tokens=4000,  # Increased for longer pieces
             temperature=0.8,
             request_id=self._generate_request_id(enhanced_prompt),
             timestamp=time.time(),
@@ -428,10 +451,10 @@ Generate the {instrument} line now:"""
         )
         
         # Make request to LLM
-        response = self.llm_client.make_request(llm_request)
+        response = self.llm_client.process(llm_request, security_context)
         
-        if not response.success:
-            raise Exception(f"LLM request failed: {response.error_message}")
+        if not response.is_safe:
+            raise Exception(f"LLM request failed: Response marked as unsafe")
         
         # Parse response
         try:
@@ -445,6 +468,10 @@ Generate the {instrument} line now:"""
             return midi_data
             
         except json.JSONDecodeError as e:
+            # Debug: Show the response content that failed to parse
+            print(f"DEBUG: JSON parse error: {e}")
+            print(f"DEBUG: Response content (first 500 chars): {response.content[:500]}")
+            print(f"DEBUG: Response content (last 500 chars): {response.content[-500:]}")
             raise ValueError(f"Failed to parse LLM response as JSON: {e}")
         except Exception as e:
             raise ValueError(f"Failed to process LLM response: {e}")
@@ -579,7 +606,3 @@ Generate the {instrument} line now:"""
             return True
         except Exception:
             return False
-
-
-# Import re at the top
-import re

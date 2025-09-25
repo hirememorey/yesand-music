@@ -287,8 +287,8 @@ class SecureLLMClient(SecurityFirstComponent):
         
         # Initialize OpenAI client if available
         if OPENAI_AVAILABLE:
-            openai.api_key = config.api_key
-            self.client = openai
+            from openai import OpenAI
+            self.client = OpenAI(api_key=config.api_key)
         else:
             self.logger.warning("OpenAI library not available, using fallback implementation")
             self.client = OpenAI()
@@ -327,7 +327,7 @@ class SecureLLMClient(SecurityFirstComponent):
         try:
             # Make LLM request
             if OPENAI_AVAILABLE:
-                response = self.client.ChatCompletion.create(
+                response = self.client.chat.completions.create(
                     model=data.model,
                     messages=[{"role": "user", "content": data.prompt}],
                     max_tokens=data.max_tokens,

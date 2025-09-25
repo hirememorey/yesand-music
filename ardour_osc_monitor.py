@@ -12,10 +12,10 @@ from typing import Dict, List, Any, Optional, Callable
 from dataclasses import dataclass, asdict
 from threading import Thread, Event
 import socket
-from python_osc import osc_message_builder, osc_bundle_builder
-from python_osc.osc_message import OscMessage
-from python_osc.osc_server import OSCUDPServer
-from python_osc.dispatcher import Dispatcher
+from pythonosc import osc_message_builder, osc_bundle_builder
+from pythonosc.osc_message import OscMessage
+from pythonosc.osc_server import OSCUDPServer
+from pythonosc.dispatcher import Dispatcher
 
 
 @dataclass

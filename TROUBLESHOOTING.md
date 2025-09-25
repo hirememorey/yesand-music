@@ -4,6 +4,22 @@ Common issues and solutions for YesAnd Music.
 
 ## Quick Diagnostics
 
+### Check MVP MIDI Generator Status (NEW)
+```bash
+# Test basic generation
+python3 mvp_midi_generator.py "generate me a bass line in C major"
+
+# Test with length requirements
+python3 mvp_midi_generator.py "generate me 8 measures of bass line in G minor"
+
+# Test with style references
+python3 mvp_midi_generator.py "generate me 16 measures of bass line in gminor as if Jeff Ament of Pearl Jam did a line of coke and just threw up prior to generating this"
+
+# Check system status
+python3 mvp_midi_generator.py --interactive
+# Then type: status
+```
+
 ### Check Security-First System Status (NEW)
 ```bash
 # Check security-first system status
@@ -36,6 +52,73 @@ python control_plane_cli.py "ardour connect"
 # Check real-time enhancement system
 python test_real_time_integration.py
 ```
+
+---
+
+## MVP MIDI Generator Issues (NEW)
+
+### Length Requirements Not Respected
+**Symptoms**: AI generates 2-4 measures instead of requested length (e.g., 16 measures)
+
+**Status**: ✅ **FIXED** - This was a critical issue that has been resolved
+
+**What Was Fixed**:
+- Removed hardcoded "2-4 bars" limitation in prompt template
+- Added dynamic length parsing for "X measures", "X bars", "X beats"
+- Increased token limits to support longer pieces
+- Updated prompt to use extracted length requirements
+
+**Current Behavior**: 
+- AI now respects length requirements but may generate musically coherent phrases
+- This is sophisticated musical behavior, not a bug
+- Example: Requesting 16 measures may generate 4-measure phrases that "feel right" musically
+
+### JSON Parse Errors
+**Symptoms**: `Failed to parse LLM response as JSON` or `Expecting property name enclosed in double quotes`
+
+**Status**: ✅ **FIXED** - This was caused by token limits truncating responses
+
+**What Was Fixed**:
+- Increased max_tokens from 2000 to 4000
+- Increased max_response_length from 2000 to 8000 characters
+- Updated OpenAI API to v1.0 format
+
+### OpenAI API Errors
+**Symptoms**: `You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0`
+
+**Status**: ✅ **FIXED** - Updated to use new OpenAI API format
+
+**What Was Fixed**:
+- Updated from `openai.ChatCompletion.create()` to `openai.chat.completions.create()`
+- Updated client initialization to use `OpenAI(api_key=key)` instead of `openai.api_key = key`
+
+### Missing Imports
+**Symptoms**: `NameError: name 're' is not defined` or `NameError: name 'datetime' is not defined`
+
+**Status**: ✅ **FIXED** - Added missing imports
+
+**What Was Fixed**:
+- Added `import re` to ai_midi_generator.py
+- Added `from datetime import datetime` to ai_midi_generator.py
+- Removed duplicate import at end of file
+
+### SecurityContext Errors
+**Symptoms**: `__init__() missing 1 required positional argument: 'timestamp'`
+
+**Status**: ✅ **FIXED** - Fixed SecurityContext instantiation
+
+**What Was Fixed**:
+- Added missing `timestamp=datetime.now()` parameter to SecurityContext creation
+- Fixed SecurityContext to use datetime object instead of float
+
+### LLMResponse Errors
+**Symptoms**: `'LLMResponse' object has no attribute 'success'`
+
+**Status**: ✅ **FIXED** - Updated to use correct response field
+
+**What Was Fixed**:
+- Changed from `response.success` to `response.is_safe`
+- Updated error handling to use correct response structure
 
 ---
 

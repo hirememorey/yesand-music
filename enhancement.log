@@ -14,3 +14,6 @@
 2025-09-24 15:16:33,556 - ardour_osc_monitor - INFO - Started OSC monitoring on 127.0.0.1:3820
 2025-09-24 15:16:33,574 - midi_stream_analyzer - INFO - Started MIDI stream analysis
 2025-09-24 15:16:33,574 - real_time_ardour_enhancer - INFO - Started enhancement session: session_1758741393
+2025-09-24 15:39:00,520 - ardour_osc_monitor - INFO - Started OSC monitoring on 127.0.0.1:3820
+2025-09-24 15:39:01,190 - midi_stream_analyzer - INFO - Started MIDI stream analysis
+2025-09-24 15:39:01,190 - real_time_ardour_enhancer - INFO - Started enhancement session: session_1758742740
