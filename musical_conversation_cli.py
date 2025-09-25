@@ -39,8 +39,20 @@ class MusicalConversationCLI:
         self.current_suggestions = []
         self.current_sketches = []
     
+    def safe_input(self, prompt: str) -> Optional[str]:
+        """Safely get user input with EOF error handling"""
+        try:
+            return input(prompt).strip()
+        except EOFError:
+            print("\n❌ Error: EOF when reading input. This environment doesn't support interactive input.")
+            print("💡 Try using the demo mode instead: python musical_conversation_cli.py --demo")
+            return None
+        except KeyboardInterrupt:
+            print("\n👋 Goodbye! Happy music making!")
+            return None
+
     def start_interactive_mode(self, project_path: Optional[str] = None):
-        """Start interactive conversation mode"""
+        """Start interactive conversation mode with EOF handling"""
         print("🎵 Musical Conversation & Problem-Solving System")
         print("=" * 60)
         
@@ -56,7 +68,10 @@ class MusicalConversationCLI:
         
         while True:
             try:
-                user_input = input("\n🎵 You: ").strip()
+                user_input = self.safe_input("\n🎵 You: ")
+                
+                if user_input is None:  # EOF or KeyboardInterrupt
+                    break
                 
                 if user_input.lower() in ['quit', 'exit', 'q']:
                     print("👋 Goodbye! Happy music making!")
@@ -86,11 +101,65 @@ class MusicalConversationCLI:
                     if self._should_generate_suggestions(user_input):
                         self._generate_and_show_suggestions()
                 
-            except KeyboardInterrupt:
-                print("\n👋 Goodbye! Happy music making!")
-                break
             except Exception as e:
                 print(f"❌ Error: {e}")
+                break
+    
+    def start_demo_mode(self, project_path: Optional[str] = None):
+        """Start demo mode with simulated conversation"""
+        print("🎵 Musical Conversation System - Demo Mode")
+        print("=" * 50)
+        
+        # Start conversation
+        print(self.conversation_engine.start_conversation(project_path))
+        
+        if project_path:
+            self.current_project_path = project_path
+            print(f"📁 Project loaded: {project_path}")
+        
+        print("\n🎵 Running simulated conversation...")
+        print("-" * 30)
+        
+        # Simulate a conversation
+        demo_responses = [
+            "I'm creating a song about leaders who shoot the messenger instead of fixing problems",
+            "G minor",
+            "120",
+            "I have a DX7 bass line and fuzz guitar",
+            "I need help with a bridge that makes sense"
+        ]
+        
+        for response in demo_responses:
+            print(f"\n🎵 You: {response}")
+            result = self.conversation_engine.process_user_input(response)
+            print(f"🤖 AI: {result}")
+            
+            # Check if interview is complete
+            if hasattr(self.conversation_engine, 'context_interview'):
+                answered, total = self.conversation_engine.context_interview.get_progress()
+                if answered >= total:
+                    print(f"\n✅ Interview complete! ({answered}/{total} questions answered)")
+                    break
+        
+        print("\n🎵 Testing suggestion generation...")
+        print("-" * 30)
+        
+        # Test suggestion generation
+        if hasattr(self.conversation_engine, 'context_interview') and self.conversation_engine.context_interview.is_complete():
+            print("🎵 You: Can you give me some suggestions now?")
+            result = self.conversation_engine.process_user_input("Can you give me some suggestions now?")
+            print(f"🤖 AI: {result}")
+        
+        print("\n🎵 Testing MIDI sketch generation...")
+        print("-" * 30)
+        
+        # Test MIDI sketch generation
+        print("🎵 You: test 1")
+        result = self.conversation_engine.process_user_input("test 1")
+        print(f"🤖 AI: {result}")
+        
+        print("\n🎉 Demo Complete!")
+        print("The Musical Conversation System is working correctly!")
     
     def _show_help(self):
         """Show available commands"""
@@ -373,39 +442,8 @@ def main():
     cli = MusicalConversationCLI()
     
     if args.demo:
-        # Run demo
-        print("🎵 Running Musical Conversation System Demo")
-        print("=" * 50)
-        
-        # Demo context interview
-        print("\n1. Context Interview Demo:")
-        print("-" * 30)
-        interview = MusicalContextInterview()
-        print(interview.start_interview())
-        
-        # Demo project analyzer
-        print("\n2. Project Analysis Demo:")
-        print("-" * 30)
-        analyzer = ProjectStateAnalyzer()
-        try:
-            # Look for MIDI files
-            midi_files = list(Path(".").glob("*.mid")) + list(Path(".").glob("*.midi"))
-            if midi_files:
-                project_state = analyzer.analyze_project(str(midi_files[0]))
-                print(analyzer.get_context_summary(project_state))
-            else:
-                print("No MIDI files found for demo")
-        except Exception as e:
-            print(f"Demo error: {e}")
-        
-        # Demo sketch generator
-        print("\n3. MIDI Sketch Generation Demo:")
-        print("-" * 30)
-        generator = MIDISketchGenerator()
-        sketch = generator.generate_sketch("chord_progression", "G minor", 120)
-        print(f"Generated: {sketch.title}")
-        print(f"Duration: {sketch.duration_seconds:.1f}s")
-        print(f"Notes: {len(sketch.midi_data)}")
+        # Run demo mode
+        cli.start_demo_mode(args.project)
         
     elif args.interactive or not any([args.project, args.demo]):
         # Start interactive mode

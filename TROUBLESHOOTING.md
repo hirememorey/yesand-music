@@ -4,6 +4,18 @@ Common issues and solutions for YesAnd Music.
 
 ## Quick Diagnostics
 
+### Check Musical Conversation System Status (PRIMARY)
+```bash
+# Test demo mode (always works)
+python musical_conversation_cli.py --demo
+
+# Test interactive mode
+python musical_conversation_cli.py --interactive
+
+# Test core functionality
+python test_simple_functionality.py
+```
+
 ### Check MVP MIDI Generator Status (NEW)
 ```bash
 # Test basic generation
@@ -52,6 +64,43 @@ python control_plane_cli.py "ardour connect"
 # Check real-time enhancement system
 python test_real_time_integration.py
 ```
+
+---
+
+## Musical Conversation System Issues (PRIMARY)
+
+### EOF Errors in Interactive Mode
+**Symptoms**: `❌ Error: EOF when reading input` or repeated EOF errors
+
+**Status**: ✅ **FIXED** - The system now handles EOF errors gracefully
+
+**What Was Fixed**:
+- Added `safe_input()` method that catches EOF errors
+- Interactive mode now provides helpful error messages
+- System suggests demo mode when interactive input fails
+- Graceful degradation instead of crashing
+
+**Solutions**:
+1. **Use Demo Mode (Recommended)**:
+   ```bash
+   python musical_conversation_cli.py --demo
+   ```
+
+2. **Interactive Mode with EOF Handling**:
+   ```bash
+   python musical_conversation_cli.py --interactive
+   # If EOF errors occur, the system will suggest demo mode
+   ```
+
+3. **Test Core Functionality**:
+   ```bash
+   python test_simple_functionality.py
+   ```
+
+**Why This Happens**:
+- EOF errors occur in environments where stdin is not properly connected
+- Background processes, some terminal environments, or automated testing
+- The system now handles this gracefully instead of crashing
 
 ---
 

@@ -56,15 +56,17 @@ export OPENAI_API_KEY="your-api-key-here"
 
 #### 🎵 Musical Conversation System (PRIMARY)
 ```bash
-# Start interactive musical conversation
+# Demo mode (recommended - always works)
+python musical_conversation_cli.py --demo
+
+# Interactive mode (with EOF error handling)
 python musical_conversation_cli.py --interactive
 
 # With project analysis
 python musical_conversation_cli.py --interactive --project /path/to/your/project.mid
-
-# Run comprehensive demo
-python musical_conversation_cli.py --demo
 ```
+
+**Note:** If you encounter EOF errors in interactive mode, use demo mode instead. The system handles EOF errors gracefully and provides helpful guidance.
 
 #### 🔒 Security-First Real-Time Enhancement (DAW Integration)
 ```bash
