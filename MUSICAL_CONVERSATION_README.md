@@ -6,6 +6,9 @@ This system addresses the critical insight that **musical quality is not a techn
 
 ## 🎯 Core Philosophy
 
+**The Fundamental Insight:**
+> **"Musical quality is not as much a technical issue to solve as it is a psychological one for the user to understand what they need and what they want."**
+
 **The Problem We Solved:**
 - Users don't know how to effectively communicate their musical vision to AI
 - AI gives generic suggestions because it lacks proper musical context
@@ -13,10 +16,25 @@ This system addresses the critical insight that **musical quality is not a techn
 - Users need guidance, not just a conversation engine
 
 **Our Solution:**
-- **Dual Context Sources**: Project state analysis + guided user input
-- **Musical Context Interview**: Step-by-step guidance for describing musical vision
-- **Contextual Suggestions**: AI suggestions based on complete musical understanding
-- **Rapid Testing**: Quick MIDI sketches for immediate idea validation
+- **Minimal Description**: Describe your song concept, not technical details
+- **Context-Aware Analysis**: Understands psychological/creative context
+- **Intelligent Suggestions**: Musical reasoning based on context, not technical metrics
+- **Automatic Pattern Generation**: MIDI sketches for immediate testing
+- **Ear-Based Validation**: Test with your ears, not technical assessments
+
+**Target Workflow:**
+```
+User: "I'm creating a song about leaders who shoot the messenger. 
+      I have a DX7 bass line in G minor and fuzz effects. 
+      I need help with a bridge that makes sense."
+
+AI: "Based on your context, here are bridge suggestions:
+     1. Contrasting Key Bridge (Bb major for harmonic contrast)
+     2. Rhythmic Contrast Bridge (swung sixteenths for variety)
+     3. Dynamic Build Bridge (sparse to full with your fuzz elements)
+     
+     [Generates MIDI sketches for immediate testing]"
+```
 
 ## 🚀 Quick Start
 

@@ -4,23 +4,37 @@
 
 Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities. Built with dual context sources (project state + user input) for production-ready musical collaboration.
 
-## 🎉 NEW: Musical Conversation System
+## 🎵 Musical Conversation System - PRIMARY FOCUS
 
 **Date:** December 2024  
-**Status:** **PRODUCTION READY**
+**Status:** **PRODUCTION READY - PRIMARY SYSTEM**
 
-The new Musical Conversation & Problem-Solving System addresses the critical insight that **musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want**.
+The Musical Conversation & Problem-Solving System addresses the critical insight that **musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want**.
+
+This system enables the target workflow: **minimal musical description + automatic pattern generation for immediate testing with your ears**.
 
 **Key Features:**
-- **Guided Context Building**: Step-by-step help for describing musical vision
-- **Dual Context Sources**: Project analysis + user input for complete understanding
-- **Contextual Suggestions**: AI suggestions that actually fit musical context
-- **Rapid Testing**: Quick MIDI sketches for immediate idea validation
-- **Musical Reasoning**: Understand why suggestions work with existing parts
+- **Minimal Description**: Describe your song concept, not technical details
+- **Context-Aware Analysis**: Understands psychological/creative context
+- **Intelligent Suggestions**: Musical reasoning based on context, not technical metrics
+- **Automatic Pattern Generation**: MIDI sketches for immediate testing
+- **Ear-Based Validation**: Test with your ears, not technical assessments
+
+**Example Workflow:**
+```
+User: "I'm creating a song about leaders who shoot the messenger. 
+      I have a DX7 bass line in G minor and fuzz effects. 
+      I need help with a bridge that makes sense."
+
+AI: "Based on your context, here are bridge suggestions:
+     1. Contrasting Key Bridge (Bb major for harmonic contrast)
+     2. Rhythmic Contrast Bridge (swung sixteenths for variety)
+     3. Dynamic Build Bridge (sparse to full with your fuzz elements)
+     
+     [Generates MIDI sketches for immediate testing]"
+```
 
 **See:** [MUSICAL_CONVERSATION_README.md](MUSICAL_CONVERSATION_README.md) for complete documentation.
-
-**Status:** System ready for production use with comprehensive testing and documentation.
 
 ## 🚀 Quick Start (2 minutes)
 
@@ -39,7 +53,7 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 
-#### 🎵 Musical Conversation System (NEW - Production Ready)
+#### 🎵 Musical Conversation System (PRIMARY - Production Ready)
 ```bash
 # Start interactive musical conversation
 python musical_conversation_cli.py --interactive
@@ -51,14 +65,16 @@ python musical_conversation_cli.py --interactive --project /path/to/your/project
 python musical_conversation_cli.py --demo
 ```
 
-#### 🎵 Legacy Systems (Still Available)
+#### 🎵 Legacy Systems (Deprecated - Use Musical Conversation System Instead)
 ```bash
-# Musical Quality First Generator
+# Musical Quality First Generator (LEGACY - Use Musical Conversation System)
 python mvp_musical_quality_first.py "I want 16 measures of an anthemic bass line as if Flea and Jeff Ament had a baby in g minor"
 
-# MVP User-Driven Generator
+# MVP User-Driven Generator (LEGACY - Use Musical Conversation System)
 python mvp_user_driven_generator.py "Create a jazz bass line in C major at 120 BPM for 8 measures"
 ```
+
+**Note:** Legacy systems are maintained for compatibility but should not be used for new development. The Musical Conversation System addresses the fundamental insight about musical quality being a psychological rather than technical issue.
 
 
 #### 🔒 Security-First Real-Time Enhancement (DAW Integration)
