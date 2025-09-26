@@ -569,6 +569,35 @@ python test_real_time_integration.py
    - **Logic Pro**: Look in MIDI Effects section
    - **Other DAWs**: Check VST3 support
 
+### GarageBand Setup Issues
+
+**Symptoms**: Plugin not appearing in GarageBand or not working properly
+
+**Solutions**:
+1. **Enable IAC Driver**:
+   - Open Audio MIDI Setup
+   - Window → Show MIDI Studio
+   - Double-click IAC Driver → check "Device is online"
+   - Create port named "IAC Driver Bus 1"
+
+2. **Create Software Instrument Track**:
+   - Create new Software Instrument track in GarageBand
+   - Arm the track for recording
+   - Enable input monitoring
+   - Load any software instrument
+
+3. **Check Plugin Location**:
+   - Plugin should be in `/Users/harrisgordon/Library/Audio/Plug-Ins/Components/`
+   - Look for "Style Transfer.component"
+   - If missing, rebuild plugin: `make -C build_minimal`
+
+4. **Test MIDI Output**:
+   ```bash
+   # Simple test
+   python control_plane_cli.py "play scale C major"
+   # Should play C Major scale and hear 8 notes
+   ```
+
 ### Visual Feedback Not Displaying
 
 **Symptoms**: Analysis commands run but no visual feedback appears
