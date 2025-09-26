@@ -4,6 +4,8 @@
 
 Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
 
+> **📋 Project Cleanup Complete**: This project has been cleaned up to contain only working, essential systems. See [QUICK_START.md](QUICK_START.md) for a summary of what works and what was removed.
+
 ## 🎯 Core Philosophy
 
 **"Musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want."**
@@ -46,7 +48,7 @@ AI: "Based on your context, here are bridge suggestions:
 ### Installation
 ```bash
 # 1. Install dependencies
-pip install -r requirements_musical_conversation.txt
+pip install -r requirements.txt
 
 # 2. Set OpenAI API key
 export OPENAI_API_KEY="your-api-key-here"
