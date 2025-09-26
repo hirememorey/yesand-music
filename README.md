@@ -4,40 +4,9 @@
 
 Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
 
-> **📋 Project Cleanup Complete**: This project has been cleaned up to contain only working, essential systems. See [QUICK_START.md](QUICK_START.md) for a summary of what works and what was removed.
-
 ## 🎯 Core Philosophy
 
 **"Musical quality is not a technical issue to solve, but a psychological one for the user to understand what they need and want."**
-
-## 🎵 Musical Conversation System - PRIMARY FEATURE
-
-**Status:** ✅ **FULLY WORKING - CRITICAL INTEGRATION FIXED**
-
-The Musical Conversation System addresses the critical insight that users need help communicating their musical vision to AI, not just better technical generation.
-
-**✅ Status:** The system is now fully functional with Interview-First Architecture and EOF error handling.
-
-**Key Features:**
-- **Guided Context Building**: Step-by-step help for describing your musical vision
-- **Dual Context Sources**: Project analysis + user input for complete understanding
-- **Contextual Suggestions**: AI suggestions that actually fit your musical context
-- **Rapid Testing**: Quick MIDI sketches for immediate idea validation
-- **Musical Reasoning**: Understand why suggestions work with your existing parts
-
-**Example Workflow:**
-```
-User: "I'm creating a song about leaders who shoot the messenger. 
-      I have a DX7 bass line in G minor and fuzz effects. 
-      I need help with a bridge that makes sense."
-
-AI: "Based on your context, here are bridge suggestions:
-     1. Contrasting Key Bridge (Bb major for harmonic contrast)
-     2. Rhythmic Contrast Bridge (swung sixteenths for variety)
-     3. Dynamic Build Bridge (sparse to full with your fuzz elements)
-     
-     [Generates MIDI sketches for immediate testing]"
-```
 
 ## 🚀 Quick Start
 
@@ -68,9 +37,7 @@ python musical_conversation_cli.py --interactive
 python musical_conversation_cli.py --interactive --project /path/to/your/project.mid
 ```
 
-**Note:** If you encounter EOF errors in interactive mode, use demo mode instead. The system handles EOF errors gracefully and provides helpful guidance.
-
-#### 🔒 Security-First Real-Time Enhancement (DAW Integration)
+#### 🔒 Security-First Real-Time Enhancement
 ```bash
 # Security-First Real-Time Enhancement (macOS + DAW)
 python secure_enhancement_cli.py --interactive
@@ -80,7 +47,7 @@ python secure_enhancement_cli.py --interactive
 python secure_enhancement_cli.py --status
 ```
 
-## 🎯 What It Does
+## 🎵 What It Does
 
 **YesAnd Music** transforms musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
 
@@ -107,20 +74,6 @@ python secure_enhancement_cli.py --status
 - **Real-Time Performance**: Live MIDI streaming with professional audio safety
 - **Non-Intrusive Integration**: Preserves existing DAW workflows while adding intelligence
 - **Comprehensive Testing**: 95%+ test coverage with security validation
-
-## 📚 Documentation
-
-### For Users
-- **[Musical Conversation System](MUSICAL_CONVERSATION_README.md)** - Complete guide to the conversation-based system
-- **[Features Guide](FEATURES.md)** - Complete guide to all features and capabilities
-- **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and solutions
-- **[Reference](REFERENCE.md)** - Complete command and API reference
-
-### For Developers
-- **[Project Status](PROJECT_STATUS.md)** - Current project status and overview
-- **[Development Guide](DEVELOPMENT.md)** - Development guide and workflows
-- **[Architecture](ARCHITECTURE.md)** - Technical architecture and design details
-- **[Quick Start](QUICK_START.md)** - Quick start guide for developers
 
 ## 🎵 Example Workflow
 
@@ -194,4 +147,4 @@ This project is part of YesAnd Music. See [LICENSE](LICENSE) for details.
 
 ---
 
-**Ready to start?** Check out the [Musical Conversation System](MUSICAL_CONVERSATION_README.md) for detailed usage instructions, or jump straight to [Troubleshooting](TROUBLESHOOTING.md) if you run into issues.
+**Ready to start?** Check out the [Quick Start Guide](QUICK_START.md) for detailed setup instructions, or jump straight to the [Development Guide](DEVELOPMENT.md) if you're contributing.

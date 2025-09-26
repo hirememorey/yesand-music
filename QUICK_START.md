@@ -72,7 +72,7 @@ The project now contains only working systems organized by functionality:
 
 1. **Start with Musical Conversation**: `python musical_conversation_cli.py --demo`
 2. **Try Security-First Enhancement**: `python secure_enhancement_cli.py --interactive`
-3. **Read the documentation**: Check `README.md`, `FEATURES.md`, `ARCHITECTURE.md`
+3. **Read the documentation**: Check `README.md` and `DEVELOPMENT.md`
 4. **Run tests**: `python test_simple_functionality.py`
 
 The project is now clean, organized, and ready for new developers to contribute.
