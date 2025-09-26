@@ -1,17 +1,17 @@
 # Quick Start Guide
 
-This project has been cleaned up to contain only the essential, working systems.
+This guide will get you up and running with the Enhanced Musical Conversation System in minutes.
 
 ## What Works
 
-### 1. Musical Conversation System (PRIMARY)
+### 1. Enhanced Musical Conversation System (PRIMARY)
 ```bash
-python musical_conversation_cli.py --demo
-python musical_conversation_cli.py --interactive
+python enhanced_musical_conversation_cli.py --demo
+python enhanced_musical_conversation_cli.py --interactive
 ```
 - **Status**: ✅ Fully working
-- **Purpose**: Natural language musical collaboration
-- **Key Features**: Context interview, suggestion generation, MIDI sketches
+- **Purpose**: Natural musical conversation with intent discovery
+- **Key Features**: Conversational discovery, creative enhancement, prompt generation
 
 ### 2. Security-First Real-Time Enhancement
 ```bash
@@ -39,40 +39,155 @@ python real_time_enhancement_cli.py --interactive
 
 ### Installation
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd music_cursor
+
+# Create virtual environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Set OpenAI API key
 export OPENAI_API_KEY="your-api-key-here"
 ```
 
 ### Test Everything Works
 ```bash
+# Test the enhanced conversation system
+python enhanced_musical_conversation_cli.py --demo
+
+# Test security-first system
+python secure_enhancement_cli.py --status
+
+# Test core functionality
 python test_simple_functionality.py
-python test_security_first_system.py
 ```
 
-## What Was Removed
+## Getting Started
 
-The following systems were removed because they were broken or deprecated:
-- `control_plane_cli.py` - Missing `osc_sender.py` dependency
-- `enhanced_control_plane_cli.py` - Missing `osc_sender.py` dependency
-- `mvp_*` generators - Deprecated systems
-- `demo_*.py` scripts - Referenced broken systems
-- Generated MIDI files and context files
-- Redundant test files and documentation
+### 1. Try the Demo
+```bash
+python enhanced_musical_conversation_cli.py --demo
+```
+This runs a simulated conversation showing how the system works.
 
-## Current Architecture
+### 2. Start Interactive Mode
+```bash
+python enhanced_musical_conversation_cli.py --interactive
+```
+This starts an interactive conversation where you can describe your musical vision.
 
-The project now contains only working systems organized by functionality:
-- **Core Systems**: Musical conversation, security-first enhancement
-- **Infrastructure**: MIDI I/O, analysis, music theory
-- **DAW Integration**: Ardour integration, real-time enhancement
-- **Plugin**: JUCE plugin for DAW integration
-- **Tests**: Essential tests for working systems
+### 3. With Initial Input
+```bash
+python enhanced_musical_conversation_cli.py --interactive --input "I'm working on a jazz piece"
+```
+This starts with your initial musical idea.
+
+## How It Works
+
+### 1. Intent Discovery
+The system asks questions to understand your musical vision:
+- What style/genre are you working in?
+- What tempo and key signature?
+- What instrument are you generating for?
+- What mood or feeling should it convey?
+
+### 2. Creative Enhancement
+Based on your responses, the system suggests creative enhancements:
+- Rhythmic improvements
+- Harmonic extensions
+- Melodic development
+- Timbral enhancements
+
+### 3. Prompt Generation
+The system creates rich, contextual prompts for MIDI generation that capture your complete musical vision.
+
+## Example Conversation
+
+```
+🎵 You: I'm working on a jazz piece
+🤖 AI: Welcome to your musical discovery session! I'm here to help you explore and clarify your musical vision...
+
+🎵 You: It's in G minor at 120 BPM
+🤖 AI: I understand you're working on G minor at 120 for harmonic...
+
+🎵 You: I want a mysterious, dark sound like Miles Davis
+🤖 AI: I picked up several musical ideas from what you said:
+     - Timbral: mysterious, dark sound like Miles
+     - Emotional: want a mysterious, dark sound
+     
+     💡 Musical Insights: Harmonic elements are well-defined, Emotional character is clear
+
+🎵 You: Swung eighths for the rhythm
+🤖 AI: I picked up several musical ideas from what you said:
+     - Rhythmic: for the rhythm, Swung eighths for, Swung eighths for the
+     
+     💡 Musical Insights: You have a clear rhythmic vision, Harmonic elements are well-defined
+```
+
+## Available Commands
+
+### Interactive Mode Commands
+- `help` - Show available commands
+- `status` - Show system status
+- `context` - Show current musical context
+- `discovery` - Show intent discovery summary
+- `suggestions` - Show musical suggestions
+- `enhancements` - Show creative enhancement suggestions
+- `prompt` - Show generated MIDI prompt
+- `generate <type>` - Generate specific suggestions
+- `enhance <level>` - Apply creative enhancements
+- `quit` - Exit the system
+
+### Command Examples
+```bash
+# Show current context
+context
+
+# Show discovery summary
+discovery
+
+# Generate prompt
+prompt
+
+# Apply high-level enhancements
+enhance high
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **EOF Error**: If you get an EOF error, use demo mode instead:
+   ```bash
+   python enhanced_musical_conversation_cli.py --demo
+   ```
+
+2. **Missing OpenAI API Key**: Set your API key:
+   ```bash
+   export OPENAI_API_KEY="your-api-key-here"
+   ```
+
+3. **Import Errors**: Make sure you're in the correct directory and have activated the virtual environment:
+   ```bash
+   source .venv/bin/activate
+   cd music_cursor
+   ```
+
+### Getting Help
+
+- Check the [Development Guide](DEVELOPMENT.md) for detailed setup
+- Look at the test files for usage examples
+- Run the demo mode to see how the system works
 
 ## Next Steps
 
-1. **Start with Musical Conversation**: `python musical_conversation_cli.py --demo`
-2. **Try Security-First Enhancement**: `python secure_enhancement_cli.py --interactive`
-3. **Read the documentation**: Check `README.md` and `DEVELOPMENT.md`
-4. **Run tests**: `python test_simple_functionality.py`
+1. **Explore the System**: Try different musical ideas and see how the system responds
+2. **Read the Code**: Check out the source code to understand how it works
+3. **Contribute**: See [DEVELOPMENT.md](DEVELOPMENT.md) for contribution guidelines
+4. **Extend**: Add new features or improve existing ones
 
-The project is now clean, organized, and ready for new developers to contribute.
+The Enhanced Musical Conversation System is designed to be intuitive and natural - just describe your musical vision and let the system guide you through the discovery process!

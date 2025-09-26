@@ -1,8 +1,8 @@
 # YesAnd Music
 
-**Musical Conversation & Problem-Solving System**
+**Enhanced Musical Conversation & Intent Discovery System**
 
-Transform musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
+Transform musical problem-solving from technical manipulation to intelligent conversation through natural dialogue, intent discovery, and context-aware creative enhancement.
 
 ## 🎯 Core Philosophy
 
@@ -25,16 +25,16 @@ export OPENAI_API_KEY="your-api-key-here"
 
 ### Try It Now
 
-#### 🎵 Musical Conversation System (PRIMARY)
+#### 🎵 Enhanced Musical Conversation System (PRIMARY)
 ```bash
 # Demo mode (recommended - always works)
-python musical_conversation_cli.py --demo
+python enhanced_musical_conversation_cli.py --demo
 
 # Interactive mode (with EOF error handling)
-python musical_conversation_cli.py --interactive
+python enhanced_musical_conversation_cli.py --interactive
 
-# With project analysis
-python musical_conversation_cli.py --interactive --project /path/to/your/project.mid
+# With initial input
+python enhanced_musical_conversation_cli.py --interactive --input "I'm working on a jazz piece"
 ```
 
 #### 🔒 Security-First Real-Time Enhancement
@@ -49,16 +49,17 @@ python secure_enhancement_cli.py --status
 
 ## 🎵 What It Does
 
-**YesAnd Music** transforms musical problem-solving from technical manipulation to intelligent conversation through guided context gathering and rapid testing capabilities.
+**YesAnd Music** transforms musical problem-solving through natural conversation, intelligent intent discovery, and context-aware creative enhancement.
 
 ### Core Capabilities
 
-#### 🎵 Musical Conversation System (PRIMARY)
-- **Guided Context Building**: Step-by-step help for describing your musical vision
-- **Dual Context Sources**: Project analysis + user input for complete understanding
-- **Contextual Suggestions**: AI suggestions that actually fit your musical context
-- **Rapid Testing**: Quick MIDI sketches for immediate idea validation
-- **Musical Reasoning**: Understand why suggestions work with your existing parts
+#### 🎵 Enhanced Musical Conversation System (PRIMARY)
+- **Natural Musical Dialogue**: Conversational intent discovery through guided questions
+- **Context-Aware Intelligence**: Understands entire musical projects and user preferences
+- **Creative Enhancement**: Suggests musical improvements based on understanding
+- **Rich Prompt Generation**: Creates detailed prompts for MIDI generation
+- **Musical Insights**: Provides real-time insights about your musical vision
+- **Seamless Integration**: All systems work together through natural conversation
 
 #### 🔒 Supporting Systems
 - **Security-First Real-Time Enhancement**: Live LLM-powered track enhancement with security
@@ -69,73 +70,83 @@ python secure_enhancement_cli.py --status
 - **JUCE Plugin System**: Native DAW plugin integration
 
 ### Key Features
+- **Conversation-First Design**: Natural musical dialogue instead of rigid forms
+- **Intent Discovery**: Captures musical vision through guided conversation
+- **Creative Enhancement**: Suggests improvements based on musical understanding
+- **Context Preservation**: Maintains rich musical context throughout the process
 - **Security-First Design**: Security built into every component, not added as overhead
-- **Context-Aware Intelligence**: Understands entire musical projects, not just individual tracks
 - **Real-Time Performance**: Live MIDI streaming with professional audio safety
 - **Non-Intrusive Integration**: Preserves existing DAW workflows while adding intelligence
 - **Comprehensive Testing**: 95%+ test coverage with security validation
 
 ## 🎵 Example Workflow
 
-### Musical Conversation System
-1. **Start Conversation**: `python musical_conversation_cli.py --interactive`
-2. **With Project**: `python musical_conversation_cli.py --interactive --project /path/to/project.mid`
-3. **Run Demo**: `python musical_conversation_cli.py --demo`
+### Enhanced Musical Conversation
+1. **Start Conversation**: `python enhanced_musical_conversation_cli.py --interactive`
+2. **Describe Your Vision**: "I'm working on a jazz piece"
+3. **Build Context**: Answer questions about tempo, key, mood, style
+4. **Discover Intent**: System captures your musical vision through conversation
+5. **Get Enhancements**: Receive creative suggestions based on your vision
+6. **Generate Prompts**: Create detailed prompts for MIDI generation
 
 **Example Conversation:**
 ```
-🎵 You: I need help with a bridge that makes sense
-🤖 AI: I understand your problem. Let me ask you some questions to provide the best suggestions:
-    1. What key and tempo is your song in?
-    2. What instruments do you already have?
-    3. What musical style are you going for?
+🎵 You: I'm working on a jazz piece
+🤖 AI: Welcome to your musical discovery session! I'm here to help you explore and clarify your musical vision...
 
-🎵 You: The key is G minor and tempo is 120 BPM
-🤖 AI: Great! What instruments do you already have?
+🎵 You: It's in G minor at 120 BPM
+🤖 AI: I understand you're working on G minor at 120 for harmonic...
 
-🎵 You: I have a DX7 bass line and fuzz guitar
-🤖 AI: Perfect! Here are some bridge suggestions:
-    1. Contrasting Key Bridge - Move to Bb major for tension
-    2. Rhythmic Contrast Bridge - Change from straight to swung eighths
-    Use 'test 1' to generate a MIDI sketch for testing.
+🎵 You: I want a mysterious, dark sound like Miles Davis
+🤖 AI: I picked up several musical ideas from what you said:
+     - Timbral: mysterious, dark sound like Miles
+     - Emotional: want a mysterious, dark sound
+     
+     💡 Musical Insights: Harmonic elements are well-defined, Emotional character is clear
 ```
 
 ## 🏗️ Architecture
 
-YesAnd Music follows a **Security-First Architecture** with "Brain vs. Hands" design:
+YesAnd Music follows a **Conversation-First Architecture** with natural integration:
+
+- **Intent Discovery**: Natural conversation captures musical vision
+- **Creative Enhancement**: Context-aware suggestions based on understanding
+- **Prompt Generation**: Rich prompts from full conversational context
 - **Security-First Design**: Security built into every component from the ground up
-- **Musical Intelligence (Brain)**: Pure algorithmic functions, testable and reliable
-- **MIDI I/O (Hands)**: Simple data conversion without musical logic
-- **Context Awareness**: Full project understanding for intelligent suggestions
+- **Context Preservation**: Rich musical context maintained throughout
 - **Fail-Fast Design**: Quick failure detection and graceful degradation
 - **Comprehensive Testing**: 95%+ test coverage with security validation
 
 ## 🚀 Current Status
 
 **✅ Fully Working:**
-- **Context Interview System**: ✅ Working - guides users through questions
-- **Psychological Insight**: ✅ Working - asks clarifying questions instead of jumping to technical solutions
-- **Conversation Engine**: ✅ Fixed - properly integrated with Interview-First Architecture
-- **Suggestion Generation**: ✅ Working - generates contextual suggestions using interview data
-- **EOF Error Handling**: ✅ Fixed - graceful error handling with helpful guidance
+- **Enhanced Musical Conversation System**: ✅ Production ready - natural dialogue with intent discovery
+- **Intent Discovery Agent**: ✅ Working - captures musical vision through conversation
+- **Creative Enhancement System**: ✅ Working - context-aware musical suggestions
+- **Dynamic Question Generator**: ✅ Working - adaptive questioning based on context
+- **Context-Aware Prompt Generation**: ✅ Working - rich prompts from conversation
+- **Security-First Real-Time Enhancement**: ✅ Working - live LLM-powered track enhancement
+- **Real-Time Ardour Enhancement**: ✅ Working - live enhancement with auto-import
+- **Musical Scribe Architecture**: ✅ Working - context-aware AI for project analysis
 
-**🎯 Current Focus**: Ready for Production
-- **Priority 1**: ✅ Complete - Integration fixed with Interview-First Architecture
-- **Priority 2**: ✅ Complete - Context data flows from interview to suggestions
-- **Priority 3**: ✅ Complete - End-to-end workflow tested and working
-- **Priority 4**: ✅ Complete - EOF error handling implemented
-- **Priority 5**: Ready - User testing and feature enhancement
+**🎯 Current Focus**: Production Ready
+- **Priority 1**: ✅ Complete - Natural conversational integration
+- **Priority 2**: ✅ Complete - Intent discovery through dialogue
+- **Priority 3**: ✅ Complete - Creative enhancement suggestions
+- **Priority 4**: ✅ Complete - Context-aware prompt generation
+- **Priority 5**: ✅ Complete - Seamless system integration
 
 **📋 Next Steps for Developers:**
-1. ✅ Run `python test_simple_functionality.py` - all tests passing
-2. ✅ Integration complete - Interview-First Architecture implemented
+1. ✅ Run `python enhanced_musical_conversation_cli.py --demo` - all systems working
+2. ✅ Integration complete - Conversation-First Architecture implemented
 3. ✅ Complete workflow tested and working
-4. ✅ Error handling robust and production-ready
+4. ✅ Natural dialogue flow implemented and tested
 
-**🔮 Future Direction**: Native DAW Integration
+**🔮 Future Direction**: Advanced Musical AI
 - **Live Musical Conversation**: Real-time conversation during DAW sessions
 - **Advanced Music Theory**: Integration with music theory libraries
 - **Machine Learning**: Custom models trained on user preferences
+- **Multi-Modal Input**: Voice, gesture, and visual input support
 
 ## 🤝 Contributing
 
